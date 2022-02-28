@@ -14,6 +14,7 @@
 				, ifmmId
 				, ifmmPassword
 				, ifmmDelNy
+				, ifmmSaved
 			from
 				fdmember
 	</select>
@@ -23,10 +24,12 @@
 				ifmmId
 				, ifmmPassword
 				, ifmmDelNy
+				, ifmmSaved
 			) values (
 				#{ifmmId}
 				, #{ifmmPassword}
 				, 0
+				, 1
 			)
 			
 	</insert>

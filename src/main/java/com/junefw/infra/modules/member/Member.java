@@ -5,11 +5,18 @@ public class Member {
 	private String ifmmSeq;
 	private String ifmmId;
 	private String ifmmPassword;
-	private String ifmmSmsConsentNy;
 	private Integer ifmmDelNy;
+	private Integer ifmmSaved;
+	
 	
 //  ============================================	
 	
+	public Integer getIfmmSaved() {
+		return ifmmSaved;
+	}
+	public void setIfmmSaved(Integer ifmmSaved) {
+		this.ifmmSaved = ifmmSaved;
+	}
 	public String getIfmmSeq() {
 		return ifmmSeq;
 	}
@@ -27,12 +34,6 @@ public class Member {
 	}
 	public void setIfmmPassword(String ifmmPassword) {
 		this.ifmmPassword = ifmmPassword;
-	}
-	public String getIfmmSmsConsentNy() {
-		return ifmmSmsConsentNy;
-	}
-	public void setIfmmSmsConsentNy(String ifmmSmsConsentNy) {
-		this.ifmmSmsConsentNy = ifmmSmsConsentNy;
 	}
 	public Integer getIfmmDelNy() {
 		return ifmmDelNy;
