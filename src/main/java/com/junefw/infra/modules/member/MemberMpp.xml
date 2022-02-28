@@ -12,8 +12,8 @@
 			select
 				ifmmSeq
 				, ifmmId
-				, ifmmName
+				, ifmmPassword
 			from
-				infrMember
+				fdmember
 	</select>
 </mapper>

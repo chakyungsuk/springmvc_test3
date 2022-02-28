@@ -16,10 +16,11 @@ public class MemberController {
 	@RequestMapping(value = "/member/memberList")
 //	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 	public String memberList(Model model) throws Exception {
-
+		
 		List<Member> list = service.selectList();
 		model.addAttribute("list", list);
 
 		return "member/memberList";
+		
 	}
 }
