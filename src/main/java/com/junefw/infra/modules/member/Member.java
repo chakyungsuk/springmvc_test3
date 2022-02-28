@@ -5,6 +5,8 @@ public class Member {
 	private String ifmmSeq = "";
 	private String ifmmId = "";
 	private String ifmmPassword= "";
+	private String ifmmSmsConsentNy= "";
+	
 //  ============================================	
 	public String getIfmmSeq() {
 		return ifmmSeq;
@@ -24,4 +26,11 @@ public class Member {
 	public void setIfmmPassword(String ifmmPassword) {
 		this.ifmmPassword = ifmmPassword;
 	}
+	public String getIfmmSmsConsentNy() {
+		return ifmmSmsConsentNy;
+	}
+	public void setIfmmSmsConsentNy(String ifmmSmsConsentNy) {
+		this.ifmmSmsConsentNy = ifmmSmsConsentNy;
+	}
+	
 }
