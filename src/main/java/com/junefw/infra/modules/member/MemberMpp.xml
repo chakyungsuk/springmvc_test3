@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.junefw.infra.modules.member.MemberMpp">
+
+    <resultMap id="resultMapObj" type="com.junefw.infra.modules.member.Member"></resultMap>
+
+	<select id="selectList" resultMap="resultMapObj">
+			select
+				ifmmSeq
+				, ifmmId
+				, ifmmName
+			from
+				infrMember
+	</select>
+</mapper>

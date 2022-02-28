@@ -23,6 +23,24 @@
 	
 	<context:component-scan base-package="com.junefw.infra" />
 	
-	
+		<!-- mysql s 2022.02.15 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://db_address:port/food" />
+		<property name="username" value="root" />
+		<property name="password" value="Dufthl12!" />
+	</bean>
+	    
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:/mybatis-config.xml" />
+	<!-- <property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml" /> -->	<!-- 기본설정 : 패키지 변경으로 아래와 같이 수정 -->
+	        	<property name="mapperLocations" value="classpath:com/junefw/infra/**/**/*Mpp.xml"/>
+	</bean>
+		
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	<!-- mysql e 2022.02.25 -->
 	
 </beans:beans>
