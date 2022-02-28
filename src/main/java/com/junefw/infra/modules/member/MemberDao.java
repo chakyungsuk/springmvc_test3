@@ -19,5 +19,9 @@ public class MemberDao {
 	public List<Member> selectList(){ 
 		return sqlSession.selectList(namespace + ".selectList", "");
 	}
+	
+	public int insert(Member dto){ 
+		return sqlSession.insert(namespace + ".insert", dto);
+	}
 
 }

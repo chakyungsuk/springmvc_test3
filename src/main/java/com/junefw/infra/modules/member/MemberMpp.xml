@@ -13,8 +13,21 @@
 				ifmmSeq
 				, ifmmId
 				, ifmmPassword
-				, ifmmSmsConsentNy
+				, ifmmDelNy
 			from
 				fdmember
 	</select>
+	
+	<insert id="insert">
+			insert into fdMember(
+				ifmmId
+				, ifmmPassword
+				, ifmmDelNy
+			) values (
+				#{ifmmId}
+				, #{ifmmPassword}
+				, 0
+			)
+			
+	</insert>
 </mapper>

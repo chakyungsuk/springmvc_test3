@@ -2,12 +2,14 @@ package com.junefw.infra.modules.member;
 
 public class Member {
 	
-	private String ifmmSeq = "";
-	private String ifmmId = "";
-	private String ifmmPassword= "";
-	private String ifmmSmsConsentNy= "";
+	private String ifmmSeq;
+	private String ifmmId;
+	private String ifmmPassword;
+	private String ifmmSmsConsentNy;
+	private Integer ifmmDelNy;
 	
 //  ============================================	
+	
 	public String getIfmmSeq() {
 		return ifmmSeq;
 	}
@@ -32,5 +34,12 @@ public class Member {
 	public void setIfmmSmsConsentNy(String ifmmSmsConsentNy) {
 		this.ifmmSmsConsentNy = ifmmSmsConsentNy;
 	}
+	public Integer getIfmmDelNy() {
+		return ifmmDelNy;
+	}
+	public void setIfmmDelNy(Integer ifmmDelNy) {
+		this.ifmmDelNy = ifmmDelNy;
+	}
+	
 	
 }

@@ -23,4 +23,26 @@ public class MemberController {
 		return "member/memberList";
 		
 	}
+	
+	@RequestMapping(value = "/member/memberForm")
+	public String memberForm(Model model) throws Exception {
+
+		return "member/memberForm";
+	}
+	
+	@RequestMapping(value = "/member/memberInst")
+	public String memberInst(Model model, Member dto) throws Exception {
+		
+		System.out.println("dto.getIfmmId(): " + dto.getIfmmId());
+		System.out.println("dto.getIfmmPassword(): " + dto.getIfmmPassword());
+
+		// 입력을 작동시킨다.
+		int result = service.insert(dto);
+		
+		System.out.println("result: " + result);
+
+		return "";
+	}
 }
+
+
