@@ -49,7 +49,7 @@ public class CodeController {
 		//가지고 온값을 jsp로 넘겨준다
 		model.addAttribute("item", rt);
 		
-		return "code.codeGroupView";
+		return "code/codeGroupView";
 	}
 }
 

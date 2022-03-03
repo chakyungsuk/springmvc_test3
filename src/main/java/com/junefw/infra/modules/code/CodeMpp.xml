@@ -37,6 +37,7 @@
 		FROM 
 			fdcodegroup a
 		WHERE 1=1
+			and fdcgDelNy = 0
 			and fdcgSeq = #{fdcgSeq}
 	</select>
 </mapper>

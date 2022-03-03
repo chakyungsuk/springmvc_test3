@@ -23,8 +23,7 @@ public class CodeServiceImpl implements CodeService{
 
 	@Override
 	public Code selectOne(CodeVo vo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.selectOne(vo);
 	}
 	
 }
