@@ -28,4 +28,13 @@
 			,0
 		)	
 	</insert>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT 
+			a. fdcgSeq
+		FROM 
+			fdcodegroup a
+		WHERE 1=1
+			and fdcgSeq = #{fdcgSeq}
+	</select>
 </mapper>
