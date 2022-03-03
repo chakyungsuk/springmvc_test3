@@ -30,8 +30,10 @@
 	</insert>
 	
 	<select id="selectOne" resultMap="resultMapObj">
-		SELECT 
+	    SELECT 
 			a. fdcgSeq
+            , a.fdcgName
+            , a.fdcgDelNy
 		FROM 
 			fdcodegroup a
 		WHERE 1=1

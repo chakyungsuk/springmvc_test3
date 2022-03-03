@@ -6,5 +6,17 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
 		
+<c:choose>
+	<c:when test="${fn:length(list) eq 0}">
+		<tr>
+			<td class="text-center" colspan="9">There is no data!</td>
+		</tr>	
+	</c:when>
+	<c:otherwise>
+		<c:forEach items="${list}" var="item" varStatus="status">	
+		
 		<c:out value="${item.fdcgSeq}"/> | <c:out value="${item.fdcgName}"/> | <c:out value="${item.fdcgDelNy}"/> <br>
 		
+		</c:forEach>
+	</c:otherwise>
+</c:choose>	 
