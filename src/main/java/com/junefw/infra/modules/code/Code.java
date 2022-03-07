@@ -10,8 +10,8 @@ public class Code {
 // --------------------------------	
 	private String fdcdSeq;
 	private String fdcdName;
+	private String fdcdOrder;
 	private Integer fdcdDelNy;
-	
 //  ============================================	
 	
 	public String getFdcgSeq() {
@@ -51,6 +51,12 @@ public class Code {
 	}
 	public void setFdcdDelNy(Integer fdcdDelNy) {
 		this.fdcdDelNy = fdcdDelNy;
+	}
+	public String getFdcdOrder() {
+		return fdcdOrder;
+	}
+	public void setFdcdOrder(String fdcdOrder) {
+		this.fdcdOrder = fdcdOrder;
 	}
 	
 	

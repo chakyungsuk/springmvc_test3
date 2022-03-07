@@ -6,6 +6,8 @@ public class CodeVo {
 	
 	private String fdcgSeq;
 	
+	private String fdcdSeq;
+	
 //  ============================================	
 
 	public String getFdcgSeq() {
@@ -14,6 +16,14 @@ public class CodeVo {
 
 	public void setFdcgSeq(String fdcgSeq) {
 		this.fdcgSeq = fdcgSeq;
+	}
+
+	public String getFdcdSeq() {
+		return fdcdSeq;
+	}
+
+	public void setFdcdSeq(String fdcdSeq) {
+		this.fdcdSeq = fdcdSeq;
 	}
 	
 	
