@@ -14,7 +14,9 @@
 	<c:otherwise>
 		<c:forEach items="${list}" var="item" varStatus="status">	
 		
-		<c:out value="${item.fdcgSeq}"/> | <a href="/infra/code/codeGroupView?fdcgSeq=${item.fdcgSeq}"><c:out value="${item.fdcgName}"/></a> | <c:out value="${item.fdcgDelNy}"/> <br>
+		<c:out value="${item.fdcgSeq}"/> | <a href="/infra/code/codeGroupView?fdcgSeq=${item.fdcgSeq}"><c:out value="${item.fdcgName}"/></a> 
+		| <a href="/infra/code/codeGroupView?fdcdSeq=${item.fdcdSeq}"><c:out value="${item.fdcdName}"/></a> | <c:out value="${item.fdcdOrder}"/>
+		| <c:out value="${item.fdcgDelNy}"/> <br>
 
 		</c:forEach>
 	</c:otherwise>

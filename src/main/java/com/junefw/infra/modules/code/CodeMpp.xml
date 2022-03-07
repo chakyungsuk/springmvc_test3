@@ -32,6 +32,7 @@
 		)	
 	</insert>
 	
+	
 	<select id="selectOne" resultMap="resultMapObj">
 	    SELECT 
 			a. fdcgSeq

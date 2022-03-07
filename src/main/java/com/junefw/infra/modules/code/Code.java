@@ -59,7 +59,5 @@ public class Code {
 		this.fdcdOrder = fdcdOrder;
 	}
 	
-	
-	
 
 }
