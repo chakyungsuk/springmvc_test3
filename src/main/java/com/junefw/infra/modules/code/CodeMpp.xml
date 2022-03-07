@@ -12,9 +12,12 @@
 		SELECT 
 			a. fdcgSeq
 			, a.fdcgName
-			, a.fdcgDelNy
+            , b.fdcdName
+            , b.fdcdOrder
+            , a.fdcgDelNy
 		FROM 
 			fdcodegroup a
+		left join fdcode b on b.ifcgSeq = a.fdcgSeq
 		WHERE 1=1
 			AND fdcgDelNy = 0		
 	</select>
