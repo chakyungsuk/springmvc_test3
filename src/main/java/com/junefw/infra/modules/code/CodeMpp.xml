@@ -40,4 +40,11 @@
 			and fdcgDelNy = 0
 			and fdcgSeq = #{fdcgSeq}
 	</select>
+
+	<update id="update">
+	    update set fdcodegroup SET
+            fdcgName = #{fdcgName}
+		WHERE 1=1
+			and fdcgSeq = #{fdcgSeq}
+	</update>
 </mapper>

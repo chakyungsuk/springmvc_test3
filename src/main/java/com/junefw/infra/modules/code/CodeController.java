@@ -51,6 +51,29 @@ public class CodeController {
 		
 		return "code/codeGroupView";
 	}
+	
+	// 수정폼이 보여지는 주소
+	@RequestMapping(value = "/code/codeGroupForm2")
+	public String codeGroupForm2(CodeVo vo, Model model) throws Exception {
+		
+		// 한건의 데이터를 가져온다
+		Code rt = service.selectOne(vo);
+		
+		model.addAttribute("item", rt);
+		
+		return "code/codeGroupForm2";
+	}
+	
+	
+	//실제 수정을 하는 주소
+	@RequestMapping(value = "/code/codeGroupUpdt")
+	public String codeGroupUpdt(Code dto) throws Exception {
+		
+		//수정 프로세스 실행
+		service.update(dto);
+		
+		return "";
+	}
 }
 
 
