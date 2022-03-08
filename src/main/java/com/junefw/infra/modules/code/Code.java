@@ -3,15 +3,17 @@ package com.junefw.infra.modules.code;
 public class Code {
 	
 // DTO
-	
+	//fdcodeGroup
 	private String fdcgSeq;
 	private String fdcgName;
 	private Integer fdcgDelNy;
 // --------------------------------	
+	//fdcode
 	private String fdcdSeq;
 	private String fdcdName;
-	private String fdcdOrder;
 	private Integer fdcdDelNy;
+	private String fdcdOrder;
+//	private String fdcgSeq;
 //  ============================================	
 	
 	public String getFdcgSeq() {
