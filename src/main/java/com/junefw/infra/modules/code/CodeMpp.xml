@@ -12,12 +12,9 @@
 		SELECT 
 			a. fdcgSeq
 			, a.fdcgName
-            , b.fdcdName
-            , b.fdcdOrder
             , a.fdcgDelNy
 		FROM 
 			fdcodegroup a
-		left join fdcode b on b.ifcgSeq = a.fdcgSeq
 		WHERE 1=1
 			AND fdcgDelNy = 0		
 	</select>
@@ -53,4 +50,50 @@
 		WHERE 1=1
 			and fdcgSeq = #{fdcgSeq}
 	</update>
+	
+    <!-- fdcode -->
+    
+    	<select id="selectListCode" resultMap="resultMapObj">
+		SELECT 
+			a. fdcdSeq
+			, a.fdcdName
+            , a.fdcdDelNy
+		FROM 
+			fdcode a
+		WHERE 1=1
+			AND fdcdDelNy = 0		
+	</select>
+
+	<insert id="insertCode">
+		INSERT INTO fdcode (
+			fdcdName
+			, fdcdDelNy
+		) VALUES (
+			#{fdcdName}
+			,0
+		)	
+	</insert>
+	
+	
+	<select id="selectOneCode" resultMap="resultMapObj">
+	    SELECT 
+			a. fdcdSeq
+            , a.fdcdName
+            , a.fdcdDelNy
+		FROM 
+			fdcode a
+		WHERE 1=1
+			and fdcdDelNy = 0
+			and fdcdSeq = #{fdcdSeq}
+	</select>
+
+	<update id="updateCode">
+	    update 
+	    	fdcode
+   		SET
+            fdcdName = #{fdcdName}
+		WHERE 1=1
+			and fdcdSeq = #{fdcdSeq}
+	</update>
+	
 </mapper>
