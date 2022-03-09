@@ -54,7 +54,7 @@
 	
     <!-- fdcode -->
     
-    	<select id="selectListCode" resultMap="resultMapObj">
+   	<select id="selectListCode" resultMap="resultMapObj">
 		SELECT 
 			a. fdcdSeq
 			, a.fdcdName
@@ -70,11 +70,11 @@
 		INSERT INTO fdcode (
 			fdcdName
 			, fdcdDelNy
-			, fdcdSeq
+			, fdcgSeq
 		) VALUES (
 			#{fdcdName}
 			,0
-			,#{fdcdSeq}
+			,#{fdcgSeq}
 		)	
 	</insert>
 	
