@@ -15,6 +15,6 @@
 	
 	<input type="text" name="fdcdName" placeholder="이름">
 	<input type="text" name="fdcdDelNy" placeholder="DelNy">
-	<input type="text" name="fdcgSeq" placeholder="cgSeq">
+	<input type="text" name="ifcgSeq" placeholder="cgSeq">
 	<input type="submit" value="제출">
 </form>
