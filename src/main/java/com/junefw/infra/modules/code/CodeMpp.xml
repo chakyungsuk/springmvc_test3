@@ -23,6 +23,7 @@
 		INSERT INTO fdcodegroup (
 			fdcgName
 			, fdcgDelNy
+			, fdcgSeq
 		) VALUES (
 			#{fdcgName}
 			,0
@@ -57,6 +58,7 @@
 		SELECT 
 			a. fdcdSeq
 			, a.fdcdName
+			, a.fdcdOrder
             , a.fdcdDelNy
 		FROM 
 			fdcode a
@@ -68,9 +70,11 @@
 		INSERT INTO fdcode (
 			fdcdName
 			, fdcdDelNy
+			, fdcdSeq
 		) VALUES (
 			#{fdcdName}
 			,0
+			,#{fdcdSeq}
 		)	
 	</insert>
 	
@@ -79,6 +83,7 @@
 	    SELECT 
 			a. fdcdSeq
             , a.fdcdName
+            , a.fdcdOrder
             , a.fdcdDelNy
 		FROM 
 			fdcode a

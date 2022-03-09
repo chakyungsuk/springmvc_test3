@@ -7,6 +7,7 @@
 
 		
 		
-		<c:out value="${item.fdcgSeq}"/> | <c:out value="${item.fdcgName}"/> | <c:out value="${item.fdcgDelNy}"/> <br>
+		<c:out value="${item.fdcdSeq}"/> | <c:out value="${item.fdcdName}"/> | <c:out value="${item.fdcdOrder}"/> | <c:out value="${item.fdcdDelNy}"/> <br>
 		
-		<a href ="/infra/code/codeGroupForm2?fdcgSeq=${item.fdcgSeq}">수정</a>
+		<a href ="/infra/code/codeForm2?fdcdSeq=${item.fdcdSeq}">수정</a>
+		<a href ="/infra/code/codeForm?fdcdSeq=${item.fdcdSeq}">등록</a>

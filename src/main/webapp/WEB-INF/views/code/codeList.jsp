@@ -5,9 +5,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-codeList
 
-<%-- <c:choose>
+<c:choose>
 	<c:when test="${fn:length(list) eq 0}">
 		<tr>
 			<td class="text-center" colspan="9">There is no data!</td>
@@ -16,8 +15,9 @@ codeList
 	<c:otherwise>
 		<c:forEach items="${list}" var="item" varStatus="status">	
 		
-		<c:out value="${item.fdcgSeq}"/> | <a href="/infra/code/codeGroupView?fdcgSeq=${item.fdcgSeq}"><c:out value="${item.fdcgName}"/></a> | <c:out value="${item.fdcgDelNy}"/> <br>
+		<c:out value="${item.fdcdSeq}"/> | <a href="/infra/code/codeView?fdcdSeq=${item.fdcdSeq}"><c:out value="${item.fdcdName}"/></a> 
+		| <c:out value="${item.fdcdOrder}"/> | <c:out value="${item.fdcdDelNy}"/> <br>
 
 		</c:forEach>
 	</c:otherwise>
-</c:choose>	  --%>
+</c:choose>	 
