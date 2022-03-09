@@ -70,13 +70,13 @@
 		INSERT INTO fdcode (
 			fdcdName
 			, fdcdDelNy
-			, fdcgSeq
+			, ifcgSeq
 		) VALUES (
 			#{fdcdName}
 			,0
-			,#{fdcgSeq}
+			,#{ifcgSeq}
 		)	
-	</insert>
+	</insert>	
 	
 	
 	<select id="selectOneCode" resultMap="resultMapObj">
