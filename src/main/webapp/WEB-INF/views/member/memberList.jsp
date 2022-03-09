@@ -13,10 +13,8 @@
 	</c:when>
 	<c:otherwise>
 		<c:forEach items="${list}" var="item" varStatus="status">	
-		
-		<c:out value="${item.ifmmSeq}"/> | <c:out value="${item.ifmmId}"/> | <c:out value="${item.ifmmPassword}"/> | 
-		<c:out value="${item.ifmmSmsConsentNy}"/> <br>
-		
+		<c:out value="${item.ifmmSeq}"/> | <a href="/infra/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.ifmmId}"/></a>
+		| <a href="/infra/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.ifmmPassword}"/></a> <br>
 		</c:forEach>
 	</c:otherwise>
 </c:choose>	 

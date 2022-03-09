@@ -9,28 +9,51 @@
     <resultMap id="resultMapObj" type="com.junefw.infra.modules.member.Member"></resultMap>
 
 	<select id="selectList" resultMap="resultMapObj">
-			select
-				ifmmSeq
-				, ifmmId
-				, ifmmPassword
-				, ifmmDelNy
-				, ifmmSaved
-			from
-				fdmember
+		select
+			ifmmSeq
+			, a.ifmmId
+			, a.ifmmPassword
+			, a.ifmmDelNy
+			, a.ifmmSaved
+		from
+			fdmember a
+		WHERE 1=1
+			AND ifmmDelNy = 0
 	</select>
 	
 	<insert id="insert">
-			insert into fdMember(
-				ifmmId
-				, ifmmPassword
-				, ifmmDelNy
-				, ifmmSaved
-			) values (
-				#{ifmmId}
-				, #{ifmmPassword}
-				, 0
-				, 1
-			)
-			
+		insert into fdMember(
+			ifmmId
+			, ifmmPassword
+			, ifmmDelNy
+			, ifmmSaved
+		) values (
+			#{ifmmId}
+			, #{ifmmPassword}
+			, 0
+			, 1
+		)
 	</insert>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT 
+			a.ifmmSeq
+			, a.ifmmId
+			, a.ifmmPassword
+			, a.ifmmSaved
+			, a.ifmmDelNy
+		FROM
+			fdmember a
+		WHERE 1=1
+			and ifmmSeq = #{ifmmSeq}
+	</select>
+	
+	<update id="update">
+		UPDATE 
+			fdmember
+		SET
+			ifmmId = #{ifmmId}
+		WHERE 1=1
+			AND ifmmSeq = #{ifmmSeq}
+	</update>
 </mapper>
