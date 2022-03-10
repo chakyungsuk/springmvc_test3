@@ -3,7 +3,7 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+				   
 <mapper namespace="com.junefw.infra.modules.member.MemberMpp">
 
     <resultMap id="resultMapObj" type="com.junefw.infra.modules.member.Member"></resultMap>
@@ -53,6 +53,7 @@
 			fdmember
 		SET
 			ifmmId = #{ifmmId}
+			, ifmmPassword = #{ifmmPassword}
 		WHERE 1=1
 			AND ifmmSeq = #{ifmmSeq}
 	</update>

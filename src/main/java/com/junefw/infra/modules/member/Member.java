@@ -8,7 +8,6 @@ public class Member {
 	private Integer ifmmDelNy;
 	private Integer ifmmSaved;
 	
-	
 //  ============================================	
 	
 	public Integer getIfmmSaved() {

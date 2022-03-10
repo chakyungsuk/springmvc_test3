@@ -25,10 +25,10 @@ public class MemberDao {
 	}
 
 	public Member selectOne(MemberVo vo) {
-		return sqlSession.selectOne(namespace + ".selectOne" + vo);
+		return sqlSession.selectOne(namespace + ".selectOne", vo);
 	}
 	
 	public int update(Member dto) {
-		return sqlSession.update(namespace + ".update" + dto);
+		return sqlSession.update(namespace + ".update", dto);
 	}
 }

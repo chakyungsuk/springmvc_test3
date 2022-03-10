@@ -9,7 +9,8 @@
 	
 	<select name="fdcdSeq">
 		<c:forEach items="${list}" var="item" varStatus="status">
-			<option value="<c:out value="${item.fdcgSeq}"/>"><c:out value="${item.fdcgName}"/>(<c:out value="${item.fdcgSeq}"/>)
+			<option><c:out value="${item.fdcgName}"/>
+			(<c:out value="${item.fdcgSeq}"/>)</option>
 		</c:forEach>
 	</select>
 	

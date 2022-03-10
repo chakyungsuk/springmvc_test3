@@ -11,3 +11,4 @@
 		| <c:out value="${item.ifmmSaved}"/> <br>
 		
 		<a href ="/infra/member/memberForm2?ifmmSeq=${item.ifmmSeq}">수정</a>
+		<a href ="/infra/member/memberForm?ifmmSeq=${item.ifmmSeq}">등록</a>

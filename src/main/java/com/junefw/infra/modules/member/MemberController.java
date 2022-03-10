@@ -31,6 +31,10 @@ public class MemberController {
 	@RequestMapping(value = "/member/memberForm")
 	public String memberForm(Model model) throws Exception {
 
+		List<Member> list = service.selectList();
+		
+		model.addAttribute("list", list);
+		
 		return "member/memberForm";
 	}
 	
@@ -70,7 +74,7 @@ public class MemberController {
 		//수정 프로세스 실행
 		service.update(dto);
 		
-		return "";
+		return "member/memberList";
 	}
 }
 

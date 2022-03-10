@@ -5,8 +5,15 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-
 <form method="post" action="/infra/member/memberInst">
+
+	<select name="ifmmSeq">
+		<c:forEach items="${list}" var="item" varStatus="status">
+			<option><c:out value="${item.ifmmId}"/>
+			(<c:out value="${item.ifmmPassword}"/>)</option>
+		</c:forEach>
+	</select>
+	
 	<input type="text" name="ifmmId" placeholder="아이디">
 	<input type="text" name="ifmmPassword" placeholder="비번">
 	<input type="submit" value="제출">

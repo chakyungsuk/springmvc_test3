@@ -13,9 +13,15 @@ public class Code {
 	private String fdcdName;
 	private Integer fdcdDelNy;
 	private String fdcdOrder;
-//	private String fdcgSeq;
+	private String ifcgSeq;
 //  ============================================	
 	
+	public String getIfcgSeq() {
+		return ifcgSeq;
+	}
+	public void setIfcgSeq(String ifcgSeq) {
+		this.ifcgSeq = ifcgSeq;
+	}
 	public String getFdcgSeq() {
 		return fdcgSeq;
 	}
