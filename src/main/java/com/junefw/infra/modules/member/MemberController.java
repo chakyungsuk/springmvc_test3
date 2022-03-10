@@ -42,7 +42,7 @@ public class MemberController {
 	public String memberInst(Member dto) throws Exception {
 		
 		service.insert(dto);
-		return "";
+		return "redirect:/member/memberList";
 	}
 	
 	@RequestMapping(value = "/member/memberView")
@@ -74,7 +74,7 @@ public class MemberController {
 		//수정 프로세스 실행
 		service.update(dto);
 		
-		return "member/memberList";
+		return "redirect:/member/memberView?ifmmSeq=" + dto.getIfmmSeq();
 	}
 }
 

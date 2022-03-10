@@ -38,7 +38,7 @@ public class CodeController {
 	
 		//입력이 되어야 함 - 입력시행
 		service.insert(dto);
-		return "";
+		return "redirect:/code/codeGroupList";
 	}
 	
 	@RequestMapping(value = "/code/codeGroupView")
@@ -76,7 +76,7 @@ public class CodeController {
 		//수정 프로세스 실행
 		service.update(dto);
 		
-		return "";
+		return "redirect:/code/codeGroupView?fdcgSeq=" + dto.getFdcgSeq();
 	}
 	
 	
