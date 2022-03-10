@@ -9,8 +9,8 @@
 
 	<select name="ifmmSeq">
 		<c:forEach items="${list}" var="item" varStatus="status">
-			<option><c:out value="${item.ifmmId}"/>
-			(<c:out value="${item.ifmmPassword}"/>)</option>
+			<option><c:out value="${item.ifmmSeq}"/>
+			(<c:out value="${item.ifmmId}"/>)</option>
 		</c:forEach>
 	</select>
 	
