@@ -6,7 +6,7 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
 
-<!DOCTYPE HTML>
+
 <htm1 lang="ko">
 
 <head>
@@ -14,9 +14,12 @@
 <meta name="viewport" content="width=dievice-width, initiol-scale=1.0">
 
 <!-- bootstrap Css -->
-<link href="../../../resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../../../../../../prj_cookie/public/_bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- bootstrap extra Css -->
+
+
 <!-- user css -->
+<script src="https://kit.fontawesome.com/ac511b8e02.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 
@@ -277,12 +280,17 @@
 </div>
 
 
-<script src="../../../resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
-<script src="../../../resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://kit.fontawesome.com/ac511b8e02.js" crossorigin="anonymous"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </htm1>
+
+
+
+
+
 
 
 <%-- <c:choose>
