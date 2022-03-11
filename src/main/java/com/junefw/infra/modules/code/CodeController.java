@@ -19,9 +19,9 @@ public class CodeController {
 	
 	@RequestMapping(value = "/code/codeGroupList")
 	
-	public String codeGroupList(Model model) throws Exception {
+	public String codeGroupList(CodeVo vo, Model model) throws Exception {
 	
-		List<Code> list = service.selectList();
+		List<Code> list = service.selectList(vo);
 		model.addAttribute("list", list);
 		
 		return "code/codeGroupList";
@@ -88,19 +88,21 @@ public class CodeController {
 	
 	@RequestMapping(value = "/code/codeList")
 	
-	public String codeList(Model model) throws Exception {
+	public String codeList(CodeVo vo, Model model) throws Exception {
 	
-		List<Code> list = service.selectListCode();
-		
+		List<Code> list = service.selectListCode(vo);
 		model.addAttribute("list", list);
+		
+		List<Code> listCodeGroup = service.selectList(vo);
+		model.addAttribute("listcodeGroup", listCodeGroup);
 		
 		return "code/codeList";
 	}
 	
 	@RequestMapping(value = "/code/codeForm")
-	public String codeForm(Model model) throws Exception {
+	public String codeForm(CodeVo vo, Model model) throws Exception {
 	
-		List<Code> list = service.selectList();
+		List<Code> list = service.selectList(vo);
 		
 		model.addAttribute("list", list);
 		

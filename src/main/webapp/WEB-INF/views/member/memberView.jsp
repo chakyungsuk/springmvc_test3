@@ -12,3 +12,4 @@
 		
 		<a href ="/infra/member/memberForm2?ifmmSeq=${item.ifmmSeq}">수정</a>
 		<a href ="/infra/member/memberForm?ifmmSeq=${item.ifmmSeq}">등록</a>
+		<a href ="http://localhost:8090/infra/member/memberList">목록</a>

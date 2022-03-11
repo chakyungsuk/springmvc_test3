@@ -6,10 +6,24 @@ public class CodeVo {
 	//fdcodeGroup
 	private String fdcgSeq;
 	
+	//shFdcgName = search
+	private String shFdcgName;
+	private Integer shFdcgDelNy;
+	
 	//fdcode
 	private String fdcdSeq;
+	private String shFdcgSeq;
+	private String shFdcdName;
 	
 //  ============================================	
+
+	public String getShFdcgSeq() {
+		return shFdcgSeq;
+	}
+
+	public void setShFdcgSeq(String shFdcgSeq) {
+		this.shFdcgSeq = shFdcgSeq;
+	}
 
 	public String getFdcgSeq() {
 		return fdcgSeq;
@@ -26,6 +40,31 @@ public class CodeVo {
 	public void setFdcdSeq(String fdcdSeq) {
 		this.fdcdSeq = fdcdSeq;
 	}
+
+	public String getShFdcgName() {
+		return shFdcgName;
+	}
+
+	public void setShFdcgName(String shFdcgName) {
+		this.shFdcgName = shFdcgName;
+	}
+
+	public Integer getShFdcgDelNy() {
+		return shFdcgDelNy;
+	}
+
+	public void setShFdcgDelNy(Integer shFdcgDelNy) {
+		this.shFdcgDelNy = shFdcgDelNy;
+	}
+
+	public String getShFdcdName() {
+		return shFdcdName;
+	}
+
+	public void setShFdcdName(String shFdcdName) {
+		this.shFdcdName = shFdcdName;
+	}
+
 	
 	
 

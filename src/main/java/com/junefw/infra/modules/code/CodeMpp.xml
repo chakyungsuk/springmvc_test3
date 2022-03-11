@@ -16,7 +16,12 @@
 		FROM 
 			fdcodegroup a
 		WHERE 1=1
-			AND fdcgDelNy = 0		
+			<choose>
+				<when test="shFdcgDelNy == 1">AND fdcgDelNy = 1</when>
+				<when test="shFdcgDelNy == 0">AND fdcgDelNy = 0</when>
+			</choose>
+			<if test="shFdcgName != null and !shFdcgName.equals('')"> AND fdcgName LIKE concat('%',#{shFdcgName},'%')</if>	
+			<!-- <if test="shFdcgSeq != null and !shFdcgSeq.equals('')"> AND fdcgSeq = #{shFdcgSeq}</if>	 -->
 	</select>
 
 	<insert id="insert">
@@ -63,7 +68,8 @@
 		FROM 
 			fdcode a
 		WHERE 1=1
-			AND fdcdDelNy = 0		
+			<if test="shFdcdName != null and !shFdcdName.equals('')"> AND fdcdName LIKE concat('%',#{shFdcdName},'%')</if>	
+			<if test="shFdcgSeq != null and !shFdcgSeq.equals('')"> AND ifcgSeq = #{shFdcgSeq}</if>	
 	</select>
 
 	<insert id="insertCode">
