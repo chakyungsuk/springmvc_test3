@@ -7,6 +7,7 @@ public class Code {
 	private String fdcgSeq;
 	private String fdcgName;
 	private Integer fdcgDelNy;
+	private String fdcgNameEng;
 // --------------------------------	
 	//fdcode
 	private String fdcdSeq;
@@ -39,6 +40,12 @@ public class Code {
 	}
 	public void setFdcgDelNy(Integer fdcgDelNy) {
 		this.fdcgDelNy = fdcgDelNy;
+	}
+	public String getFdcgNameEng() {
+		return fdcgNameEng;
+	}
+	public void setFdcgNameEng(String fdcgNameEng) {
+		this.fdcgNameEng = fdcgNameEng;
 	}
 	
 	// --------------------------------------------
