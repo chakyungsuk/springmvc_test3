@@ -15,6 +15,7 @@
 
 <!-- bootstrap Css -->
 
+<!-- <link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet"> -->
 <link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- bootstrap extra Css -->
 
@@ -61,7 +62,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12 col-sm-12 col-lg-2">
-			<img src="../../../images/manager_image/logo1.png" width="200px">
+			<img src="/resources/xdmin/image/manager_image/logo1.png" width="200px">
  		</div>
 		<div class="col-12 col-sm-12 col-lg-4" style="text-align: center; margin-top:15px;"> 
 			<h3>Ten Thousand Recipes</h3>
@@ -71,7 +72,7 @@
 		<div class="col-12 col-sm-12 col-lg-2">
 		</div>
 		<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 15px;">
-			<img src="../../../images/manager_image/USER(CEO).jpg" width="30px" style="float: left; margin-right: 10px;">
+			<img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" width="30px" style="float: left; margin-right: 10px;">
 			<h6>Cha (CEO)</h6> <h6>Administrator</h6>
 		</div>
 		<div class="col-12 col-sm-4 col-lg-1" style="margin-top: 20px;">
@@ -281,7 +282,9 @@
 </div>
 
 
+<!-- <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script> -->
 <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+<!-- <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script> -->
 <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
 

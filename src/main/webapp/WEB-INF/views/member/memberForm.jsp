@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-<form method="post" action="/infra/member/memberInst">
+<form method="post" action="/member/memberInst">
 
 	<select name="ifmmSeq">
 		<c:forEach items="${list}" var="item" varStatus="status">
