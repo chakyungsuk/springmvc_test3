@@ -11,9 +11,16 @@
 	<option value="1">Y</option>
 	<option value="0">N</option>
 </select>
-	
-
+||
 회원이름 : <input type="text" name="shFdcgName">
+||
+<select name="shOption">
+	<option value="">::검색구분::</option>
+	<option value="1">한글</option>
+	<option value="2">영문</option>
+</select>
+
+<input type="text" name="shValue">
 <input type="submit" name="search">
 <br>
 
@@ -27,8 +34,8 @@
 		<c:forEach items="${list}" var="item" varStatus="status">	
 		
 		<c:out value="${item.fdcgSeq}"/> | <a href="/infra/code/codeGroupView?fdcgSeq=${item.fdcgSeq}"><c:out value="${item.fdcgName}"/></a> 
-		| <a href="/infra/code/codeGroupView?fdcdSeq=${item.fdcdSeq}"><c:out value="${item.fdcdName}"/></a> | <c:out value="${item.fdcdOrder}"/>
-		| <c:out value="${item.fdcgDelNy}"/> <br>
+		| <a href="/infra/code/codeGroupView?fdcdSeq=${item.fdcdSeq}"><c:out value="${item.fdcdName}"/></a> | <c:out value="${item.fdcgNameEng}"/>
+		| <c:out value="${item.fdcdOrder}"/> | <c:out value="${item.fdcgDelNy}"/> <br>
 
 		</c:forEach>
 	</c:otherwise>
