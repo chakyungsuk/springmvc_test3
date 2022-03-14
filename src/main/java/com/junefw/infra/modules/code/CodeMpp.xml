@@ -12,6 +12,7 @@
 		SELECT 
 			a. fdcgSeq
 			, a.fdcgName
+			, a.fdcgNameEng
             , a.fdcgDelNy
 		FROM 
 			fdcodegroup a
@@ -22,6 +23,10 @@
 			</choose>
 			<if test="shFdcgName != null and !shFdcgName.equals('')"> AND fdcgName LIKE concat('%',#{shFdcgName},'%')</if>	
 			<!-- <if test="shFdcgSeq != null and !shFdcgSeq.equals('')"> AND fdcgSeq = #{shFdcgSeq}</if>	 -->
+			<choose>
+				<when test="shOption == 1">AND fdcgName LIKE concat('%',#{shValue},'%')</when>
+				<when test="shOption == 2">AND fdcgNameEng LIKE concat('%',#{shValue},'%')</when>
+			</choose>
 	</select>
 
 	<insert id="insert">
