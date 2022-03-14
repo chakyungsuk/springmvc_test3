@@ -15,6 +15,11 @@ public class CodeVo {
 	private String shFdcgSeq;
 	private String shFdcdName;
 	
+	//common
+	private String shOption;
+	private String shValue;
+	
+	
 //  ============================================	
 
 	public String getShFdcgSeq() {
@@ -63,6 +68,22 @@ public class CodeVo {
 
 	public void setShFdcdName(String shFdcdName) {
 		this.shFdcdName = shFdcdName;
+	}
+
+	public String getShValue() {
+		return shValue;
+	}
+
+	public void setShValue(String shValue) {
+		this.shValue = shValue;
+	}
+
+	public String getShOption() {
+		return shOption;
+	}
+
+	public void setShOption(String shOption) {
+		this.shOption = shOption;
 	}
 
 	

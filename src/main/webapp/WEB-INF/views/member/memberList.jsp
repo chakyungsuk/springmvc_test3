@@ -14,7 +14,8 @@
 <meta name="viewport" content="width=dievice-width, initiol-scale=1.0">
 
 <!-- bootstrap Css -->
-<link href="../../../../../../../prj_cookie/public/_bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- bootstrap extra Css -->
 
 
@@ -280,8 +281,8 @@
 </div>
 
 
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
