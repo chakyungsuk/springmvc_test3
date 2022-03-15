@@ -17,6 +17,7 @@ public class CodeDao {
 	private static String namespace = "com.junefw.infra.modules.code.CodeMpp";
 
 	//fdcodeGroup
+	public int selectOneCount(CodeVo vo) {return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
 	public List<Code> selectList(CodeVo vo){ return sqlSession.selectList(namespace + ".selectList", vo);}
 	public int insert(Code dto) {return sqlSession.insert(namespace + ".insert", dto);}
 	public Code selectOne(CodeVo vo) {return sqlSession.selectOne(namespace + ".selectOne", vo);}
