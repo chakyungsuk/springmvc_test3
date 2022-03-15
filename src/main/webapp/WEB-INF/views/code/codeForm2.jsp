@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-<form method="post" action="/infra/code/codeUpdt">
+<form method="post" action="/code/codeUpdt">
 	<input type="hidden" name="fdcdSeq" value="<c:out value="${item.fdcdSeq}"/>">
 	<input type="text" name="fdcdName" placeholder="CodeName" value="<c:out value="${item.fdcdName}"/>">
 	<input type="submit" value="제출">
