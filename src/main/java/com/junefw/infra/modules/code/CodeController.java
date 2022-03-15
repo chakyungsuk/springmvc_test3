@@ -5,11 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CodeController {
 
+
+//---------------------------------------------------------------------------------------------------
+	
+	
 	private static final String CodeVo = null;
 	@Autowired
 	CodeServiceImpl service;
@@ -19,13 +24,27 @@ public class CodeController {
 	
 	@RequestMapping(value = "/code/codeGroupList")
 	
-	public String codeGroupList(CodeVo vo, Model model) throws Exception {
+	public String codeGroupList(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 	
-		List<Code> list = service.selectList(vo);
-		model.addAttribute("list", list);
+		// count 가져올 것
+		int count = service.selectOneCount(vo);
+		
+		vo.setParamsPaging(count);
+		
+		// count 가 0이 아니면 List 가져오는 부분 수행 후 model 개체에 담기
+		if (count != 0) {
+			List<Code> list = service.selectList(vo);
+			model.addAttribute("list", list);
+		} else {
+			// by pass
+		}
+		
+		// model.addAttribute("vo", vo); 은 위에 있는 @ModelAttribute("vo") 와 같으므로 편한대로 쓸수 있다. 
 		
 		return "code/codeGroupList";
 	}
+	
+
 	
 	@RequestMapping(value = "/code/codeGroupForm")
 	public String codeGroupForm() throws Exception {

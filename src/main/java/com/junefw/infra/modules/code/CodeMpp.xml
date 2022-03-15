@@ -8,12 +8,7 @@
 
     <resultMap id="resultMapObj" type="com.junefw.infra.modules.code.Code"></resultMap> <!-- 결과 객체 지정 -->
 
-	<select id="selectList" resultMap="resultMapObj">
-		SELECT 
-			a. fdcgSeq
-			, a.fdcgName
-			, a.fdcgNameEng
-            , a.fdcgDelNy
+	<sql id="selectCommon">
 		FROM 
 			fdcodegroup a
 		WHERE 1=1
@@ -27,6 +22,34 @@
 				<when test="shOption == 1">AND fdcgName LIKE concat('%',#{shValue},'%')</when>
 				<when test="shOption == 2">AND fdcgNameEng LIKE concat('%',#{shValue},'%')</when>
 			</choose>
+	</sql>
+
+<!-- 	<select id="selectList" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql" />
+			SELECT
+				*
+		<include refid="selectCommon" />
+			ORDER BY a.ifmmSeq DESC
+			<include refid="Base.orderByLimitForMysql" />
+		<include refid="Base.selectListLowerForMysql" />
+	</select> -->
+
+
+	<select id="selectOneCount" resultType="Integer">
+		SELECT 
+			count(*)
+		<include refid="selectCommon" />
+	</select>
+
+
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT 
+			a. fdcgSeq
+			, a.fdcgName
+			, a.fdcgNameEng
+            , a.fdcgDelNy
+		<include refid="selectCommon" />
+		LIMIT #{startRnumForMysql},#{rowNumToShow}
 	</select>
 
 	<insert id="insert">
@@ -37,6 +60,7 @@
 		) VALUES (
 			#{fdcgName}
 			,0
+			, #{fdcgSeq}
 		)	
 	</insert>
 	

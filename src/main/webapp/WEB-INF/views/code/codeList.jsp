@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-<form id="" name="" method="get" action="/infra/code/codeList">
+<form id="" name="" method="get" action="/code/codeList">
 <select id="" name="shFdcgSeq">
 	<option value="">::코드그룹::
 		<c:forEach items="${listcodeGroup}" var="item" varStatus="status">
@@ -26,7 +26,7 @@
 	<c:otherwise>
 		<c:forEach items="${list}" var="item" varStatus="status">	
 		
-		<c:out value="${item.fdcdSeq}"/> | <a href="/infra/code/codeView?fdcdSeq=${item.fdcdSeq}"><c:out value="${item.fdcdName}"/></a> 
+		<c:out value="${item.fdcdSeq}"/> | <a href="/code/codeView?fdcdSeq=${item.fdcdSeq}"><c:out value="${item.fdcdName}"/></a> 
 		| <c:out value="${item.fdcdOrder}"/> | <c:out value="${item.fdcdDelNy}"/> <br>
 
 		</c:forEach>

@@ -13,6 +13,12 @@ public class CodeServiceImpl implements CodeService{
 	
 	
 	// fdcodeGroup
+	
+	@Override
+	public int selectOneCount(CodeVo vo) throws Exception {
+		return dao.selectOneCount(vo);
+	}
+	
 	@Override
 	public List<Code> selectList(CodeVo vo) throws Exception {
 		return dao.selectList(vo); 
@@ -33,6 +39,7 @@ public class CodeServiceImpl implements CodeService{
 		return dao.update(dto);
 	}
 
+	
 	//fdcode
 	
 	@Override
@@ -54,5 +61,5 @@ public class CodeServiceImpl implements CodeService{
 	public int updateCode(Code dto) throws Exception {
 		return dao.updateCode(dto);
 	}
-	
+
 }
