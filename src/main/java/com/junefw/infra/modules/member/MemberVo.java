@@ -87,18 +87,16 @@ public class MemberVo {
 		System.out.println("getEndRnumForOracle():" + endRnumForOracle);
 		System.out.println("getStartRnumForMysql(): " + startRnumForMysql);
 		
-	}
-	
-	
-	
+		}
+
 	public String getIfmmSeq() {
 		return ifmmSeq;
 	}
-	
+
 	public void setIfmmSeq(String ifmmSeq) {
 		this.ifmmSeq = ifmmSeq;
 	}
-	
+
 	public String getIfmmId() {
 		return ifmmId;
 	}

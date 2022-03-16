@@ -38,6 +38,7 @@ public class CodeVo {
 
 //  ============================================
 	
+	
 	public void setParamsPaging(int totalRowsParam) {
 		
 		totalRows = totalRowsParam;
@@ -81,7 +82,7 @@ public class CodeVo {
 		System.out.println("getEndRnumForOracle():" + endRnumForOracle);
 		System.out.println("getStartRnumForMysql(): " + startRnumForMysql);
 		
-	}
+		}
 	
 	
 	public String getFdcgSeq() {

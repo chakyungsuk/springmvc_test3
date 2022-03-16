@@ -30,7 +30,7 @@ public class MemberController {
 		
 		// count 가 0이 아니면 List 가져오는 부분 수행 후 model 개체에 담기
 		if (count != 0) {
-			List<Member> list = service.selectList();
+			List<Member> list = service.selectList(vo);
 			model.addAttribute("list", list);
 		} else {
 			// by pass
@@ -42,10 +42,6 @@ public class MemberController {
 	
 	@RequestMapping(value = "/member/memberForm")
 	public String memberForm(Model model) throws Exception {
-
-		List<Member> list = service.selectList();
-		
-		model.addAttribute("list", list);
 		
 		return "member/memberForm";
 	}
