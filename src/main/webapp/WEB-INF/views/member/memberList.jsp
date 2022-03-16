@@ -89,7 +89,7 @@
 		<div class="col-12">
 		<ul class="nav nav-tabs" style="margin-top: 20px">
 			<li class="nav-item">
-		    	<a class="nav-link active" aria-current="page" href="#">Home</a>
+		    	<a class="nav-link active" aria-current="page" href="/member/memberList">Home</a>
 		    </li>
 	    	<li class="nav-item">
 	    		<a class="nav-link" style="color: black" href="#">회원관리</a>
