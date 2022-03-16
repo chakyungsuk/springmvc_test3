@@ -107,14 +107,22 @@ public class CodeController {
 	
 	@RequestMapping(value = "/code/codeList")
 	
-	public String codeList(CodeVo vo, Model model) throws Exception {
+
+	public String codeList(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 	
+		int count = service.selectOneCountCode(vo);
+		
+		vo.setParamsPaging(count);
+		
+		if (count != 0) {
 		List<Code> list = service.selectListCode(vo);
 		model.addAttribute("list", list);
 		
 		List<Code> listCodeGroup = service.selectList(vo);
 		model.addAttribute("listcodeGroup", listCodeGroup);
-		
+		} else {
+			
+		}
 		return "code/codeList";
 	}
 	
