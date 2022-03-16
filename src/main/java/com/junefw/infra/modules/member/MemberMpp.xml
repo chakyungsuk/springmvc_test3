@@ -8,15 +8,29 @@
 
     <resultMap id="resultMapObj" type="com.junefw.infra.modules.member.Member"></resultMap>
 
-	<select id="selectOneMember" resultType="Integer">
-		SELECT 
-			count(*)
+	<sql id="selectCommon">
 		FROM
 			fdmember a
 		LEFT JOIN fdmemberemail b on b.ifmmSeq = a.ifmmSeq
 		LEFT JOIN fdmemberphone c on c.ifmmSeq = a.ifmmSeq
 		WHERE 1=1
-			AND ifmmDelNy = 0
+			<choose>
+				<when test="shmemberDelNy == 1">AND ifmmDelNy = 1</when>
+				<when test="shmemberDelNy == 0">AND ifmmDelNy = 0</when>
+			</choose>
+			<choose>
+				<when test="shOption == 1">AND ifmmId LIKE concat('%',#{shValue},'%')</when>
+				<when test="shOption == 2">AND fdmeEmailFull LIKE concat('%',#{shValue},'%')</when>
+				<when test="shOption == 3">AND fdmpNumber LIKE concat('%',#{shValue},'%')</when>
+			</choose>
+			<!-- <if test="shValue != null and !shValue.equals('')"> AND ifmmId LIKE concat('%',#{shValue},'%')</if>	 -->
+			<!-- <if test="shFdcgSeq != null and !shFdcgSeq.equals('')"> AND fdcgSeq = #{shFdcgSeq}</if>	 -->
+	</sql>
+
+	<select id="selectOneMember" resultType="Integer">
+		SELECT 
+			count(*)
+		<include refid="selectCommon" />
 	</select>
 	
 	
@@ -29,12 +43,7 @@
 			, a.ifmmSaved
 			, b.fdmeEmailFull
 			, concat(substring(c.fdmpNumber,1,3),"-",substring(c.fdmpNumber,4,4),"-",substring(c.fdmpNumber,7,4)) as mobile
-		FROM
-			fdmember a
-		LEFT JOIN fdmemberemail b on b.ifmmSeq = a.ifmmSeq
-		LEFT JOIN fdmemberphone c on c.ifmmSeq = a.ifmmSeq
-		WHERE 1=1
-			AND ifmmDelNy = 0
+		<include refid="selectCommon" />
 		LIMIT #{startRnumForMysql},#{rowNumToShow}
 	</select>
 	

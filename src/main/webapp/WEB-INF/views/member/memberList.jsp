@@ -116,14 +116,14 @@
 	<div class="container-sm">
 	  <div class="row g-2" id="border">
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<select class="form-select form-select" aria-label=".form-select-sm example" name="shFdcgDelNy">
+			<select class="form-select form-select" aria-label=".form-select-sm example" name="shmemberDelNy">
 				<option selected>삭제여부</option>
 				<option value="1">삭제</option>
 				<option value="0">보관</option>
 			</select>
 	    </div>
 		<div class="col-lg-2 col-md-6 col-sm-12">
-			<select class="form-select form-select" aria-label=".form-select-sm example">
+			<select class="form-select form-select" aria-label=".form-select-sm example"  name="shMemberDate">
 				<option selected>날짜</option>
 				<option value="1">1월</option>
 				<option value="2">2월</option>
@@ -150,19 +150,19 @@
 	    <div class="col-lg-2 col-md-6 col-sm-12">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<select class="form-select form-select" aria-label=".form-select-sm example" style="margin-bottom: 8px;">
+			<select class="form-select form-select" aria-label=".form-select-sm example" style="margin-bottom: 8px;" name="shOption">
 				<option selected>검색구분</option>
-				<option value="1">이름</option>
-				<option value="2">나이</option>
-				<option value="3">주소</option>
+				<option value="1">ID</option>
+				<option value="2">E-mail</option>
+				<option value="3">Mobile</option>
 			</select>
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<input class="form-control" type="text" placeholder="검색어" aria-label="default input example">
+			<input class="form-control" type="text" placeholder="검색어" aria-label="default input example" name="shValue">
 	    </div>
-	    <div class="col-lg-2 col-md-6 col-sm-12">
+	    <div class="col-lg-2 col-md-6 col-sm-12">			
 	    	<div class="d-md-flex justify-content">
-				<button class="btn btn-warning btn-sm me-md-2" type="button" >
+				<button class="btn btn-warning btn-sm me-md-2" type="submit" name="search">
 					<i class="fa-solid fa-magnifying-glass"></i>
 				</button>
 				<button class="btn btn-danger btn-sm me-md-2 " type="button" >
@@ -198,7 +198,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										<c:out value="${item.ifmmSeq}"/> <br>
+										<c:out value="${item.ifmmSeq}"/> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
@@ -213,7 +213,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.ifmmId}"/></a> <br>
+										<a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.ifmmId}"/></a> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
@@ -228,7 +228,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.ifmmPassword}"/></a> <br>
+										<a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.ifmmPassword}"/></a> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
@@ -243,7 +243,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										 <a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.fdmeEmailFull}"/></a> <br>
+										 <a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.fdmeEmailFull}"/></a> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
@@ -258,7 +258,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										 <a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.mobile}"/></a> <br>
+										 <a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.mobile}"/></a> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 

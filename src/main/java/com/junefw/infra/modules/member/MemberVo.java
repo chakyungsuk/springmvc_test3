@@ -18,13 +18,13 @@ public class MemberVo {
 	private String fdmpNumber;
 	private String mobile;
 	
-//	//shmemberId = search
-//	private String shFdcgName;
-//	private Integer shFdcgDelNy;
+	//shmemberId = search
+	private String shMemberName;
+	private Integer shmemberDelNy;
 //	
-//	//common
-//	private String shOption;
-//	private String shValue;
+	//common
+	private String shOption;
+	private String shValue;
 	
 	//paging
 	private int thisPage = 1;									// 현재 페이지
@@ -239,6 +239,38 @@ public class MemberVo {
 
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
+	}
+
+	public String getShMemberName() {
+		return shMemberName;
+	}
+
+	public void setShMemberName(String shMemberName) {
+		this.shMemberName = shMemberName;
+	}
+
+	public Integer getShmemberDelNy() {
+		return shmemberDelNy;
+	}
+
+	public void setShmemberDelNy(Integer shmemberDelNy) {
+		this.shmemberDelNy = shmemberDelNy;
+	}
+
+	public String getShOption() {
+		return shOption;
+	}
+
+	public void setShOption(String shOption) {
+		this.shOption = shOption;
+	}
+
+	public String getShValue() {
+		return shValue;
+	}
+
+	public void setShValue(String shValue) {
+		this.shValue = shValue;
 	}
 	
 	
