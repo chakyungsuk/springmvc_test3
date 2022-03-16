@@ -14,6 +14,7 @@ public class CodeVo {
 	private String fdcdSeq;
 	private String shFdcgSeq;
 	private String shFdcdName;
+	private Integer shFdcdDelNy;
 	
 	//common
 	private String shOption;
@@ -115,6 +116,15 @@ public class CodeVo {
 		this.fdcdSeq = fdcdSeq;
 	}
 
+	public Integer getShFdcdDelNy() {
+		return shFdcdDelNy;
+	}
+
+
+	public void setShFdcdDelNy(Integer shFdcdDelNy) {
+		this.shFdcdDelNy = shFdcdDelNy;
+	}
+	
 	public String getShFdcgSeq() {
 		return shFdcgSeq;
 	}
@@ -234,6 +244,7 @@ public class CodeVo {
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
 	}
+
 	
 		
 	

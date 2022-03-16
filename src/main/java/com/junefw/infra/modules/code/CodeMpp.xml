@@ -88,18 +88,39 @@
 	
     <!-- fdcode -->
     
+    <sql id="selectCommonCode">
+   		FROM 
+			fdcode a
+		WHERE 1=1
+			<choose>
+				<when test="shFdcdDelNy == 1">AND fdcdDelNy = 1</when>
+				<when test="shFdcdDelNy == 0">AND fdcdDelNy = 0</when>
+			</choose>
+			<if test="shFdcdName != null and !shFdcdName.equals('')"> AND fdcdName LIKE concat('%',#{shFdcdName},'%')</if>	
+			<!-- <if test="shFdcdSeq != null and !shFdcdSeq.equals('')"> AND fdcdSeq = #{shFdcdSeq}</if>	 -->
+			<choose>
+				<when test="shOption == 1">AND fdcdName LIKE concat('%',#{shValue},'%')</when>
+				<when test="shOption == 2">AND fdcdNameEng LIKE concat('%',#{shValue},'%')</when>
+			</choose>
+    </sql>
+    
+   	<select id="selectOneCountCode" resultType="Integer">
+		SELECT 
+			count(*)
+	<include refid="selectCommonCode" />
+	</select>
+    
+    
    	<select id="selectListCode" resultMap="resultMapObj">
 		SELECT 
 			a. fdcdSeq
 			, a.fdcdName
 			, a.fdcdOrder
             , a.fdcdDelNy
-		FROM 
-			fdcode a
-		WHERE 1=1
-			<if test="shFdcdName != null and !shFdcdName.equals('')"> AND fdcdName LIKE concat('%',#{shFdcdName},'%')</if>	
-			<if test="shFdcgSeq != null and !shFdcgSeq.equals('')"> AND ifcgSeq = #{shFdcgSeq}</if>	
+	<include refid="selectCommonCode" />
+		LIMIT #{startRnumForMysql},#{rowNumToShow}
 	</select>
+
 
 	<insert id="insertCode">
 		INSERT INTO fdcode (

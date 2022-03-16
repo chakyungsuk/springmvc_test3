@@ -59,6 +59,7 @@
 	
 </style>
 
+<form id="" name="" method="get" action="/member/memberList">	
 <div class="container">
 	<div class="row">
 		<div class="col-12 col-sm-12 col-lg-2">
@@ -115,11 +116,10 @@
 	<div class="container-sm">
 	  <div class="row g-2" id="border">
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<select class="form-select form-select" aria-label=".form-select-sm example">
+			<select class="form-select form-select" aria-label=".form-select-sm example" name="shFdcgDelNy">
 				<option selected>삭제여부</option>
 				<option value="1">삭제</option>
-				<option value="2">보관</option>
-				<option value="3">기타</option>
+				<option value="0">보관</option>
 			</select>
 	    </div>
 		<div class="col-lg-2 col-md-6 col-sm-12">
@@ -175,72 +175,137 @@
   	</div>
 	</div>
 	<hr>
-	
-<div class = "container-sm">	
-	<div class="table table-dark table-hover">
-		<table class="table">
-			<thead>
-			  <tr>
-			    <th scope="col" class="table-active">#</th>
-			    <th scope="col" class="table-active">이 름</th>
-			    <th scope="col" class="table-active">ID</th>
-			    <th scope="col" class="table-active">PassWord</th>
-			    <th scope="col" class="table-active">주 소</th>
-			    <th scope="col" class="table-active">E-mail</th>
-			  </tr>
-			</thead>
-			돋보기
-			<tbody>
-			  <tr>
-			    <th scope="row">1</th>
-			    <td>차경석</td>
-			    <td>cha0054</td>
-			    <td>1234</td>
-			    <td>서울특별시 강서구</td>
-			    <td>cha0054@naver.com</td>
-			  </tr>
-			  <tr>
-			    <th scope="row">2</th>
-			    <td>장동건</td>
-			    <td>zzangdong</td>
-			    <td>ehdrjsWkd</td>
-			    <td>서울특별시 강남구</td>
-			    <td>zzang@naver.com</td>
-			  </tr>
-			  <tr>
-			    <th scope="row">3</th>
-			    <td>원 빈</td>
-			    <td>bingood</td>
-			    <td>binbin</td>
-			    <td>서울특별시 강남구</td>
-			    <td>bin@naver.com</td>
-			  </tr>
-			</tbody>
-		</table>
+	<div class = "container-sm">	
+		<div class="table table-dark table-hover">
+			<table class="table">
+				<thead>
+					<tr>
+					    <th scope="col" class="table-active">#</th>
+					    <th scope="col" class="table-active">ID</th>
+					    <th scope="col" class="table-active">PassWord</th>
+					    <th scope="col" class="table-active">E-mail</th>
+					    <th scope="col" class="table-active">Mobile</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+										<c:out value="${item.ifmmSeq}"/> <br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+										<a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.ifmmId}"/></a> <br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+					
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+										<a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.ifmmPassword}"/></a> <br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+										 <a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.fdmeEmailFull}"/></a> <br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+										 <a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.mobile}"/></a> <br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
+			 		 </tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-</div>
 
-	<div>
-		<nav aria-label="Page navigation example">
-		  <ul class="pagination justify-content-center">
-		    <li class="page-item" href="#">
-		      <a class="page-link" href="#"><<</a>
-		    </li>
-		    <li class="page-item">
-		      <a class="page-link" href="#"><</a>
-		    </li>
-		    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-		    <li class="page-item"><a class="page-link" href="#">2</a></li>
-		    <li class="page-item"><a class="page-link" href="#">3</a></li>
-		    <li class="page-item">
-		      <a class="page-link" href="#">></a>
-		    </li>
-		    <li class="page-item">
-		      <a class="page-link" href="#">>></a>
-		    </li>
-		  </ul>
+<nav aria-label="...">
+	<ul class="pagination justify-content-center">
+		<!-- Page S -->
+		<nav aria-label="...">
+	  		<ul class="pagination">
+		  
+		<!-- Previous -->
+		<c:if test="${vo.startPage gt vo.pageNumToShow}">
+			<li class="page-item"><a class="page-link" href="/member/memberList?thisPage=${vo.startPage - 1}">Previous</a></li>
+		</c:if>
+		
+		<!-- Page -->    
+		<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+			<c:choose>
+				<c:when test="${i.index eq vo.thisPage}">  
+		                <li class="page-item active"><a class="page-link" href="/member/memberList?thisPage=${i.index}">${i.index}</a></li>
+				</c:when>
+				<c:otherwise>             
+		                <li class="page-item"><a class="page-link" href="/member/memberList?thisPage=${i.index}">${i.index}</a></li>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>  
+		
+		<!-- Next -->
+		<c:if test="${vo.endPage ne vo.totalPages}">                
+			<li class="page-item"><a class="page-link" href="/member/memberList?thisPage=${vo.endPage + 1}">Next</a></li>
+		</c:if>
+		
+	  		</ul>
 		</nav>
-	</div>
+		<!-- Page E -->
+	</ul>
+</nav>
+
+
+
 
 <div class="container">
 	<div class="col-lg-12 col-md-12 col-sm-12" >
@@ -288,9 +353,9 @@
 <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
 
-</body>
-</htm1>
-
+</form>
+		</body>
+	</htm1>
 
 
 
@@ -300,7 +365,7 @@
 <%-- <c:choose>
 	<c:when test="${fn:length(list) eq 0}">
 		<tr>
-			<td class="text-center" colspan="9">Success</td>
+			<td class="text-center" colspan="9">No data!</td>
 		</tr>	
 	</c:when>
 	

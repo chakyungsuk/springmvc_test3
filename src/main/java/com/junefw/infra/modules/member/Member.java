@@ -2,20 +2,22 @@ package com.junefw.infra.modules.member;
 
 public class Member {
 	
+	//member
 	private String ifmmSeq;
 	private String ifmmId;
 	private String ifmmPassword;
 	private Integer ifmmDelNy;
 	private Integer ifmmSaved;
 	
+	//memberEmail
+	private String fdmeEmailFull;
+	
+	//memberMobile
+	private String fdmpNumber;
+	private String mobile;
+	
 //  ============================================	
 	
-	public Integer getIfmmSaved() {
-		return ifmmSaved;
-	}
-	public void setIfmmSaved(Integer ifmmSaved) {
-		this.ifmmSaved = ifmmSaved;
-	}
 	public String getIfmmSeq() {
 		return ifmmSeq;
 	}
@@ -39,6 +41,30 @@ public class Member {
 	}
 	public void setIfmmDelNy(Integer ifmmDelNy) {
 		this.ifmmDelNy = ifmmDelNy;
+	}
+	public Integer getIfmmSaved() {
+		return ifmmSaved;
+	}
+	public void setIfmmSaved(Integer ifmmSaved) {
+		this.ifmmSaved = ifmmSaved;
+	}
+	public String getFdmeEmailFull() {
+		return fdmeEmailFull;
+	}
+	public void setFdmeEmailFull(String fdmeEmailFull) {
+		this.fdmeEmailFull = fdmeEmailFull;
+	}
+	public String getFdmpNumber() {
+		return fdmpNumber;
+	}
+	public void setFdmpNumber(String fdmpNumber) {
+		this.fdmpNumber = fdmpNumber;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 	
 	
