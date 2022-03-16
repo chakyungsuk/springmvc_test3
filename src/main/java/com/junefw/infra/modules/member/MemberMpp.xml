@@ -8,8 +8,20 @@
 
     <resultMap id="resultMapObj" type="com.junefw.infra.modules.member.Member"></resultMap>
 
+	<select id="selectOneMember" resultType="Integer">
+		SELECT 
+			count(*)
+		FROM
+			fdmember a
+		LEFT JOIN fdmemberemail b on b.ifmmSeq = a.ifmmSeq
+		LEFT JOIN fdmemberphone c on c.ifmmSeq = a.ifmmSeq
+		WHERE 1=1
+			AND ifmmDelNy = 0
+	</select>
+	
+	
 	<select id="selectList" resultMap="resultMapObj">
-		select
+		SELECT
 			a.ifmmSeq
 			, a.ifmmId
 			, a.ifmmPassword
@@ -17,13 +29,15 @@
 			, a.ifmmSaved
 			, b.fdmeEmailFull
 			, concat(substring(c.fdmpNumber,1,3),"-",substring(c.fdmpNumber,4,4),"-",substring(c.fdmpNumber,7,4)) as mobile
-		from
+		FROM
 			fdmember a
 		LEFT JOIN fdmemberemail b on b.ifmmSeq = a.ifmmSeq
 		LEFT JOIN fdmemberphone c on c.ifmmSeq = a.ifmmSeq
 		WHERE 1=1
 			AND ifmmDelNy = 0
+		LIMIT #{startRnumForMysql},#{rowNumToShow}
 	</select>
+	
 	
 	<insert id="insert">
 		insert into fdMember(

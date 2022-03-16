@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.junefw.infra.modules.code.Code;
@@ -18,12 +19,23 @@ public class MemberController {
 	MemberServiceImpl service;
 	
 	@RequestMapping(value = "/member/memberList")
-//	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
-	public String memberList(Model model) throws Exception {
+	
+	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+//	public String memberList( Model model) throws Exception {
 		
-		List<Member> list = service.selectList();
-		model.addAttribute("list", list);
-
+		// count 가져올 것
+		int count = service.selectOneMember(vo);
+		
+		vo.setParamsPaging(count);
+		
+		// count 가 0이 아니면 List 가져오는 부분 수행 후 model 개체에 담기
+		if (count != 0) {
+			List<Member> list = service.selectList();
+			model.addAttribute("list", list);
+		} else {
+			// by pass
+		}
+		
 		return "member/memberList";
 		
 	}
