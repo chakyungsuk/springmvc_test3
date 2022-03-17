@@ -8,22 +8,22 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <form id="" name="" method="get" action="/code/codeGroupList">
-<select name="shFdcgDelNy">
+<select name="shFdcgDelNy" id=shFdcgDelNy>
 	<option value="">::삭제여부::</option>
 	<option value="1">Y</option>
 	<option value="0">N</option>
 </select>
 ||
-회원이름 : <input type="text" name="shFdcgName">
+회원이름 : <input type="text" name="shFdcgName" id="shFdcgName">
 ||
-<select name="shOption">
+<select name="shOption" id="shOption">
 	<option value="">::검색구분::</option>
 	<option value="1">한글</option>
 	<option value="2">영문</option>
 </select>
 
-<input type="text" name="shValue">
-<input type="submit" name="search">
+<input type="text" name="shValue" id="shValue">
+<input type="submit" id="btnSubmit" name="search">
 <br>
 
 <c:choose>
@@ -77,5 +77,60 @@
   </ul>
 </nav>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/resources/js/validation.js"></script>
+
+
+<script type="text/javascript">	
+	$("#btnSubmit").on("click", function(){
+		
+		if(!checkNull($("#shFdcgDelNy"), $("#shFdcgDelNy").val(), "삭제여부 없음")) return false;
+		if(!checkNull($("#shFdcgName"), $("#shFdcgName").val(), "이름 없음")) return false;
+		if(!checkNull($("#shOption"), $("#shOption").val(), "한영 선택 없음")) return false;
+		if(!checkNull($("#shValue"), $("#shValue").val(), "검색부분 입력 바람")) return false;
+/* 		
+		if($("#shFdcgDelNy").val() == "" || $("#shFdcgDelNy").val() == null){
+			alert("삭제여부없음")
+			$("#shFdcgDelNy").focus();
+		} 
+		
+		if($("#shFdcgName").val() == "" || $("#shFdcgName").val() == null){
+			alert("이름없음")
+			$("#shFdcgName").focus();
+		}
+
+		if($("#shOption").val() == "" || $("#shOption").val() == null){
+			alert("한글,영어 선택 없음")
+			$("#shOption").focus();
+		}
+		
+		if($("#shValue").val() == "" || $("#shValue").val() == null){
+			alert("입력값없음")
+			$("#shValue").focus();
+		} */
+		
+		
+		/* alert("hello");
+		confirm("askdjkasjdjk"); */
+		
+/* 	 	alert($("input[name=shFdcgName]").val()); 
+		alert( $("#shFdcgDelNy").val() );  // jquery 방식
+		$("#shFdcgDelNy").val(1234);
+		alert( $("#shFdcgName").val() );  // jquery 방식
+		alert( $("#shOption").val() );  // jquery 방식
+		alert( $("#shValue").val() );  // jquery 방식 */
+		
+		
+		/* alert( document.getElementById("shFdcgName").value );  // javascript 방식 */
+	
+	});
+	
+	
+	
+	
+	
+</script>	
 
 </form>
+
+
