@@ -56,12 +56,15 @@
 		INSERT INTO fdcodegroup (
 			fdcgName
 			, fdcgDelNy
-			, fdcgSeq
+			, fdcgNameEng
 		) VALUES (
 			#{fdcgName}
 			,0
-			, #{fdcgSeq}
+			, #{fdcgNameEng}
 		)	
+		<selectKey resultType="String" keyProperty="ifcgSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
 	</insert>
 	
 	

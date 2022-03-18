@@ -10,19 +10,19 @@
 <form id="" name="" method="get" action="/code/codeGroupList">
 <select name="shFdcgDelNy" id=shFdcgDelNy>
 	<option value="">::삭제여부::</option>
-	<option value="1">Y</option>
-	<option value="0">N</option>
+	<option value="1" <c:if test="${vo.shFdcgDelNy eq 1 }">selected</c:if>>Y
+	<option value="0" <c:if test="${vo.shFdcgDelNy eq 0 }">selected</c:if>>N
 </select>
 ||
-회원이름 : <input type="text" name="shFdcgName" id="shFdcgName">
+회원이름 : <input type="text" name="shFdcgName" id="shFdcgName" value="${vo.shFdcgName }"/>
 ||
 <select name="shOption" id="shOption">
 	<option value="">::검색구분::</option>
-	<option value="1">한글</option>
-	<option value="2">영문</option>
+	<option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>한글
+	<option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>영문
 </select>
 
-<input type="text" name="shValue" id="shValue">
+<input type="text" name="shValue" id="shValue" value="${vo.shValue }"/>
 <input type="submit" id="btnSubmit" name="search">
 <br>
 
@@ -114,6 +114,7 @@
 		confirm("askdjkasjdjk"); */
 		
 /* 	 	alert($("input[name=shFdcgName]").val()); 
+		
 		alert( $("#shFdcgDelNy").val() );  // jquery 방식
 		$("#shFdcgDelNy").val(1234);
 		alert( $("#shFdcgName").val() );  // jquery 방식

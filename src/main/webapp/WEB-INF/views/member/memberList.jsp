@@ -52,14 +52,20 @@
 	#left {
 		float: right;
 	}
- 	@media ( max-width:767px ) {
+ 	@media all and (min-width:359px) and (max-width:1024px)) {
         .container {
           width: auto;
-        }
-	
+        } 
+
+    }
+    @media (min-height: 1024px), screen and (orientation: portrait) { 
+  	 	.container {
+			margin-bottom: 400px;
+   		}
 </style>
 
 <form id="" name="" method="get" action="/member/memberList">	
+
 <div class="container">
 	<div class="row">
 		<div class="col-12 col-sm-12 col-lg-2">
@@ -116,15 +122,15 @@
 	<div class="container-sm">
 	  <div class="row g-2" id="border">
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<select class="form-select form-select" aria-label=".form-select-sm example" name="shmemberDelNy">
-				<option selected>삭제여부</option>
-				<option value="1">삭제</option>
-				<option value="0">보관</option>
+			<select class="form-select form-select" aria-label=".form-select-sm example" name="shmemberDelNy" id="shmemberDelNy">
+				<option value="">삭제여부</option>
+				<option value="1" <c:if test="${vo.shmemberDelNy eq 1 }">selected</c:if>>삭제</option>
+				<option value="0" <c:if test="${vo.shmemberDelNy eq 0 }">selected</c:if>>보관</option>
 			</select>
 	    </div>
 		<div class="col-lg-2 col-md-6 col-sm-12">
-			<select class="form-select form-select" aria-label=".form-select-sm example"  name="shMemberDate">
-				<option selected>날짜</option>
+			<select class="form-select form-select" aria-label=".form-select-sm example"  name="shMemberDate" disabled="disabled">
+				<option value="">날짜</option>
 				<option value="1">1월</option>
 				<option value="2">2월</option>
 				<option value="3">3월</option>
@@ -140,32 +146,33 @@
 			</select>
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-	      <input class="form-control" type="text" placeholder="시작일" aria-label="default input example">
+	      <input class="form-control" type="text" placeholder="시작일" aria-label="default input example" disabled="disabled">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-	     <input class="form-control" type="text" placeholder="종료일" aria-label="default input example">
+	     <input class="form-control" type="text" placeholder="종료일" aria-label="default input example" disabled="disabled">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<select class="form-select form-select" aria-label=".form-select-sm example" style="margin-bottom: 8px;" name="shOption">
-				<option selected>검색구분</option>
-				<option value="1">ID</option>
-				<option value="2">E-mail</option>
-				<option value="3">Mobile</option>
+			<select class="form-select form-select" aria-label=".form-select-sm example" style="margin-bottom: 8px;" name="shOption" id="shOption">
+				<option value="">검색구분</option>
+				<option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>ID
+				<option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>PassWord
+				<option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>E-mail
+				<option value="4" <c:if test="${vo.shOption eq 4}">selected</c:if>>Mobile
 			</select>
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<input class="form-control" type="text" placeholder="검색어" aria-label="default input example" name="shValue">
+			<input class="form-control" type="text" placeholder="검색어" aria-label="default input example" name="shValue" id="shValue" value="${vo.shValue }"/>
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">			
 	    	<div class="d-md-flex justify-content">
-				<button class="btn btn-warning btn-sm me-md-2" type="submit" name="search">
+				<button class="btn btn-warning btn-sm me-md-2" type="submit" name="search" id="btnSubmit">
 					<i class="fa-solid fa-magnifying-glass"></i>
 				</button>
-				<button class="btn btn-danger btn-sm me-md-2 " type="button" >
+				<button class="btn btn-danger btn-sm me-md-2 " type="button" id="btnLeset">
 					<i class="fa-solid fa-arrow-rotate-right"></i>
 				</button>
 			</div>
@@ -321,7 +328,7 @@
 	</div>
 </div>
 
-<!-- Modal -->
+<!-- Modal S -->
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -341,33 +348,40 @@
   </div>
 </div>
 
+<!-- Modal E -->
+
+
 
 <!-- <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script> -->
 <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 <!-- <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script> -->
 <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/resources/js/validation.js"></script>
+
+
+
+<script>
+	$("#btnSubmit").on("click", function(){
+
+		if(!checkNull($("#shmemberDelNy"),$("#shmemberDelNy").val(), "삭제여부 확인 바합니다.")) return false;
+		if(!checkNull($("#shOption"),$("#shOption").val(), "검색구분 확인 바랍니다.")) return false;
+		if(!checkNull($("#shValue"),$("#shValue").val(), "검색어를 입력해 주십시요.")) return false;
+		
+	});
+	
+	$("#btnLeset").on("click", function(){
+		
+		confirm("검색정보가 초기화 됩니다.");
+		
+	}); 
+	
+</script>
+
+
 
 
 </form>
 		</body>
 	</htm1>
 
-
-
-
-
-
-<%-- <c:choose>
-	<c:when test="${fn:length(list) eq 0}">
-		<tr>
-			<td class="text-center" colspan="9">No data!</td>
-		</tr>	
-	</c:when>
-	
-	<c:otherwise>
-		<c:forEach items="${list}" var="item" varStatus="status">	
-			<c:out value="${item.ifmmSeq}"/> | <a href="/infra/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.ifmmId}"/></a>
-			| <a href="/infra/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.ifmmPassword}"/></a> <br>
-		</c:forEach>
-	</c:otherwise>
-</c:choose>	  --%>

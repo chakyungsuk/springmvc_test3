@@ -16,5 +16,7 @@
 	
 	<input type="text" name="ifmmId" placeholder="아이디">
 	<input type="text" name="ifmmPassword" placeholder="비번">
+	<input type="text" name="fdmeEmailFull" placeholder="이메일">
+	<input type="text" name="fdmpNumber" placeholder="번호">
 	<input type="submit" value="제출">
 </form>

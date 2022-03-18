@@ -20,8 +20,9 @@
 			</choose>
 			<choose>
 				<when test="shOption == 1">AND ifmmId LIKE concat('%',#{shValue},'%')</when>
-				<when test="shOption == 2">AND fdmeEmailFull LIKE concat('%',#{shValue},'%')</when>
-				<when test="shOption == 3">AND fdmpNumber LIKE concat('%',#{shValue},'%')</when>
+				<when test="shOption == 2">AND ifmmPassword LIKE concat('%',#{shValue},'%')</when>
+				<when test="shOption == 3">AND fdmeEmailFull LIKE concat('%',#{shValue},'%')</when>
+				<when test="shOption == 4">AND fdmpNumber LIKE concat('%',#{shValue},'%')</when>
 			</choose>
 			<!-- <if test="shValue != null and !shValue.equals('')"> AND ifmmId LIKE concat('%',#{shValue},'%')</if>	 -->
 			<!-- <if test="shFdcgSeq != null and !shFdcgSeq.equals('')"> AND fdcgSeq = #{shFdcgSeq}</if>	 -->

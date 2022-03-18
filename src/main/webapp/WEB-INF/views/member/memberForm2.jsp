@@ -10,5 +10,7 @@
 	<input type="hidden" name="ifmmSeq" value="<c:out value="${item.ifmmSeq}"/>">
 	<input type="text" name="ifmmId" placeholder="아이디" value="<c:out value="${item.ifmmId}"/>">
 	<input type="text" name="ifmmPassword" placeholder="비밀번호" value="<c:out value="${item.ifmmPassword}"/>">
+	<input type="text" name="fdmeEmailFull" placeholder="e-mail" value="<c:out value="${item.fdmeEmailFull}"/>">
+	<input type="text" name="fdmpNumber" placeholder="mobile(숫자만)" value="<c:out value="${item.fdmpNumber}"/>">
 	<input type="submit" value="제출">
 </form>

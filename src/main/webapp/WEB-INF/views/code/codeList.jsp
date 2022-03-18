@@ -8,21 +8,22 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <form id="" name="" method="get" action="/code/codeList">
-<select id="" name="shFdcgSeq">
+
+<select id="shFdcgSeq" name="shFdcgSeq" >
 	<option value="">::코드그룹::
 		<c:forEach items="${listcodeGroup}" var="item" varStatus="status">
 	<option value="<c:out value="${item.fdcgSeq}"/>"><c:out value="${item.fdcgName}"/>
 		</c:forEach>
 </select>
 ||
-<select name="shFdcdDelNy">
+<select name="shFdcdDelNy" id="shFdcdDelNy">
 	<option value="">::삭제여부::</option>
-	<option value="1">Y</option>
-	<option value="0">N</option>
+	<option value="1" <c:if test="${vo.shFdcdDelNy eq 1 }">selected</c:if>>Y
+	<option value="0" <c:if test="${vo.shFdcdDelNy eq 0 }">selected</c:if>>N
 </select>
 ||
-<input type="text" name="shFdcdName">
-<input type="submit" name="search">
+<input type="text" name="shFdcdName" id="shFdcdName" value="${vo.shFdcdName }"/>
+<input type="submit" name="search" id="btnSubmit">
 <br>
 <br>
 
@@ -75,5 +76,24 @@
 <!-- Page E -->
   </ul>
 </nav>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/resources/js/validation.js"></script>
+
+
+
+<script>
+
+	$("#btnSubmit").on("click", function(){
+	
+		if(!checkNull($("#shFdcgSeq"),$("#shFdcgSeq").val(), "목록 확인")) return false;
+		if(!checkNull($("#shFdcdDelNy"),$("#shFdcdDelNy").val(), "삭제여부확인")) return false;
+		if(!checkNull($("#shFdcdName"),$("#shFdcdName").val(), "검색어 확인")) return false;
+		
+	});
+
+</script>
+
 
 </form>

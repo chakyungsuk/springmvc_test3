@@ -11,6 +11,7 @@ public class CodeServiceImpl implements CodeService{
 	@Autowired
 	CodeDao dao;
 	
+	//insert, update, delete --------------------------------------------------
 	
 	// fdcodeGroup
 	
@@ -26,7 +27,9 @@ public class CodeServiceImpl implements CodeService{
 
 	@Override
 	public int insert(Code dto) throws Exception {
-		return dao.insert(dto);
+		dao.insert(dto);	// ifcgname, ifcdname
+		dao.insertCode(dto);	// ifcgname, ifcdname, ifcgSEq
+		return 1;
 	}
 
 	@Override
