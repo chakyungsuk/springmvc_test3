@@ -25,7 +25,7 @@
 	
 		//영어이름
 		if(!checkNull($("#fdcgNameEng"),$("#fdcgNameEng").val(), "영문 이름을 입력해 주세요.")) return false;
-		if(!checkOnlyEnglish($("#fdcgNameEng"),$("#fdcgNameEng").val(), "영어만 입력해 주세요.")) return false;
+		if(!checkOnlyEnglish($("#fdcgNameEng"),$("#fdcgNameEng").val(), "영문만 입력해 주십시요.")) return false;
 	
 		
 		//select 부분		

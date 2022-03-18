@@ -48,7 +48,19 @@ checkPassword = function(obj, value, message) {
 
 
 checkOnlyEnglish = function(obj, value, message) {
-    var regExp = /^[a-zA-Z]*$/; 
+    var regExp = /^[A-Za-z]*$/; 
+    if(regExp.test(value)) {
+		return true;
+	} else {
+    	alert(message);
+	 	obj.focus();
+		return false;
+	}
+}
+
+
+/*checkOnlyEnglish = function(obj, value, message) {
+    var regExp = /^[A-Za-z]*$/; 
     if(regExp.test(value)) {
 		return true;
 	} else {
@@ -56,7 +68,7 @@ checkOnlyEnglish = function(obj, value, message) {
         obj.focus();
 		return false;
 	}
-}
+}*/
 
 
 checkEmail = function(obj, value, message) {
