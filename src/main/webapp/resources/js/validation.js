@@ -9,6 +9,16 @@ checkNull = function (obj, value, message) {
 	}
 }
 
+checkBox = function (obj, value, message) {
+	if(value == null){
+		alert(message);
+		obj.focus();
+		return false;
+	} else {
+		return true;
+	}
+}
+
 
 checkOnlyNumber = function(obj, value, message) {
     var regExp = /^[0-9]+$/;

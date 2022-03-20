@@ -5,7 +5,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-<form method="post" action="/member/memberInst">
 
 <htm1 lang="ko">
 
@@ -19,12 +18,18 @@
 <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/navbars/">
 <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sidebars/">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="/resources/js/validation.js"></script>
 
 <!-- Bootstrap core CSS -->
 <link href="/resources/xdmin/css/bootstrap.min.css" rel="stylesheet">
 <link href="/resources/xdmin/css/navbar.css" rel="stylesheet">
+
+ <!-- Bootstrap core Js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/resources/js/validation.js"></script>
+<script src="/resources/xdmin/js/bootstrap.bundle.min.js"></script>
+<script src="/resources/xdmin/js/bootstrap.min.js"></script>
+<script src="/resources/xdmin/js/bootstrap.sidebars.js"></script>
+<script src="/resources/xdmin/js/sidebars.js"></script>
 
 
 <title>Cha html projects</title>
@@ -38,6 +43,7 @@
       }
       .container {
      	margin-right: 800px;  
+     	margin-top: 30px;
       } 
       .container1 {
      	margin-right: 800px;  
@@ -51,6 +57,10 @@
       	color: white;
       	text-align: center;
       }
+      input::placeholder {
+ 		 color: white;
+ 		 font-style: italic;
+	  }
       @media all and (min-width:360px) and (max-width:1024px) {
        .container {
        	margin-right: 400px;
@@ -79,86 +89,136 @@
 
 <body class="text-center">
 
+<!-- sidebar S -->
 <nav class="navbar navbar-dark" aria-label="First navbar example">
-	<div class="container" style="justify-content: center;">
-		<a class="navbar-brand" href="#"><h3>Ten Thousand Recipes</h3></a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-	</div>
 
-	<div class="collapse navbar-collapse" id="navbarsExample01">
-		<ul class="navbar-nav me-auto mb-2">
-			<li class="nav-item">
-				<a class="nav-link active" aria-current="page" href="#">Home</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Link</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Disabled</a>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-				<ul class="dropdown-menu" aria-labelledby="dropdown01">
-					<li><a class="dropdown-item" href="#">Action</a></li>
-					<li><a class="dropdown-item" href="#">Another action</a></li>
-					<li><a class="dropdown-item" href="#">Something else here</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
+<!-- sidebar head S -->
+<div class="container" style="justify-content: center;">
+	<a class="navbar-brand" href="#"><h3>Ten Thousand Recipes</h3></a>
+	<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+</div>
+<!-- sidebar head E -->
+
+<!-- sidebar body S -->	
+	<div class="offcanvas offcanvas-end flex-shrink-0 p-3 text-white bg-dark " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+	  <div class="offcanvas-header" style="padding-bottom: 0px;">
+	    <h5 id="offcanvasRightLabel">Recipes MENU</h5>
+	    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	  </div>
+	  <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="#" class="nav-link active" aria-current="page">
+          <svg class="bi me-2" width="16" height="16"></svg>
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+          Orders
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+          Products
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+          Customers
+        </a>
+      </li>
+    </ul>
+        <hr>
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+        <strong>CEO CHA</strong>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+        <li><a class="dropdown-item" href="#">New project...</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Sign out</a></li>
+      </ul>
+    </div>
+  </div>
+<!-- sidebar body E -->	
 </nav>
+<!-- sidebar E -->
 
-
-<div class="container1" style="margin-top: 150px;" >
-	<div class="col-12">
-		<div class="input">
-			<input type="text" id="ifmmId" name="ifmmId" placeholder="ID" size="40" style="background: transparent;" >
-		</div>
-	</div>
-	<div class="col-12">
-		<div class="input">
-			<input type="password" id="ifmmPassword" name="ifmmPassword" placeholder="Password" size="40" style="background: transparent;">
-		</div>
-	</div>
-	<div class="col-12">
-		<div class="input">
-			<input type="text" id="fdmeEmailFull" name="fdmeEmailFull" placeholder="E-mail" size="40" style="background: transparent;">
-		</div>
-	</div>
-	<div class="col-12">
-		<div class="input">
-			<input type="text" id="fdmpNumber" name="fdmpNumber" placeholder="Mobile" name="fdmeEmailFull" size="40" style="background: transparent;">
-		</div>
-	</div>
-</div>
-		
-<div class="container1" style="margin-top: 40px;">
-	<div class="row">
+<form id="form" method="post" action="/member/memberInst">
+	
+	<div class="container1" style="margin-top: 100px;" >
 		<div class="col-12">
-			<div class="form-check">
-				<label class="form-check-label" for="flexCheckDefault" style="color: gray;">
-				<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-				이메일 정보 마케팅 사용 동의</label>
+			<div class="input">
+				<input type="text" id="ifmmId" name="ifmmId" placeholder="ID" size="40" style="background: transparent; color: white;" >
 			</div>
 		</div>
 		<div class="col-12">
-			<div class="form-check" style="margin-top: 10px;">
-				<label class="form-check-label" for="flexCheckDefault" style="color: gray;">
-				<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-				모바일 정보 마케팅 사용 동의</label>
+			<div class="input">
+				<input type="password" id="ifmmPassword" name="ifmmPassword" placeholder="Password" size="40" style="background: transparent; color: white;">
+			</div>
+		</div>
+		<div class="col-12">
+			<div class="input">
+				<input type="text" id="fdmeEmailFull" name="fdmeEmailFull" placeholder="E-mail" size="40" style="background: transparent; color: white;">
+			</div>
+		</div>
+		<div class="col-12">
+			<div class="input">
+				<input type="text" id="fdmpNumber" name="fdmpNumber" placeholder="Mobile" name="fdmeEmailFull" size="40" style="background: transparent; color: white;">
+			</div>
+		</div>
+	</div>
+			
+	<div class="container1" style="margin-top: 50px;">
+		<div class="row">
+			<div class="col-12">
+				<div class="form-check" style="margin-top: 7px;" >
+					<label class="form-check-label" for="flexCheckDefault" style="color: gray; font-size: small;">
+					<input class="form-check-input" type="checkbox" id="ifmmSaved" name="ifmmSaved" value="" checked>
+					개인정보 유효기간2년 (필수)</label>
+				</div>
+			</div>
+			<div class="col-12">
+				<div class="form-check" style="margin-top: 7px;">
+					<label class="form-check-label" for="flexCheckDefault" style="color: gray; font-size: small;">
+					<input class="form-check-input" type="checkbox" id="ifmmEmailConsentNy" name="ifmmEmailConsentNy" value="" >
+					이메일 정보 마케팅 사용 동의(선택)</label>
+				</div>
+			</div>
+			<div class="col-12">
+				<div class="form-check" style="margin-top: 7px;">
+					<label class="form-check-label" for="flexCheckDefault" style="color: gray; font-size: small;">
+					<input class="form-check-input" type="checkbox" id="ifmmSmsConsentNy" name="ifmmSmsConsentNy" value="" >
+					모바일 정보 마케팅 사용 동의(선택)</label>
+				</div>
+			</div>
+		</div>
+	
+		<div class="col-12" style="margin-top: 100px;">
+			<div>
+				<input type="button" class="btn" style="color: red;" value="RESET" data-bs-toggle="modal" data-bs-target="#staticBackdrop" />			
+				<input type="submit" class="btn" style="color: blue;" value="Submit" id="btnSubmit"/>			
 			</div>
 		</div>
 	</div>
 
-	<div class="col-12" style="margin-top: 100px;">
-		<div>
-			<input type="button" class="btn" style="color: red;" value="RESET" data-bs-toggle="modal" data-bs-target="#staticBackdrop" />			
-			<input type="submit" class="btn" style="color: blue;" value="Submit" id="btnSubmit"/>			
-		</div>
-	</div>
-</div>
+</form>
+
 
 <!-- Modal S -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -194,16 +254,24 @@
  		// E-mail
 		if(!checkNull($("#fdmeEmailFull"),$("#fdmeEmailFull").val(),"이메일을 입력 바랍니다.")) return false;
 		if(!checkEmail($("#fdmeEmailFull"),$("#fdmeEmailFull").val(),"이메일 형식이 틀립니다.")) return false; 
+	
+		// 개인정보유효기간(필수)
+	 	/* if(!checkBox($("#ifmmSaved"),$("#ifmmSaved").val(),"개인정보 유효기간은 필수 체크사항 입니다.")) return false;  */
+ 	    if($("#ifmmSaved").is(":checked")){
+	    	return true;
+	    } else {
+            alert("개인정보 유효기간 체크는 필수 입니다.");
+			return false;
+        }
 	});
 	
+	var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+	var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+	  return new bootstrap.Dropdown(dropdownToggleEl)
+	});
 </script>
  
- <!-- Bootstrap core Js -->
-<script src="/resources/xdmin/js/bootstrap.bundle.min.js"></script>
-<script src="/resources/xdmin/js/bootstrap.min.js"></script>
-<script src="/resources/xdmin/js/bootstrap.sidebars.js"></script>
-
-
+<script src="/resources/xdmin/js/sidebars.js"></script>
 </body>
 
 </htm1>
@@ -222,4 +290,3 @@
 	<input type="text" name="fdmeEmailFull" placeholder="이메일">
 	<input type="text" name="fdmpNumber" placeholder="번호">
 	<input type="submit" value="제출"> --%>
-</form>

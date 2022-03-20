@@ -61,6 +61,37 @@
 			, 0
 			, 1
 		)
+		<selectKey resultType="String" keyProperty="ifmmSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+		<insert id="insertEmail">
+		INSERT INTO fdmemberemail (
+			fdmeEmailFull
+			, fdmeDelNy
+			, fdmeDefaultNy
+			, ifmmSeq
+		) VALUES (
+			#{fdmeEmailFull}
+			,0
+			,1
+			,#{ifmmSeq}
+		)	
+	</insert>
+	
+		<insert id="insertMobile">
+		INSERT INTO fdmemberphone (
+			fdmpNumber
+			, fdmpDelNy
+			, fdmpDefaultNy
+			, ifmmSeq
+		) VALUES (
+			#{fdmpNumber}
+			,0
+			,1
+			,#{ifmmSeq}
+		)	
 	</insert>
 	
 	<select id="selectOne" resultMap="resultMapObj">

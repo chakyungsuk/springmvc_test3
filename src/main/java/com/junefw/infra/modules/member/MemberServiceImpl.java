@@ -26,7 +26,10 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Override
 	public int insert(Member dto) throws Exception {
-		return dao.insert(dto); 
+		dao.insert(dto); 
+		dao.insertEmail(dto);
+		dao.insertMobile(dto);
+		return 1; 
 	}
 
 	@Override
@@ -37,6 +40,18 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int update(Member dto) throws Exception {
 		return dao.update(dto);
+	}
+
+	@Override
+	public int insertEmail(Member dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.insertEmail(dto);
+	}
+
+	@Override
+	public int insertMobile(Member dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.insertMobile(dto);
 	}
 
 
