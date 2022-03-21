@@ -159,14 +159,15 @@
 </nav>
 <!-- sidebar E -->
 
-<form id="form" method="post" action="/member/memberInst">
+<form id="form" method="get" action="/member/memberInst">
 	
 	<div class="container1" style="margin-top: 100px;" >
 		<div class="col-12">
 			<div class="input">
-				<input type="text" id="ifmmId" name="ifmmId" placeholder="ID" size="40" style="background: transparent; color: white;" >
+				<input type="text" id="ifmmId" name="ifmmId" placeholder="ID" size="40" style="background: transparent; color: white;">
 			</div>
 		</div>
+		
 		<div class="col-12">
 			<div class="input">
 				<input type="password" id="ifmmPassword" name="ifmmPassword" placeholder="Password" size="40" style="background: transparent; color: white;">
@@ -242,7 +243,7 @@
 
 <script type="text/javascript">
 	
-	$("#btnSubmit").on("click", function(){
+ 	$("#btnSubmit").on("click", function(){
 		// ID	
 		if(!checkNull($("#ifmmId"),$("#ifmmId").val(), "아이디를 입력 바랍니다.")) return false;
 		if(!checkId($("#ifmmId"),$("#ifmmId").val(), "최소 2자 부터 20자 까지 가능합니다.")) return false;
@@ -263,8 +264,8 @@
             alert("개인정보 유효기간 체크는 필수 입니다.");
 			return false;
         }
-	});
-	
+	}); 
+ 	
 	var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
 	var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
 	  return new bootstrap.Dropdown(dropdownToggleEl)
