@@ -192,6 +192,8 @@
 					    <th scope="col" class="table-active">PassWord</th>
 					    <th scope="col" class="table-active">E-mail</th>
 					    <th scope="col" class="table-active">Mobile</th>
+					    <th scope="col" class="table-active">EmailConsent</th>
+					    <th scope="col" class="table-active">MobileConsent</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -271,6 +273,44 @@
 							</c:choose>	 
 						</td>
 						
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+								 		<c:choose>
+									 		<c:when test="${item.ifmmEmailConsentNy eq 1 }">동의</c:when>
+									 		<c:otherwise>미동의</c:otherwise>
+									 	</c:choose>
+										<br><br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+									 	<c:choose>
+									 		<c:when test="${item.ifmmSmsConsentNy eq 1 }">동의</c:when>
+									 		<c:otherwise>미동의</c:otherwise>
+									 	</c:choose>
+										<br><br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
 			 		 </tr>
 				</tbody>
 			</table>
@@ -319,7 +359,7 @@
 			<button class="btn btn-success btn-sm me-md-2 " type="button" >
 				<i class="fa-solid fa-file-excel"></i>	
 			</button>
-			<a href="./memberFrom.html">
+			<a href="./memberForm">
 				<button class="btn btn-info btn-sm me-md-2 " type="button" >
 					<i class="fa-solid fa-plus"></i>	
 				</button>
