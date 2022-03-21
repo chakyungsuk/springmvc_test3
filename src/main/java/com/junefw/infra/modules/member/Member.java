@@ -1,6 +1,7 @@
 package com.junefw.infra.modules.member;
 
 public class Member {
+// dto	
 	
 	//member
 	private String ifmmSeq;
@@ -15,6 +16,12 @@ public class Member {
 	//memberMobile
 	private String fdmpNumber;
 	private String mobile;
+	
+	//ConsentNy
+	private Integer ifmmEmailConsentNy;
+	private Integer ifmmSmsConsentNy;
+	private String EmailConsent;
+	private String MobileConsent;
 	
 //  ============================================	
 	
@@ -66,6 +73,31 @@ public class Member {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
+	public Integer getIfmmSmsConsentNy() {
+		return ifmmSmsConsentNy;
+	}
+	public void setIfmmSmsConsentNy(Integer ifmmSmsConsentNy) {
+		this.ifmmSmsConsentNy = ifmmSmsConsentNy;
+	}
+	public Integer getIfmmEmailConsentNy() {
+		return ifmmEmailConsentNy;
+	}
+	public void setIfmmEmailConsentNy(Integer ifmmEmailConsentNy) {
+		this.ifmmEmailConsentNy = ifmmEmailConsentNy;
+	}
+	public String getEmailConsent() {
+		return EmailConsent;
+	}
+	public void setEmailConsent(String emailConsent) {
+		EmailConsent = emailConsent;
+	}
+	public String getMobileConsent() {
+		return MobileConsent;
+	}
+	public void setMobileConsent(String mobileConsent) {
+		MobileConsent = mobileConsent;
+	}
+
 	
 	
 }
