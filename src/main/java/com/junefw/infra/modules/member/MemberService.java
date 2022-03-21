@@ -10,6 +10,9 @@ public interface MemberService {
 	int insertEmail(Member dto) throws Exception; 
 	int insertMobile(Member dto) throws Exception; 
 	Member selectOne(MemberVo vo) throws Exception;
+	
 	int update(Member dto) throws Exception;
+	int updateEmail(Member dto) throws Exception;
+	int updateMobile(Member dto) throws Exception;
 
 }
