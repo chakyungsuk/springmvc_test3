@@ -18,6 +18,12 @@ public class MemberVo {
 	private String fdmpNumber;
 	private String mobile;
 	
+	//ConsentNy
+	private Integer ifmmEmailConsentNy;
+	private Integer ifmmSmsConsentNy;
+	private String EmailConsent;
+	private String MobileConsent;
+	
 	//shmemberId = search
 	private String shMemberName;
 	private Integer shmemberDelNy;
@@ -271,6 +277,38 @@ public class MemberVo {
 
 	public void setShValue(String shValue) {
 		this.shValue = shValue;
+	}
+
+	public Integer getIfmmEmailConsentNy() {
+		return ifmmEmailConsentNy;
+	}
+
+	public void setIfmmEmailConsentNy(Integer ifmmEmailConsentNy) {
+		this.ifmmEmailConsentNy = ifmmEmailConsentNy;
+	}
+
+	public Integer getIfmmSmsConsentNy() {
+		return ifmmSmsConsentNy;
+	}
+
+	public void setIfmmSmsConsentNy(Integer ifmmSmsConsentNy) {
+		this.ifmmSmsConsentNy = ifmmSmsConsentNy;
+	}
+
+	public String getEmailConsent() {
+		return EmailConsent;
+	}
+
+	public void setEmailConsent(String emailConsent) {
+		EmailConsent = emailConsent;
+	}
+
+	public String getMobileConsent() {
+		return MobileConsent;
+	}
+
+	public void setMobileConsent(String mobileConsent) {
+		MobileConsent = mobileConsent;
 	}
 	
 	
