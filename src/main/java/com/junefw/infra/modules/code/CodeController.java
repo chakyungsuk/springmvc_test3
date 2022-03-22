@@ -142,7 +142,7 @@ public class CodeController {
 		//입력이 되어야 함 - 입력시행
 		service.insertCode(dto);
 		
-		return "";
+		return "redirect:/code/codeGroupView";
 	}
 	
 	@RequestMapping(value = "/code/codeView")
