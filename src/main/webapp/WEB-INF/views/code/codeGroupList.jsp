@@ -35,7 +35,8 @@
 	<c:otherwise>
 		<c:forEach items="${list}" var="item" varStatus="status">	
 		
-		<c:out value="${item.fdcgSeq}"/> | <a href="/code/codeGroupView?fdcgSeq=${item.fdcgSeq}"><c:out value="${item.fdcgName}"/></a> 
+		<c:out value="${item.fdcgSeq}"/> | <a href="/code/codeGroupView?fdcgSeq=${item.fdcgSeq}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">
+		<c:out value="${item.fdcgName}"/></a> 
 		| <a href="/code/codeGroupView?fdcdSeq=${item.fdcdSeq}"><c:out value="${item.fdcdName}"/></a> | <c:out value="${item.fdcgNameEng}"/>
 		| <c:out value="${item.fdcdOrder}"/> | <c:out value="${item.fdcgDelNy}"/> <br>
 
@@ -84,10 +85,10 @@
 <script type="text/javascript">	
 	$("#btnSubmit").on("click", function(){
 		
-		if(!checkNull($("#shFdcgDelNy"), $("#shFdcgDelNy").val(), "삭제여부 없음")) return false;
+	/* 	if(!checkNull($("#shFdcgDelNy"), $("#shFdcgDelNy").val(), "삭제여부 없음")) return false;
 		if(!checkNull($("#shFdcgName"), $("#shFdcgName").val(), "이름 없음")) return false;
 		if(!checkNull($("#shOption"), $("#shOption").val(), "한영 선택 없음")) return false;
-		if(!checkNull($("#shValue"), $("#shValue").val(), "검색부분 입력 바람")) return false;
+		if(!checkNull($("#shValue"), $("#shValue").val(), "검색부분 입력 바람")) return false; */
 /* 		
 		if($("#shFdcgDelNy").val() == "" || $("#shFdcgDelNy").val() == null){
 			alert("삭제여부없음")

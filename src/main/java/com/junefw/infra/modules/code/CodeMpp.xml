@@ -62,7 +62,7 @@
 			,0
 			, #{fdcgNameEng}
 		)	
-		<selectKey resultType="String" keyProperty="ifcgSeq" order="AFTER">
+		<selectKey resultType="String" keyProperty="fdcgSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>

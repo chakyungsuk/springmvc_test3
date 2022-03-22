@@ -55,13 +55,17 @@ public class CodeController {
 	@RequestMapping(value = "/code/codeGroupInst")
 	public String codeGroupInst(Code dto) throws Exception {
 	
+		System.out.println("dto.getFdcgSeq()" + dto.getFdcgSeq());
 		//입력이 되어야 함 - 입력시행
 		service.insert(dto);
-		return "redirect:/code/codeGroupList";
+		
+		System.out.println("dto.getFdcgSeq()" + dto.getFdcgSeq());
+		
+		return "redirect:/code/codeGroupView?fdcgSeq=" + dto.getFdcgSeq();
 	}
 	
 	@RequestMapping(value = "/code/codeGroupView")
-	public String codeGroupView(CodeVo vo, Model model) throws Exception {
+	public String codeGroupView(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 	
 		System.out.println("vo.getFdcgSeq()" + vo.getFdcgSeq());
 		System.out.println("vo.getFdcgSeq()" + vo.getFdcdSeq());

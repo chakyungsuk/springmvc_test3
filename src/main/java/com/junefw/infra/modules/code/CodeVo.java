@@ -5,6 +5,7 @@ public class CodeVo {
 // Vo
 	//fdcodeGroup
 	private String fdcgSeq;
+	private String fdcgNameEng;
 	
 	//shFdcgName = search
 	private String shFdcgName;
@@ -245,6 +246,18 @@ public class CodeVo {
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
 	}
+
+
+	public String getFdcgNameEng() {
+		return fdcgNameEng;
+	}
+
+
+	public void setFdcgNameEng(String fdcgNameEng) {
+		this.fdcgNameEng = fdcgNameEng;
+	}
+
+
 
 	
 		
