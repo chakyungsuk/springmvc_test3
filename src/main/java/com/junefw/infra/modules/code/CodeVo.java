@@ -7,6 +7,7 @@ public class CodeVo {
 	private String fdcgSeq;
 	private String fdcgNameEng;
 	
+	
 	//shFdcgName = search
 	private String shFdcgName;
 	private Integer shFdcgDelNy;
@@ -23,7 +24,7 @@ public class CodeVo {
 	
 	//paging
 	private int thisPage = 1;									// 현재 페이지
-	private int rowNumToShow = 5;								// 화면에 보여줄 데이터 줄 갯수
+	private int rowNumToShow = 10;								// 화면에 보여줄 데이터 줄 갯수
 	private int pageNumToShow = 3;								// 화면에 보여줄 페이징 번호 갯수
 
 	private int totalRows;										// 전체 데이터 갯수
