@@ -56,11 +56,9 @@
 		INSERT INTO fdcodegroup (
 			fdcgName
 			, fdcgDelNy
-			, fdcgNameEng
 		) VALUES (
 			#{fdcgName}
 			,0
-			, #{fdcgNameEng}
 		)	
 		<selectKey resultType="String" keyProperty="fdcgSeq" order="AFTER">
 			SELECT last_insert_id()
@@ -89,6 +87,13 @@
 			and fdcgSeq = #{fdcgSeq}
 	</update>
 	
+	<update id="updateDelete">
+	    update fdcodegroup SET fdcgDelNy = 1 WHERE 1=1 and fdcgSeq = #{fdcgSeq}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM fdcodegroup WHERE 1=1 AND fdcgSeq = #{fdcgSeq}
+	</delete>
     <!-- fdcode -->
     
     <sql id="selectCommonCode">
