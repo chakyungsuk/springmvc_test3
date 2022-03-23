@@ -6,9 +6,13 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
 <form id="form" method="post" action="/code/codeGroupInst">
+	<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }"/>">
+	<input type="hidden" name="shFdcgDelNy" value="<c:out value="${vo.shFdcgDelNy }"/>">
+	<input type="hidden" name="shFdcgName" value="<c:out value="${vo.shFdcgName }"/>">
+	<input type="hidden" name="">
+	
+	
 	<input type="text" id="fdcgName" name="fdcgName" placeholder="이름">
-	<input type="text" id="fdcgNameEng" name="fdcgNameEng" placeholder="영어이름">
-	<input type="text" id="fdcdName" name="fdcdName" placeholder="코드이름">
 	<input type="submit" id="btnSubmit" value="제출">
 </form> 
 
@@ -21,11 +25,11 @@
 	$("#btnSubmit").on("click", function(){
 	
 		// 이름
-		if(!checkNull($("#fdcgName"),$("#fdcgName").val(), "이름을 입력해 주세요")) return false;
+/* 		if(!checkNull($("#fdcgName"),$("#fdcgName").val(), "이름을 입력해 주세요")) return false;
 	
 		//영어이름
 		if(!checkNull($("#fdcgNameEng"),$("#fdcgNameEng").val(), "영문 이름을 입력해 주세요.")) return false;
-		if(!checkOnlyEnglish($("#fdcgNameEng"),$("#fdcgNameEng").val(), "영문만 입력해 주십시요.")) return false;
+		if(!checkOnlyEnglish($("#fdcgNameEng"),$("#fdcgNameEng").val(), "영문만 입력해 주십시요.")) return false; */
 	
 		
 		//select 부분		
