@@ -15,14 +15,14 @@
 </select>
 ||
 회원이름 : <input type="text" name="shFdcgName" id="shFdcgName" value="${vo.shFdcgName }"/>
-||
+<%-- ||
 <select name="shOption" id="shOption">
 	<option value="">::검색구분::</option>
 	<option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>한글
 	<option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>영문
 </select>
 
-<input type="text" name="shValue" id="shValue" value="${vo.shValue }"/>
+<input type="text" name="shValue" id="shValue" value="${vo.shValue }"/> --%>
 <input type="submit" id="btnSubmit" name="search">
 <br>
 
@@ -35,10 +35,9 @@
 	<c:otherwise>
 		<c:forEach items="${list}" var="item" varStatus="status">	
 		
-		<c:out value="${item.fdcgSeq}"/> | <a href="/code/codeGroupView?fdcgSeq=${item.fdcgSeq}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">
+		<c:out value="${item.fdcgSeq}"/> | <a href="/code/codeGroupView?fdcgSeq=${item.fdcgSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shFdcgDelNy}"/>&shFdcgName=<c:out value="${vo.shFdcgName}"/>&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">
 		<c:out value="${item.fdcgName}"/></a> 
-		| <a href="/code/codeGroupView?fdcdSeq=${item.fdcdSeq}"><c:out value="${item.fdcdName}"/></a> | <c:out value="${item.fdcgNameEng}"/>
-		| <c:out value="${item.fdcdOrder}"/> | <c:out value="${item.fdcgDelNy}"/> <br>
+		| <c:out value="${item.fdcgDelNy}"/> <br>
 
 		</c:forEach>
 	</c:otherwise>
@@ -64,19 +63,21 @@
                 <li class="page-item active"><a class="page-link" href="/code/codeGroupList?thisPage=${i.index}">${i.index}</a></li>
 		</c:when>
 		<c:otherwise>             
-                <li class="page-item"><a class="page-link" href="/code/codeGroupList?thisPage=${i.index}">${i.index}</a></li>
+                <li class="page-item"><a class="page-link" href="/code/codeGroupList?thisPage=${i.index}&shFdcgDelNy=<c:out value="${vo.shFdcgDelNy}"/>&shFdcgName=<c:out value="${vo.shFdcgName }"/>&shOption=<c:out value="${vo.shOption }"/>&shValue=<c:out value="${vo.shValue }"/>">${i.index}</a></li>
 		</c:otherwise>
 	</c:choose>
 </c:forEach>  
 
 <!-- Next -->
 <c:if test="${vo.endPage ne vo.totalPages}">                
-	<li class="page-item"><a class="page-link" href="/code/codeGroupList?thisPage=${vo.endPage + 1}">Next</a></li>
+	<li class="page-item"><a class="page-link" href="/code/codeGroupList?thisPage=${vo.endPage + 1}&shFdcgDelNy=<c:out value="${vo.shFdcgDelNy}"/>&shFdcgName=<c:out value="${vo.shFdcgName }"/>&shOption=<c:out value="${vo.shOption }"/>&shValue=<c:out value="${vo.shValue }"/>">Next</a></li>
 </c:if>
 
 <!-- Page E -->
   </ul>
 </nav>
+
+<a href="/code/codeGroupForm?fdcgSeq=${item.fdcgSeq}&thisPage=<c:out value="${vo.thisPage}"/>&shFdcgDelNy=<c:out value="${vo.shFdcgDelNy}"/>&shFdcgName=<c:out value="${vo.shFdcgName }"/>">등록</a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/resources/js/validation.js"></script>

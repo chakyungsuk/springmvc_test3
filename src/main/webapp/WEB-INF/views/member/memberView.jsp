@@ -202,7 +202,7 @@
 						</td>
 						
 						<td>
-			    			<a href="/member/memberForm2?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.ifmmId}"/></a> <br><br>
+			    			<a href="/member/memberForm2?ifmmSeq=${item.ifmmSeq}&shmemberDelNy=<c:out value="${vo.shmemberDelNy}"/>&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>"><c:out value="${item.ifmmId}"/></a> <br><br>
 						</td>
 					
 						<td>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.junefw.infra.modules.code.Code;
 import com.junefw.infra.modules.code.CodeVo;
@@ -47,14 +48,29 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/member/memberInst")
-	public String memberInst(Member dto) throws Exception {
+	public String memberInst(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
 		
 		service.insert(dto);
+		
+		redirectAttributes.addAttribute("ifmmSeq", dto.getIfmmSeq());
+		redirectAttributes.addAttribute("thisPage", vo.getThisPage());
+		redirectAttributes.addAttribute("shmemberDelNy", vo.getShmemberDelNy());
+		redirectAttributes.addAttribute("shOption", vo.getShOption());
+		redirectAttributes.addAttribute("shValue", vo.getShValue());
+		
 		return "redirect:/member/memberList";
 	}
 	
+	public String makeQueryString(MemberVo vo) {
+		String tmp = "&thisPage" + vo.getThisPage() +
+					"&shmemberDelNy" + vo.getShmemberDelNy() +
+					"&shOption" + vo.getShOption() +
+					"&shValue" + vo.getShValue();
+		return tmp;
+	}
+	
 	@RequestMapping(value = "/member/memberView")
-	public String memberView(MemberVo vo, Model model) throws Exception {
+	public String memberView(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 		
 		Member rt = service.selectOne(vo);
 		
@@ -64,7 +80,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/member/memberForm2")
-	public String memberForm2(MemberVo vo, Model model) throws Exception {
+	public String memberForm2(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 		
 		// 한건의 데이터를 가져온다
 		Member rt = service.selectOne(vo);
@@ -77,12 +93,12 @@ public class MemberController {
 	
 	//실제 수정을 하는 주소
 	@RequestMapping(value = "/member/memberUpdt")
-	public String memberUpdt(Member dto) throws Exception {
+	public String memberUpdt(Member dto, MemberVo vo) throws Exception {
 		
 		//수정 프로세스 실행
 		service.update(dto);
 		
-		return "redirect:/member/memberView?ifmmSeq=" + dto.getIfmmSeq();
+		return "redirect:/member/memberView?ifmmSeq=" + dto.getIfmmSeq() + makeQueryString(vo);
 	}
 }
 

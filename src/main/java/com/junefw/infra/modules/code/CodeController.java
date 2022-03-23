@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class CodeController {
@@ -47,13 +49,13 @@ public class CodeController {
 
 	
 	@RequestMapping(value = "/code/codeGroupForm")
-	public String codeGroupForm() throws Exception {
+	public String codeGroupForm(@ModelAttribute("vo") CodeVo vo) throws Exception {
 	
 		return "code/codeGroupForm";
 	}
 	
 	@RequestMapping(value = "/code/codeGroupInst")
-	public String codeGroupInst(Code dto) throws Exception {
+	public String codeGroupInst(Code dto, CodeVo vo, RedirectAttributes redirectAttributes) throws Exception {
 	
 		System.out.println("dto.getFdcgSeq()" + dto.getFdcgSeq());
 		//입력이 되어야 함 - 입력시행
@@ -61,8 +63,22 @@ public class CodeController {
 		
 		System.out.println("dto.getFdcgSeq()" + dto.getFdcgSeq());
 		
-		return "redirect:/code/codeGroupView?fdcgSeq=" + dto.getFdcgSeq();
+		redirectAttributes.addAttribute("fdcgSeq", dto.getFdcgSeq()); // get 방식
+		redirectAttributes.addAttribute("thisPage", vo.getThisPage()); // get 방식
+		redirectAttributes.addAttribute("shFdcgDelNy", vo.getShFdcgDelNy()); // get 방식
+		redirectAttributes.addAttribute("shFdcgName", vo.getShFdcgName()); // get 방식
+		
+		return "redirect:/code/codeGroupView"; 
+//		return "redirect:/code/codeGroupView?fdcgSeq=" + dto.getFdcgSeq() + makeQueryString(vo); 
 	}
+	
+	public String makeQueryString(CodeVo vo) {
+		String tmp = "&thisPage=" + vo.getThisPage() + 
+					"&shFdcgDelNy=" + vo.getShFdcgDelNy() + 
+					"&shFdcgName=" + vo.getShFdcgName(); 
+		return tmp;
+	}
+	
 	
 	@RequestMapping(value = "/code/codeGroupView")
 	public String codeGroupView(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
@@ -81,7 +97,7 @@ public class CodeController {
 	
 	// 수정폼이 보여지는 주소
 	@RequestMapping(value = "/code/codeGroupForm2")
-	public String codeGroupForm2(CodeVo vo, Model model) throws Exception {
+	public String codeGroupForm2(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 		
 		// 한건의 데이터를 가져온다
 		Code rt = service.selectOne(vo);
@@ -94,15 +110,38 @@ public class CodeController {
 	
 	//실제 수정을 하는 주소
 	@RequestMapping(value = "/code/codeGroupUpdt")
-	public String codeGroupUpdt(Code dto) throws Exception {
+	public String codeGroupUpdt(Code dto, CodeVo vo) throws Exception {
 		
 		//수정 프로세스 실행
 		service.update(dto);
 		
-		return "redirect:/code/codeGroupView?fdcgSeq=" + dto.getFdcgSeq();
+		return "redirect:/code/codeGroupView?fdcgSeq=" + dto.getFdcgSeq() + "&thisPage=" + vo.getThisPage() + 
+				"&shFdcgDelNy=" + vo.getShFdcgDelNy() + "&shFdcgName=" + vo.getShFdcgName(); 
 	}
 	
+	@RequestMapping(value = "/code/codeGroupDele")
+	public String codeGroupDele(CodeVo vo, RedirectAttributes redirectAttributes) throws Exception {
 	
+		service.delete(vo);
+		
+		redirectAttributes.addAttribute("thisPage", vo.getThisPage()); // get 방식
+		redirectAttributes.addAttribute("shFdcgDelNy", vo.getShFdcgDelNy()); // get 방식
+		redirectAttributes.addAttribute("shFdcgName", vo.getShFdcgName()); // get 방식
+		
+		return "redirect:/code/codeGroupList";
+	}
+	
+	@RequestMapping(value = "/code/codeGroupNele")
+	public String codeGroupNele(CodeVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		
+		service.updateDelete(vo);
+		
+		redirectAttributes.addAttribute("thisPage", vo.getThisPage()); // get 방식
+		redirectAttributes.addAttribute("shFdcgDelNy", vo.getShFdcgDelNy()); // get 방식
+		redirectAttributes.addAttribute("shFdcgName", vo.getShFdcgName()); // get 방식
+		
+		return "redirect:/code/codeGroupList";
+	}
 	//------------------------------------
 	
 	

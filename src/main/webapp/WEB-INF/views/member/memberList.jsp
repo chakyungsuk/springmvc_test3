@@ -222,7 +222,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.ifmmId}"/></a> <br><br>
+										<a href="/member/memberView?ifmmSeq=${item.ifmmSeq}&shmemberDelNy=<c:out value="${vo.shmemberDelNy}"/>&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>"><c:out value="${item.ifmmId}"/></a> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
@@ -333,7 +333,7 @@
 	                <li class="page-item active"><a class="page-link" href="/member/memberList?thisPage=${i.index}">${i.index}</a></li>
 			</c:when>
 			<c:otherwise>             
-	                <li class="page-item"><a class="page-link" href="/member/memberList?thisPage=${i.index}">${i.index}</a></li>
+	                <li class="page-item"><a class="page-link" href="/member/memberList?thisPage=${i.index}&shmemberDelNy=<c:out value="${vo.shmemberDelNy}"/>&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">${i.index}</a></li>
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>  
@@ -359,7 +359,7 @@
 			<button class="btn btn-success btn-sm me-md-2 " type="button" >
 				<i class="fa-solid fa-file-excel"></i>	
 			</button>
-			<a href="./memberForm">
+			<a href="./memberForm?&thisPage=${i.index}&shmemberDelNy=<c:out value="${vo.shmemberDelNy}"/>&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">
 				<button class="btn btn-info btn-sm me-md-2 " type="button" >
 					<i class="fa-solid fa-plus"></i>	
 				</button>
