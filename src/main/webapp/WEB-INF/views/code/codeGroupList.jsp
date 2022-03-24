@@ -8,6 +8,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <form id="" name="" method="get" action="/code/codeGroupList">
+
 <select name="shFdcgDelNy" id=shFdcgDelNy>
 	<option value="">::삭제여부::</option>
 	<option value="1" <c:if test="${vo.shFdcgDelNy eq 1 }">selected</c:if>>Y
@@ -15,14 +16,14 @@
 </select>
 ||
 회원이름 : <input type="text" name="shFdcgName" id="shFdcgName" value="${vo.shFdcgName }"/>
-<%-- ||
+||
 <select name="shOption" id="shOption">
 	<option value="">::검색구분::</option>
 	<option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>한글
 	<option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>영문
 </select>
 
-<input type="text" name="shValue" id="shValue" value="${vo.shValue }"/> --%>
+<input type="text" name="shValue" id="shValue" value="${vo.shValue }"/>
 <input type="submit" id="btnSubmit" name="search">
 <br>
 
@@ -36,8 +37,7 @@
 		<c:forEach items="${list}" var="item" varStatus="status">	
 		
 		<c:out value="${item.fdcgSeq}"/> | <a href="/code/codeGroupView?fdcgSeq=${item.fdcgSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shFdcgDelNy}"/>&shFdcgName=<c:out value="${vo.shFdcgName}"/>&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">
-		<c:out value="${item.fdcgName}"/></a> 
-		| <c:out value="${item.fdcgDelNy}"/> <br>
+		<c:out value="${item.fdcgName}"/></a> | <c:out value="${item.fdcgDelNy}"/> | <c:out value="${item.fdcgName}"/><br>
 
 		</c:forEach>
 	</c:otherwise>

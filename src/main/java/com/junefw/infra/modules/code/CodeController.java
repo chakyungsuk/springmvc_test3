@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -24,7 +25,8 @@ public class CodeController {
 	
 	//fdcodeGroup
 	
-	@RequestMapping(value = "/code/codeGroupList")
+	@RequestMapping(value = "/code/codeGroupList")  // method = RequestMethod.POST (POST로만 받게끔한다)
+													// method = RequestMethod.GET (GET으로만 받게끔한다)
 	
 	public String codeGroupList(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 	
