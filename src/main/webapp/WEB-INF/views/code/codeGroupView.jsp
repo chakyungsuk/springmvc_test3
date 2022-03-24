@@ -8,10 +8,11 @@
 <form id="formView" action="" method="post">
 
 <input type="hidden" id="fdcgSeq" name="fdcgSeq" value="<c:out value="${vo.fdcgSeq}"/>">
-<%-- <input type="hidden" id="shfdcgDelNy" name="shfdcgDelNy" value="<c:out value="${vo.shfdcgDelNy}"/>">
-<input type="hidden" id="shfdcgName" name="shfdcgName" value="<c:out value="${vo.shfdcgName}"/>">
+<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>">
+<input type="hidden" id="shFdcgDelNy" name="shFdcgDelNy" value="<c:out value="${vo.shFdcgDelNy}"/>">
+<input type="hidden" id="shFdcgName" name="shFdcgName" value="<c:out value="${vo.shFdcgName}"/>">
 <input type="hidden" id="shOption" name="shOption" value="<c:out value="${vo.shOption}"/>">
-<input type="hidden" id="shValue" name="shValue" value="<c:out value="${vo.shValue}"/>">	 --%>
+<input type="hidden" id="shValue" name="shValue" value="<c:out value="${vo.shValue}"/>">
 
 </form>	
 	

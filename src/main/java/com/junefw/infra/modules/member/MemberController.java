@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.junefw.infra.modules.code.Code;
+import com.junefw.infra.modules.code.CodeServiceImpl;
 import com.junefw.infra.modules.code.CodeVo;
 
 @Controller
@@ -43,6 +44,8 @@ public class MemberController {
 	
 	@RequestMapping(value = "/member/memberForm")
 	public String memberForm(Model model) throws Exception {
+		
+//		model.addAllAttributes(CodeServiceImpl.selelctListCachedCode("3"));
 		
 		return "member/memberForm";
 	}

@@ -167,13 +167,11 @@
 	});
 	
 	goList = function(seq){
-		alert(seq);			
 		$("#thisPage").val(seq)		// form 객체를 가져온다.
 		$("#formList").submit();	// 그 가져온 객체를 전달한다.
 	}
 	
 	goForm = function(seq){
-		alert(seq);
 		$("#fdcgSeq").val(seq)	
 		$("#formList").attr("action","/code/codeGroupView");
 		$("#formList").submit();
