@@ -18,6 +18,7 @@ public class CodeVo {
 	private String shFdcdName;
 	private Integer shFdcdDelNy;
 	
+	
 	//common
 	private String shOption;
 	private String shValue;

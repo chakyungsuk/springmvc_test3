@@ -1,5 +1,8 @@
 package com.junefw.infra.modules.code;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Code {
 	
 // DTO
@@ -15,6 +18,9 @@ public class Code {
 	private Integer fdcdDelNy;
 	private String fdcdOrder;
 	private String ifcgSeq;
+	
+	//	for cache
+	public static List<Code> cachedCodeArrayList = new ArrayList<Code>();	//메모리에 리스트가 상주돼있음
 //  ============================================	
 	
 	public String getIfcgSeq() {

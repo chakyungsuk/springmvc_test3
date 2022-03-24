@@ -5,8 +5,16 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-		
-		
+<form id="formView" action="" method="post">
+
+<input type="hidden" id="fdcgSeq" name="fdcgSeq" value="<c:out value="${vo.fdcgSeq}"/>">
+<%-- <input type="hidden" id="shfdcgDelNy" name="shfdcgDelNy" value="<c:out value="${vo.shfdcgDelNy}"/>">
+<input type="hidden" id="shfdcgName" name="shfdcgName" value="<c:out value="${vo.shfdcgName}"/>">
+<input type="hidden" id="shOption" name="shOption" value="<c:out value="${vo.shOption}"/>">
+<input type="hidden" id="shValue" name="shValue" value="<c:out value="${vo.shValue}"/>">	 --%>
+
+</form>	
+	
 		<c:out value="${item.fdcgSeq}"/> | <c:out value="${item.fdcgName}"/> | <c:out value="${item.fdcgNameEng}"/>| <c:out value="${item.fdcdOrder}"/>
 		<c:out value="${item.fdcgDelNy}"/> <br>
 		
@@ -14,11 +22,17 @@
 		<a href ="/code/codeGroupForm?fdcgSeq=${item.fdcgSeq}">등록</a> <br>
 		<a href ="/code/codeGroupDele?fdcgSeq=${item.fdcgSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shFdcgDelNy}"/>&shFdcgName=<c:out value="${vo.shFdcgName}"/>" id="btnDelete">삭제(진짜)</a><br>
 		<a href ="/code/codeGroupNele?fdcgSeq=${item.fdcgSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shFdcgDelNy}"/>&shFdcgName=<c:out value="${vo.shFdcgName}"/>" id="btnDeleteDelNy">삭제(가짜)</a><br>
-		<a href ="/code/codeGroupList?&thisPage=<c:out value="${vo.thisPage}"/>&shFdcgDelNy=<c:out value="${vo.shFdcgDelNy}"/>&shFdcgName=<c:out value="${vo.shFdcgName }"/>">목록</a>
+		<a href="javascript:goForm('<c:out value="${item.fdcgSeq}"/>')">목록</a>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		
 <script type="text/javascript">
+
+	goForm = function(seq){
+		$("#formView").attr("action","/code/codeGroupList");
+		$("#formView").submit();
+	}
 
 	$("#btnDelete").on("click", function(){
 			var answer = confirm ("삭제할거에요?")

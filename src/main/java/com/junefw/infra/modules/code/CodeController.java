@@ -86,7 +86,6 @@ public class CodeController {
 	public String codeGroupView(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 	
 		System.out.println("vo.getFdcgSeq()" + vo.getFdcgSeq());
-		System.out.println("vo.getFdcgSeq()" + vo.getFdcdSeq());
 		
 		//디비까지 가서 한건의 데이터 값을 가지고 온다 , VO
 		Code rt = service.selectOne(vo);
