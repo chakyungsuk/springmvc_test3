@@ -45,7 +45,7 @@
 
 <br>
 
-<c:out value="${vo.startPage}" />
+<%-- <c:out value="${vo.startPage}" />
 
 <!-- Page S -->
 <nav aria-label="...">
@@ -75,7 +75,41 @@
 
 <!-- Page E -->
   </ul>
+</nav> --%>
+
+<c:out value="${vo.startPage}" />
+
+<!-- Page S -->
+<nav aria-label="...">
+  <ul class="pagination">
+  
+<!-- Previous -->
+<c:if test="${vo.startPage gt vo.pageNumToShow}">
+	<li class="page-item"><a class="page-link" href="">Previous</a></li>
+</c:if>
+
+<!-- Page -->    
+<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+	<c:choose>
+		<c:when test="${i.index eq vo.thisPage}">  
+                <li class="page-item active"><a class="page-link" href="">${i.index}</a></li>
+		</c:when>
+		<c:otherwise>             
+                <li class="page-item"><a class="page-link" href="">${i.index}</a></li>
+		</c:otherwise>
+	</c:choose>
+</c:forEach>  
+
+<!-- Next -->
+<c:if test="${vo.endPage ne vo.totalPages}">                
+	<li class="page-item"><a class="page-link" href="">&shValue=<c:out value="${vo.shValue }"/>">Next</a></li>
+</c:if>
+
+<!-- Page E -->
+  </ul>
 </nav>
+
+
 
 <a href="/code/codeGroupForm?fdcgSeq=${item.fdcgSeq}&thisPage=<c:out value="${vo.thisPage}"/>&shFdcgDelNy=<c:out value="${vo.shFdcgDelNy}"/>&shFdcgName=<c:out value="${vo.shFdcgName }"/>">등록</a>
 
