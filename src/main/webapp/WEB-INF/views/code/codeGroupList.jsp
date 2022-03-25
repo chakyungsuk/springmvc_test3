@@ -176,6 +176,15 @@
 		$("#formList").attr("action","/code/codeGroupView");
 		$("#formList").submit();
 	}
+	
+	/* <select id="mvmmGenderCd" name="mvmmGenderCd" class="form-select form-select-sm">
+	<option value="">::선택::</option>
+		<c:forEach items="${codeGender}" var="itemGender" varStatus="statusGender">
+				<option value="<c:out value="${itemGender.mvcdSeq}"/>"
+				<c:if test="${rt.mvmmGenderCd eq itemGender.mvcdSeq}">selected</c:if>><c:out value="${itemGender.mvcdName}"/>
+			</option>
+		</c:forEach>
+	</select> */
 </script>	
 
 
