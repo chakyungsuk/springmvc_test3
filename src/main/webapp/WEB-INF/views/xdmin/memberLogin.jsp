@@ -16,13 +16,13 @@
     <title>Cha html projects</title>
 
     <!-- Bootstrap core CSS -->
-<link href="../../../bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../../../bootstrap/bootstrap-5.1.3-examples/sign-in/signin.css" rel="stylesheet">
+<link href="/resources/xdmin/css/bootstrap.min.css" rel="stylesheet">
+<link href="/resources/xdmin/css/signin.css" rel="stylesheet">
 
  <style>
       body {
         height: 100vh;
-        background-image: url('../../../images/manager_image/fdmain4-1.jpg ');
+        background-image: url('/resources/xdmin/image/user_image/fdmain4-1.jpg');
         background-repeat : no-repeat;
         background-size : cover;
         max-width:100%;
@@ -84,7 +84,7 @@
    	</a>
    	
    	<div style="margin-top: 30px;">
-		<a href="../member/memberFrom.html" style="text-decoration: underline;">
+		<a href="" style="text-decoration: underline;">
 	    	<div style="color: #ffffff;">Sign Up</div>
 	   	</a>
    	</div>

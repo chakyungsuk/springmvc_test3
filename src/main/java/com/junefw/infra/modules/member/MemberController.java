@@ -103,6 +103,13 @@ public class MemberController {
 		
 		return "redirect:/member/memberView?ifmmSeq=" + dto.getIfmmSeq() + makeQueryString(vo);
 	}
+	
+	@RequestMapping(value = "/member/memberLogin")
+	public String memberLogin() throws Exception {
+		
+		
+		return "member/memberLogin";
+	}
 }
 
 
