@@ -216,8 +216,8 @@
 				
 				<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}"/>">
 				<input type="hidden" name="shmemberDelNy" value="<c:out value="${vo.shmemberDelNy}"/>">
-				<input type="hidden" name="shOption" value="<c:out value="${vo.shOption}"/>">;
-				<input type="hidden" name="sshValue" value="<c:out value="${vo.shValue}"/>">;
+				<input type="hidden" name="shOption" value="<c:out value="${vo.shOption}"/>">
+				<input type="hidden" name="sshValue" value="<c:out value="${vo.shValue}"/>">
 				<input type="hidden" name="" value="">
 						
 				<input type="submit" class="btn" style="color: blue;" value="Submit" id="btnSubmit"/>			
