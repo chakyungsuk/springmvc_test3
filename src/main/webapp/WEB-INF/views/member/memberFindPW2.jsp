@@ -165,7 +165,7 @@
 	<div class="container1" style="margin-top: 100px;" >
 		<div class="col-12">
 			<div class="input">
-				<input type="text" id="ifmmId" name="ifmmId" placeholder="ID" size="40" style="background: transparent; color: white;">
+				<input type="text" id="CFnumber" name="CFnumber" placeholder="Certification_Number" size="40" style="background: transparent; color: white;">
 			</div>
 		</div>
 		
@@ -174,16 +174,18 @@
 				<input type="password" id="ifmmPassword" name="ifmmPassword" placeholder="Password" size="40" style="background: transparent; color: white;">
 			</div>
 		</div>
+		
+		<div class="col-12">
+			<div class="input">
+				<input type="password" id="VFifmmPassword" name="VFifmmPassword" placeholder="verify_Password" size="40" style="background: transparent; color: white;">
+			</div>
+		</div>
 	</div>
 			
 	<div class="container1" style="margin-top: 50px;">
 		<a href="../member/memberList.html" style="text-decoration: none;">
-    <button class="btn btn-sm btn-primary" type="submit" style="width: 330px;" id=button>Login</button>
-   	</a>
-		<div class="col-12" style="margin-top: 50px;">
-			<input type="button" id="signUp" class="btn" style="color: red;" value="Sign Up"/>
-			<input type="button" id="FindPW" class="btn" style="color: blue;" value="Find Password"/>
-		</div>
+	    	<button class="btn btn-sm btn-primary" type="submit" style="width: 330px;" id=Send>Send</button>
+	   	</a>
 	</div>
 	
 <div class="container1">
@@ -221,30 +223,17 @@
 
 <script type="text/javascript">
 		
-		$("#signUp").mouseover(function(){
-			$('#signUp').val('회원가입')
-		});
-		$("#signUp").mouseout(function(){
-			$('#signUp').val('SignUp');
-		});
-		$("#signUp").on("click", function(){
-			$("#formLogin").attr("action","/member/memberForm")
-			$("#formLogin").submit();
+		$("#CFnumber, #ifmmPassword, #VFifmmPassword").on("click", function(){
+			$("#CFnumber").attr("placeholder","인증번호입력")
+			$("#ifmmPassword").attr("placeholder","비밀번호입력")
+			$("#VFifmmPassword").attr("placeholder","비밀번호확인")
 		});
 		
-		$("#FindPW").mouseover(function(){
-			$('#FindPW').val('비밀번호찾기')
-		});
-		$("#FindPW").mouseout(function(){
-			$('#FindPW').val('Find Password');
-		});
-		$("#FindPW").on("click", function(){
-			$("#formLogin").attr("action","/member/memberFindPW")
+		$("#Send").on("click", function(){
+			alert("비밀번호가 변경 되었습니다. 로그인 화면으로 이동합니다.")
+			$("#formLogin").attr("action","/member/memberLogin")
 			$("#formLogin").submit();
 		});
-
-		
-	
 	
 
 </script>

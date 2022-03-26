@@ -163,31 +163,22 @@
 <form id="formLogin" name="formLogin" method="post" action="/member/memberInst">
 	
 	<div class="container1" style="margin-top: 100px;" >
-		<div class="col-12">
-			<div class="input">
-				<input type="text" id="ifmmId" name="ifmmId" placeholder="ID" size="40" style="background: transparent; color: white;">
-			</div>
-		</div>
 		
 		<div class="col-12">
 			<div class="input">
-				<input type="password" id="ifmmPassword" name="ifmmPassword" placeholder="Password" size="40" style="background: transparent; color: white;">
+				<input type="text" id="fdmeEmailFull" name="fdmeEmailFull" placeholder="E-mail" size="40" style="background: transparent; color: white;">
 			</div>
 		</div>
 	</div>
 			
 	<div class="container1" style="margin-top: 50px;">
 		<a href="../member/memberList.html" style="text-decoration: none;">
-    <button class="btn btn-sm btn-primary" type="submit" style="width: 330px;" id=button>Login</button>
-   	</a>
-		<div class="col-12" style="margin-top: 50px;">
-			<input type="button" id="signUp" class="btn" style="color: red;" value="Sign Up"/>
-			<input type="button" id="FindPW" class="btn" style="color: blue;" value="Find Password"/>
-		</div>
+	    	<button class="btn btn-sm btn-primary" type="submit" style="width: 330px;" id=SnedEmail>이메일로 임시번호 전송</button>
+	   	</a>
 	</div>
 	
 <div class="container1">
-   	<div class="" style="margin-top: 120px;">
+   	<div class="" style="margin-top: 260px;">
 		<div class="col-lg-12 col-sm-12">
 		    <button class="btn btn-sm" type="submit">
     			<a href="https://www.facebook.com/" style="text-decoration: none;">
@@ -221,30 +212,11 @@
 
 <script type="text/javascript">
 		
-		$("#signUp").mouseover(function(){
-			$('#signUp').val('회원가입')
-		});
-		$("#signUp").mouseout(function(){
-			$('#signUp').val('SignUp');
-		});
-		$("#signUp").on("click", function(){
-			$("#formLogin").attr("action","/member/memberForm")
+		$("#SnedEmail").on("click", function(){
+			alert("임시번호가 발송되었습니다. 이메일을 확인 해주세요.")
+			$("#formLogin").attr("action","/member/memberFindPW2")
 			$("#formLogin").submit();
 		});
-		
-		$("#FindPW").mouseover(function(){
-			$('#FindPW').val('비밀번호찾기')
-		});
-		$("#FindPW").mouseout(function(){
-			$('#FindPW').val('Find Password');
-		});
-		$("#FindPW").on("click", function(){
-			$("#formLogin").attr("action","/member/memberFindPW")
-			$("#formLogin").submit();
-		});
-
-		
-	
 	
 
 </script>

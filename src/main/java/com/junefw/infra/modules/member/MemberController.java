@@ -110,6 +110,22 @@ public class MemberController {
 		
 		return "member/memberLogin";
 	}
+	
+	@RequestMapping(value = "/member/memberFindPW")
+	public String memberFindPW() throws Exception {
+		
+		
+		return "member/memberFindPW";
+	}
+	
+	@RequestMapping(value = "/member/memberFindPW2")
+	public String memberFindPW2() throws Exception {
+		
+		
+		return "member/memberFindPW2";
+	}
+
 }
+
 
 
