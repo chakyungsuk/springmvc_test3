@@ -64,7 +64,9 @@
    		}
 </style>
 
-<form id="" name="" method="get" action="/member/memberList">	
+<form id="formList" name="formList" method="post" action="/member/memberList">	
+<input type="hidden" id="thisPage" name="thisPage"  value="<c:out value="${vo.thisPage}" default="1"/>">
+<input type="hidden" id="fdcgSeq" name="fdcgSeq">
 
 <div class="container">
 	<div class="row">
@@ -323,24 +325,24 @@
 		  
 	<!-- Previous -->
 	<c:if test="${vo.startPage gt vo.pageNumToShow}">
-		<li class="page-item"><a class="page-link" href="/member/memberList?thisPage=${vo.startPage - 1}">Previous</a></li>
+		<li class="page-item"><a class="page-link" href="javascript:golist(<c:out value="${vo.startPage - 1}"/>);">Previous</a></li>
 	</c:if>
 		
 	<!-- Page -->    
 	<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
 		<c:choose>
 			<c:when test="${i.index eq vo.thisPage}">  
-	                <li class="page-item active"><a class="page-link" href="/member/memberList?thisPage=${i.index}">${i.index}</a></li>
+	                <li class="page-item active"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
 			</c:when>
 			<c:otherwise>             
-	                <li class="page-item"><a class="page-link" href="/member/memberList?thisPage=${i.index}&shmemberDelNy=<c:out value="${vo.shmemberDelNy}"/>&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">${i.index}</a></li>
+	                <li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>  
 	
 	<!-- Next -->
 	<c:if test="${vo.endPage ne vo.totalPages}">                
-		<li class="page-item"><a class="page-link" href="/member/memberList?thisPage=${vo.endPage + 1}">Next</a></li>
+		<li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${vo.endPage + 1}'/>);">Next</a></li>
 	</c:if>
 	
 	<!-- Page E -->
@@ -359,11 +361,9 @@
 			<button class="btn btn-success btn-sm me-md-2 " type="button" >
 				<i class="fa-solid fa-file-excel"></i>	
 			</button>
-			<a href="./memberForm?&thisPage=${i.index}&shmemberDelNy=<c:out value="${vo.shmemberDelNy}"/>&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">
-				<button class="btn btn-info btn-sm me-md-2 " type="button" >
-					<i class="fa-solid fa-plus"></i>	
+				<button class="btn btn-info btn-sm me-md-2 " type="button">
+					<i class="fa-solid fa-plus" id="goForm"></i>	
 				</button>
-			</a>
 		</div>
 	</div>
 </div>
@@ -402,19 +402,26 @@
 
 
 <script>
-	$("#btnSubmit").on("click", function(){
+	goList = function(seq){
+		$("#thisPage").val(seq)		// form 객체를 가져온다.
+		$("#formList").submit();	// 그 가져온 객체를 전달한다.
+	}
 
+	$("#btnSubmit").on("click", function(){
 		if(!checkNull($("#shmemberDelNy"),$("#shmemberDelNy").val(), "삭제여부 확인 바합니다.")) return false;
 		if(!checkNull($("#shOption"),$("#shOption").val(), "검색구분 확인 바랍니다.")) return false;
 		if(!checkNull($("#shValue"),$("#shValue").val(), "검색어를 입력해 주십시요.")) return false;
-		
 	});
 	
 	$("#btnLeset").on("click", function(){
-		
 		confirm("검색정보가 초기화 됩니다.");
-		
 	}); 
+	
+	$("#goForm").on("click", function(){
+		$("#formList").attr("action","/member/memberLogin");
+		$("#formList").submit();
+	}); 
+	
 	
 </script>
 

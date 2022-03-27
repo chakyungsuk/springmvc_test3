@@ -128,6 +128,8 @@
 		if(!checkNull($("#shOption"), $("#shOption").val(), "한영 선택 없음")) return false;
 		if(!checkNull($("#shValue"), $("#shValue").val(), "검색부분 입력 바람")) return false; */
 /* 		
+ * 
+ */
 		if($("#shFdcgDelNy").val() == "" || $("#shFdcgDelNy").val() == null){
 			alert("삭제여부없음")
 			$("#shFdcgDelNy").focus();

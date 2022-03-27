@@ -125,6 +125,12 @@ public class MemberController {
 		return "member/memberFindPW2";
 	}
 
+	@RequestMapping(value = "/member/memberMain")
+	public String memberMain() throws Exception {
+		
+		
+		return "member/memberMain";
+	}
 }
 
 

@@ -159,7 +159,11 @@
 </nav>
 <!-- sidebar E -->
 
-<form id="form" method="get" action="/member/memberInst">
+<form id="formInst" name="formInst" method="post" action="/member/memberInst">
+<input type="hidden" name="ifmmId" value="<c:out value="${vo.ifmmId }"/>">
+<input type="hidden" name="ifmmPassword" value="<c:out value="${vo.ifmmPassword }"/>">
+<input type="hidden" name="fdmeEmailFull" value="<c:out value="${vo.fdmeEmailFull }"/>">
+<input type="hidden" name="fdmpNumber" value="<c:out value="${vo.Mobile }"/>">
 	
 	<div class="container1" style="margin-top: 100px;" >
 		<div class="col-12">
@@ -180,7 +184,7 @@
 		</div>
 		<div class="col-12">
 			<div class="input">
-				<input type="text" id="fdmpNumber" name="fdmpNumber" placeholder="Mobile" name="fdmeEmailFull" size="40" style="background: transparent; color: white;">
+				<input type="text" id="fdmpNumber" name="fdmpNumber" placeholder="Mobile" size="40" style="background: transparent; color: white;">
 			</div>
 		</div>
 	</div>
@@ -213,13 +217,6 @@
 		<div class="col-12" style="margin-top: 100px;">
 			<div>
 				<input type="button" class="btn" style="color: red;" value="RESET" data-bs-toggle="modal" data-bs-target="#staticBackdrop" />	
-				
-				<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}"/>">
-				<input type="hidden" name="shmemberDelNy" value="<c:out value="${vo.shmemberDelNy}"/>">
-				<input type="hidden" name="shOption" value="<c:out value="${vo.shOption}"/>">
-				<input type="hidden" name="sshValue" value="<c:out value="${vo.shValue}"/>">
-				<input type="hidden" name="" value="">
-						
 				<input type="submit" class="btn" style="color: blue;" value="Submit" id="btnSubmit"/>			
 			</div>
 		</div>
@@ -271,6 +268,7 @@
             alert("개인정보 유효기간 체크는 필수 입니다.");
 			return false;
         }
+	 	
 	}); 
  	
 	var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
