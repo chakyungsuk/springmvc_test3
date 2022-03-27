@@ -63,7 +63,16 @@
    		}
 </style>
 
-<form method="post" action="/member/memberUpdt">
+<form id="formUpdt" name="formUpdt" method="post" action="/member/memberUpdt">
+
+<input type="hidden" name="ifmmSeq" id="ifmmSeq">
+<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }"/>">
+<input type="hidden" name="ifmmId" value="<c:out value="${vo.ifmmId }"/>">
+<input type="hidden" name="ifmmPassword" value="<c:out value="${vo.ifmmPassword }"/>">
+<input type="hidden" name="fdmeEmailFull" value="<c:out value="${vo.fdmeEmailFull }"/>">
+<input type="hidden" name="fdmpNumber" value="<c:out value="${vo.fdmpNumber }"/>">
+
+
 
 <div class="container">
 	<div class="row">

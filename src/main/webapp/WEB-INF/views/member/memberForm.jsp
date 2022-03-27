@@ -160,11 +160,7 @@
 <!-- sidebar E -->
 
 <form id="formInst" name="formInst" method="post" action="/member/memberInst">
-<input type="hidden" name="ifmmId" value="<c:out value="${vo.ifmmId }"/>">
-<input type="hidden" name="ifmmPassword" value="<c:out value="${vo.ifmmPassword }"/>">
-<input type="hidden" name="fdmeEmailFull" value="<c:out value="${vo.fdmeEmailFull }"/>">
-<input type="hidden" name="fdmpNumber" value="<c:out value="${vo.Mobile }"/>">
-	
+
 	<div class="container1" style="margin-top: 100px;" >
 		<div class="col-12">
 			<div class="input">

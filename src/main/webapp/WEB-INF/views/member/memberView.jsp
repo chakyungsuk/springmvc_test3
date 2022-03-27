@@ -64,13 +64,14 @@
 </style>
 
 <form id="formView" name="formView" method="post" action="/member/memberList">	
+<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 
-<input type="hidden" id="ifmmSeq" name="ifmmSeq" value="<c:out value="${vo.ifmmSeq}"/>">
+<input type="hidden" name="ifmmSeq" id="ifmmSeq">
 <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }"/>">
 <input type="hidden" name="ifmmId" value="<c:out value="${vo.ifmmId }"/>">
 <input type="hidden" name="ifmmPassword" value="<c:out value="${vo.ifmmPassword }"/>">
 <input type="hidden" name="fdmeEmailFull" value="<c:out value="${vo.fdmeEmailFull }"/>">
-<input type="hidden" name="fdmpNumber" value="<c:out value="${vo.Mobile }"/>">
+<input type="hidden" name="fdmpNumber" value="<c:out value="${vo.fdmpNumber }"/>">
 
 <div class="container">
 	<div class="row">
@@ -209,7 +210,7 @@
 						</td>
 						
 						<td>
-			    			<a href="/member/memberForm2?ifmmSeq=${item.ifmmSeq}&shmemberDelNy=<c:out value="${vo.shmemberDelNy}"/>&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>"><c:out value="${item.ifmmId}"/></a> <br><br>
+			    			<a href="javascript:goUpdt(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmId}"/></a> <br><br>
 						</td>
 					
 						<td>
@@ -252,24 +253,24 @@
 		  
 	<!-- Previous -->
 	<c:if test="${vo.startPage gt vo.pageNumToShow}">
-		<li class="page-item"><a class="page-link" href="/member/memberList?thisPage=${vo.startPage - 1}">Previous</a></li>
+		<li class="page-item"><a class="page-link" href="javascript:golist(<c:out value="${vo.startPage - 1}"/>);">Previous</a></li>
 	</c:if>
-		
+
 	<!-- Page -->    
 	<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
 		<c:choose>
 			<c:when test="${i.index eq vo.thisPage}">  
-	                <li class="page-item active"><a class="page-link" href="/member/memberList?thisPage=${i.index}">${i.index}</a></li>
+	                <li class="page-item active"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
 			</c:when>
 			<c:otherwise>             
-	                <li class="page-item"><a class="page-link" href="/member/memberList?thisPage=${i.index}">${i.index}</a></li>
+	                <li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>  
 	
 	<!-- Next -->
 	<c:if test="${vo.endPage ne vo.totalPages}">                
-		<li class="page-item"><a class="page-link" href="/member/memberList?thisPage=${vo.endPage + 1}">Next</a></li>
+		<li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${vo.endPage + 1}'/>);">Next</a></li>
 	</c:if>
 	
 	<!-- Page E -->
@@ -329,6 +330,17 @@
 
 
 <script>
+	goUpdt = function(seq){
+		$("#ifmmSeq").val(seq)
+		$("#formView").attr("action","/member/memberForm2");
+		$("#formView").submit();
+	}
+	
+	goList = function(seq){
+		$("#thisPage").val(seq)		// form 객체를 가져온다.
+		$("#formView").submit();	// 그 가져온 객체를 전달한다.
+	}
+	
 	$("#btnSubmit").on("click", function(){
 
 		if(!checkNull($("#shmemberDelNy"),$("#shmemberDelNy").val(), "삭제여부 확인 바합니다.")) return false;
@@ -338,9 +350,7 @@
 	});
 	
 	$("#btnLeset").on("click", function(){
-		
 		confirm("검색정보가 초기화 됩니다.");
-		
 	}); 
 	
 </script>

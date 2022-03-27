@@ -39,7 +39,7 @@
 		<c:forEach items="${list}" var="item" varStatus="status">	
 		
 		<%-- <c:out value="${item.fdcgSeq}"/> | <a href="/code/codeGroupView?fdcgSeq=${item.fdcgSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shFdcgDelNy}"/>&shFdcgName=<c:out value="${vo.shFdcgName}"/>&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>"> --%>
-		<c:out value="${item.fdcgSeq}"/> | <a href="javascript:goForm('<c:out value="${item.fdcgSeq}"/>')"><c:out value="${item.fdcgName}"/></a>
+		<c:out value="${item.fdcgSeq}"/> | <a href="javascript:goForm(<c:out value="${item.fdcgSeq}"/>)"><c:out value="${item.fdcgName}"/></a>
 		| <c:out value="${item.fdcgDelNy}"/> | <c:out value="${item.fdcgName}"/><br>
 
 		</c:forEach>
@@ -88,24 +88,24 @@
   
 <!-- Previous -->
 <c:if test="${vo.startPage gt vo.pageNumToShow}">
-	<li class="page-item"><a class="page-link" href="javascript:golist(<c:out value="${vo.startPage - 1}"/>);">Previous</a></li>
+	<li class="page-item"><a class="page-link" href="javascript:golist('<c:out value="${vo.startPage - 1}"/>');">Previous</a></li>
 </c:if>
 
 <!-- Page -->    
 <c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
 	<c:choose>
 		<c:when test="${i.index eq vo.thisPage}">  
-                <li class="page-item active"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+                <li class="page-item active"><a class="page-link" href="javascript:goList('<c:out value='${i.index}'/>');">${i.index}</a></li>
 		</c:when>
 		<c:otherwise>             
-                <li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:goList('<c:out value='${i.index}'/>');">${i.index}</a></li>
 		</c:otherwise>
 	</c:choose>
 </c:forEach>  
 
 <!-- Next -->
 <c:if test="${vo.endPage ne vo.totalPages}">                
-	<li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${vo.endPage + 1}'/>);">Next</a></li>
+	<li class="page-item"><a class="page-link" href="javascript:goList('<c:out value='${vo.endPage + 1}'/>');">Next</a></li>
 </c:if>
 
 <!-- Page E -->
@@ -148,7 +148,7 @@
 		if($("#shValue").val() == "" || $("#shValue").val() == null){
 			alert("입력값없음")
 			$("#shValue").focus();
-		} */
+		} 
 		
 		
 		/* alert("hello");

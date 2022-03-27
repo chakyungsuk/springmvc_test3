@@ -65,8 +65,9 @@
 </style>
 
 <form id="formList" name="formList" method="post" action="/member/memberList">	
-<input type="hidden" id="thisPage" name="thisPage"  value="<c:out value="${vo.thisPage}" default="1"/>">
-<input type="hidden" id="fdcgSeq" name="fdcgSeq">
+<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+<input type="hidden" id="ifmmSeq" name="ifmmSeq">
+
 
 <div class="container">
 	<div class="row">
@@ -224,7 +225,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="/member/memberView?ifmmSeq=${item.ifmmSeq}&shmemberDelNy=<c:out value="${vo.shmemberDelNy}"/>&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>"><c:out value="${item.ifmmId}"/></a> <br><br>
+										<a href="javascript:goForm(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmId}"/></a> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
@@ -239,7 +240,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.ifmmPassword}"/></a> <br><br>
+										<a href="javascript:goForm(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmPassword}"/></a> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
@@ -254,7 +255,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										 <a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.fdmeEmailFull}"/></a> <br><br>
+										<a href="javascript:goForm(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.fdmeEmailFull}"/></a> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
@@ -269,7 +270,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										 <a href="/member/memberView?ifmmSeq=${item.ifmmSeq}"><c:out value="${item.mobile}"/></a> <br><br>
+										<a href="javascript:goForm(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.mobile}"/></a> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
@@ -325,24 +326,24 @@
 		  
 	<!-- Previous -->
 	<c:if test="${vo.startPage gt vo.pageNumToShow}">
-		<li class="page-item"><a class="page-link" href="javascript:golist(<c:out value="${vo.startPage - 1}"/>);">Previous</a></li>
+		<li class="page-item"><a class="page-link" href="javascript:golist('<c:out value="${vo.startPage - 1}"/>');">Previous</a></li>
 	</c:if>
 		
 	<!-- Page -->    
 	<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
 		<c:choose>
 			<c:when test="${i.index eq vo.thisPage}">  
-	                <li class="page-item active"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+	                <li class="page-item active"><a class="page-link" href="javascript:goList('<c:out value='${i.index}'/>');">${i.index}</a></li>
 			</c:when>
 			<c:otherwise>             
-	                <li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+	                <li class="page-item"><a class="page-link" href="javascript:goList('<c:out value='${i.index}'/>');">${i.index}</a></li>
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>  
 	
 	<!-- Next -->
 	<c:if test="${vo.endPage ne vo.totalPages}">                
-		<li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${vo.endPage + 1}'/>);">Next</a></li>
+		<li class="page-item"><a class="page-link" href="javascript:goList('<c:out value='${vo.endPage + 1}'/>');">Next</a></li>
 	</c:if>
 	
 	<!-- Page E -->
@@ -362,7 +363,7 @@
 				<i class="fa-solid fa-file-excel"></i>	
 			</button>
 				<button class="btn btn-info btn-sm me-md-2 " type="button">
-					<i class="fa-solid fa-plus" id="goForm"></i>	
+					<i class="fa-solid fa-plus" id="goLogin"></i>	
 				</button>
 		</div>
 	</div>
@@ -407,6 +408,11 @@
 		$("#formList").submit();	// 그 가져온 객체를 전달한다.
 	}
 
+	goForm = function(seq){
+		$("#ifmmSeq").val(seq)
+		$("#formList").attr("action","/member/memberView");
+		$("#formList").submit();
+	}
 	$("#btnSubmit").on("click", function(){
 		if(!checkNull($("#shmemberDelNy"),$("#shmemberDelNy").val(), "삭제여부 확인 바합니다.")) return false;
 		if(!checkNull($("#shOption"),$("#shOption").val(), "검색구분 확인 바랍니다.")) return false;
@@ -417,11 +423,10 @@
 		confirm("검색정보가 초기화 됩니다.");
 	}); 
 	
-	$("#goForm").on("click", function(){
+	$("#goLogin").on("click", function(){
 		$("#formList").attr("action","/member/memberLogin");
 		$("#formList").submit();
 	}); 
-	
 	
 </script>
 
