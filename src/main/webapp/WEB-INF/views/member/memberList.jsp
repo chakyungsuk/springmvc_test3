@@ -162,12 +162,13 @@
 					    <th scope="col" class="table-active">#</th>
 					    <th scope="col" class="table-active">ID</th>
 					    <th scope="col" class="table-active">PassWord</th>
+					    <th scope="col" class="table-active">Name</th>
+					    <th scope="col" class="table-active">Gender</th>
+					    <th scope="col" class="table-active">Birthday</th>
 					    <th scope="col" class="table-active">E-mail</th>
 					    <th scope="col" class="table-active">Mobile</th>
-					    <th scope="col" class="table-active">EmailConsent</th>
-					    <th scope="col" class="table-active">MobileConsent</th>
+					    <th scope="col" class="table-active">Address</th>
 					    <th scope="col" class="table-active">regDateTime</th>
-					    <th scope="col" class="table-active">modDateTime</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -211,7 +212,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="javascript:goForm(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmId}"/></a> <br><br>
+										<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmId}"/></a> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
@@ -226,111 +227,118 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="javascript:goForm(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmPassword}"/></a> <br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-						
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="javascript:goForm(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.fdmeEmailFull}"/></a> <br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-						
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="javascript:goForm(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.mobile}"/></a> <br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-						
-						
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-								 		<c:choose>
-									 		<c:when test="${item.ifmmEmailConsentNy eq 1 }">동의</c:when>
-									 		<c:otherwise>미동의</c:otherwise>
-									 	</c:choose>
-										<br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-						
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-									 	<c:choose>
-									 		<c:when test="${item.ifmmSmsConsentNy eq 1 }">동의</c:when>
-									 		<c:otherwise>미동의</c:otherwise>
-									 	</c:choose>
-										<br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-						
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="javascript:goForm(<c:out value="${item.ifmmSeq}"/>)"><fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd HH:mm:ss"/></a> <br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-						
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="javascript:goForm(<c:out value="${item.ifmmSeq}"/>)"><fmt:formatDate value="${item.modDateTime }" pattern="yyyy-MM-dd HH:mm:ss"/></a> <br><br>
+										<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmPassword}"/></a> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
 						</td>
 					
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+										<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmId}"/></a> <br><br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+					
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+										<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmId}"/></a> <br><br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+										<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmId}"/></a> <br><br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+										<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.fdmeEmailFull}"/></a> <br><br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
+						
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+								 		<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.mobile}"/></a> <br><br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+									 	<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmId}"/></a> <br><br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+										<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd HH:mm:ss"/></a> <br><br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
 			 		 </tr>
 				</tbody>
 			</table>
@@ -431,6 +439,7 @@
 		$("#formList").submit();
 	}); 
 	
+	
 	$("#btnSubmit").on("click", function(){
 		if(!checkNull($("#shmemberDelNy"),$("#shmemberDelNy").val(), "삭제여부 확인 바합니다.")) return false;
 		if(!checkNull($("#shOption"),$("#shOption").val(), "검색구분 확인 바랍니다.")) return false;
@@ -441,6 +450,11 @@
 		confirm("검색정보가 초기화 됩니다.");
 	}); 
 	
+	goView = function(seq){
+	$("#ifmmSeq").val(seq)	
+	$("#formList").attr("action","/member/memberView");
+	$("#formList").submit();
+	}
 	
 	$(document).ready(function(){
 		 $("#shDate").datepicker();
