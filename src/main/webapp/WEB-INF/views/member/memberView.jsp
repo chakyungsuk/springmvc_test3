@@ -102,28 +102,13 @@
 		<div class="col-12">
 		<ul class="nav nav-tabs" style="margin-top: 20px">
 			<li class="nav-item">
-		    	<a class="nav-link active" aria-current="page" href="/member/memberList">Home</a>
+		    	<a class="nav-link active" aria-current="page" href="/member/memberList">처음화면으로</a>
 		    </li>
-	    	<li class="nav-item">
-	    		<a class="nav-link" style="color: black" href="#">회원관리</a>
-		    </li>
-		  	<li class="nav-item">
-		    	<a class="nav-link" style="color: black" href="#">시스템관리</a>
-		  	</li>
-			<div class="dropdown">
-				<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-				기타사항</button>
-			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-				<li><a class="dropdown-item" href="#">기타</a></li>
-				<li><a class="dropdown-item" href="#">기타</a></li>
-				<li><a class="dropdown-item" href="#">기타</a></li>
-			</ul>
-			</div>
 		</ul>
 		</div>
 	</div>
 	<div style="margin-left: 11px; margin-top: 20px;">
-		<h3 style="margin-bottom: 0px;">Code</h3>
+		<h3 style="margin-bottom: 0px;">Member List</h3>
 	</div>
 	<br>
 	<div class="container-sm">

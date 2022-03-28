@@ -17,6 +17,7 @@
 
 <!-- <link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet"> -->
 <link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">
 <!-- bootstrap extra Css -->
 
 
@@ -76,9 +77,8 @@
 			<img src="/resources/xdmin/image/manager_image/logo1.png" width="200px">
  		</div>
 		<div class="col-12 col-sm-12 col-lg-4" style="text-align: center; margin-top:15px;"> 
-			<h3>Ten Thousand Recipes</h3>
 		</div>
-		<div class="col-12 col-sm-12 col-lg-1">
+		<div class="col-12 col-sm-12 col-lg-2">
 		</div>
 		<div class="col-12 col-sm-12 col-lg-2">
 		</div>
@@ -86,41 +86,18 @@
 			<img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" width="30px" style="float: left; margin-right: 10px;">
 			<h6>Cha (CEO)</h6> <h6>Administrator</h6>
 		</div>
-		<div class="col-12 col-sm-4 col-lg-1" style="margin-top: 20px;">
-			<select class="form-select form-select-sm" aria-label=".form-select-sm example">
-				<option selected>언 어</option>
-				<option value="1">한 국</option>
-				<option value="2">미 국</option>
-				<option value="3">일 본</option>
-			</select>
-		</div>
 	</div>
 	<div class="container">
 		<div class="col-12">
 		<ul class="nav nav-tabs" style="margin-top: 20px">
 			<li class="nav-item">
-		    	<a class="nav-link active" aria-current="page" href="/member/memberList">Home</a>
+		    	<a class="nav-link active" aria-current="page" href="/member/memberList">처음화면으로</a>
 		    </li>
-	    	<li class="nav-item">
-	    		<a class="nav-link" style="color: black" href="#">회원관리</a>
-		    </li>
-		  	<li class="nav-item">
-		    	<a class="nav-link" style="color: black" href="#">시스템관리</a>
-		  	</li>
-			<div class="dropdown">
-				<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-				기타사항</button>
-			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-				<li><a class="dropdown-item" href="#">기타</a></li>
-				<li><a class="dropdown-item" href="#">기타</a></li>
-				<li><a class="dropdown-item" href="#">기타</a></li>
-			</ul>
-			</div>
 		</ul>
 		</div>
 	</div>
 	<div style="margin-left: 11px; margin-top: 20px;">
-		<h3 style="margin-bottom: 0px;">Code</h3>
+		<h3 style="margin-bottom: 0px;">Member List</h3>
 	</div>
 	<br>
 	<div class="container-sm">
@@ -133,27 +110,13 @@
 			</select>
 	    </div>
 		<div class="col-lg-2 col-md-6 col-sm-12">
-			<select class="form-select form-select" aria-label=".form-select-sm example"  name="shMemberDate" disabled="disabled">
-				<option value="">날짜</option>
-				<option value="1">1월</option>
-				<option value="2">2월</option>
-				<option value="3">3월</option>
-				<option value="4">4월</option>
-				<option value="5">5월</option>
-				<option value="6">6월</option>
-				<option value="7">7월</option>
-				<option value="8">8월</option>
-				<option value="9">9월</option>
-				<option value="10">10월</option>
-				<option value="11">11월</option>
-				<option value="12">12월</option>
-			</select>
+			<input class="form-control" type="text" placeholder="생일" id="shDate" name="shDate" value="${vo.shDate}"/ autocomplete="off">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-	      <input class="form-control" type="text" placeholder="시작일" aria-label="default input example" disabled="disabled">
+	      <input class="form-control" type="text" placeholder="시작일" aria-label="default input example" id="" name="">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-	     <input class="form-control" type="text" placeholder="종료일" aria-label="default input example" disabled="disabled">
+	     <input class="form-control" type="text" placeholder="종료일" aria-label="default input example" id="" name=""> 
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
 	    </div>
@@ -191,6 +154,11 @@
 			<table class="table">
 				<thead>
 					<tr>
+					    <th scope="col" class="table-active">
+						    <div class="form-check form-check-inline" style="margin-right: 0px;">
+								<input class="form-check-input" type="checkbox" id="" value="">
+							</div>
+						</th>
 					    <th scope="col" class="table-active">#</th>
 					    <th scope="col" class="table-active">ID</th>
 					    <th scope="col" class="table-active">PassWord</th>
@@ -198,10 +166,27 @@
 					    <th scope="col" class="table-active">Mobile</th>
 					    <th scope="col" class="table-active">EmailConsent</th>
 					    <th scope="col" class="table-active">MobileConsent</th>
+					    <th scope="col" class="table-active">regDateTime</th>
+					    <th scope="col" class="table-active">modDateTime</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+										<input class="form-check-input" type="checkbox"> <br><br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
 						<td>
 						    <c:choose>
 								<c:when test="${fn:length(list) eq 0}">
@@ -277,6 +262,7 @@
 							</c:choose>	 
 						</td>
 						
+						
 						<td>
 						    <c:choose>
 								<c:when test="${fn:length(list) eq 0}">
@@ -315,6 +301,36 @@
 							</c:choose>	 
 						</td>
 						
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+										<a href="javascript:goForm(<c:out value="${item.ifmmSeq}"/>)"><fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd HH:mm:ss"/></a> <br><br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="item" varStatus="status">	
+										<a href="javascript:goForm(<c:out value="${item.ifmmSeq}"/>)"><fmt:formatDate value="${item.modDateTime }" pattern="yyyy-MM-dd HH:mm:ss"/></a> <br><br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+					
 			 		 </tr>
 				</tbody>
 			</table>
@@ -327,7 +343,7 @@
 		  
 	<!-- Previous -->
 	<c:if test="${vo.startPage gt vo.pageNumToShow}">
-		<li class="page-item"><a class="page-link" href="javascript:golist('<c:out value="${vo.startPage - 1}"/>');">Previous</a></li>
+		<li class="page-item"><a class="page-link" href="javascript:goList('<c:out value='${vo.startPage - 1}'/>');">Previous</a></li>
 	</c:if>
 		
 	<!-- Page -->    
@@ -363,8 +379,8 @@
 			<button class="btn btn-success btn-sm me-md-2 " type="button" >
 				<i class="fa-solid fa-file-excel"></i>	
 			</button>
-				<button class="btn btn-info btn-sm me-md-2 " type="button">
-					<i class="fa-solid fa-plus" id="goLogin"></i>	
+				<button class="btn btn-info btn-sm me-md-2 " type="button" id="goForm">
+					<i class="fa-solid fa-plus"></i>	
 				</button>
 		</div>
 	</div>
@@ -400,6 +416,7 @@
 <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/resources/js/validation.js"></script>
+<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.min.js"></script>
 
 
 
@@ -409,11 +426,11 @@
 		$("#formList").submit();	// 그 가져온 객체를 전달한다.
 	}
 
-	goForm = function(seq){
-		$("#ifmmSeq").val(seq)
-		$("#formList").attr("action","/member/memberView");
+	$("#goForm").on("click", function(){
+		$("#formList").attr("action","/member/memberForm");
 		$("#formList").submit();
-	}
+	}); 
+	
 	$("#btnSubmit").on("click", function(){
 		if(!checkNull($("#shmemberDelNy"),$("#shmemberDelNy").val(), "삭제여부 확인 바합니다.")) return false;
 		if(!checkNull($("#shOption"),$("#shOption").val(), "검색구분 확인 바랍니다.")) return false;
@@ -424,11 +441,23 @@
 		confirm("검색정보가 초기화 됩니다.");
 	}); 
 	
-	$("#goLogin").on("click", function(){
-		$("#formList").attr("action","/member/memberLogin");
-		$("#formList").submit();
-	}); 
 	
+	$(document).ready(function(){
+		 $("#shDate").datepicker();
+	}); 
+
+	$.datepicker.setDefaults({
+	    dateFormat: 'yy-mm-dd',
+	    prevText: '이전 달',
+	    nextText: '다음 달',
+	    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+	    showMonthAfterYear: true,
+	    yearSuffix: '년'
+	});
 </script>
 
 

@@ -1,5 +1,7 @@
 package com.junefw.infra.modules.member;
 
+import java.util.Date;
+
 public class Member {
 // dto	
 	
@@ -9,6 +11,7 @@ public class Member {
 	private String ifmmPassword;
 	private Integer ifmmDelNy;
 	private Integer ifmmSaved;
+	/* @DateTimeFormat */
 	
 	//memberEmail
 	private String fdmeEmailFull;
@@ -22,6 +25,9 @@ public class Member {
 	private Integer ifmmSmsConsentNy;
 	private String EmailConsent;
 	private String MobileConsent;
+	
+	private Date RegDateTime;
+	private Date ModDateTime;
 	
 //  ============================================	
 	
@@ -97,7 +103,18 @@ public class Member {
 	public void setMobileConsent(String mobileConsent) {
 		MobileConsent = mobileConsent;
 	}
-
+	public Date getRegDateTime() {
+		return RegDateTime;
+	}
+    public void setRegDateTime(Date regDateTime) {
+		this.RegDateTime = regDateTime;
+	}
+	public Date getModDateTime() {
+		return ModDateTime;
+	}
+	public void setModDateTime(Date modDateTime) {
+		this.ModDateTime = modDateTime;
+	}
 	
 	
 }

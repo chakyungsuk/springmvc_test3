@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.junefw.infra.modules.code.Code;
-import com.junefw.infra.modules.code.CodeServiceImpl;
-import com.junefw.infra.modules.code.CodeVo;
+import com.junefw.infra.common.constants.Constants;
+import com.junefw.infra.common.util.UtilDateTime;
+
+
 
 @Controller
 public class MemberController {
@@ -25,6 +26,10 @@ public class MemberController {
 	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 //	public String memberList( Model model) throws Exception {
 		
+		vo.setShOptionDate(vo.getShOptionDate() == null ? 1 : vo.getShOptionDate());
+		vo.setShDateStart(vo.getShDateStart() == null ? UtilDateTime.calculateDayString(UtilDateTime.nowLocalDateTime(), Constants.DATE_INTERVAL) : vo.getShDateStart());
+		vo.setShDateEnd(vo.getShDateEnd() == null ? UtilDateTime.nowString() : vo.getShDateEnd());
+		
 		// count 가져올 것
 		int count = service.selectOneMember(vo);
 		
@@ -37,6 +42,10 @@ public class MemberController {
 		} else {
 			// by pass
 		}
+		
+		System.out.println("UtilDateTime.nowLocalDateTime(): " + UtilDateTime.nowLocalDateTime());
+       	System.out.println("UtilDateTime.nowDate(): " + UtilDateTime.nowDate());
+	    System.out.println("UtilDateTime.nowString(): " + UtilDateTime.nowString());
 		
 		return "member/memberList";
 		
@@ -131,6 +140,8 @@ public class MemberController {
 		
 		return "member/memberMain";
 	}
+	
+
 }
 
 

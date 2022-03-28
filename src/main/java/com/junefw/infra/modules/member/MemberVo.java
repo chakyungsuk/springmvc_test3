@@ -1,5 +1,7 @@
 package com.junefw.infra.modules.member;
 
+import java.util.Date;
+
 public class MemberVo {
 	
 // Vo
@@ -31,6 +33,11 @@ public class MemberVo {
 	//common
 	private String shOption;
 	private String shValue;
+	private Integer shOptionDate;
+	private String shDateStart;
+	private String shDateEnd;
+	private String shDate;
+	
 	
 	//paging
 	private int thisPage = 1;									// 현재 페이지
@@ -310,6 +317,41 @@ public class MemberVo {
 	public void setMobileConsent(String mobileConsent) {
 		MobileConsent = mobileConsent;
 	}
-	
+
+
+	public Integer getShOptionDate() {
+		return shOptionDate;
+	}
+
+	public void setShOptionDate(Integer shOptionDate) {
+		this.shOptionDate = shOptionDate;
+	}
+
+	public String getShDateStart() {
+		return shDateStart;
+	}
+
+	public void setShDateStart(String shDateStart) {
+		this.shDateStart = shDateStart;
+	}
+
+	public String getShDateEnd() {
+		return shDateEnd;
+	}
+
+	public void setShDateEnd(String shDateEnd) {
+		this.shDateEnd = shDateEnd;
+	}
+
+	public String getShDate() {
+		return shDate;
+	}
+
+	public void setShDate(String shDate) {
+		this.shDate = shDate;
+	}
+
+
+
 	
 }

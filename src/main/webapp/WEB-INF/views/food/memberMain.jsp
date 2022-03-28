@@ -164,6 +164,21 @@
         <div class="col">
           <div class="card shadow">
 			<a class="thumbnail" href="" style="height:250px;">
+              <img src="/resources/xdmin/image/user_image/lank2.jpg" style="margin-top: 20px;"></a>
+            <div class="card-body" style="">
+              <p class="card-text">백파더 백종원 에그치즈토스트 ~ 간단한데 맛은 최고!</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a ref=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
+                </div>
+                <small class="text-muted">5 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow">
+			<a class="thumbnail" href="" style="height:250px;">
               <img src="/resources/xdmin/image/user_image/lank1.jpg" style="margin-top: 20px;"></a>
             <div class="card-body" style="">
               <p class="card-text">닭봉간장조림~ 십년째 만들어 먹는 양념 공유해요!</p>
@@ -172,21 +187,6 @@
                   <a ref=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
                 </div>
                 <small class="text-muted">1 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow">
-			<a class="thumbnail" href="" style="height:250px;">
-              <img src="/resources/xdmin/image/user_image/lank2.jpg" style="margin-top: 20px;"></a>
-            <div class="card-body" style="">
-              <p class="card-text">초간단 누구나 토스트 만들기</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a ref=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
-                </div>
-                <small class="text-muted">5 mins</small>
               </div>
             </div>
           </div>

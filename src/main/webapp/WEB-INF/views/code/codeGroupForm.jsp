@@ -15,7 +15,7 @@
 	
 	
 	<input type="text" id="fdcgName" name="fdcgName" placeholder="이름">
-	<input type="text" id="abcDate" name="abc">
+	<input type="text" id="abcDate" name="abc" autocomplete="off">
 	<input type="submit" id="btnSubmit" value="제출">
 </form> 
 
