@@ -6,6 +6,7 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
 
+<!DOCTYPE HTML>
 <htm1 lang="ko">
 
 <head>
@@ -13,12 +14,13 @@
 <meta name="viewport" content="width=dievice-width, initiol-scale=1.0">
 
 <!-- bootstrap Css -->
-
-<!-- <link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet"> -->
 <link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- bootstrap extra Css -->
-
-
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-examples/sticky-footer/sticky-footer.css" rel="stylesheet">
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-examples/offcanvas-navbar/offcanvas.css" rel="stylesheet">
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-examples/sidebars/sidebars.css" rel="stylesheet">
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-examples/navbars/navbar.css" rel="stylesheet">
+<link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">
 <!-- user css -->
 <script src="https://kit.fontawesome.com/ac511b8e02.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
@@ -26,63 +28,49 @@
 
 <title>Cha html projects</title>
 </head>
-<body>
 
 <style type="text/css">
-	/* .container {
-		width: 940px;
-        margin: 10px auto;
-        padding: 20px; */
-        
- /*  	justify-content: center;  수평 정렬 
-		align-items: center;  수직 정렬 
-		width: 700px; 
-		min-width:480px;
-		max-width:767px;  */
-	
-	#border {
-		border: 1px solid;
-		border-color: gray; 
-		border-top-style : non;
-		border-left-style : non;
-		border-bottom-style : non;
-		border-left-style : non;
-	}
-	#left {
-		float: right;
-	}
- 	@media all and (min-width:359px) and (max-width:1024px)) {
-        .container {
-          width: auto;
+
+/* 	@media ( max-width:767px ) { */
+		body {
+			padding-top: 0px;
+			padding-bottom: 0px;
+			margin-bottom: 12px;
+		}
+		.row {
+			margin-bottom: 12px;
+		}
+	 	@media all and (min-width:359px) and (max-width:1024px)) {
+      	.container {
+          	width: auto;
         } 
 
-    }
-    @media (min-height: 1024px), screen and (orientation: portrait) { 
-  	 	.container {
+	    @media (min-height: 1024px), screen and (orientation: portrait) { 
+ 		.container {
 			margin-bottom: 400px;
    		}
 </style>
 
-<form id="formUpdt" name="formUpdt" method="post" action="/member/memberUpdt">
+<body>
 
-<input type="hidden" name="ifmmSeq" id="ifmmSeq">
+<form id="formUpdt" name="formUpdt" method="post" action="/member/memberUpdt">
+<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+
+<input type="hidden" name="ifmmSeq" id="ifmmSeq" value="<c:out value="${vo.ifmmSeq}"/>">
 <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }"/>">
 <input type="hidden" name="ifmmId" value="<c:out value="${vo.ifmmId }"/>">
 <input type="hidden" name="ifmmPassword" value="<c:out value="${vo.ifmmPassword }"/>">
 <input type="hidden" name="fdmeEmailFull" value="<c:out value="${vo.fdmeEmailFull }"/>">
 <input type="hidden" name="fdmpNumber" value="<c:out value="${vo.fdmpNumber }"/>">
 
-
-
-<div class="container">
+<div class="container-sm">
 	<div class="row">
 		<div class="col-12 col-sm-12 col-lg-2">
 			<img src="/resources/xdmin/image/manager_image/logo1.png" width="200px">
  		</div>
 		<div class="col-12 col-sm-12 col-lg-4" style="text-align: center; margin-top:15px;"> 
-			<h3>Ten Thousand Recipes</h3>
 		</div>
-		<div class="col-12 col-sm-12 col-lg-1">
+		<div class="col-12 col-sm-12 col-lg-2">
 		</div>
 		<div class="col-12 col-sm-12 col-lg-2">
 		</div>
@@ -90,211 +78,207 @@
 			<img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" width="30px" style="float: left; margin-right: 10px;">
 			<h6>Cha (CEO)</h6> <h6>Administrator</h6>
 		</div>
-		<div class="col-12 col-sm-4 col-lg-1" style="margin-top: 20px;">
-			<select class="form-select form-select-sm" aria-label=".form-select-sm example">
-				<option selected>언 어</option>
-				<option value="1">한 국</option>
-				<option value="2">미 국</option>
-				<option value="3">일 본</option>
-			</select>
-		</div>
 	</div>
-	<div class="container">
 		<div class="col-12">
 		<ul class="nav nav-tabs" style="margin-top: 20px">
 			<li class="nav-item">
-		    	<a class="nav-link active" aria-current="page" href="/member/memberList">Home</a>
+		    	<a class="nav-link active" aria-current="page" href="/member/memberList">처음화면으로</a>
 		    </li>
-	    	<li class="nav-item">
-	    		<a class="nav-link" style="color: black" href="#">회원관리</a>
-		    </li>
-		  	<li class="nav-item">
-		    	<a class="nav-link" style="color: black" href="#">시스템관리</a>
-		  	</li>
-			<div class="dropdown">
-				<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-				기타사항</button>
-			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-				<li><a class="dropdown-item" href="#">기타</a></li>
-				<li><a class="dropdown-item" href="#">기타</a></li>
-				<li><a class="dropdown-item" href="#">기타</a></li>
-			</ul>
-			</div>
 		</ul>
 		</div>
+		<div style="margin-left: 11px; margin-top: 20px;">
+			<h3 style="margin-bottom: 0px;">Member Form2</h3>
+		</div>
 	</div>
-	<div style="margin-left: 11px; margin-top: 20px;">
-		<h3 style="margin-bottom: 0px;">Code</h3>
-	</div>
-	<br>
-	<div class="container-sm">
-	  <div class="row g-2" id="border">
-	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<select class="form-select form-select" aria-label=".form-select-sm example" name="shmemberDelNy" id="shmemberDelNy">
-				<option value="">삭제여부</option>
-				<option value="1" <c:if test="${vo.shmemberDelNy eq 1 }">selected</c:if>>삭제</option>
-				<option value="0" <c:if test="${vo.shmemberDelNy eq 0 }">selected</c:if>>보관</option>
+<br><br>
+
+<div class="container-sm">
+	<div class="row">
+		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
+			<h6>아이디</h6>
+			<input class="form-control" id="ifmmId" name="ifmmId" type="text" value="<c:out value="${item.ifmmId}"/>" autocomplete="off">
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12">
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
+			<h6>비밀번호</h6>
+			<input class="form-control" id="ifmmPassword" name="ifmmPassword" type="text" placeholder="영문(대소문자),숫자,특수문자(), 8~20자리 조합" aria-label="default input example" autocomplete="off">
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12">
+			<h6>비밀번호 확인</h6>
+			<input class="form-control" type="text" aria-label="default input example">
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
+			<h6>이름</h6>
+			<input class="form-control" type="text" aria-label="default input example">
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12">
+			<h6>이름(영문)</h6>
+			<input class="form-control" type="text" aria-label="default input example">
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
+			<h6>성별</h6>
+			<select class="form-select" aria-label="Default select example">
+				<option selected>::선택::</option>
+				<option value="1">남자</option>
+				<option value="2">여자</option>
+				<option value="3">기타</option>
 			</select>
-	    </div>
-		<div class="col-lg-2 col-md-6 col-sm-12">
-			<select class="form-select form-select" aria-label=".form-select-sm example"  name="shMemberDate" disabled="disabled">
-				<option value="">날짜</option>
-				<option value="1">1월</option>
-				<option value="2">2월</option>
-				<option value="3">3월</option>
-				<option value="4">4월</option>
-				<option value="5">5월</option>
-				<option value="6">6월</option>
-				<option value="7">7월</option>
-				<option value="8">8월</option>
-				<option value="9">9월</option>
-				<option value="10">10월</option>
-				<option value="11">11월</option>
-				<option value="12">12월</option>
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12">
+			<h6>생일</h6>
+			<input class="form-control" type="text" aria-label="default input example" id="shDate" autocomplete="off">
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
+			<h6>이메일</h6>
+			<input class="form-control" id="fdmeEmailFull" name="fdmeEmailFull" type="text" placeholder="name@example.com" aria-label="default input example">
+		</div>
+		<div class="col-6 col-lg-6 col-sm-12">
+			<h6>개인정보 보관(필수)</h6>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="ifmmSaved">
+				<label class="form-check-label" for="flexCheckDefault"> 동의합니다. </label>
+			</div>
+		</div>
+		<div class="col-2 col-lg-1 col-sm-2" style="margin-bottom: 12px; padding-right: 1px;">
+			<h6>핸드폰</h6>
+			<select class="form-select" aria-label="Default select example" style="padding-right: 1px;">
+				<option selected>::선택::</option>
+				<option value="1">SKT</option>
+				<option value="2">KT</option>
+				<option value="3">LGU</option>
 			</select>
-	    </div>
-	    <div class="col-lg-2 col-md-6 col-sm-12">
-	      <input class="form-control" type="text" placeholder="시작일" aria-label="default input example" disabled="disabled">
-	    </div>
-	    <div class="col-lg-2 col-md-6 col-sm-12">
-	     <input class="form-control" type="text" placeholder="종료일" aria-label="default input example" disabled="disabled">
-	    </div>
-	    <div class="col-lg-2 col-md-6 col-sm-12">
-	    </div>
-	    <div class="col-lg-2 col-md-6 col-sm-12">
-	    </div>
-	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<select class="form-select form-select" aria-label=".form-select-sm example" style="margin-bottom: 8px;" name="shOption" id="shOption">
-				<option value="">검색구분</option>
-				<option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>ID
-				<option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>PassWord
-				<option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>E-mail
-				<option value="4" <c:if test="${vo.shOption eq 4}">selected</c:if>>Mobile
+		</div>
+		<div class="col-10 col-lg-5 col-sm-10" style="margin-bottom: 12px; padding-left: 0px;">
+			<input class="form-control" type="text" placeholder="숫자만 입력해 주십시요." aria-label="default input example" style="padding-left: 0px; margin-top: 27px;">
+		</div>
+		<div class="col-6 col-lg-6 col-sm-12">
+			<h6>이메일 정보 마케팅 사용 동의(선택)</h6>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+				<label class="form-check-label" for="flexCheckDefault"> 동의합니다. </label>
+			</div>
+		</div>
+		<div class="col-2 col-lg-1 col-sm-2" style="margin-bottom: 12px; padding-right: 1px;">
+			<h6>전화번호</h6>
+			<select class="form-select" aria-label="Default select example" style="padding-right: 0px; ">
+				<option selected>::선택::</option>
+				<option value="1">02</option>
+				<option value="2">031</option>
+				<option value="3">042</option>
+				<option value="4">062</option>
 			</select>
-	    </div>
-	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<input class="form-control" type="text" placeholder="검색어" aria-label="default input example" name="shValue" id="shValue" value="${vo.shValue }"/>
-	    </div>
-	    <div class="col-lg-2 col-md-6 col-sm-12">			
-	    	<div class="d-md-flex justify-content">
-				<button class="btn btn-warning btn-sm me-md-2" type="submit" name="search" id="btnSubmit">
-					<i class="fa-solid fa-magnifying-glass"></i>
-				</button>
-				<button class="btn btn-danger btn-sm me-md-2 " type="button" id="btnLeset">
-					<i class="fa-solid fa-arrow-rotate-right"></i>
+		</div>
+		<div class="col-10 col-lg-5 col-sm-10" style="margin-bottom: 12px; padding-left: 0px;">
+			<input class="form-control" type="text" placeholder="숫자만 입력해 주십시요." aria-label="default input example" style="padding-left: 0px; margin-top: 27px;">
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12">
+			<h6>핸드폰 정보 마케팅 사용 동의(선택)</h6>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+				<label class="form-check-label" for="flexCheckDefault"> 동의합니다. </label>
+			</div>
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
+			<h6>거주국가</h6>
+			<select class="form-select" aria-label="Default select example">
+				<option selected>::선택::</option>
+				<option value="1">한국</option>
+				<option value="2">미국</option>
+				<option value="3">일본</option>
+			</select>
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12">
+		</div>
+		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
+			<h6>주소(한국전용)</h6>
+			<div class="input-group mb-2">
+				<input type="text" id="sample6_postcode" class="form-control"  aria-label="Recipient's username" aria-describedby="button-addon2" disabled>
+				<button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="sample6_execDaumPostcode()">
+					<i class="fa-solid fa-magnifying-glass-plus"></i>
 				</button>
 			</div>
-	    </div>
-	    <div class="col-lg-2 col-md-6 col-sm-12">
-	    </div>
-  	</div>
-	</div>
-	<hr>
-	<div class = "container-sm">	
-		<div class="table table-dark table-hover">
-			<table class="table">
-				<thead>
-					<tr>
-					    <th scope="col" class="table-active">#</th>
-					    <th scope="col" class="table-active">ID</th>
-					    <th scope="col" class="table-active">PassWord</th>
-					    <th scope="col" class="table-active">E-mail</th>
-					    <th scope="col" class="table-active">Mobile</th>
-					    <th scope="col" class="table-active">EmailConsent</th>
-					    <th scope="col" class="table-active">MobileConsent</th>
-					    <th scope="col" class="table-active"></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<c:out value="${item.ifmmSeq}"/>
-						</td>
-						<td>
-			    			<input type="text" name="ifmmId" placeholder="아이디" value="<c:out value="${item.ifmmId}"/>">
-						</td>
-						<td>
-				    		<input type="text" name="ifmmPassword" placeholder="비밀번호" value="<c:out value="${item.ifmmPassword}"/>">
-						</td>
-						<td>
-							<input type="text" name="fdmeEmailFull" placeholder="e-mail" value="<c:out value="${item.fdmeEmailFull}"/>">
-						</td>
-						<td>
-							<input type="text" name="mobile" placeholder="mobile(숫자만)" value="<c:out value="${item.mobile}"/>">
-						</td>
-						<td>
-							<c:choose>
-						 		<c:when test="${item.ifmmEmailConsentNy eq 1 }">동의</c:when>
-						 		<c:otherwise>미동의</c:otherwise>
-						 	</c:choose>
-							<br><br>
-						</td>
-						
-						<td>
-						   <c:choose>
-						 		<c:when test="${item.ifmmSmsConsentNy eq 1 }">동의</c:when>
-						 		<c:otherwise>미동의</c:otherwise>
-					 		</c:choose>
-							<br><br>
-						</td>
-						
-						<td>
-							<input type="submit" value="수정">
-						</td>
-			 		 </tr>
-				</tbody>
-			</table>
 		</div>
-	</div>
-
-	<!-- Page S -->
-<nav aria-label="...">
-	<ul class="pagination justify-content-center">
-		  
-	<!-- Previous -->
-	<c:if test="${vo.startPage gt vo.pageNumToShow}">
-		<li class="page-item"><a class="page-link" href="/member/memberList?thisPage=${vo.startPage - 1}">Previous</a></li>
-	</c:if>
-		
-	<!-- Page -->    
-	<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
-		<c:choose>
-			<c:when test="${i.index eq vo.thisPage}">  
-	                <li class="page-item active"><a class="page-link" href="/member/memberList?thisPage=${i.index}">${i.index}</a></li>
-			</c:when>
-			<c:otherwise>             
-	                <li class="page-item"><a class="page-link" href="/member/memberList?thisPage=${i.index}">${i.index}</a></li>
-			</c:otherwise>
-		</c:choose>
-	</c:forEach>  
-	
-	<!-- Next -->
-	<c:if test="${vo.endPage ne vo.totalPages}">                
-		<li class="page-item"><a class="page-link" href="/member/memberList?thisPage=${vo.endPage + 1}">Next</a></li>
-	</c:if>
-	
-	<!-- Page E -->
-	</ul>
-</nav>
-
-
-
-<div class="container">
-	<div class="col-lg-12 col-md-12 col-sm-12" >
-			<button type="button" class="btn btn-danger btn-sm me-md-2 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float: left;"  >
-				<i class="fa-solid fa-trash-can"></i>
-			</button>
+		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
-		<div class="d-md-flex justify-content-end" >
-			<button class="btn btn-success btn-sm me-md-2 " type="button" ><i class="fa-solid fa-file-excel"></i></button>
-			<a href="./memberForm">
-				<button class="btn btn-info btn-sm me-md-2 " type="button" ><i class="fa-solid fa-plus"></i></button>
-			</a>
+		<div class="col-12 col-lg-6 col-sm-12">
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12">
+		</div>
+		<div class="col-12 col-lg-3 col-sm-12" style="padding-right: 2px;">
+			<input class="form-control" id="sample6_address" type="text" disabled="disabled">
+		</div>
+		<div class="col-12 col-lg-3 col-sm-12" style="padding-left: 2px;">
+			<input class="form-control" id="sample6_extraAddress" type="text" disabled="disabled">
+		</div>		
+		<div class="d-grid gap-2 col-6 col-lg-6 col-sm-12">
+		</div>
+		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" style="margin-top: 10px;">
+		<input class="form-control" id="sample6_detailAddress" type="text" placeholder="상세주소를 입력해주세요.">
+		</div>
+		<div class="row">
+		<div class="col-12 col-lg-6 col-sm-12">
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12">
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12">
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12">
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12">
+		</div>
+		</div>
+
+		<div class="col-12 col-lg-6 col-sm-12">
+			<label for="exampleFormControlTextarea1" class="form-label">설명</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="margin-bottom: 12px;"></textarea>
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12">
+		</div>
+		<div class="col-6 col-lg-3 col-sm-6">
+			<h6>최종수정자</h6>
+			<input class="form-control" type="text" placeholder="CHa(CEO)" aria-label="default input example" disabled>
+		</div>
+		<div class="col-6 col-lg-3 col-sm-6">
+			<h6>최종수정일</h6>
+			<input class="form-control" type="text" placeholder="2021.01.01" aria-label="default input example" disabled>
+		</div>
+		<div class="col-6 col-lg-3 col-sm-6">
+			<h6>최초등록자</h6>
+			<input class="form-control" type="text" placeholder="CHa(CEO)" aria-label="default input example" disabled>
+		</div>
+		<div class="col-6 col-lg-3 col-sm-6">
+			<h6>최초등록일</h6>
+			<input class="form-control" type="text" placeholder="2021.01.01" aria-label="default input example" disabled>
 		</div>
 	</div>
 </div>
 
-<!-- Modal S -->
+<br>
+
+<div class="container-sm">
+	<div class="row">
+		<div class="col-lg-4 col-md-6 col-sm-6" >
+			<button type="button" class="btn btn-danger btn-sm me-md-2 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float: left;"  >
+				<i class="fa-solid fa-trash-can"></i>
+			</button>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-6" style="text-align: center;">
+			<button type="button" id="btnback" name="btnback" class="btn btn-outline-primary" style="width: 200px;">뒤로가기</button>
+			<button type="submit" id="btnSubmit" name="btnSubmit" class="btn btn-outline-danger" style="width: 200px;">수정</button>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-6">
+			<button class="btn btn-success btn-sm" type="button" style="float: right;">
+				<i class="fa-solid fa-file-excel"></i>	
+			</button>
+		</div>
+	</div>
+</div>
+
+<br><br>
+</form>
+
+<!-- Modal -->
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -314,51 +298,128 @@
   </div>
 </div>
 
-<!-- Modal E -->
 
-
-
-<!-- <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script> -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
-<!-- <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script> -->
 <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/resources/js/validation.js"></script>
+<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.min.js"></script>
+<script src="/resources/common/bootstrap/bootstrap-5.1.3-examples/sidebars/sidebars.js"></script>
+
+<div id="layer" style="display:none; position:fixed; overflow:hidden; z-index:1;-webkit-overflow-scrolling:touch;">
+<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer; position:absolute; right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+</div>
 
 
+<script type="text/javascript">
 
-<script>
-	$("#btnSubmit").on("click", function(){
 
-		if(!checkNull($("#shmemberDelNy"),$("#shmemberDelNy").val(), "삭제여부 확인 바합니다.")) return false;
-		if(!checkNull($("#shOption"),$("#shOption").val(), "검색구분 확인 바랍니다.")) return false;
-		if(!checkNull($("#shValue"),$("#shValue").val(), "검색어를 입력해 주십시요.")) return false;
-		
-	});
+	btnback = function(seq){
+		$("#ifmmSeq").val(seq)	
+		$("#formUpdt").attr("action","/member/memberView");
+		$("#formUpdt").submit();
+	}
 	
-	$("#btnLeset").on("click", function(){
+	btnSubmit = function(seq){
+		$("#ifmmSeq").val(seq)	
+		$("#formUpdt").attr("action","/member/memberView");
+		$("#formUpdt").submit();
+		}
+
+ 	 $("#btnSubmit").on("click", function(){
+	/* 	// ID	
+	 	if(!checkId($("#ifmmId"),$("#ifmmId").val(), "영문(대소문자) 및 최소 2자 부터 20자 까지 가능합니다.")) return false;
 		
-		confirm("검색정보가 초기화 됩니다.");
+		// PassWord
+		if(!checkPassword($("#ifmmPassword"),$("#ifmmPassword").val(), "영어 대소문자 및 특수문자 포함해서 입력 바랍니다.")) return false;
 		
+		// E-mail
+		if(!checkEmail($("#fdmeEmailFull"),$("#fdmeEmailFull").val(),"이메일 형식이 틀립니다.")) return false; 
+	  */
+		// 개인정보유효기간(필수)
+	 	/* if(!checkBox($("#ifmmSaved"),$("#ifmmSaved").val(),"개인정보 유효기간은 필수 체크사항 입니다.")) return false;  */
+	    if($("#ifmmSaved").is(":checked")){
+	    	return true;
+	    } else {
+          alert("개인정보 유효기간 체크는 필수 입니다.");
+          $("#ifmmSaved").focus();
+			return false;
+	    }
+	});   
+
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
+    
+	$(document).ready(function(){
+		 $("#shDate").datepicker();
 	}); 
-	
+
+	$.datepicker.setDefaults({
+	    dateFormat: 'yy-mm-dd',
+	    prevText: '이전 달',
+	    nextText: '다음 달',
+	    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+	    showMonthAfterYear: true,
+	    yearSuffix: '년'
+	});
 </script>
 
 
 
-</form>
-		</body>
-	</htm1>
-		
-<%-- 
-<form method="post" action="/member/memberUpdt">
-	
-	<input type="hidden" name="ifmmSeq" value="<c:out value="${item.ifmmSeq}"/>">
-	<input type="text" name="ifmmId" placeholder="아이디" value="<c:out value="${item.ifmmId}"/>">
-	<input type="text" name="ifmmPassword" placeholder="비밀번호" value="<c:out value="${item.ifmmPassword}"/>">
-	<input type="text" name="fdmeEmailFull" placeholder="e-mail" value="<c:out value="${item.fdmeEmailFull}"/>">
-	<input type="text" name="fdmpNumber" placeholder="mobile(숫자만)" value="<c:out value="${item.fdmpNumber}"/>">
-	<input type="text" name="ifmmEmailConsentNy" placeholder="이메일 정보 동의" value="<c:out value="${item.ifmmEmailConsentNy}"/>">
-	<input type="text" name="ifmmSmsConsentNy" placeholder="모바일 정보 동의" value="<c:out value="${item.ifmmSmsConsentNy}"/>">
-	<input type="submit" value="제출">
-</form> --%>
+</body>
+</htm1>
+
+
+
+
+

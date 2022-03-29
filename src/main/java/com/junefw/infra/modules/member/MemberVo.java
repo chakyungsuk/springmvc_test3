@@ -10,6 +10,10 @@ public class MemberVo {
 	private String ifmmSeq;
 	private String ifmmId;
 	private String ifmmPassword;
+	private String ifmmName;
+	private Integer ifmmGenderCd;
+	private String ifmmDob;
+	private String fdmaAddress;
 	private Integer ifmmSaved;
 	private Integer ifmmDelNy;
 
@@ -349,6 +353,38 @@ public class MemberVo {
 
 	public void setShDate(String shDate) {
 		this.shDate = shDate;
+	}
+
+	public String getIfmmName() {
+		return ifmmName;
+	}
+
+	public void setIfmmName(String ifmmName) {
+		this.ifmmName = ifmmName;
+	}
+
+	public Integer getIfmmGenderCd() {
+		return ifmmGenderCd;
+	}
+
+	public void setIfmmGenderCd(Integer ifmmGenderCd) {
+		this.ifmmGenderCd = ifmmGenderCd;
+	}
+
+	public String getIfmmDob() {
+		return ifmmDob;
+	}
+
+	public void setIfmmDob(String ifmmDob) {
+		this.ifmmDob = ifmmDob;
+	}
+
+	public String getFdmaAddress() {
+		return fdmaAddress;
+	}
+
+	public void setFdmaAddress(String fdmaAddress) {
+		this.fdmaAddress = fdmaAddress;
 	}
 
 

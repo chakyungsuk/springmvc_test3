@@ -13,6 +13,7 @@
 			fdmember a
 		LEFT JOIN fdmemberemail b on b.ifmmSeq = a.ifmmSeq
 		LEFT JOIN fdmemberphone c on c.ifmmSeq = a.ifmmSeq
+		LEFT JOIN fdmemberAddress d on d.ifmmSeq = a.ifmmSeq
 		WHERE 1=1
 			<choose>
 				<when test="shmemberDelNy == 1">AND ifmmDelNy = 1</when>
@@ -45,10 +46,14 @@
 			a.ifmmSeq
 			, a.ifmmId
 			, a.ifmmPassword
+			, a.ifmmName
+			, a.ifmmGenderCd
+			, a.ifmmDob
 			, a.ifmmDelNy
 			, a.ifmmSaved
 			, b.fdmeEmailFull
 			, concat(substring(c.fdmpNumber,1,3),"-",substring(c.fdmpNumber,4,4),"-",substring(c.fdmpNumber,7,4)) as mobile
+			, d.fdmaAddress		
 			, a.ifmmEmailConsentNy
 			, a.ifmmSmsConsentNy
 			, a.regDateTime
@@ -138,9 +143,9 @@
 			, ifmmPassword = #{ifmmPassword}
 		WHERE 1=1
 			AND ifmmSeq = #{ifmmSeq}
- 	<selectKey resultType="String" keyProperty="ifmmSeq" order="AFTER">
+  	<selectKey resultType="String" keyProperty="ifmmSeq" order="AFTER">
 		SELECT last_insert_id()
-	</selectKey> 
+	</selectKey>  
 	</update>
 	
 	<update id="updateEmail">

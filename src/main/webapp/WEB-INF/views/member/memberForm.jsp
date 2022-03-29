@@ -54,6 +54,8 @@
 
 <body>
 
+<form id="formInst" name="formInst" method="post" action="/member/memberInst">
+
 <div class="container-sm">
 	<div class="row">
 		<div class="col-12 col-sm-12 col-lg-2">
@@ -87,13 +89,13 @@
 	<div class="row">
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>아이디</h6>
-			<input class="form-control" id="ifmmId" name="ifmmId" type="text" placeholder="영문(대소문자),숫자,특수문자(), 4~20자리 조합" aria-label="default input example">
+			<input class="form-control" id="ifmmId" name="ifmmId" type="text" placeholder="영문(대소문자),숫자 2자리 이상 조합" aria-label="default input example" autocomplete="off">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>비밀번호</h6>
-			<input class="form-control" id="ifmmPassword" name="ifmmPassword" type="text" placeholder="영문(대소문자),숫자,특수문자(), 8~20자리 조합" aria-label="default input example">
+			<input class="form-control" id="ifmmPassword" name="ifmmPassword" type="text" placeholder="영문(대소문자),숫자,특수문자(), 8~20자리 조합" aria-label="default input example" autocomplete="off">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 			<h6>비밀번호 확인</h6>
@@ -197,10 +199,10 @@
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-right: 2px;">
-			<input class="form-control" id="sample6_address" type="text">
+			<input class="form-control" id="sample6_address" type="text" disabled="disabled">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-left: 2px;">
-			<input class="form-control" id="sample6_extraAddress" type="text">
+			<input class="form-control" id="sample6_extraAddress" type="text" disabled="disabled">
 		</div>		
 		<div class="d-grid gap-2 col-6 col-lg-6 col-sm-12">
 		</div>
@@ -264,7 +266,7 @@
 		</div>
 	</div>
 </div>
-
+</form>
 <br><br>
 
 
@@ -304,9 +306,15 @@
 
 <script type="text/javascript">
 	$("#btnSubmit").on("click", function(){
+		
+		$("#btnSubmit").attr("action", "/member/memberInst");
+		$("#btnSubmit").submit();
+
+			
+	
 		// ID	
 		if(!checkNull($("#ifmmId"),$("#ifmmId").val(), "아이디를 입력 바랍니다.")) return false;
-		if(!checkId($("#ifmmId"),$("#ifmmId").val(), "최소 2자 부터 20자 까지 가능합니다.")) return false;
+		if(!checkId($("#ifmmId"),$("#ifmmId").val(), "영문(대소문자) 및 최소 2자 부터 20자 까지 가능합니다.")) return false;
 		
 		// PassWord
 		if(!checkNull($("#ifmmPassword"),$("#ifmmPassword").val(), "비밀번호를 입력 바랍니다.")) return false;

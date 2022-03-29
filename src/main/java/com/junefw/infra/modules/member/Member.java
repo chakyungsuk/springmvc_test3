@@ -9,6 +9,9 @@ public class Member {
 	private String ifmmSeq;
 	private String ifmmId;
 	private String ifmmPassword;
+	private String ifmmName;
+	private Integer ifmmGenderCd;
+	private String ifmmDob;
 	private Integer ifmmDelNy;
 	private Integer ifmmSaved;
 	/* @DateTimeFormat */
@@ -20,12 +23,16 @@ public class Member {
 	private String fdmpNumber;
 	private String mobile;
 	
+	//memberAddress
+	private String fdmaAddress;
+	
 	//ConsentNy
 	private Integer ifmmEmailConsentNy;
 	private Integer ifmmSmsConsentNy;
 	private String EmailConsent;
 	private String MobileConsent;
 	
+	//Date
 	private Date RegDateTime;
 	private Date ModDateTime;
 	
@@ -114,6 +121,30 @@ public class Member {
 	}
 	public void setModDateTime(Date modDateTime) {
 		this.ModDateTime = modDateTime;
+	}
+	public String getIfmmName() {
+		return ifmmName;
+	}
+	public void setIfmmName(String ifmmName) {
+		this.ifmmName = ifmmName;
+	}
+	public Integer getIfmmGenderCd() {
+		return ifmmGenderCd;
+	}
+	public void setIfmmGenderCd(Integer ifmmGenderCd) {
+		this.ifmmGenderCd = ifmmGenderCd;
+	}
+	public String getIfmmDob() {
+		return ifmmDob;
+	}
+	public void setIfmmDob(String ifmmDob) {
+		this.ifmmDob = ifmmDob;
+	}
+	public String getFdmaAddress() {
+		return fdmaAddress;
+	}
+	public void setFdmaAddress(String fdmaAddress) {
+		this.fdmaAddress = fdmaAddress;
 	}
 	
 	

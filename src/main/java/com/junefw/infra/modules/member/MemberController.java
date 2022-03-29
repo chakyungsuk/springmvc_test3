@@ -105,7 +105,7 @@ public class MemberController {
 	
 	//실제 수정을 하는 주소
 	@RequestMapping(value = "/member/memberUpdt")
-	public String memberUpdt(Member dto, MemberVo vo) throws Exception {
+	public String memberUpdt(@ModelAttribute("vo") Member dto, MemberVo vo) throws Exception {
 		
 		//수정 프로세스 실행
 		service.update(dto);

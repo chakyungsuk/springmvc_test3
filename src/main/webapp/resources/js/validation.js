@@ -33,7 +33,7 @@ checkOnlyNumber = function(obj, value, message) {
 
 
 checkId = function(obj, value, message) {
-    var regExp = /^[A-Za-z0-9,_-]{2,20}$/;
+    var regExp = /^[A-Za-z0-9]{2,20}$/;
     if(regExp.test(value)) {
 		return true;
 	} else {
