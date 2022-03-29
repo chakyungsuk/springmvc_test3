@@ -42,6 +42,8 @@ public class MemberVo {
 	private String shDateEnd;
 	private String shDate;
 	
+	//checkbox
+	private String[] checkboxSeqArray;
 	
 	//paging
 	private int thisPage = 1;									// 현재 페이지
@@ -385,6 +387,14 @@ public class MemberVo {
 
 	public void setFdmaAddress(String fdmaAddress) {
 		this.fdmaAddress = fdmaAddress;
+	}
+
+	public String[] getCheckboxSeqArray() {
+		return checkboxSeqArray;
+	}
+
+	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
+		this.checkboxSeqArray = checkboxSeqArray;
 	}
 
 

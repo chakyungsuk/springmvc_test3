@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   <!--  -- c:out -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  <!-- -- 날짜나 시간 -->
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<jsp:useBean id="CodeServiceImpl" class="com.junefw.infra.modules.code.CodeServiceImpl"/>
 
+<% pageContext.setAttribute("br", "\n"); %>
 
 <htm1 lang="ko">
 
@@ -67,8 +69,8 @@
 
 <form id="formList" name="formList" method="post" action="/member/memberList">	
 <input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+<input type="hidden" id="checkboxSeqArray">
 <input type="hidden" id="ifmmSeq" name="ifmmSeq">
-
 
 
 <div class="container">
@@ -110,13 +112,17 @@
 			</select>
 	    </div>
 		<div class="col-lg-2 col-md-6 col-sm-12">
-			<input class="form-control" type="text" placeholder="생일" id="shDate" name="shDate" value="${vo.shDate}"/ autocomplete="off">
+			<input class="form-control" type="text" placeholder="생일" id="shDate" name="shDate" value="${vo.shDate}" autocomplete="off">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-	      <input class="form-control" type="text" placeholder="시작일" aria-label="default input example" id="" name="">
+	    <fmt:parseDate var="shDateStart" value="${vo.shDateStart }" pattern="yyyy-MM-dd"/>
+        <input type="text" id="shDateStart" name="shDateStart" value="<fmt:formatDate value="${shDateStart }" pattern="yyyy-MM-dd" />" placeholder="시작일" class="form-control" autocomplete="off">
+       	<!-- <input class="form-control" type="text" placeholder="시작일" id="" name="" autocomplete="off"> -->
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-	     <input class="form-control" type="text" placeholder="종료일" aria-label="default input example" id="" name=""> 
+	     <fmt:parseDate var="shDateEnd" value="${vo.shDateEnd }" pattern="yyyy-MM-dd"/>
+        <input type="text" id="shDateEnd" name="shDateEnd" value="<fmt:formatDate value="${shDateEnd }" pattern="yyyy-MM-dd" />" placeholder="시작일" class="form-control" autocomplete="off">
+	     <!-- <input class="form-control" type="text" placeholder="종료일" id="" name="" autocomplete="off">  -->
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
 	    </div>
@@ -172,6 +178,7 @@
 					</tr>
 				</thead>
 				<tbody>
+			<%-- <c:set var="listCodeGender" value="${CodeServiceImpl.selectListCachedCode('3')}"/> --%>
 					<tr>
 						<td>
 						    <c:choose>
@@ -242,7 +249,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmPassword}"/></a> <br><br>
+										<c:out value="${item.ifmmPassword}"/> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
@@ -256,8 +263,26 @@
 									</tr>	
 								</c:when>
 								<c:otherwise>
+										<c:forEach items="${listCodeGender}" var="itemGender" varStatus="statusGender">
+											<c:if test="${item.ifmmGenderCd eq itemGender.fdcdSeq}"><c:out value="${itemGender.fdcdName}"/></c:if>
+										</c:forEach>
+									<%-- <c:forEach items="${list}" var="item" varStatus="status">	
+										<c:out value="${item.ifmmGenderCd}"/> <br><br>
+									</c:forEach> --%>
+								</c:otherwise>
+							</c:choose>	 
+						</td>
+						
+						<td>
+						    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<tr>
+										<td class="text-center" colspan="9">No data!</td>
+									</tr>	
+								</c:when>
+								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmGenderCd}"/></a> <br><br>
+										<c:out value="${item.ifmmDob}"/> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
@@ -272,22 +297,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmDob}"/></a> <br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-						
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.fdmeEmailFull}"/></a> <br><br>
+										<c:out value="${item.fdmeEmailFull}"/> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
@@ -295,17 +305,18 @@
 						
 						
 						<td>
+						<c:set var="numberPhone" value="${item.fdmpNumber }"/>
 						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
+						        <c:when test="${fn:length(numberPhone) eq 10 }">
+						            <c:out value="${fn:substring(numberPhone,0,3)}"/>
+						            - <c:out value="${fn:substring(numberPhone,3,6)}"/>
+						            - <c:out value="${fn:substring(numberPhone,6,10)}"/>
+						        </c:when>	
 								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-								 		<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.mobile}"/></a> <br><br>
-									</c:forEach>
-								</c:otherwise>
+						            <c:out value="${fn:substring(numberPhone,0,3)}"/>
+						            - <c:out value="${fn:substring(numberPhone,3,7)}"/>
+						            - <c:out value="${fn:substring(numberPhone,7,11)}"/>
+						        </c:otherwise>
 							</c:choose>	 
 						</td>
 						
@@ -333,7 +344,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd HH:mm:ss"/></a> <br><br>
+										<fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd HH:mm:ss"/> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 
@@ -457,7 +468,7 @@
 	}
 	
 	$(document).ready(function(){
-		 $("#shDate").datepicker();
+		 $("#shDateStart").datepicker();
 	}); 
 
 	$.datepicker.setDefaults({
@@ -472,6 +483,36 @@
 	    showMonthAfterYear: true,
 	    yearSuffix: '년'
 	});
+	
+	$(document).ready(function(){
+		 $("#shDateEnd").datepicker();
+	}); 
+
+	$.datepicker.setDefaults({
+	    dateFormat: 'yy-mm-dd',
+	    prevText: '이전 달',
+	    nextText: '다음 달',
+	    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+	    showMonthAfterYear: true,
+	    yearSuffix: '년'
+	});
+	
+	$("#checkboxAll").click(function() {
+		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
+		else $("input[name=checkboxSeq]").prop("checked", false);
+	});
+	
+	$("input[name=checkboxSeq]:checked").each(function() { 
+		checkboxSeqArray.push($(this).val());
+	});
+	
+	$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+						
+	form.attr("action", goUrlMultiDele).submit();
 </script>
 
 

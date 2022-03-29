@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.junefw.infra.modules.code.CodeVo;
+
 @Repository
 public class MemberDao {
 	
@@ -24,6 +26,9 @@ public class MemberDao {
 	public int insertMobile(Member dto){ return sqlSession.insert(namespace + ".insertMobile", dto);}
 	
 	public Member selectOne(MemberVo vo) {return sqlSession.selectOne(namespace + ".selectOne", vo);}
+	
+	public int delete(MemberVo vo) {return sqlSession.delete(namespace + ".delete", vo);}
+	public int updateDelete(MemberVo vo) {return sqlSession.update(namespace + ".updateDelete", vo);}
 	
 	public int update(Member dto) {return sqlSession.update(namespace + ".update", dto);}
 	public int updateEmail(Member dto) {return sqlSession.update(namespace + ".updateEmail", dto);}

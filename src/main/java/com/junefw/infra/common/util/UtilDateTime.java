@@ -45,6 +45,10 @@ public class UtilDateTime {
 		String localDateTimeNewString = localDateTimeNew.format(DateTimeFormatter.ofPattern(Constants.DATE_FORMAT_BASIC));
 		return localDateTimeNewString;
 	}
+	
+	public static String addStringTime(String date) {
+		return date + "00:00:00";
+	} 
 }
 
 	

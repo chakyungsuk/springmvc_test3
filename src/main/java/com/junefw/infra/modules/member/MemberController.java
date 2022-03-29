@@ -11,6 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.junefw.infra.common.constants.Constants;
 import com.junefw.infra.common.util.UtilDateTime;
+import com.junefw.infra.modules.code.CodeVo;
 
 
 
@@ -27,8 +28,8 @@ public class MemberController {
 //	public String memberList( Model model) throws Exception {
 		
 		vo.setShOptionDate(vo.getShOptionDate() == null ? 1 : vo.getShOptionDate());
-		vo.setShDateStart(vo.getShDateStart() == null ? UtilDateTime.calculateDayString(UtilDateTime.nowLocalDateTime(), Constants.DATE_INTERVAL) : vo.getShDateStart());
-		vo.setShDateEnd(vo.getShDateEnd() == null ? UtilDateTime.nowString() : vo.getShDateEnd());
+		vo.setShDateStart(vo.getShDateStart() == null ? UtilDateTime.calculateDayString(UtilDateTime.nowLocalDateTime(), Constants.DATE_INTERVAL) : UtilDateTime.addStringTime(vo.getShDateStart()));
+		vo.setShDateEnd(vo.getShDateEnd() == null ? UtilDateTime.nowString() : UtilDateTime.addStringTime(vo.getShDateEnd()));
 		
 		// count 가져올 것
 		int count = service.selectOneMember(vo);
@@ -64,11 +65,56 @@ public class MemberController {
 		
 		service.insert(dto);
 		
-		redirectAttributes.addAttribute("ifmmSeq", dto.getIfmmSeq());
-		redirectAttributes.addAttribute("thisPage", vo.getThisPage());
-		redirectAttributes.addAttribute("shmemberDelNy", vo.getShmemberDelNy());
-		redirectAttributes.addAttribute("shOption", vo.getShOption());
-		redirectAttributes.addAttribute("shValue", vo.getShValue());
+		/*
+		 * redirectAttributes.addAttribute("ifmmSeq", dto.getIfmmSeq());
+		 * redirectAttributes.addAttribute("thisPage", vo.getThisPage());
+		 * redirectAttributes.addAttribute("shmemberDelNy", vo.getShmemberDelNy());
+		 * redirectAttributes.addAttribute("shOption", vo.getShOption());
+		 * redirectAttributes.addAttribute("shValue", vo.getShValue());
+		 */
+		
+		vo.setIfmmSeq(dto.getIfmmSeq());
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
+		return "redirect:/member/memberList";
+	}
+	
+	@RequestMapping(value = "/member/memberDele")
+	public String memberDele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	
+		service.delete(vo);
+		
+		redirectAttributes.addAttribute("thisPage", vo.getThisPage()); // get 방식
+		redirectAttributes.addAttribute("shFdcgDelNy", vo.getIfmmDelNy()); // get 방식
+		redirectAttributes.addAttribute("shFdcgName", vo.getIfmmName()); // get 방식
+		
+		return "redirect:/member/memberList";
+	}
+	
+	@RequestMapping(value = "/member/memberNele")
+	public String memberNele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		
+		service.updateDelete(vo);
+		
+		redirectAttributes.addAttribute("thisPage", vo.getThisPage()); // get 방식
+		redirectAttributes.addAttribute("shFdcgDelNy", vo.getIfmmDelNy()); // get 방식
+		redirectAttributes.addAttribute("shFdcgName", vo.getIfmmName()); // get 방식
+		
+		return "redirect:/member/memberList";
+	}
+		
+	@RequestMapping(value = "memberMultiUele")
+	public String memberMultiUele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		
+		String[] checkboxSeqArray = vo.getCheckboxSeqArray();
+		
+		for(String checkboxSeq : checkboxSeqArray) {
+			vo.setIfmmSeq(checkboxSeq);
+			service.updateDelete(vo);
+		}
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
 		
 		return "redirect:/member/memberList";
 	}

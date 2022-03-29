@@ -67,6 +67,9 @@
 		insert into fdMember(
 			ifmmId
 			, ifmmPassword
+			, ifmmName
+			, ifmmGenderCd
+			, ifmmDob
 			, ifmmDelNy
 			, ifmmSaved
 			, ifmmEmailConsentNy
@@ -76,6 +79,9 @@
 		) values (
 			#{ifmmId}
 			, #{ifmmPassword}
+			, #{ifmmName}
+			, #{ifmmGenderCd}
+			, #{ifmmDob}
 			, 0
 			, 1
 			, #{ifmmEmailConsentNy}
@@ -143,9 +149,6 @@
 			, ifmmPassword = #{ifmmPassword}
 		WHERE 1=1
 			AND ifmmSeq = #{ifmmSeq}
-  	<selectKey resultType="String" keyProperty="ifmmSeq" order="AFTER">
-		SELECT last_insert_id()
-	</selectKey>  
 	</update>
 	
 	<update id="updateEmail">

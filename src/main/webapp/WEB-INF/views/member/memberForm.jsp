@@ -5,6 +5,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<jsp:useBean id="CodeServiceImpl" class="com.junefw.infra.modules.code.CodeServiceImpl"/>
+
+<% pageContext.setAttribute("br", "\n"); %>
+
 
 <!DOCTYPE HTML>
 <htm1 lang="ko">
@@ -226,8 +230,11 @@
 			<label for="exampleFormControlTextarea1" class="form-label">설명</label>
 			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="margin-bottom: 12px;"></textarea>
 		</div>
-		<div class="col-12 col-lg-6 col-sm-12">
-		</div>
+        <div class="col-sm-6 mt-3 mt-sm-0">
+            <label for="ifmmDesc" class="form-label">설명</label>
+            <%-- <p>${fn:replace(item.ifmmDesc, br, '<br/>')}</p> --%>
+            <p><c:out value="${fn:replace(item.ifmmDesc, br, '<br/>')}" escapeXml = "false"/></p>
+        </div>
 		<div class="col-6 col-lg-3 col-sm-6">
 			<h6>최종수정자</h6>
 			<input class="form-control" type="text" placeholder="CHa(CEO)" aria-label="default input example" disabled>
@@ -318,7 +325,7 @@
 		
 		// PassWord
 		if(!checkNull($("#ifmmPassword"),$("#ifmmPassword").val(), "비밀번호를 입력 바랍니다.")) return false;
-		if(!checkPassword($("#ifmmPassword"),$("#ifmmPassword").val(), "영어 대소문자 및 특수문자 포함해서 입력 바랍니다.")) return false;
+		/* if(!checkPassword($("#ifmmPassword"),$("#ifmmPassword").val(), "영어 대소문자 및 특수문자 포함해서 입력 바랍니다.")) return false; */
 		
 		// E-mail
 		if(!checkNull($("#fdmeEmailFull"),$("#fdmeEmailFull").val(),"이메일을 입력 바랍니다.")) return false;

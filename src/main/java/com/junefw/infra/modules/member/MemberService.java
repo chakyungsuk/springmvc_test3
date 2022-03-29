@@ -11,8 +11,12 @@ public interface MemberService {
 	int insertMobile(Member dto) throws Exception; 
 	Member selectOne(MemberVo vo) throws Exception;
 	
+	int delete(MemberVo vo) throws Exception;
+	int updateDelete(MemberVo vo) throws Exception;
+	
 	int update(Member dto) throws Exception;
-	int updateEmail(Member dto) throws Exception;
+	int updateEmail(Member dto) throws Exception; 
 	int updateMobile(Member dto) throws Exception;
+	 
 
 }

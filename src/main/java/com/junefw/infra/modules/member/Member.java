@@ -36,6 +36,8 @@ public class Member {
 	private Date RegDateTime;
 	private Date ModDateTime;
 	
+	// checkbox
+	private String[] checkboxSeqArray;
 //  ============================================	
 	
 	public String getIfmmSeq() {
@@ -145,6 +147,12 @@ public class Member {
 	}
 	public void setFdmaAddress(String fdmaAddress) {
 		this.fdmaAddress = fdmaAddress;
+	}
+	public String[] getCheckboxSeqArray() {
+		return checkboxSeqArray;
+	}
+	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
+		this.checkboxSeqArray = checkboxSeqArray;
 	}
 	
 	

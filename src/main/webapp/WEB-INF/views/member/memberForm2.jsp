@@ -57,11 +57,11 @@
 <input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 
 <input type="hidden" name="ifmmSeq" id="ifmmSeq" value="<c:out value="${vo.ifmmSeq}"/>">
-<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }"/>">
+<%-- <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }"/>">
 <input type="hidden" name="ifmmId" value="<c:out value="${vo.ifmmId }"/>">
 <input type="hidden" name="ifmmPassword" value="<c:out value="${vo.ifmmPassword }"/>">
 <input type="hidden" name="fdmeEmailFull" value="<c:out value="${vo.fdmeEmailFull }"/>">
-<input type="hidden" name="fdmpNumber" value="<c:out value="${vo.fdmpNumber }"/>">
+<input type="hidden" name="fdmpNumber" value="<c:out value="${vo.fdmpNumber }"/>"> --%>
 
 <div class="container-sm">
 	<div class="row">
@@ -323,7 +323,7 @@
 	
 	btnSubmit = function(seq){
 		$("#ifmmSeq").val(seq)	
-		$("#formUpdt").attr("action","/member/memberView");
+		$("#formUpdt").attr("action","/member/memberUpdt");
 		$("#formUpdt").submit();
 		}
 
