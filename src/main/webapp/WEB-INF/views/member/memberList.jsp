@@ -112,17 +112,22 @@
 			</select>
 	    </div>
 		<div class="col-lg-2 col-md-6 col-sm-12">
-			<input class="form-control" type="text" placeholder="생일" id="shDate" name="shDate" value="${vo.shDate}" autocomplete="off">
+			<select class="form-select form-select" style="margin-bottom: 8px;" id="shDate" name="shDate">
+				<option value="">검색구분</option>
+				<option value="1" <c:if test="${vo.shDate eq 1}">selected</c:if>>생일
+				<option value="2" <c:if test="${vo.shDate eq 2}">selected</c:if>>남자
+				<option value="3" <c:if test="${vo.shDate eq 3}">selected</c:if>>여자
+			</select>
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-	    <fmt:parseDate var="shDateStart" value="${vo.shDateStart }" pattern="yyyy-MM-dd"/>
-        <input type="text" id="shDateStart" name="shDateStart" value="<fmt:formatDate value="${shDateStart }" pattern="yyyy-MM-dd" />" placeholder="시작일" class="form-control" autocomplete="off">
-       	<!-- <input class="form-control" type="text" placeholder="시작일" id="" name="" autocomplete="off"> -->
+	    <%-- <fmt:parseDate var="shDateStart" value="${vo.shDateStart }" pattern="yyyy-MM-dd"/>
+        <input type="text" id="shDateStart" name="shDateStart" value="<fmt:formatDate value="${shDateStart }" pattern="yyyy-MM-dd" />" placeholder="시작일" class="form-control" autocomplete="off"> --%>
+        <input class="form-control" type="text" placeholder="시작일" id="" name="" autocomplete="off">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-	     <fmt:parseDate var="shDateEnd" value="${vo.shDateEnd }" pattern="yyyy-MM-dd"/>
-        <input type="text" id="shDateEnd" name="shDateEnd" value="<fmt:formatDate value="${shDateEnd }" pattern="yyyy-MM-dd" />" placeholder="시작일" class="form-control" autocomplete="off">
-	     <!-- <input class="form-control" type="text" placeholder="종료일" id="" name="" autocomplete="off">  -->
+	     <%-- <fmt:parseDate var="shDateEnd" value="${vo.shDateEnd }" pattern="yyyy-MM-dd"/>
+        <input type="text" id="shDateEnd" name="shDateEnd" value="<fmt:formatDate value="${shDateEnd }" pattern="yyyy-MM-dd" />" placeholder="시작일" class="form-control" autocomplete="off"> --%>
+	    <input class="form-control" type="text" placeholder="종료일" id="" name="" autocomplete="off"> 
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
 	    </div>
@@ -305,7 +310,7 @@
 						
 						
 						<td>
-						<c:set var="numberPhone" value="${item.fdmpNumber }"/>
+						<c:set var="numberPhone" value="${item.fdmpNumber}"/>
 						    <c:choose>
 						        <c:when test="${fn:length(numberPhone) eq 10 }">
 						            <c:out value="${fn:substring(numberPhone,0,3)}"/>
@@ -329,7 +334,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-									 	<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.fdmaAddress}"/></a> <br><br>
+									 	<c:out value="${item.fdmaAddress}"/> <br><br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>	 

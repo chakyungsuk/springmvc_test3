@@ -11,7 +11,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.junefw.infra.common.constants.Constants;
 import com.junefw.infra.common.util.UtilDateTime;
-import com.junefw.infra.modules.code.CodeVo;
 
 
 
@@ -73,7 +72,7 @@ public class MemberController {
 		 * redirectAttributes.addAttribute("shValue", vo.getShValue());
 		 */
 		
-		vo.setIfmmSeq(dto.getIfmmSeq());
+		/* vo.setIfmmSeq(dto.getIfmmSeq()); */
 		
 		redirectAttributes.addFlashAttribute("vo", vo);
 		
@@ -85,9 +84,12 @@ public class MemberController {
 	
 		service.delete(vo);
 		
-		redirectAttributes.addAttribute("thisPage", vo.getThisPage()); // get 방식
-		redirectAttributes.addAttribute("shFdcgDelNy", vo.getIfmmDelNy()); // get 방식
-		redirectAttributes.addAttribute("shFdcgName", vo.getIfmmName()); // get 방식
+		/*
+		 * redirectAttributes.addAttribute("thisPage", vo.getThisPage()); // get 방식
+		 * redirectAttributes.addAttribute("shFdcgDelNy", vo.getIfmmDelNy()); // get 방식
+		 * redirectAttributes.addAttribute("shFdcgName", vo.getIfmmName()); // get 방식
+		 */		
+		redirectAttributes.addFlashAttribute("vo", vo);
 		
 		return "redirect:/member/memberList";
 	}
@@ -151,12 +153,16 @@ public class MemberController {
 	
 	//실제 수정을 하는 주소
 	@RequestMapping(value = "/member/memberUpdt")
-	public String memberUpdt(@ModelAttribute("vo") Member dto, MemberVo vo) throws Exception {
+	public String memberUpdt(@ModelAttribute("vo") Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
 		
 		//수정 프로세스 실행
 		service.update(dto);
 		
-		return "redirect:/member/memberView?ifmmSeq=" + dto.getIfmmSeq() + makeQueryString(vo);
+		vo.setIfmmSeq(dto.getIfmmSeq());
+
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
+		return "redirect:/member/memberView";
 	}
 	
 	@RequestMapping(value = "/member/memberLogin")
@@ -164,27 +170,6 @@ public class MemberController {
 		
 		
 		return "member/memberLogin";
-	}
-	
-	@RequestMapping(value = "/member/memberFindPW")
-	public String memberFindPW() throws Exception {
-		
-		
-		return "member/memberFindPW";
-	}
-	
-	@RequestMapping(value = "/member/memberFindPW2")
-	public String memberFindPW2() throws Exception {
-		
-		
-		return "member/memberFindPW2";
-	}
-
-	@RequestMapping(value = "/member/memberMain")
-	public String memberMain() throws Exception {
-		
-		
-		return "member/memberMain";
 	}
 	
 

@@ -24,7 +24,11 @@ public class Member {
 	private String mobile;
 	
 	//memberAddress
+	private String fdmaZipcode;
+	private String fdmaTitle1;
+	private String fdmaTitle2;
 	private String fdmaAddress;
+	
 	
 	//ConsentNy
 	private Integer ifmmEmailConsentNy;
@@ -153,6 +157,24 @@ public class Member {
 	}
 	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
 		this.checkboxSeqArray = checkboxSeqArray;
+	}
+	public String getFdmaZipcode() {
+		return fdmaZipcode;
+	}
+	public void setFdmaZipcode(String fdmaZipcode) {
+		this.fdmaZipcode = fdmaZipcode;
+	}
+	public String getFdmaTitle1() {
+		return fdmaTitle1;
+	}
+	public void setFdmaTitle1(String fdmaTitle1) {
+		this.fdmaTitle1 = fdmaTitle1;
+	}
+	public String getFdmaTitle2() {
+		return fdmaTitle2;
+	}
+	public void setFdmaTitle2(String fdmaTitle2) {
+		this.fdmaTitle2 = fdmaTitle2;
 	}
 	
 	

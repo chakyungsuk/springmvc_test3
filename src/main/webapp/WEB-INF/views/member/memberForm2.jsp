@@ -264,7 +264,7 @@
 			</button>
 		</div>
 		<div class="col-lg-4 col-md-6 col-sm-6" style="text-align: center;">
-			<button type="button" id="btnback" name="btnback" class="btn btn-outline-primary" style="width: 200px;">뒤로가기</button>
+			<button type="submit" id="btnback" name="btnback" class="btn btn-outline-primary" style="width: 200px;">뒤로가기</button>
 			<button type="submit" id="btnSubmit" name="btnSubmit" class="btn btn-outline-danger" style="width: 200px;">수정</button>
 		</div>
 		<div class="col-lg-4 col-md-6 col-sm-6">
@@ -325,7 +325,7 @@
 		$("#ifmmSeq").val(seq)	
 		$("#formUpdt").attr("action","/member/memberUpdt");
 		$("#formUpdt").submit();
-		}
+	}
 
  	 $("#btnSubmit").on("click", function(){
 	/* 	// ID	
