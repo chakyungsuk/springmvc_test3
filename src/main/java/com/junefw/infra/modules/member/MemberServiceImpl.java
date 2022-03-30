@@ -76,6 +76,11 @@ public class MemberServiceImpl implements MemberService{
 	public int updateDelete(MemberVo vo) throws Exception {
 		return dao.updateDelete(vo);
 	}
+	
+	@Override
+	public Member selectOneLogin(Member dto) throws Exception {
+		return dao.selectOneLogin(dto);
+	}
 
 }
 		 

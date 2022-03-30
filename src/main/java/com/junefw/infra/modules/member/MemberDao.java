@@ -33,4 +33,6 @@ public class MemberDao {
 	public int update(Member dto) {return sqlSession.update(namespace + ".update", dto);}
 	public int updateEmail(Member dto) {return sqlSession.update(namespace + ".updateEmail", dto);}
 	public int updateMobile(Member dto) {return sqlSession.update(namespace + ".updateMobile", dto);}
+	
+	public Member selectOneLogin(Member dto) {return sqlSession.selectOne(namespace + ".selectOneLogin", dto);}
 }

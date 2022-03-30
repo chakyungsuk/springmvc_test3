@@ -143,6 +143,19 @@
 			and a.ifmmSeq = #{ifmmSeq}
 	</select>
 	
+	<select id="selectOneLogin" resultMap="resultMapObj">
+		SELECT 
+			a.ifmmSeq
+			, a.ifmmId
+			, a.ifmmPassword
+			, a.ifmmName
+		FROM
+			fdmember a
+		WHERE 1=1
+			and a.ifmmId = #{ifmmId}
+			and a.ifmmPassword = #{ifmmPassword}
+	</select>
+	
 	<update id="update">
 		UPDATE 
 			fdmember

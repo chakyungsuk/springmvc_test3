@@ -315,10 +315,8 @@
 	$("#btnSubmit").on("click", function(){
 		
 		$("#btnSubmit").attr("action", "/member/memberInst");
-		$("#btnSubmit").submit();
+		$("#btnSubmit").submit(); 
 
-			
-	
 		// ID	
 		if(!checkNull($("#ifmmId"),$("#ifmmId").val(), "아이디를 입력 바랍니다.")) return false;
 		if(!checkId($("#ifmmId"),$("#ifmmId").val(), "영문(대소문자) 및 최소 2자 부터 20자 까지 가능합니다.")) return false;

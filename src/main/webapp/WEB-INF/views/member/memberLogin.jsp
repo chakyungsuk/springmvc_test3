@@ -31,9 +31,6 @@
 
 <style>
 
-	body {
-		background-color: threedface;
-	}
 </style>
 
 </head>
@@ -44,14 +41,15 @@
 <main class="form-signin">
 <form id="formLogin" name="formLogin" method="post" action="/member/memberLogin">
 
+
     <h3 class="" style="margin-bottom: 100px;">Ten Thousand Recipes</h3>
 
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="Staff Number" autocomplete="off">
+    <div class="form-floating mb-2">
+      <input type="email" class="form-control" id="ifmmId" name="ifmmId" placeholder="Staff Number" autocomplete="off">
       <label for="floatingInput">Staff Number</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="ifmmPassword" name="ifmmPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
 
@@ -61,9 +59,9 @@
       </label>
     </div>
     <div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+    <button class="w-100 btn btn-lg btn-primary" type="button" id="btnLogin" name="">Login</button>
 	</div>
-   	<p class="mt-5 mb-3" style="color: gray;">&copy; Happy Food 2022 ~</p>
+   	<p class="" style="color: gray;">&copy; Happy Food 2022 ~</p>
   </form>
 </main>
 
@@ -98,10 +96,25 @@
 			$("#formLogin").submit();
 		});
 
-		
-	
-	
-
+		$("#btnLogin").on("click", function(){
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/member/loginProc"
+				,data : { "ifmmId" : $("#ifmmId").val(), "ifmmPassword" : $("#ifmmPassword").val()}
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = "/index/indexView";
+					} else {
+						alert("회원없음");
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		});
 </script>
 
 

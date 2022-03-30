@@ -1,12 +1,17 @@
 package com.junefw.infra.modules.member;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.junefw.infra.common.constants.Constants;
@@ -49,6 +54,33 @@ public class MemberController {
 		
 		return "member/memberList";
 		
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "member/loginProc")
+	public Map<String, Object> loginProc(Member dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		Member rtMember = service.selectOneLogin(dto);
+		
+		if(rtMember != null) {
+//			rtMember = service.selectOneLogin(dto);
+
+//			if(rtMember.getIfmmSeq() != null) {
+//				httpSession.setMaxInactiveInterval( 60 * Constants.SESSION_MINUTE);	//60second * 30 = 30minute  
+//				session.setMaxInactiveInterval(-1);		// session time unlimited
+//	
+//				httpSession.setAttribute("sessSeq", rtMember.getIfmmSeq());
+//				httpSession.setAttribute("sessId", rtMember.getIfmmId());
+//				httpSession.setAttribute("sessName", rtMember.getIfmmName());
+//				
+//				returnMap.put("rt", "success");
+//			} else {
+			returnMap.put("rt", "success");
+		} else {
+			returnMap.put("rt", "fail");
+		}
+		return returnMap;
 	}
 	
 	@RequestMapping(value = "/member/memberForm")
@@ -172,7 +204,6 @@ public class MemberController {
 		return "member/memberLogin";
 	}
 	
-
 }
 
 
