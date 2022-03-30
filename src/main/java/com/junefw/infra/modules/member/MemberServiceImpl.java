@@ -66,6 +66,10 @@ public class MemberServiceImpl implements MemberService{
   @Override public int updateMobile(Member dto) throws Exception { 
 	  return dao.updateMobile(dto); 
   }
+  
+  @Override public int updateAddress(Member dto) throws Exception { 
+	  return dao.updateAddress(dto); 
+  }
 
 	@Override
 	public int delete(MemberVo vo) throws Exception {

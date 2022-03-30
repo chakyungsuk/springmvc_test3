@@ -143,7 +143,7 @@
 			</select>
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<input class="form-control" type="text" placeholder="검색어" aria-label="default input example" name="shValue" id="shValue" value="${vo.shValue }"/>
+			<input class="form-control" type="text" placeholder="검색어" aria-label="default input example" name="shValue" id="shValue" autocomplete="off" value="${vo.shValue }"/>
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">			
 	    	<div class="d-md-flex justify-content">
@@ -184,8 +184,6 @@
 				</thead>
 				<tbody>
 			<%-- <c:set var="listCodeGender" value="${CodeServiceImpl.selectListCachedCode('3')}"/> --%>
-					<tr>
-						<td>
 						    <c:choose>
 								<c:when test="${fn:length(list) eq 0}">
 									<tr>
@@ -194,168 +192,48 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
-										<input class="form-check-input" type="checkbox"> <br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-						
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
 									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-										<c:out value="${item.ifmmSeq}"/> <br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-						
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmName}"/></a> <br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-					
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-										<a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmId}"/></a> <br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-					
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-										<c:out value="${item.ifmmPassword}"/> <br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-					
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-										<c:forEach items="${listCodeGender}" var="itemGender" varStatus="statusGender">
-											<c:if test="${item.ifmmGenderCd eq itemGender.fdcdSeq}"><c:out value="${itemGender.fdcdName}"/></c:if>
-										</c:forEach>
-									<%-- <c:forEach items="${list}" var="item" varStatus="status">	
-										<c:out value="${item.ifmmGenderCd}"/> <br><br>
-									</c:forEach> --%>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-						
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-										<c:out value="${item.ifmmDob}"/> <br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-						
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-										<c:out value="${item.fdmeEmailFull}"/> <br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-						
-						
-						<td>
-						<c:set var="numberPhone" value="${item.fdmpNumber}"/>
-						    <c:choose>
-						        <c:when test="${fn:length(numberPhone) eq 10 }">
-						            <c:out value="${fn:substring(numberPhone,0,3)}"/>
-						            - <c:out value="${fn:substring(numberPhone,3,6)}"/>
-						            - <c:out value="${fn:substring(numberPhone,6,10)}"/>
-						        </c:when>	
-								<c:otherwise>
-						            <c:out value="${fn:substring(numberPhone,0,3)}"/>
-						            - <c:out value="${fn:substring(numberPhone,3,7)}"/>
-						            - <c:out value="${fn:substring(numberPhone,7,11)}"/>
-						        </c:otherwise>
-							</c:choose>	 
-						</td>
-						
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-									 	<c:out value="${item.fdmaAddress}"/> <br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-						
-						<td>
-						    <c:choose>
-								<c:when test="${fn:length(list) eq 0}">
-									<tr>
-										<td class="text-center" colspan="9">No data!</td>
-									</tr>	
-								</c:when>
-								<c:otherwise>
-									<c:forEach items="${list}" var="item" varStatus="status">	
-										<fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd HH:mm:ss"/> <br><br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>	 
-						</td>
-						
-			 		 </tr>
+										<td><input class="form-check-input" type="checkbox"> <br><br></td>
+										<td><c:out value="${item.ifmmSeq}"/> <br><br></td>
+										<td><a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmName}"/></a> <br><br></td>
+										<td><c:out value="${item.ifmmId}"/> <br><br></td>
+										<td><c:out value="${item.ifmmPassword}"/> <br><br></td>
+										<td>
+											<c:choose>
+												<c:when test="${item.ifmmGenderCd eq 1}">
+													남성
+												</c:when>
+												<c:when test="${item.ifmmGenderCd eq 2}">
+													여성
+												</c:when>
+												<c:when test="${item.ifmmGenderCd eq 3}">
+													기타
+												</c:when>
+											</c:choose>
+										</td>
+									    <td><c:out value="${item.ifmmDob}"/> <br><br></td>
+										<td><c:out value="${item.fdmeEmailFull}"/> <br><br></td>
+										<td>
+											<c:set var="numberPhone" value="${item.fdmpNumber}"/>
+								   		    <c:choose>
+									      		<c:when test="${fn:length(numberPhone) eq 10 }">
+										            <c:out value="${fn:substring(numberPhone,0,3)}"/>
+										            - <c:out value="${fn:substring(numberPhone,3,6)}"/>
+										            - <c:out value="${fn:substring(numberPhone,6,10)}"/>
+										        </c:when>	
+												<c:otherwise>
+										            <c:out value="${fn:substring(numberPhone,0,3)}"/>
+										            - <c:out value="${fn:substring(numberPhone,3,7)}"/>
+										            - <c:out value="${fn:substring(numberPhone,7,11)}"/>
+										        </c:otherwise>
+											</c:choose>	 
+										</td>
+										<td><c:out value="${item.fdmaAddress}"/> <br><br></td>
+										<td><fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd HH:mm:ss"/> <br><br></td>
+									</tr>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>	 
 				</tbody>
 			</table>
 		</div>
@@ -413,29 +291,6 @@
 
 </div>
 
-<!-- Modal S -->
-
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">정말 삭제 하시겠습니까?</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        삭제하시게 되시면 모든 데이터가 삭제 됩니다.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-        <button type="submit" class="btn btn-danger" id="" name="">삭제</button><br>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal E -->
-
-
 
 <!-- <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script> -->
 <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
@@ -453,6 +308,12 @@
 		$("#formList").submit();	// 그 가져온 객체를 전달한다.
 	}
 
+	goView = function(seq){
+		$("#ifmmSeq").val(seq)	
+		$("#formList").attr("action","/member/memberView");
+		$("#formList").submit();
+	}
+		
 	$("#goForm").on("click", function(){
 		$("#formList").attr("action","/member/memberForm");
 		$("#formList").submit();
@@ -466,54 +327,14 @@
 	});
 	
 		
-		$("#btnLeset").on("click", function(){
-			var answer = confirm ("검색정보가 초기화 됩니다.")
-			
-			if(answer){
-				return true
-			} else {
-				return false
-			} 
-	});
-	
-	goView = function(seq){
-		$("#ifmmSeq").val(seq)	
-		$("#formList").attr("action","/member/memberView");
-		$("#formList").submit();
-	}
-	
-	$(document).ready(function(){
-		 $("#shDateStart").datepicker();
-	}); 
-
-	$.datepicker.setDefaults({
-	    dateFormat: 'yy-mm-dd',
-	    prevText: '이전 달',
-	    nextText: '다음 달',
-	    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-	    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-	    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-	    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-	    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-	    showMonthAfterYear: true,
-	    yearSuffix: '년'
-	});
-	
-	$(document).ready(function(){
-		 $("#shDateEnd").datepicker();
-	}); 
-
-	$.datepicker.setDefaults({
-	    dateFormat: 'yy-mm-dd',
-	    prevText: '이전 달',
-	    nextText: '다음 달',
-	    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-	    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-	    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-	    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-	    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-	    showMonthAfterYear: true,
-	    yearSuffix: '년'
+	$("#btnLeset").on("click", function(){
+		var answer = confirm ("검색정보가 초기화 됩니다.")
+		
+		if(answer){
+			return true
+		} else {
+			return false
+		} 
 	});
 	
 	$("#checkboxAll").click(function() {

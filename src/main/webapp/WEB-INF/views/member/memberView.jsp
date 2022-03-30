@@ -109,28 +109,28 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>이름</h6>
-			<input class="form-control" type="text" value="<c:out value="${item.ifmmName}"/>" disabled="disabled">
+			<input class="form-control" id="ifmmName" name="ifmmName" type="text" value="<c:out value="${item.ifmmName}"/>" disabled="disabled">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 			<h6>이름(영문)</h6>
-			<input class="form-control" type="text" aria-label="default input example">
+			<input class="form-control" type="text" aria-label="default input example" disabled="disabled">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>성별</h6>
-			<select class="form-select" aria-label="Default select example">
+			<select class="form-select" aria-label="Default select example" disabled="disabled" name="ifmmGenderCd">
 				<option selected>::선택::</option>
-				<option value="1">남자</option>
-				<option value="2">여자</option>
-				<option value="3">기타</option>
+				<option value="1" <c:if test="${vo.ifmmGenderCd eq 1 }">selected</c:if>>남자</option>
+				<option value="2" <c:if test="${vo.ifmmGenderCd eq 2 }">selected</c:if>>여자</option>
+				<option value="3" <c:if test="${vo.ifmmGenderCd eq 3 }">selected</c:if>>기타</option>
 			</select>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 			<h6>생일</h6>
-			<input class="form-control" type="text" aria-label="default input example" id="shDate" autocomplete="off">
+			<input class="form-control" type="text" name="ifmmDob" value="<c:out value="${item.ifmmDob}"/>" autocomplete="off" disabled="disabled">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>이메일</h6>
-			<input class="form-control" id="fdmeEmailFull" name="fdmeEmailFull" type="text" placeholder="name@example.com" aria-label="default input example">
+			<input class="form-control" id="fdmeEmailFull" name="fdmeEmailFull" type="text" value="<c:out value="${item.fdmeEmailFull}"/>" placeholder="name@example.com" disabled="disabled" >
 		</div>
 		<div class="col-6 col-lg-6 col-sm-12">
 			<h6>개인정보 보관(필수)</h6>
@@ -141,7 +141,7 @@
 		</div>
 		<div class="col-2 col-lg-1 col-sm-2" style="margin-bottom: 12px; padding-right: 1px;">
 			<h6>핸드폰</h6>
-			<select class="form-select" aria-label="Default select example" style="padding-right: 1px;">
+			<select class="form-select" aria-label="Default select example" style="padding-right: 1px;" disabled="disabled">
 				<option selected>::선택::</option>
 				<option value="1">SKT</option>
 				<option value="2">KT</option>
@@ -149,7 +149,7 @@
 			</select>
 		</div>
 		<div class="col-10 col-lg-5 col-sm-10" style="margin-bottom: 12px; padding-left: 0px;">
-			<input class="form-control" type="text" placeholder="숫자만 입력해 주십시요." aria-label="default input example" style="padding-left: 0px; margin-top: 27px;">
+			<input class="form-control" type="text" placeholder="숫자만 입력해 주십시요." name="fdmpNumber" value="<c:out value="${item.fdmpNumber }"/>" style="padding-left: 0px; margin-top: 27px;" disabled="disabled">
 		</div>
 		<div class="col-6 col-lg-6 col-sm-12">
 			<h6>이메일 정보 마케팅 사용 동의(선택)</h6>
@@ -160,7 +160,7 @@
 		</div>
 		<div class="col-2 col-lg-1 col-sm-2" style="margin-bottom: 12px; padding-right: 1px;">
 			<h6>전화번호</h6>
-			<select class="form-select" aria-label="Default select example" style="padding-right: 0px; ">
+			<select class="form-select" aria-label="Default select example" style="padding-right: 0px;" disabled="disabled">
 				<option selected>::선택::</option>
 				<option value="1">02</option>
 				<option value="2">031</option>
@@ -169,7 +169,7 @@
 			</select>
 		</div>
 		<div class="col-10 col-lg-5 col-sm-10" style="margin-bottom: 12px; padding-left: 0px;">
-			<input class="form-control" type="text" placeholder="숫자만 입력해 주십시요." aria-label="default input example" style="padding-left: 0px; margin-top: 27px;">
+			<input class="form-control" type="text" placeholder="숫자만 입력해 주십시요." aria-label="default input example" style="padding-left: 0px; margin-top: 27px;" disabled="disabled">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 			<h6>핸드폰 정보 마케팅 사용 동의(선택)</h6>
@@ -180,7 +180,7 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>거주국가</h6>
-			<select class="form-select" aria-label="Default select example">
+			<select class="form-select" aria-label="Default select example" disabled="disabled">
 				<option selected>::선택::</option>
 				<option value="1">한국</option>
 				<option value="2">미국</option>
@@ -192,7 +192,7 @@
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>
 			<div class="input-group mb-2">
-				<input type="text" id="sample6_postcode" class="form-control"  aria-label="Recipient's username" aria-describedby="button-addon2" disabled>
+				<input type="text" id="sample6_postcode" name="fdmaZipcode" class="form-control"  aria-describedby="button-addon2" disabled>
 				<button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="sample6_execDaumPostcode()">
 					<i class="fa-solid fa-magnifying-glass-plus"></i>
 				</button>
@@ -205,15 +205,15 @@
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-right: 2px;">
-			<input class="form-control" id="sample6_address" type="text" disabled="disabled">
+			<input class="form-control" id="sample6_address" name="fdmaTitle1" type="text" disabled="disabled">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-left: 2px;">
-			<input class="form-control" id="sample6_extraAddress" type="text" disabled="disabled">
+			<input class="form-control" id="sample6_extraAddress" name="fdmaTitle2" type="text" disabled="disabled">
 		</div>		
 		<div class="d-grid gap-2 col-6 col-lg-6 col-sm-12">
 		</div>
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" style="margin-top: 10px;">
-		<input class="form-control" id="sample6_detailAddress" type="text" placeholder="상세주소를 입력해주세요.">
+		<input class="form-control" id="sample6_detailAddress" name="fdmaAddress" type="text" placeholder="상세주소를 입력해주세요." disabled="disabled">
 		</div>
 		<div class="row">
 		<div class="col-12 col-lg-6 col-sm-12">
@@ -230,7 +230,7 @@
 
 		<div class="col-12 col-lg-6 col-sm-12">
 			<label for="exampleFormControlTextarea1" class="form-label">설명</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="margin-bottom: 12px;"></textarea>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="margin-bottom: 12px;" disabled="disabled"></textarea>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>

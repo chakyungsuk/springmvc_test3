@@ -115,7 +115,7 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>성별</h6>
-			<select class="form-select">
+			<select class="form-select" id="ifmmGenderCd" name="ifmmGenderCd">
 				<option selected>::선택::</option>
 				<option value="1">남자</option>
 				<option value="2">여자</option>
@@ -124,11 +124,11 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 			<h6>생일</h6>
-			<input class="form-control" type="text" id="ifmmDob" name="ifmmDob" autocomplete="off">
+			<input class="form-control" type="text" id="shDate" name="ifmmDob" autocomplete="off">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>이메일</h6>
-			<input class="form-control" id="fdmeEmailFull" name="fdmeEmailFull" type="text" placeholder="name@example.com">
+			<input class="form-control" id="fdmeEmailFull" name="fdmeEmailFull" type="text" placeholder="name@example.com" autocomplete="off">
 		</div>
 		<div class="col-6 col-lg-6 col-sm-12">
 			<h6>개인정보 보관(필수)</h6>
@@ -147,7 +147,7 @@
 			</select>
 		</div>
 		<div class="col-10 col-lg-5 col-sm-10" style="margin-bottom: 12px; padding-left: 0px;">
-			<input class="form-control" type="text" id="fdmpNumber" name="fdmpNumber" placeholder="숫자만 입력해 주십시요." style="padding-left: 0px; margin-top: 27px;">
+			<input class="form-control" type="text" name="fdmpNumber" placeholder="숫자만 입력해 주십시요." style="padding-left: 0px; margin-top: 27px;">
 		</div>
 		<div class="col-6 col-lg-6 col-sm-12">
 			<h6>이메일 정보 마케팅 사용 동의(선택)</h6>

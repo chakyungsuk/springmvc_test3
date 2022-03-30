@@ -110,7 +110,7 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>이름</h6>
-			<input class="form-control" type="text" aria-label="default input example">
+			<input class="form-control" id="ifmmName" name="ifmmName" type="text" value="<c:out value="${item.ifmmName}"/>">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 			<h6>이름(영문)</h6>
@@ -118,20 +118,20 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>성별</h6>
-			<select class="form-select" aria-label="Default select example">
+			<select class="form-select" name="ifmmGenderCd" id="ifmmGenderCd">
 				<option selected>::선택::</option>
-				<option value="1">남자</option>
-				<option value="2">여자</option>
-				<option value="3">기타</option>
+				<option value="1" <c:if test="${vo.ifmmGenderCd eq 1 }">selected</c:if>>남자</option>
+				<option value="2" <c:if test="${vo.ifmmGenderCd eq 2 }">selected</c:if>>여자</option>
+				<option value="3" <c:if test="${vo.ifmmGenderCd eq 3 }">selected</c:if>>기타</option>
 			</select>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 			<h6>생일</h6>
-			<input class="form-control" type="text" aria-label="default input example" id="shDate" autocomplete="off">
+			<input class="form-control" type="text" aria-label="default input example" id=shDate name="ifmmDob" value="<c:out value="${item.ifmmDob}"/>" autocomplete="off">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>이메일</h6>
-			<input class="form-control" id="fdmeEmailFull" name="fdmeEmailFull" type="text" placeholder="name@example.com" aria-label="default input example">
+			<input class="form-control" name="fdmeEmailFull" type="text" value="<c:out value="${item.fdmeEmailFull}"/>" placeholder="name@example.com" >
 		</div>
 		<div class="col-6 col-lg-6 col-sm-12">
 			<h6>개인정보 보관(필수)</h6>
@@ -150,7 +150,7 @@
 			</select>
 		</div>
 		<div class="col-10 col-lg-5 col-sm-10" style="margin-bottom: 12px; padding-left: 0px;">
-			<input class="form-control" type="text" placeholder="숫자만 입력해 주십시요." aria-label="default input example" style="padding-left: 0px; margin-top: 27px;">
+			<input class="form-control" type="text" placeholder="숫자만 입력해 주십시요." name="fdmpNumber" value="<c:out value="${item.fdmpNumber }"/>" style="padding-left: 0px; margin-top: 27px;">
 		</div>
 		<div class="col-6 col-lg-6 col-sm-12">
 			<h6>이메일 정보 마케팅 사용 동의(선택)</h6>

@@ -17,6 +17,7 @@ public interface MemberService {
 	int update(Member dto) throws Exception;
 	int updateEmail(Member dto) throws Exception; 
 	int updateMobile(Member dto) throws Exception;
+	int updateAddress(Member dto) throws Exception;
 	
 	Member selectOneLogin(Member dto) throws Exception;
 	 
