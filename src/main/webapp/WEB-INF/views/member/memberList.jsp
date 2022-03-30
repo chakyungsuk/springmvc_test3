@@ -395,19 +395,22 @@
 
 <div class="container">
 	<div class="col-lg-12 col-md-12 col-sm-12" >
-			<button type="button" class="btn btn-danger btn-sm me-md-2 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float: left;"  >
-				<i class="fa-solid fa-trash-can"></i>
-			</button>
-		</div>
-		<div class="d-md-flex justify-content-end" >
-			<button class="btn btn-success btn-sm me-md-2 " type="button" >
-				<i class="fa-solid fa-file-excel"></i>	
-			</button>
-				<button class="btn btn-info btn-sm me-md-2 " type="button" id="goForm">
-					<i class="fa-solid fa-plus"></i>	
-				</button>
-		</div>
+		<a href ="/member/memberDele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" id="btnDelete" class="btn btn-danger btn-sm me-md-2 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float: left;">
+			<i class="fa-solid fa-trash-can"></i>
+		</a>
+		<a href ="/member/memberNele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" id="btnDeleteDelNy" class="btn btn-primary btn-sm me-md-2 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float: left;">
+			<i class="fa-solid fa-trash-can"></i>
+		</a>
 	</div>
+		
+	<div class="d-md-flex justify-content-end" >
+		<button class="btn btn-info btn-sm me-md-2 " type="button" id="goForm">
+			<i class="fa-solid fa-plus"></i>	
+		</button>
+	</div>
+</div>
+
+
 </div>
 
 <!-- Modal S -->
@@ -424,7 +427,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-        <button type="button" class="btn btn-danger"><a href="./memberList.html">삭제</a></button><br>
+        <button type="submit" class="btn btn-danger" id="" name="">삭제</button><br>
       </div>
     </div>
   </div>
@@ -462,14 +465,21 @@
 		if(!checkNull($("#shValue"),$("#shValue").val(), "검색어를 입력해 주십시요.")) return false;
 	});
 	
-	$("#btnLeset").on("click", function(){
-		confirm("검색정보가 초기화 됩니다.");
-	}); 
+		
+		$("#btnLeset").on("click", function(){
+			var answer = confirm ("검색정보가 초기화 됩니다.")
+			
+			if(answer){
+				return true
+			} else {
+				return false
+			} 
+	});
 	
 	goView = function(seq){
-	$("#ifmmSeq").val(seq)	
-	$("#formList").attr("action","/member/memberView");
-	$("#formList").submit();
+		$("#ifmmSeq").val(seq)	
+		$("#formList").attr("action","/member/memberView");
+		$("#formList").submit();
 	}
 	
 	$(document).ready(function(){

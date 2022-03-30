@@ -258,10 +258,15 @@
 <div class="container-sm">
 	<div class="row">
 		<div class="col-lg-4 col-md-6 col-sm-6" >
-			<button type="button" class="btn btn-danger btn-sm me-md-2 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float: left;"  >
+			<a href ="/member/memberDele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" class="btn btn-danger btn-sm me-md-2 " id="btnDelete" name="btnDelete" style="float: left;">
 				<i class="fa-solid fa-trash-can"></i>
-			</button>
+			</a>
+			<a href ="/member/memberNele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" class="btn btn-primary btn-sm me-md-2 " id="btnDeleteDelNy" name="btnDeleteDelNy" style="float: left;">
+				<i class="fa-solid fa-trash-can"></i>
+			</a>
 		</div>
+		
+		
 		<div class="col-lg-4 col-md-6 col-sm-6" style="text-align: center;">
 			<button type="submit" id="btnSubmit" name="btnSubmit" class="btn btn-outline-primary" style="width: 200px;">목록</button>
 		</div>
@@ -276,25 +281,6 @@
 <br><br>
 </form>
 
-<!-- Modal -->
-
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">정말 삭제 하시겠습니까?</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        삭제하시게 되시면 모든 데이터가 삭제 됩니다.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-        <button type="button" class="btn btn-danger"><a href="./memberList.html">삭제</a></button><br>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -320,7 +306,27 @@
 		$("#formView").attr("action","/member/memberForm2")
 		$("#formView").submit();
 	}); 
+	
+	$("#btnDelete").on("click", function(){
+		var answer = confirm ("삭제할거에요?")
+		
+		if(answer){
+			return true
+		} else {
+			return false
+		} 
+	});
 
+	$("#btnDeleteDelNy").on("click", function(){
+			var answer = confirm ("DelNy 를 1로 바꿀까요 ??")
+			
+			if(answer){
+				return true
+			} else {
+				return false
+			} 
+	});
+	
     
 </script>
 

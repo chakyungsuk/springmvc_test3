@@ -153,6 +153,7 @@
 			AND ifmmSeq = #{ifmmSeq}
 	</update>
 	
+	
 	<update id="updateEmail">
 		UPDATE 
 			fdmemberemail
@@ -170,4 +171,13 @@
 		WHERE 1=1
 			AND ifmmSeq = #{ifmmSeq}
 	</update>
+	
+	<update id="updateDelete">
+	    update fdmember SET ifmmDelNy = 1 WHERE 1=1 and ifmmSeq = #{ifmmSeq}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM fdmember WHERE 1=1 AND ifmmSeq = #{ifmmSeq}
+	</delete>
+	
 </mapper>
