@@ -66,23 +66,34 @@ public class MemberController {
 		if(rtMember != null) {
 //			rtMember = service.selectOneLogin(dto);
 
-//			if(rtMember.getIfmmSeq() != null) {
-//				httpSession.setMaxInactiveInterval( 60 * Constants.SESSION_MINUTE);	//60second * 30 = 30minute  
+			if(rtMember.getIfmmSeq() != null) {
+				httpSession.setMaxInactiveInterval( 60 * Constants.SESSION_MINUTE);	//60second * 30 = 30minute  
 //				session.setMaxInactiveInterval(-1);		// session time unlimited
 //	
-//				httpSession.setAttribute("sessSeq", rtMember.getIfmmSeq());
-//				httpSession.setAttribute("sessId", rtMember.getIfmmId());
-//				httpSession.setAttribute("sessName", rtMember.getIfmmName());
-//				
-//				returnMap.put("rt", "success");
-//			} else {
-			returnMap.put("rt", "success");
+				httpSession.setAttribute("sessSeq", rtMember.getIfmmSeq()); // 세션값(로그인 하고 계속 갖고있음. Seq, ID , name)
+				httpSession.setAttribute("sessId", rtMember.getIfmmId());
+				httpSession.setAttribute("sessName", rtMember.getIfmmName());
+				
+				returnMap.put("rt", "success");
+			} else {
+			returnMap.put("rt", "fail");
+			}
 		} else {
 			returnMap.put("rt", "fail");
 		}
 		return returnMap;
 	}
 	
+	
+	@ResponseBody
+	@RequestMapping(value = "/member/logoutProc")
+	public Map<String, Object> logoutProc(HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		httpSession.invalidate();
+		returnMap.put("rt", "success");
+		return returnMap;
+	}
+		
 	@RequestMapping(value = "/member/memberForm")
 	public String memberForm(Model model) throws Exception {
 		

@@ -116,7 +116,7 @@
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>성별</h6>
 			<select class="form-select" id="ifmmGenderCd" name="ifmmGenderCd">
-				<option selected>::선택::</option>
+				<option selected value="">::선택::</option>
 				<option value="1">남자</option>
 				<option value="2">여자</option>
 				<option value="3">기타</option>
@@ -133,14 +133,14 @@
 		<div class="col-6 col-lg-6 col-sm-12">
 			<h6>개인정보 보관(필수)</h6>
 			<div class="form-check">
-				<input class="form-check-input" type="checkbox" id="ifmmSaved" name="ifmmSaved">
+				<input class="form-check-input" type="checkbox" id="ifmmSaved" name="ifmmSaved" value="1">
 				<label class="form-check-label" for="flexCheckDefault"> 동의합니다. </label>
 			</div>
 		</div>
 		<div class="col-2 col-lg-1 col-sm-2" style="margin-bottom: 12px; padding-right: 1px;">
 			<h6>핸드폰</h6>
 			<select class="form-select" style="padding-right: 1px;">
-				<option selected>::선택::</option>
+				<option selected value="">::선택::</option>
 				<option value="1">SKT</option>
 				<option value="2">KT</option>
 				<option value="3">LGU</option>
@@ -190,7 +190,7 @@
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>
 			<div class="input-group mb-2">
-				<input type="text" id="fdmaZipcode" name="fdmaZipcode" class="form-control"  aria-label="Recipient's username" aria-describedby="button-addon2" disabled>
+				<input type="text" id="fdmaZipcode" name="fdmaZipcode" class="form-control" aria-describedby="button-addon2" disabled>
 				<button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="sample6_execDaumPostcode()">
 					<i class="fa-solid fa-magnifying-glass-plus"></i>
 				</button>
@@ -319,7 +319,6 @@
 
 		// ID	
 		if(!checkNull($("#ifmmId"),$("#ifmmId").val(), "아이디를 입력 바랍니다.")) return false;
-		if(!checkId($("#ifmmId"),$("#ifmmId").val(), "영문(대소문자) 및 최소 2자 부터 20자 까지 가능합니다.")) return false;
 		
 		// PassWord
 		if(!checkNull($("#ifmmPassword"),$("#ifmmPassword").val(), "비밀번호를 입력 바랍니다.")) return false;
@@ -327,7 +326,6 @@
 		
 		// E-mail
 		if(!checkNull($("#fdmeEmailFull"),$("#fdmeEmailFull").val(),"이메일을 입력 바랍니다.")) return false;
-		if(!checkEmail($("#fdmeEmailFull"),$("#fdmeEmailFull").val(),"이메일 형식이 틀립니다.")) return false; 
 	
 		// 개인정보유효기간(필수)
 	 	/* if(!checkBox($("#ifmmSaved"),$("#ifmmSaved").val(),"개인정보 유효기간은 필수 체크사항 입니다.")) return false;  */
@@ -338,6 +336,9 @@
           $("#ifmmSaved").focus();
 			return false;
         } 
+ 		if(!checkNull($("#fdmpTelecomCd"),$("#fdmpTelecomCd").val(), "통신사를 선택해 주세요")) return false
+		if(!checkNull($("#ifmmGenderCd"),$("#ifmmGenderCd").val(), "성별을 넣어주세요")) return false
+		if(!checkNull($("#shDate"),$("#shDate").val(), "생일을 입력해 주세요")) return false
 	}); 
 
     function sample6_execDaumPostcode() {

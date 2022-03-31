@@ -45,11 +45,11 @@
     <h3 class="" style="margin-bottom: 100px;">Ten Thousand Recipes</h3>
 
     <div class="form-floating mb-2">
-      <input type="email" class="form-control" id="ifmmId" name="ifmmId" placeholder="Staff Number" autocomplete="off">
+      <input type="email" class="form-control" id="ifmmId" name="ifmmId" placeholder="Staff Number" autocomplete="off" value="111">
       <label for="floatingInput">Staff Number</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="ifmmPassword" name="ifmmPassword" placeholder="Password">
+      <input type="password" class="form-control" id="ifmmPassword" name="ifmmPassword" placeholder="Password" value="111">
       <label for="floatingPassword">Password</label>
     </div>
 

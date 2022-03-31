@@ -118,8 +118,8 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>성별</h6>
-			<select class="form-select" name="ifmmGenderCd" id="ifmmGenderCd">
-				<option selected>::선택::</option>
+			<select class="form-select" id="ifmmGenderCd" name="ifmmGenderCd" id="ifmmGenderCd">
+				<option selected value="">::선택::</option>
 				<option value="1" <c:if test="${vo.ifmmGenderCd eq 1 }">selected</c:if>>남자</option>
 				<option value="2" <c:if test="${vo.ifmmGenderCd eq 2 }">selected</c:if>>여자</option>
 				<option value="3" <c:if test="${vo.ifmmGenderCd eq 3 }">selected</c:if>>기타</option>
@@ -142,8 +142,8 @@
 		</div>
 		<div class="col-2 col-lg-1 col-sm-2" style="margin-bottom: 12px; padding-right: 1px;">
 			<h6>핸드폰</h6>
-			<select class="form-select" name="fdmpTelecomCd" style="padding-right: 1px;">
-				<option selected>::선택::</option>
+			<select class="form-select" id="fdmpTelecomCd" name="fdmpTelecomCd" style="padding-right: 1px;">
+				<option selected value="">::선택::</option>
 				<option value="1" <c:if test="${vo.fdmpTelecomCd eq 1}">selected</c:if>>SKT</option>
 				<option value="2" <c:if test="${vo.fdmpTelecomCd eq 2}">selected</c:if>>KT</option>
 				<option value="3" <c:if test="${vo.fdmpTelecomCd eq 3}">selected</c:if>>LGU</option>
@@ -312,7 +312,7 @@
 </div>
 
 
-<script type="text/javascript">
+<script>
 
 
 	btnback = function(seq){
@@ -327,19 +327,14 @@
 		$("#formUpdt").submit();
 	}
 
- 	 $("#btnSubmit").on("click", function(){
-	/* 	// ID	
-	 	if(!checkId($("#ifmmId"),$("#ifmmId").val(), "영문(대소문자) 및 최소 2자 부터 20자 까지 가능합니다.")) return false;
-		
-		// PassWord
-		if(!checkPassword($("#ifmmPassword"),$("#ifmmPassword").val(), "영어 대소문자 및 특수문자 포함해서 입력 바랍니다.")) return false;
-		
-		// E-mail
-		if(!checkEmail($("#fdmeEmailFull"),$("#fdmeEmailFull").val(),"이메일 형식이 틀립니다.")) return false; 
-	  */
-		// 개인정보유효기간(필수)
-	 	/* if(!checkBox($("#ifmmSaved"),$("#ifmmSaved").val(),"개인정보 유효기간은 필수 체크사항 입니다.")) return false;  */
-	    if($("#ifmmSaved").is(":checked")){
+	
+ 	$("#btnSubmit").on("click", function(){
+	
+ 		if(!checkNull($("#fdmpTelecomCd"),$("#fdmpTelecomCd").val(), "통신사를 선택해 주세요")) return false
+		if(!checkNull($("#ifmmGenderCd"),$("#ifmmGenderCd").val(), "성별을 넣어주세요")) return false
+		if(!checkNull($("#shDate"),$("#shDate").val(), "생일을 입력해 주세요")) return false
+	  
+		if($("#ifmmSaved").is(":checked")){
 	    	return true;
 	    } else {
           alert("개인정보 유효기간 체크는 필수 입니다.");

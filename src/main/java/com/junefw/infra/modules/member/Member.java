@@ -13,7 +13,7 @@ public class Member {
 	private Integer ifmmGenderCd;
 	private String ifmmDob;
 	private Integer ifmmDelNy;
-	private Integer ifmmSaved;
+	private String ifmmSaved;
 	/* @DateTimeFormat */
 	
 	//memberEmail
@@ -69,10 +69,10 @@ public class Member {
 	public void setIfmmDelNy(Integer ifmmDelNy) {
 		this.ifmmDelNy = ifmmDelNy;
 	}
-	public Integer getIfmmSaved() {
+	public String getIfmmSaved() {
 		return ifmmSaved;
 	}
-	public void setIfmmSaved(Integer ifmmSaved) {
+	public void setIfmmSaved(String ifmmSaved) {
 		this.ifmmSaved = ifmmSaved;
 	}
 	public String getFdmeEmailFull() {

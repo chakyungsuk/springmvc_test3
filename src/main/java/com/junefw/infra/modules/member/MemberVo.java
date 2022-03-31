@@ -1,7 +1,5 @@
 package com.junefw.infra.modules.member;
 
-import java.util.Date;
-
 public class MemberVo {
 	
 // Vo
@@ -14,7 +12,7 @@ public class MemberVo {
 	private Integer ifmmGenderCd;
 	private String ifmmDob;
 	private String fdmaAddress;
-	private Integer ifmmSaved;
+	private String ifmmSaved;
 	private Integer ifmmDelNy;
 
 	//memberEmail
@@ -91,7 +89,7 @@ public class MemberVo {
 		if (startRnumForOracle < 1) startRnumForOracle = 1;
 		
 		
-		if (thisPage == 1) {
+		if (thisPage == 1 || thisPage == 0 ) {
 			startRnumForMysql = 0;
 		} else {
 			startRnumForMysql = ((rowNumToShow * (thisPage-1)));
@@ -133,11 +131,11 @@ public class MemberVo {
 		this.ifmmPassword = ifmmPassword;
 	}
 
-	public Integer getIfmmSaved() {
+	public String getIfmmSaved() {
 		return ifmmSaved;
 	}
 
-	public void setIfmmSaved(Integer ifmmSaved) {
+	public void setIfmmSaved(String ifmmSaved) {
 		this.ifmmSaved = ifmmSaved;
 	}
 

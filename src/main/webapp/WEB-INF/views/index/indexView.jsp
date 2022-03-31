@@ -44,12 +44,12 @@
 
 <div class="container">
 	<div class="row">
-		<div class="">sessSeq:<c:out value="${item.ifmmseq}"/></div>
-		<div class="">sessName:</div>
-		<div class="col-12" style="margin-bottom: 20px;">sessID:</div>
-		<div class="">
-			<button type="button" class="btn btn-danger"><i class="bi bi-radioactive"></i></button>
-		</div>
+		<div class="">sessSeq: <c:out value="${sessSeq }"/><br></div>
+		<div class="">sessName: <c:out value="${sessName }"/><br></div>
+		<div class="col-12" style="margin-bottom: 20px;">sessId: <c:out value="${sessId }"/><br></div>
+		<c:if test="${not empty sessSeq}">
+			<button type="button" class="btn btn-danger" id="btnLogout"><i class="bi bi-radioactive"></i></button>
+		</c:if>
 	</div>
 	<p class="mt-5 mb-3" style="color: gray;">&copy; Happy Food 2022 ~</p>
 </div>
@@ -63,7 +63,25 @@
 
 <script type="text/javascript">
 		
-
+$("#btnLogout").on("click", function(){
+	$.ajax({
+		async: true 
+		,cache: false
+		,type: "post"
+		,url: "/member/logoutProc"
+		,data : { "ifmmId" : $("#ifmmId").val(), "ifmmPassword" : $("#ifmmPassword").val()}
+		,success: function(response) {
+			if(response.rt == "success") {
+				location.href = "/member/memberLogin";
+			} else {
+				alert("회원없음");
+			}
+		}
+		,error : function(jqXHR, textStatus, errorThrown){
+			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		}
+	});
+});
 	
 	
 

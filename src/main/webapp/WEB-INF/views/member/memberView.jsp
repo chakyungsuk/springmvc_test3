@@ -61,6 +61,9 @@
 <input type="hidden" name="ifmmPassword" value="<c:out value="${vo.ifmmPassword }"/>">
 <input type="hidden" name="fdmeEmailFull" value="<c:out value="${vo.fdmeEmailFull }"/>">
 <input type="hidden" name="fdmpNumber" value="<c:out value="${vo.fdmpNumber }"/>">
+<input type="hidden" name="fdmpTelecomCd" value="<c:out value="${vo.fdmpTelecomCd }"/>">
+<input type="hidden" name="ifmmGenderCd" value="<c:out value="${vo.ifmmGenderCd }"/>">
+
 
 <div class="container-sm">
 	<div class="row">
@@ -117,8 +120,8 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>성별</h6>
-			<select class="form-select" aria-label="Default select example" disabled="disabled" name="ifmmGenderCd">
-				<option selected>::선택::</option>
+			<select class="form-select" aria-label="Default select example" disabled="disabled" id="ifmmGenderCd" name="ifmmGenderCd">
+				<option selected value="">::선택::</option>
 				<option value="1" <c:if test="${vo.ifmmGenderCd eq 1 }">selected</c:if>>남자</option>
 				<option value="2" <c:if test="${vo.ifmmGenderCd eq 2 }">selected</c:if>>여자</option>
 				<option value="3" <c:if test="${vo.ifmmGenderCd eq 3 }">selected</c:if>>기타</option>
@@ -134,15 +137,15 @@
 		</div>
 		<div class="col-6 col-lg-6 col-sm-12">
 			<h6>개인정보 보관(필수)</h6>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="" id="ifmmSaved">
-				<label class="form-check-label" for="flexCheckDefault"> 동의합니다. </label>
+			<div class="form-check"> 
+				<input class="form-check-input" type="checkbox" value="" id="ifmmSaved" checked>
+				<label class="form-check-label" for="flexCheckDefault" > 동의합니다. </label>
 			</div>
 		</div>
 		<div class="col-2 col-lg-1 col-sm-2" style="margin-bottom: 12px; padding-right: 1px;">
 			<h6>핸드폰</h6>
 			<select class="form-select" name="fdmpTelecomCd" style="padding-right: 1px;" disabled="disabled">
-				<option selected>::선택::</option>
+				<option selected value="">::선택::</option>
 				<option value="1" <c:if test="${vo.fdmpTelecomCd eq 1}">selected</c:if>>SKT</option>
 				<option value="2" <c:if test="${vo.fdmpTelecomCd eq 2}">selected</c:if>>KT</option>
 				<option value="3" <c:if test="${vo.fdmpTelecomCd eq 3}">selected</c:if>>LGU</option>

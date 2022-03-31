@@ -89,7 +89,7 @@
 			, #{ifmmGenderCd}
 			, #{ifmmDob}
 			, 0
-			, 1
+			, #{ifmmSaved}
 			, #{ifmmEmailConsentNy}
 			, #{ifmmSmsConsentNy}
 			, #{regDateTime}
