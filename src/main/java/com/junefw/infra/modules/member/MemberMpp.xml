@@ -13,7 +13,7 @@
 			fdmember a
 		LEFT JOIN fdmemberemail b on b.ifmmSeq = a.ifmmSeq
 		LEFT JOIN fdmemberphone c on c.ifmmSeq = a.ifmmSeq
-		LEFT JOIN fdmemberAddress d on d.ifmmSeq = a.ifmmSeq
+		LEFT JOIN fdmemberaddress d on d.ifmmSeq = a.ifmmSeq
 		WHERE 1=1
 			<choose>
 				<when test="shmemberDelNy == 1">AND ifmmDelNy = 1</when>
@@ -130,24 +130,24 @@
 		)	
 	</insert>
 	
-		<insert id="insertAddress">
-		INSERT INTO fdmemberaddress (
-			fdmaZipcode
-			, fdmaTitle1 
-			, fdmaTitle2
-			, fdmaAddress
-			, fdmaDelNy
-			, fdmaDefaultNy
-			, ifmmSeq
-		) VALUES (
-			#{fdmaZipcode}
-			,#{fdmaTitle1}
-			,#{fdmaTitle2}
-			,#{fdmaAddress} 
-			,0
-			,1
-			,#{ifmmSeq}
-		)	
+	<insert id="insertAddress">
+	INSERT INTO fdmemberaddress (
+		fdmaZipcode
+		, fdmaTitle1 
+		, fdmaTitle2
+		, fdmaAddress
+		, fdmaDelNy
+		, fdmaDefaultNy
+		, ifmmSeq
+	) VALUES (
+		#{fdmaZipcode}
+		,#{fdmaTitle1}
+		,#{fdmaTitle2}
+		,#{fdmaAddress} 
+		,0
+		,1
+		,#{ifmmSeq}
+	)	
 	</insert>
 	
 	<select id="selectOne" resultMap="resultMapObj">
@@ -230,14 +230,14 @@
 	
 	<update id="updateAddress">
 		UPDATE 
-			fdmemberAddress
+			fdmemberaddress
 		SET
 			fdmaDefaultNy = 1
-			fdmaZipcode = #{fdmaZipcode}
-			fdmaTitle1 = #{fdmaTitle1}
-			fdmaTitle2 = #{fdmaTitle2}
-			fdmaAddress = #{fdmaAddress}
-			fdmaDelNy = 0
+			,fdmaZipcode = #{fdmaZipcode}
+			,fdmaTitle1 = #{fdmaTitle1}
+			,fdmaTitle2 = #{fdmaTitle2}
+			,fdmaAddress = #{fdmaAddress}
+			,fdmaDelNy = 0
 		WHERE 1=1
 			AND ifmmSeq = #{ifmmSeq}
 	</update>

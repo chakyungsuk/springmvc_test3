@@ -122,9 +122,9 @@
 			<h6>성별</h6>
 			<select class="form-select" aria-label="Default select example" disabled="disabled" id="ifmmGenderCd" name="ifmmGenderCd">
 				<option selected value="">::선택::</option>
-				<option value="1" <c:if test="${vo.ifmmGenderCd eq 1 }">selected</c:if>>남자</option>
-				<option value="2" <c:if test="${vo.ifmmGenderCd eq 2 }">selected</c:if>>여자</option>
-				<option value="3" <c:if test="${vo.ifmmGenderCd eq 3 }">selected</c:if>>기타</option>
+				<option value="1" <c:if test="${item.ifmmGenderCd eq 1 }">selected</c:if>>남자</option>
+				<option value="2" <c:if test="${item.ifmmGenderCd eq 2 }">selected</c:if>>여자</option>
+				<option value="3" <c:if test="${item.ifmmGenderCd eq 3 }">selected</c:if>>기타</option>
 			</select>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
@@ -144,11 +144,11 @@
 		</div>
 		<div class="col-2 col-lg-1 col-sm-2" style="margin-bottom: 12px; padding-right: 1px;">
 			<h6>핸드폰</h6>
-			<select class="form-select" name="fdmpTelecomCd" style="padding-right: 1px;" disabled="disabled">
+			<select class="form-select" id="fdmpTelecomCd" name="fdmpTelecomCd" style="padding-right: 1px;" disabled="disabled">
 				<option selected value="">::선택::</option>
-				<option value="1" <c:if test="${vo.fdmpTelecomCd eq 1}">selected</c:if>>SKT</option>
-				<option value="2" <c:if test="${vo.fdmpTelecomCd eq 2}">selected</c:if>>KT</option>
-				<option value="3" <c:if test="${vo.fdmpTelecomCd eq 3}">selected</c:if>>LGU</option>
+				<option value="1" <c:if test="${item.fdmpTelecomCd eq 1}">selected</c:if>>SKT</option>
+				<option value="2" <c:if test="${item.fdmpTelecomCd eq 2}">selected</c:if>>KT</option>
+				<option value="3" <c:if test="${item.fdmpTelecomCd eq 3}">selected</c:if>>LGU</option>
 			</select>
 		</div>
 		<div class="col-10 col-lg-5 col-sm-10" style="margin-bottom: 12px; padding-left: 0px;">
@@ -195,7 +195,7 @@
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>
 			<div class="input-group mb-2">
-				<input type="text" id="sample6_postcode" name="fdmaZipcode" class="form-control"  aria-describedby="button-addon2" disabled>
+				<input type="text" id="sample6_postcode" name="fdmaZipcode" class="form-control"  aria-describedby="button-addon2" disabled value="<c:out value="${item.fdmaZipcode}"/>">
 				<button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="sample6_execDaumPostcode()">
 					<i class="fa-solid fa-magnifying-glass-plus"></i>
 				</button>
@@ -208,15 +208,15 @@
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-right: 2px;">
-			<input class="form-control" id="sample6_address" name="fdmaTitle1" type="text" disabled="disabled">
+			<input class="form-control" id="sample6_address" name="fdmaTitle1" type="text" disabled="disabled" value="<c:out value="${item.fdmaTitle1}"/>">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-left: 2px;">
-			<input class="form-control" id="sample6_extraAddress" name="fdmaTitle2" type="text" disabled="disabled">
+			<input class="form-control" id="sample6_extraAddress" name="fdmaTitle2" type="text" disabled="disabled" value="<c:out value="${item.fdmaTitle2}"/>">
 		</div>		
 		<div class="d-grid gap-2 col-6 col-lg-6 col-sm-12">
 		</div>
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" style="margin-top: 10px;">
-		<input class="form-control" id="sample6_detailAddress" name="fdmaAddress" type="text" placeholder="상세주소를 입력해주세요." disabled="disabled">
+		<input class="form-control" id="sample6_detailAddress" name="fdmaAddress" type="text" placeholder="상세주소를 입력해주세요." disabled="disabled" value="<c:out value="${item.fdmaAddress}"/>">
 		</div>
 		<div class="row">
 		<div class="col-12 col-lg-6 col-sm-12">

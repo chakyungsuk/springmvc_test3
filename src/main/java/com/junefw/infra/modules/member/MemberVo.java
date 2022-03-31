@@ -11,17 +11,22 @@ public class MemberVo {
 	private String ifmmName;
 	private Integer ifmmGenderCd;
 	private String ifmmDob;
-	private String fdmaAddress;
 	private String ifmmSaved;
 	private Integer ifmmDelNy;
 
 	//memberEmail
 	private String fdmeEmailFull;
 	
+	//memberAddress
+	private String fdmazipcode;
+	private String fdmatitle1;
+	private String fdmatitle2;
+	private String fdmaAddress;
+	
 	//memberMobile
 	private String fdmpNumber;
 	private String mobile;
-	private String fdmpTelecomCd;
+	private Integer fdmpTelecomCd;
 	
 	//ConsentNy
 	private Integer ifmmEmailConsentNy;
@@ -396,12 +401,36 @@ public class MemberVo {
 		this.checkboxSeqArray = checkboxSeqArray;
 	}
 
-	public String getFdmpTelecomCd() {
+	public Integer getFdmpTelecomCd() {
 		return fdmpTelecomCd;
 	}
 
-	public void setFdmpTelecomCd(String fdmpTelecomCd) {
+	public void setFdmpTelecomCd(Integer fdmpTelecomCd) {
 		this.fdmpTelecomCd = fdmpTelecomCd;
+	}
+
+	public String getFdmazipcode() {
+		return fdmazipcode;
+	}
+
+	public void setFdmazipcode(String fdmazipcode) {
+		this.fdmazipcode = fdmazipcode;
+	}
+
+	public String getFdmatitle1() {
+		return fdmatitle1;
+	}
+
+	public void setFdmatitle1(String fdmatitle1) {
+		this.fdmatitle1 = fdmatitle1;
+	}
+
+	public String getFdmatitle2() {
+		return fdmatitle2;
+	}
+
+	public void setFdmatitle2(String fdmatitle2) {
+		this.fdmatitle2 = fdmatitle2;
 	}
 
 

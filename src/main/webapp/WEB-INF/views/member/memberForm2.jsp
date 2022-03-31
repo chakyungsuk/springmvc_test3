@@ -102,7 +102,7 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>비밀번호</h6>
-			<input class="form-control" id="ifmmPassword" name="ifmmPassword" type="text" placeholder="영문(대소문자),숫자,특수문자(), 8~20자리 조합" aria-label="default input example" autocomplete="off">
+			<input class="form-control" id="ifmmPassword" name="ifmmPassword" type="text" placeholder="영문(대소문자),숫자,특수문자(), 8~20자리 조합" value="<c:out value="${item.ifmmPassword }"/>" autocomplete="off">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 			<h6>비밀번호 확인</h6>
@@ -120,9 +120,9 @@
 			<h6>성별</h6>
 			<select class="form-select" id="ifmmGenderCd" name="ifmmGenderCd" id="ifmmGenderCd">
 				<option selected value="">::선택::</option>
-				<option value="1" <c:if test="${vo.ifmmGenderCd eq 1 }">selected</c:if>>남자</option>
-				<option value="2" <c:if test="${vo.ifmmGenderCd eq 2 }">selected</c:if>>여자</option>
-				<option value="3" <c:if test="${vo.ifmmGenderCd eq 3 }">selected</c:if>>기타</option>
+				<option value="1" <c:if test="${item.ifmmGenderCd eq 1 }">selected</c:if>>남자</option>
+				<option value="2" <c:if test="${item.ifmmGenderCd eq 2 }">selected</c:if>>여자</option>
+				<option value="3" <c:if test="${item.ifmmGenderCd eq 3 }">selected</c:if>>기타</option>
 			</select>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
@@ -144,9 +144,9 @@
 			<h6>핸드폰</h6>
 			<select class="form-select" id="fdmpTelecomCd" name="fdmpTelecomCd" style="padding-right: 1px;">
 				<option selected value="">::선택::</option>
-				<option value="1" <c:if test="${vo.fdmpTelecomCd eq 1}">selected</c:if>>SKT</option>
-				<option value="2" <c:if test="${vo.fdmpTelecomCd eq 2}">selected</c:if>>KT</option>
-				<option value="3" <c:if test="${vo.fdmpTelecomCd eq 3}">selected</c:if>>LGU</option>
+				<option value="1" <c:if test="${item.fdmpTelecomCd eq 1}">selected</c:if>>SKT</option>
+				<option value="2" <c:if test="${item.fdmpTelecomCd eq 2}">selected</c:if>>KT</option>
+				<option value="3" <c:if test="${item.fdmpTelecomCd eq 3}">selected</c:if>>LGU</option>
 			</select>
 		</div>
 		<div class="col-10 col-lg-5 col-sm-10" style="margin-bottom: 12px; padding-left: 0px;">
@@ -193,7 +193,7 @@
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>
 			<div class="input-group mb-2">
-				<input type="text" id="sample6_postcode" class="form-control"  aria-label="Recipient's username" aria-describedby="button-addon2" disabled>
+				<input type="text" id="fdmaZipcode" class="form-control" name="fdmaZipcode" aria-describedby="button-addon2" disabled value="<c:out value="${item.fdmaZipcode}"/>">
 				<button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="sample6_execDaumPostcode()">
 					<i class="fa-solid fa-magnifying-glass-plus"></i>
 				</button>
@@ -206,15 +206,15 @@
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-right: 2px;">
-			<input class="form-control" id="sample6_address" type="text" disabled="disabled">
+			<input class="form-control" id="fdmaTitle1" name="fdmaTitle1" type="text" disabled="disabled" value="<c:out value="${item.fdmaTitle1}"/>">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-left: 2px;">
-			<input class="form-control" id="sample6_extraAddress" type="text" disabled="disabled">
+			<input class="form-control" id="fdmaTitle2" name="fdmaTitle2" type="text" disabled="disabled" value="<c:out value="${item.fdmaTitle2}"/>">
 		</div>		
 		<div class="d-grid gap-2 col-6 col-lg-6 col-sm-12">
 		</div>
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" style="margin-top: 10px;">
-		<input class="form-control" id="sample6_detailAddress" type="text" placeholder="상세주소를 입력해주세요.">
+		<input class="form-control" id="fdmaAddress" name="fdmaAddress" type="text" placeholder="상세주소를 입력해주세요." value="<c:out value="${item.fdmaAddress}"/>">
 		</div>
 		<div class="row">
 		<div class="col-12 col-lg-6 col-sm-12">
@@ -376,17 +376,17 @@
                         extraAddr = ' (' + extraAddr + ')';
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
-                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                    document.getElementById("fdmaTitle2").value = extraAddr;
                 
                 } else {
-                    document.getElementById("sample6_extraAddress").value = '';
+                    document.getElementById("fdmaTitle2").value = '';
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample6_postcode').value = data.zonecode;
-                document.getElementById("sample6_address").value = addr;
+                document.getElementById('fdmaZipcode').value = data.zonecode;
+                document.getElementById("fdmaTitle1").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("sample6_detailAddress").focus();
+                document.getElementById("fdmaAddress").focus();
             }
         }).open();
     }

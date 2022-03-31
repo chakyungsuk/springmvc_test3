@@ -32,6 +32,8 @@ public class MemberServiceImpl implements MemberService{
 		dao.insert(dto); 
 		dao.insertEmail(dto);
 		dao.insertMobile(dto);
+		dao.insertAddress(dto);
+		
 		return 1; 
 	}
 
@@ -42,9 +44,12 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public int update(Member dto) throws Exception {
+		
 		dao.update(dto);
 		dao.updateEmail(dto);
 		dao.updateMobile(dto);
+		dao.updateAddress(dto);
+		
 		return 1;
 	}
 
