@@ -23,6 +23,7 @@ public class MemberVo {
 	//memberMobile
 	private String fdmpNumber;
 	private String mobile;
+	private String fdmpTelecomCd;
 	
 	//ConsentNy
 	private Integer ifmmEmailConsentNy;
@@ -395,6 +396,14 @@ public class MemberVo {
 
 	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
 		this.checkboxSeqArray = checkboxSeqArray;
+	}
+
+	public String getFdmpTelecomCd() {
+		return fdmpTelecomCd;
+	}
+
+	public void setFdmpTelecomCd(String fdmpTelecomCd) {
+		this.fdmpTelecomCd = fdmpTelecomCd;
 	}
 
 

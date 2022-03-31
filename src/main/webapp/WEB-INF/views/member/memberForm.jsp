@@ -190,7 +190,7 @@
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>
 			<div class="input-group mb-2">
-				<input type="text" id="sample6_postcode" name="fdmaZipcode" class="form-control"  aria-label="Recipient's username" aria-describedby="button-addon2" disabled>
+				<input type="text" id="fdmaZipcode" name="fdmaZipcode" class="form-control"  aria-label="Recipient's username" aria-describedby="button-addon2" disabled>
 				<button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="sample6_execDaumPostcode()">
 					<i class="fa-solid fa-magnifying-glass-plus"></i>
 				</button>
@@ -203,15 +203,15 @@
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-right: 2px;">
-			<input class="form-control" id="sample6_address" name="fdmaTitle1" type="text" disabled="disabled">
+			<input class="form-control" id="fdmaTitle1" name="fdmaTitle1" type="text" disabled="disabled">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-left: 2px;">
-			<input class="form-control" id="sample6_extraAddress" name="fdmaTitle2" type="text" disabled="disabled">
+			<input class="form-control" id="fdmaTitle2" name="fdmaTitle2" type="text" disabled="disabled">
 		</div>		
 		<div class="d-grid gap-2 col-6 col-lg-6 col-sm-12">
 		</div>
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" style="margin-top: 10px;">
-		<input class="form-control" id="sample6_detailAddress" name="fdmaAddress" type="text" placeholder="상세주소를 입력해주세요.">
+		<input class="form-control" id="fdmaAddress" name="fdmaAddress" type="text" placeholder="상세주소를 입력해주세요.">
 		</div>
 		<div class="row">
 		<div class="col-12 col-lg-6 col-sm-12">
@@ -337,7 +337,7 @@
           alert("개인정보 유효기간 체크는 필수 입니다.");
           $("#ifmmSaved").focus();
 			return false;
-        }
+        } 
 	}); 
 
     function sample6_execDaumPostcode() {
@@ -373,17 +373,17 @@
                         extraAddr = ' (' + extraAddr + ')';
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
-                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                    document.getElementById("fdmaTitle2").value = extraAddr;
                 
                 } else {
-                    document.getElementById("sample6_extraAddress").value = '';
+                    document.getElementById("fdmaTitle2").value = '';
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample6_postcode').value = data.zonecode;
-                document.getElementById("sample6_address").value = addr;
+                document.getElementById('fdmaZipcode').value = data.zonecode;
+                document.getElementById("fdmaTitle1").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("sample6_detailAddress").focus();
+                document.getElementById("fdmaAddress").focus();
             }
         }).open();
     }

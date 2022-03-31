@@ -190,7 +190,7 @@ public class MemberController {
 		//수정 프로세스 실행
 		service.update(dto);
 		
-		vo.setIfmmSeq(dto.getIfmmSeq());
+		/* vo.setIfmmSeq(dto.getIfmmSeq()); */
 
 		redirectAttributes.addFlashAttribute("vo", vo);
 		

@@ -52,6 +52,7 @@
 			, a.ifmmDelNy
 			, a.ifmmSaved
 			, b.fdmeEmailFull
+			, c.fdmpTelecomCd
 			, c.fdmpNumber
 			<!-- , concat(substring(c.fdmpNumber,1,3),"-",substring(c.fdmpNumber,4,4),"-",substring(c.fdmpNumber,7,4)) as mobile -->
 			<!-- , concat_ws(",",d.fdmaZipcode,d.fdmaTitle1,d.fdmaTitle2,d.fdmaAddress) as Address -->
@@ -116,11 +117,33 @@
 		<insert id="insertMobile">
 		INSERT INTO fdmemberphone (
 			fdmpNumber
+			, fdmpTelecomCd 
 			, fdmpDelNy
 			, fdmpDefaultNy
 			, ifmmSeq
 		) VALUES (
 			#{fdmpNumber}
+			,#{fdmpTelecomCd} 
+			,0
+			,1
+			,#{ifmmSeq}
+		)	
+	</insert>
+	
+		<insert id="insertAddress">
+		INSERT INTO fdmemberaddress (
+			fdmaZipcode
+			, fdmaTitle1 
+			, fdmaTitle2
+			, fdmaAddress
+			, fdmaDelNy
+			, fdmaDefaultNy
+			, ifmmSeq
+		) VALUES (
+			#{fdmaZipcode}
+			,#{fdmaTitle1}
+			,#{fdmaTitle2}
+			,#{fdmaAddress} 
 			,0
 			,1
 			,#{ifmmSeq}
@@ -138,9 +161,13 @@
 			, a.ifmmDelNy
 			, a.ifmmSaved
 			, b.fdmeEmailFull
+			, c.fdmpTelecomCd 
 			, c.fdmpNumber
 			<!-- , concat(substring(c.fdmpNumber,1,3),"-",substring(c.fdmpNumber,4,4),"-",substring(c.fdmpNumber,7,4)) as mobile -->
-			, concat_ws(",",d.fdmaZipcode,d.fdmaTitle1,d.fdmaTitle2,d.fdmaAddress) as Address
+			<!-- , concat_ws(",",d.fdmaZipcode,d.fdmaTitle1,d.fdmaTitle2,d.fdmaAddress) as Address -->
+			, d.fdmaZipcode	
+			, d.fdmaTitle1	
+			, d.fdmaTitle2	
 			, d.fdmaAddress		
 			, a.ifmmEmailConsentNy
 			, a.ifmmSmsConsentNy
@@ -195,7 +222,8 @@
 		UPDATE 
 			fdmemberphone
 		SET
-			fdmpNumber = #{fdmpNumber}
+			fdmpTelecomCd  = #{fdmpTelecomCd} 
+			,fdmpNumber = #{fdmpNumber}
 		WHERE 1=1
 			AND ifmmSeq = #{ifmmSeq}
 	</update>

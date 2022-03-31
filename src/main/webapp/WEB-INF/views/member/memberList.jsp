@@ -178,7 +178,6 @@
 					    <th scope="col" class="table-active">Birthday</th>
 					    <th scope="col" class="table-active">E-mail</th>
 					    <th scope="col" class="table-active">Mobile</th>
-					    <th scope="col" class="table-active">Address</th>
 					    <th scope="col" class="table-active">regDateTime</th>
 					</tr>
 				</thead>
@@ -228,7 +227,6 @@
 										        </c:otherwise>
 											</c:choose>	 
 										</td>
-										<td><c:out value="${item.fdmaAddress}"/> <br><br></td>
 										<td><fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd HH:mm:ss"/> <br><br></td>
 									</tr>
 							</c:forEach>

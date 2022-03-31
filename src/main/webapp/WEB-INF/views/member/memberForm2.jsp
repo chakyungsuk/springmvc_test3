@@ -142,11 +142,11 @@
 		</div>
 		<div class="col-2 col-lg-1 col-sm-2" style="margin-bottom: 12px; padding-right: 1px;">
 			<h6>핸드폰</h6>
-			<select class="form-select" aria-label="Default select example" style="padding-right: 1px;">
+			<select class="form-select" name="fdmpTelecomCd" style="padding-right: 1px;">
 				<option selected>::선택::</option>
-				<option value="1">SKT</option>
-				<option value="2">KT</option>
-				<option value="3">LGU</option>
+				<option value="1" <c:if test="${vo.fdmpTelecomCd eq 1}">selected</c:if>>SKT</option>
+				<option value="2" <c:if test="${vo.fdmpTelecomCd eq 2}">selected</c:if>>KT</option>
+				<option value="3" <c:if test="${vo.fdmpTelecomCd eq 3}">selected</c:if>>LGU</option>
 			</select>
 		</div>
 		<div class="col-10 col-lg-5 col-sm-10" style="margin-bottom: 12px; padding-left: 0px;">

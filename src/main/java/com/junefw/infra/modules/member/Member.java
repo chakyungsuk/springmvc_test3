@@ -22,6 +22,7 @@ public class Member {
 	//memberMobile
 	private String fdmpNumber;
 	private String mobile;
+	private String fdmpTelecomCd;
 	
 	//memberAddress
 	private String fdmaZipcode;
@@ -175,6 +176,12 @@ public class Member {
 	}
 	public void setFdmaTitle2(String fdmaTitle2) {
 		this.fdmaTitle2 = fdmaTitle2;
+	}
+	public String getFdmpTelecomCd() {
+		return fdmpTelecomCd;
+	}
+	public void setFdmpTelecomCd(String fdmpTelecomCd) {
+		this.fdmpTelecomCd = fdmpTelecomCd;
 	}
 	
 	

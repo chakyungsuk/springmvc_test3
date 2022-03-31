@@ -57,6 +57,11 @@ public class MemberServiceImpl implements MemberService{
 	public int insertMobile(Member dto) throws Exception {
 		return dao.insertMobile(dto);
 	}
+	
+	@Override
+	public int insertAddress(Member dto) throws Exception {
+		return dao.insertAddress(dto);
+	}
 
 		
   @Override public int updateEmail(Member dto) throws Exception { 
