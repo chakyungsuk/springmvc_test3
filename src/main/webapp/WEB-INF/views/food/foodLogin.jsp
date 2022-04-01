@@ -160,7 +160,7 @@
 </nav>
 <!-- sidebar E -->
 
-<form id="formLogin" name="formLogin" method="post" action="/member/memberInst">
+<form id="formLogin" name="formLogin" method="post" action="/food/foodLogin">
 	
 	<div class="container1" style="margin-top: 100px;" >
 		<div class="col-12">
@@ -178,7 +178,7 @@
 			
 	<div class="container1" style="margin-top: 50px;">
 		<a href="../member/memberList.html" style="text-decoration: none;">
-    <button class="btn btn-sm btn-primary" type="submit" style="width: 330px;" id=button>Login</button>
+    <button class="btn btn-sm btn-primary" type="submit" style="width: 330px;" id=btnLogin>Login</button>
    	</a>
 		<div class="col-12" style="margin-top: 50px;">
 			<input type="button" id="signUp" class="btn" style="color: red;" value="Sign Up"/>
@@ -220,6 +220,11 @@
 	
 
 <script type="text/javascript">
+		
+		$("#btnLogin").on("click", function(){
+			$("#formLogin").attr("action","/food/foodList");
+			$("#formLogin").submit();
+		});
 		
 		$("#signUp").mouseover(function(){
 			$('#signUp').val('회원가입')

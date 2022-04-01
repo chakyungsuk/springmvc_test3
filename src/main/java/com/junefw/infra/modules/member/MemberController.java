@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.junefw.infra.common.constants.Constants;
 import com.junefw.infra.common.util.UtilDateTime;
+import com.mysql.cj.protocol.x.SyncFlushDeflaterOutputStream;
 
 
 
@@ -30,14 +31,9 @@ public class MemberController {
 	
 	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 		
-		/*
-		 * vo.setShOptionDate(vo.getShOptionDate() == null ? 1 : vo.getShOptionDate());
-		 * vo.setShDateStart(vo.getShDateStart() == null ?
-		 * UtilDateTime.calculateDayString(UtilDateTime.nowLocalDateTime(),
-		 * Constants.DATE_INTERVAL) : UtilDateTime.addStringTime(vo.getShDateStart()));
-		 * vo.setShDateEnd(vo.getShDateEnd() == null ? UtilDateTime.nowString() :
-		 * UtilDateTime.addStringTime(vo.getShDateEnd()));
-		 */
+		vo.setShOptionDate(vo.getShOptionDate() == null ? 1 : vo.getShOptionDate());
+		vo.setShDateStart(vo.getShDateStart() == null ? UtilDateTime.calculateDayString(UtilDateTime.nowLocalDateTime(), Constants.DATE_INTERVAL) : UtilDateTime.add00TimeString(vo.getShDateStart()));
+		vo.setShDateEnd(vo.getShDateEnd() == null ? UtilDateTime.nowString() : UtilDateTime.addNowTimeString(vo.getShDateEnd()));
 		 
 		// count 가져올 것
 		int count = service.selectOneMember(vo);
@@ -153,10 +149,12 @@ public class MemberController {
 		return "redirect:/member/memberList";
 	}
 		
-	@RequestMapping(value = "memberMultiUele")
+	@RequestMapping(value = "/member/memberMultiUele")
 	public String memberMultiUele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
 		
 		String[] checkboxSeqArray = vo.getCheckboxSeqArray();
+		
+		System.out.println("vo.getCheckboxSeqArray();-----------------------------------------------" + vo.getCheckboxSeqArray());
 		
 		for(String checkboxSeq : checkboxSeqArray) {
 			vo.setIfmmSeq(checkboxSeq);
@@ -219,6 +217,8 @@ public class MemberController {
 		return "member/memberLogin";
 	}
 	
+
+
 }
 
 

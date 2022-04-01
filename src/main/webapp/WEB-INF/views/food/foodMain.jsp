@@ -50,6 +50,8 @@
 </head>
 
 <body class="text-center">
+<form id="formmain" name="formmain" method="post" action="/food/foodList">	
+
 	<!-- Header S -->
     <div class="container navbar navbar-dark" aria-label="Eighth navbar example" style="margin-bottom: 2px;">
     <div class="col-lg-8 col-sm-8" style="text-align: left;" >
@@ -121,7 +123,6 @@
   </div>
   </div>
 <!-- sidebar body E -->	
-</nav>
 
 
 	<!-- Body S -->
@@ -299,7 +300,7 @@
        </div>
      </div>
    </div>
-
+</form>
 
 <footer class="text">
   <div class="container">

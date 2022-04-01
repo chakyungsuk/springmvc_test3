@@ -69,7 +69,7 @@
 
 <form id="formList" name="formList" method="post" action="/member/memberList">	
 <input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
-<input type="hidden" id="checkboxSeqArray">
+<input type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
 <input type="hidden" id="ifmmSeq" name="ifmmSeq">
 
 
@@ -121,11 +121,11 @@
 	    </div>
 	    
 	    <div class="col-lg-2 col-md-6 col-sm-12">
- 			<fmt:parseDate var="shDateStart" value="${vo.shDateStart }" pattern="yyyy-MM-dd"/>
+ 			<fmt:parseDate var="shDateStart" value="${vo.shDateStart}" pattern="yyyy-MM-dd HH:mm:ss"/>
  			<input type="text" id="shDateStart" name="shDateStart" class="form-control" value="<fmt:formatDate value="${shDateStart }" pattern="yyyy-MM-dd" />" placeholder="시작일" autocomplete="off">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<fmt:parseDate var="shDateEnd" value="${vo.shDateEnd }" pattern="yyyy-MM-dd"/>
+			<fmt:parseDate var="shDateEnd" value="${vo.shDateEnd}" pattern="yyyy-MM-dd HH:mm:ss"/>
  			<input type="text" id="shDateEnd" name="shDateEnd" class="form-control" value="<fmt:formatDate value="${shDateEnd }" pattern="yyyy-MM-dd" />" placeholder="종료일" autocomplete="off">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
@@ -168,7 +168,7 @@
 					<tr>
 					    <th scope="col" class="table-active">
 						    <div class="form-check form-check-inline" style="margin-right: 0px;">
-								<input class="form-check-input" type="checkbox" id="" value="">
+								<input class="form-check-input" type="checkbox" id="checkboxAll" name="" value="">
 							</div>
 						</th>
 					    <th scope="col" class="table-active">#</th>
@@ -193,8 +193,7 @@
 								<c:otherwise>
 									<c:forEach items="${list}" var="item" varStatus="status">	
 									<tr>
-										<td><input class="form-check-input" type="checkbox"> <br><br></td>
-										<td><c:out value="${item.ifmmSeq}"/> <br><br></td>
+										<td><input class="form-check-input" type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${item.ifmmSeq}"/>"> <br><br></td>
 										<td><a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmName}"/></a> <br><br></td>
 										<td><c:out value="${item.ifmmId}"/> <br><br></td>
 										<td><c:out value="${item.ifmmPassword}"/> <br><br></td>
@@ -272,10 +271,10 @@
 
 <div class="container">
 	<div class="col-lg-12 col-md-12 col-sm-12" >
-		<a href ="/member/memberDele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" id="btnDelete" class="btn btn-danger btn-sm me-md-2 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float: left;">
+		<a href ="/member/memberDele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" id="btnDelete" class="btn btn-danger btn-sm me-md-2 "  style="float: left;">
 			<i class="fa-solid fa-trash-can"></i>
 		</a>
-		<a href ="/member/memberNele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" id="btnDeleteDelNy" class="btn btn-primary btn-sm me-md-2 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float: left;">
+		<a href ="/member/memberNele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" id="btnDeleteDelNy" class="btn btn-primary btn-sm me-md-2 " style="float: left;">
 			<i class="fa-solid fa-trash-can"></i>
 		</a>
 	</div>
@@ -336,10 +335,10 @@
 		}
 	});
 	
-		
+	//리셋	
 	$("#btnLeset").on("click", function(){
 		var answer = confirm ("검색정보가 초기화 됩니다.")
-		
+			
 		if(answer){
 			return true
 		} else {
@@ -347,6 +346,7 @@
 		} 
 	});
 	
+	//달력
 	$(document).ready(function(){
 		 $("#shDateEnd").datepicker();
 	}); 
@@ -381,19 +381,71 @@
 	    yearSuffix: '년'
 	});
 	
+	//진짜삭제
+	$("#btnDelete").on("click", function(){
+		var answer = confirm ("삭제할거에요?")
+		
+		if(answer){
+			return true
+		} else {
+			return false
+		} 
+	});
+	
+	var checkboxSeqArray = [];
+	
+	//가짜삭제
+	$("#btnDeleteDelNy").on("click", function(){
+			var answer = confirm ("DelNy 를 1로 바꿀까요 ??")
+			
+			if(answer){
+				$("input[name=checkboxSeq]:checked").each(function() {
+					checkboxSeqArray.push($(this).val());
+					alert($(this).val());
+				});
+				
+				$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+				
+				alert((checkboxSeqArray));
+				
+				/* $("#modalConfirm").modal("hide"); */
+				
+				/* $("#formList").attr("action", "memberMultiUele").submit(); */
+		 		$("#formList").attr("action", "/member/memberMultiUele");
+		 		$("#formList").submit();
+			} else {
+				return false;
+			} 
+	});
+	
+	
+	//체크박스
 	$("#checkboxAll").click(function() {
 		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
 		else $("input[name=checkboxSeq]").prop("checked", false);
 	});
-	
+	/* 
 	$("input[name=checkboxSeq]:checked").each(function() { 
 		checkboxSeqArray.push($(this).val());
 	});
+	 */
 	
-/* 	$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
-						
-	form.attr("action", goUrlMultiDele).submit(); */
+
+	$("#checkboxAll").click(function() {
+		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
+		else $("input[name=checkboxSeq]").prop("checked", false);
+	});
+
+	$("input[name=checkboxSeq]:checked").each(function() { 
+		var total = $("input[name=checkboxSeq]").length;
+		var checked = $("input[name=checkboxSeq]:checked").length;
+		
+		if(total != checked) $("#checkboxAll").prop("checked", false);
+		else $("#checkboxAll").prop("checked", true);
+	});
 	
+
+ 
 	
 	
 </script>
