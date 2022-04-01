@@ -121,12 +121,12 @@
 	    </div>
 	    
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<fmt:parseDate value="${vo.shDateEnd}" var="shDateEnd" pattern="yyyy-MM-dd" />
-			<input type="date" id="" name="shDateStart" value="<c:out value="${vo.shDateStart}"/>" placeholder="시작일" class="form-control form-control-sm" autocomplete="off">
+ 			<fmt:parseDate var="shDateStart" value="${vo.shDateStart }" pattern="yyyy-MM-dd"/>
+ 			<input type="text" id="shDateStart" name="shDateStart" class="form-control" value="<fmt:formatDate value="${shDateStart }" pattern="yyyy-MM-dd" />" placeholder="시작일" autocomplete="off">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<fmt:parseDate value="${vo.shDateEnd}" var="shDateEnd" pattern="yyyy-MM-dd"/>
-			<input type="date" id="" name="shDateEnd" value="<c:out value="${vo.shDateEnd}"/>" placeholder="종료일"  class="form-control form-control-sm" autocomplete="off">
+			<fmt:parseDate var="shDateEnd" value="${vo.shDateEnd }" pattern="yyyy-MM-dd"/>
+ 			<input type="text" id="shDateEnd" name="shDateEnd" class="form-control" value="<fmt:formatDate value="${shDateEnd }" pattern="yyyy-MM-dd" />" placeholder="종료일" autocomplete="off">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
 	    </div>
@@ -318,7 +318,10 @@
 		$("#formList").submit();
 	}); 
 	
-	${"#btnSubmit"}.on("click", function(){
+
+	$("#btnSubmit").on("click", function(){
+		if(!checkNull($("#shmemberDelNy"),$("#shmemberDelNy").val(), "삭제여부 확인 바합니다.")) return false;
+		
 		if ($("#shOption").val() == '6') {
 			if ($.trim($("#shValue").val()) == "남성") {
 				$("#shGenderCd").val(1);
@@ -333,14 +336,6 @@
 		}
 	});
 	
-
-	
-	$("#btnSubmit").on("click", function(){
-		if(!checkNull($("#shmemberDelNy"),$("#shmemberDelNy").val(), "삭제여부 확인 바합니다.")) return false;
-		if(!checkNull($("#shOption"),$("#shOption").val(), "검색구분 확인 바랍니다.")) return false;
-		if(!checkNull($("#shValue"),$("#shValue").val(), "검색어를 입력해 주십시요.")) return false;
-	});
-	
 		
 	$("#btnLeset").on("click", function(){
 		var answer = confirm ("검색정보가 초기화 됩니다.")
@@ -352,6 +347,40 @@
 		} 
 	});
 	
+	$(document).ready(function(){
+		 $("#shDateEnd").datepicker();
+	}); 
+
+	$.datepicker.setDefaults({
+	    dateFormat: 'yy-mm-dd',
+	    prevText: '이전 달',
+	    nextText: '다음 달',
+	    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+	    showMonthAfterYear: true,
+	    yearSuffix: '년'
+	});
+	
+	$(document).ready(function(){
+		 $("#shDateStart").datepicker();
+	}); 
+
+	$.datepicker.setDefaults({
+	    dateFormat: 'yy-mm-dd',
+	    prevText: '이전 달',
+	    nextText: '다음 달',
+	    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+	    showMonthAfterYear: true,
+	    yearSuffix: '년'
+	});
+	
 	$("#checkboxAll").click(function() {
 		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
 		else $("input[name=checkboxSeq]").prop("checked", false);
@@ -361,9 +390,12 @@
 		checkboxSeqArray.push($(this).val());
 	});
 	
-	$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+/* 	$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
 						
-	form.attr("action", goUrlMultiDele).submit();
+	form.attr("action", goUrlMultiDele).submit(); */
+	
+	
+	
 </script>
 
 

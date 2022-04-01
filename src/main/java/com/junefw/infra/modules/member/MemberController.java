@@ -29,18 +29,14 @@ public class MemberController {
 	@RequestMapping(value = "/member/memberList")
 	
 	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
-//	public String memberList( Model model) throws Exception {
-		
-		vo.setShOptionDate(vo.getShOptionDate() == null ? 1 : vo.getShOptionDate());
-		vo.setShDateStart(vo.getShDateStart() == null ? UtilDateTime.calculateDayString(UtilDateTime.nowLocalDateTime(), Constants.DATE_INTERVAL) : UtilDateTime.addStringTime(vo.getShDateStart()));
-		vo.setShDateEnd(vo.getShDateEnd() == null ? UtilDateTime.nowString() : UtilDateTime.addStringTime(vo.getShDateEnd()));
 		
 		/*
 		 * vo.setShOptionDate(vo.getShOptionDate() == null ? 1 : vo.getShOptionDate());
-		 * vo.setShDateEnd(vo.getShDateEnd() == null ? UtilDateTime.nowString() :
-		 * vo.getShDateEnd()); vo.setShDateStart(vo.getShDateStart() == null ?
+		 * vo.setShDateStart(vo.getShDateStart() == null ?
 		 * UtilDateTime.calculateDayString(UtilDateTime.nowLocalDateTime(),
-		 * Constants.DATE_INTERVAL) : vo.getShDateStart());
+		 * Constants.DATE_INTERVAL) : UtilDateTime.addStringTime(vo.getShDateStart()));
+		 * vo.setShDateEnd(vo.getShDateEnd() == null ? UtilDateTime.nowString() :
+		 * UtilDateTime.addStringTime(vo.getShDateEnd()));
 		 */
 		 
 		// count 가져올 것
