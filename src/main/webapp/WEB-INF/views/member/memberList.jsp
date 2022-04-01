@@ -112,21 +112,21 @@
 			</select>
 	    </div>
 		<div class="col-lg-2 col-md-6 col-sm-12">
-			<select class="form-select form-select" style="margin-bottom: 8px;" id="shDate" name="shDate">
-				<option value="">검색구분</option>
-				<option value="1" <c:if test="${vo.shDate eq 1}">selected</c:if>>Birthday
-				<option value="2" <c:if test="${vo.shDate eq 2}">selected</c:if>>RegDateTime
+			<select class="form-select form-select" style="margin-bottom: 8px;" id="shOptionDate" name="shOptionDate">
+				<option value="" <c:if test="${empty vo.shOptionDate}">selected</c:if>>::날짜::</option>
+				<option value="1" <c:if test="${vo.shOptionDate eq 1}">selected</c:if>>등록일</option>
+				<option value="2" <c:if test="${vo.shOptionDate eq 2}">selected</c:if>>수정일</option>
+				<option value="3" <c:if test="${vo.shOptionDate eq 3}">selected</c:if>>생일</option>
 			</select>
 	    </div>
+	    
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-	    <%-- <fmt:parseDate var="shDateStart" value="${vo.shDateStart }" pattern="yyyy-MM-dd"/>
-        <input type="text" id="shDateStart" name="shDateStart" value="<fmt:formatDate value="${shDateStart }" pattern="yyyy-MM-dd" />" placeholder="시작일" class="form-control" autocomplete="off"> --%>
-        <input class="form-control" type="text" placeholder="시작일" id="" name="" autocomplete="off">
+			<fmt:parseDate value="${vo.shDateEnd}" var="shDateEnd" pattern="yyyy-MM-dd" />
+			<input type="date" id="" name="shDateStart" value="<c:out value="${vo.shDateStart}"/>" placeholder="시작일" class="form-control form-control-sm" autocomplete="off">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-	     <%-- <fmt:parseDate var="shDateEnd" value="${vo.shDateEnd }" pattern="yyyy-MM-dd"/>
-        <input type="text" id="shDateEnd" name="shDateEnd" value="<fmt:formatDate value="${shDateEnd }" pattern="yyyy-MM-dd" />" placeholder="시작일" class="form-control" autocomplete="off"> --%>
-	    <input class="form-control" type="text" placeholder="종료일" id="" name="" autocomplete="off"> 
+			<fmt:parseDate value="${vo.shDateEnd}" var="shDateEnd" pattern="yyyy-MM-dd"/>
+			<input type="date" id="" name="shDateEnd" value="<c:out value="${vo.shDateEnd}"/>" placeholder="종료일"  class="form-control form-control-sm" autocomplete="off">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
 	    </div>
@@ -318,6 +318,22 @@
 		$("#formList").submit();
 	}); 
 	
+	${"#btnSubmit"}.on("click", function(){
+		if ($("#shOption").val() == '6') {
+			if ($.trim($("#shValue").val()) == "남성") {
+				$("#shGenderCd").val(1);
+			} else if ($.trim($("#shValue").val()) == "여성") {
+				$("#shGenderCd").val(2);
+			} else {
+				alert("검색어 입력이 올바르지 않습니다! (남성,여성 만 가능))");
+				return false;
+			}
+		} else {
+			/* by pass */
+		}
+	});
+	
+
 	
 	$("#btnSubmit").on("click", function(){
 		if(!checkNull($("#shmemberDelNy"),$("#shmemberDelNy").val(), "삭제여부 확인 바합니다.")) return false;

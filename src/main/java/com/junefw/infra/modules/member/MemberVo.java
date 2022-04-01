@@ -10,6 +10,7 @@ public class MemberVo {
 	private String ifmmPassword;
 	private String ifmmName;
 	private Integer ifmmGenderCd;
+	private Integer shGenderCd;
 	private String ifmmDob;
 	private String ifmmSaved;
 	private Integer ifmmDelNy;
@@ -431,6 +432,14 @@ public class MemberVo {
 
 	public void setFdmatitle2(String fdmatitle2) {
 		this.fdmatitle2 = fdmatitle2;
+	}
+
+	public Integer getShGenderCd() {
+		return shGenderCd;
+	}
+
+	public void setShGenderCd(Integer shGenderCd) {
+		this.shGenderCd = shGenderCd;
 	}
 
 

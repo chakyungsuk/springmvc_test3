@@ -30,10 +30,16 @@
 				<when test="shOption == 3">AND ifmmPassword LIKE concat('%',#{shValue},'%')</when>
 				<when test="shOption == 4">AND fdmeEmailFull LIKE concat('%',#{shValue},'%')</when>
 				<when test="shOption == 5">AND fdmpNumber LIKE concat('%',#{shValue},'%')</when>
-				<when test="shOption == 6">AND ifmmgendercd LIKE concat('%',#{shValue},'%')</when>
+				<!-- <when test="shOption == 6">AND ifmmgendercd LIKE concat('%',#{shValue},'%')</when> -->
+				<when test="shOption == 6">AND ifmmGenderCd = #{shGenderCd}</when>
 			</choose>
 			<!-- <if test="shValue != null and !shValue.equals('')"> AND ifmmId LIKE concat('%',#{shValue},'%')</if>	 -->
 			<!-- <if test="shFdcgSeq != null and !shFdcgSeq.equals('')"> AND fdcgSeq = #{shFdcgSeq}</if>	 -->
+			<choose>
+				<when test="shOptionDate == 1">and a.regDateTime between #{shDateStart} and #{shDateEnd}</when>
+				<when test="shOptionDate == 2">and a.modDateTime between #{shDateStart} and #{shDateEnd}</when>
+				<when test="shOptionDate == 3">and a.ifmmdob between #{shDateStart} and #{shDateEnd}</when>
+			</choose>
 	</sql>
 
 	<select id="selectOneMember" resultType="Integer">

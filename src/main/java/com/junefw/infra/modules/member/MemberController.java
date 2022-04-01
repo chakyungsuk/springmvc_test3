@@ -35,6 +35,14 @@ public class MemberController {
 		vo.setShDateStart(vo.getShDateStart() == null ? UtilDateTime.calculateDayString(UtilDateTime.nowLocalDateTime(), Constants.DATE_INTERVAL) : UtilDateTime.addStringTime(vo.getShDateStart()));
 		vo.setShDateEnd(vo.getShDateEnd() == null ? UtilDateTime.nowString() : UtilDateTime.addStringTime(vo.getShDateEnd()));
 		
+		/*
+		 * vo.setShOptionDate(vo.getShOptionDate() == null ? 1 : vo.getShOptionDate());
+		 * vo.setShDateEnd(vo.getShDateEnd() == null ? UtilDateTime.nowString() :
+		 * vo.getShDateEnd()); vo.setShDateStart(vo.getShDateStart() == null ?
+		 * UtilDateTime.calculateDayString(UtilDateTime.nowLocalDateTime(),
+		 * Constants.DATE_INTERVAL) : vo.getShDateStart());
+		 */
+		 
 		// count 가져올 것
 		int count = service.selectOneMember(vo);
 		
