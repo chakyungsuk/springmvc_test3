@@ -114,9 +114,8 @@
 		<div class="col-lg-2 col-md-6 col-sm-12">
 			<select class="form-select form-select" style="margin-bottom: 8px;" id="shDate" name="shDate">
 				<option value="">검색구분</option>
-				<option value="1" <c:if test="${vo.shDate eq 1}">selected</c:if>>생일
-				<option value="2" <c:if test="${vo.shDate eq 2}">selected</c:if>>남자
-				<option value="3" <c:if test="${vo.shDate eq 3}">selected</c:if>>여자
+				<option value="1" <c:if test="${vo.shDate eq 1}">selected</c:if>>Birthday
+				<option value="2" <c:if test="${vo.shDate eq 2}">selected</c:if>>RegDateTime
 			</select>
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
@@ -134,12 +133,14 @@
 	    <div class="col-lg-2 col-md-6 col-sm-12">
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
-			<select class="form-select form-select" aria-label=".form-select-sm example" style="margin-bottom: 8px;" name="shOption" id="shOption">
+			<select class="form-select form-select" style="margin-bottom: 8px;" name="shOption" id="shOption">
 				<option value="">검색구분</option>
-				<option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>ID
-				<option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>PassWord
-				<option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>E-mail
-				<option value="4" <c:if test="${vo.shOption eq 4}">selected</c:if>>Mobile
+				<option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>NAME
+				<option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>ID
+				<option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>PassWord
+				<option value="4" <c:if test="${vo.shOption eq 4}">selected</c:if>>E-mail
+				<option value="5" <c:if test="${vo.shOption eq 5}">selected</c:if>>Mobile
+				<option value="6" <c:if test="${vo.shOption eq 6}">selected</c:if>>Gender
 			</select>
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">

@@ -193,7 +193,7 @@
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>
 			<div class="input-group mb-2">
-				<input type="text" id="fdmaZipcode" class="form-control" name="fdmaZipcode" aria-describedby="button-addon2" disabled value="<c:out value="${item.fdmaZipcode}"/>">
+				<input type="text" id="fdmaZipcode" class="form-control" name="fdmaZipcode" aria-describedby="button-addon2" value="<c:out value="${item.fdmaZipcode}"/>">
 				<button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="sample6_execDaumPostcode()">
 					<i class="fa-solid fa-magnifying-glass-plus"></i>
 				</button>
@@ -206,10 +206,10 @@
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-right: 2px;">
-			<input class="form-control" id="fdmaTitle1" name="fdmaTitle1" type="text" disabled="disabled" value="<c:out value="${item.fdmaTitle1}"/>">
+			<input class="form-control" id="fdmaTitle1" name="fdmaTitle1" type="text" value="<c:out value="${item.fdmaTitle1}"/>">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-left: 2px;">
-			<input class="form-control" id="fdmaTitle2" name="fdmaTitle2" type="text" disabled="disabled" value="<c:out value="${item.fdmaTitle2}"/>">
+			<input class="form-control" id="fdmaTitle2" name="fdmaTitle2" type="text" value="<c:out value="${item.fdmaTitle2}"/>">
 		</div>		
 		<div class="d-grid gap-2 col-6 col-lg-6 col-sm-12">
 		</div>
@@ -264,7 +264,7 @@
 			</button>
 		</div>
 		<div class="col-lg-4 col-md-6 col-sm-6" style="text-align: center;">
-			<button type="submit" id="btnback" name="btnback" class="btn btn-outline-primary" style="width: 200px;">뒤로가기</button>
+			<button type="button" id="btnback" name="btnback" class="btn btn-outline-primary" style="width: 200px;">뒤로가기</button>
 			<button type="submit" id="btnSubmit" name="btnSubmit" class="btn btn-outline-danger" style="width: 200px;">수정</button>
 		</div>
 		<div class="col-lg-4 col-md-6 col-sm-6">
@@ -314,12 +314,11 @@
 
 <script>
 
-
-	btnback = function(seq){
-		$("#ifmmSeq").val(seq)	
+	$("#btnback").on("click", function(){
 		$("#formUpdt").attr("action","/member/memberView");
 		$("#formUpdt").submit();
-	}
+	});
+	
 	
 	btnSubmit = function(seq){
 		$("#ifmmSeq").val(seq)	

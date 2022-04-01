@@ -60,6 +60,7 @@
 
 <form id="formInst" name="formInst" method="post" action="/member/memberInst">
 
+
 <div class="container-sm">
 	<div class="row">
 		<div class="col-12 col-sm-12 col-lg-2">
@@ -139,7 +140,7 @@
 		</div>
 		<div class="col-2 col-lg-1 col-sm-2" style="margin-bottom: 12px; padding-right: 1px;">
 			<h6>핸드폰</h6>
-			<select class="form-select" style="padding-right: 1px;">
+			<select class="form-select" name="fdmpTelecomCd" style="padding-right: 1px;">
 				<option selected value="">::선택::</option>
 				<option value="1">SKT</option>
 				<option value="2">KT</option>
@@ -167,7 +168,7 @@
 			</select>
 		</div>
 		<div class="col-10 col-lg-5 col-sm-10" style="margin-bottom: 12px; padding-left: 0px;">
-			<input class="form-control" type="text" id="fdmpNumber" name="fdmpNumber" placeholder="숫자만 입력해 주십시요." style="padding-left: 0px; margin-top: 27px;">
+			<input class="form-control" type="text" placeholder="숫자만 입력해 주십시요." style="padding-left: 0px; margin-top: 27px;">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 			<h6>핸드폰 정보 마케팅 사용 동의(선택)</h6>
@@ -190,7 +191,7 @@
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>
 			<div class="input-group mb-2">
-				<input type="text" id="fdmaZipcode" name="fdmaZipcode" class="form-control" aria-describedby="button-addon2" disabled>
+				<input type="text" id="fdmaZipcode" name="fdmaZipcode" class="form-control" aria-describedby="button-addon2" >
 				<button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="sample6_execDaumPostcode()">
 					<i class="fa-solid fa-magnifying-glass-plus"></i>
 				</button>
@@ -203,10 +204,10 @@
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-right: 2px;">
-			<input class="form-control" id="fdmaTitle1" name="fdmaTitle1" type="text" disabled="disabled">
+			<input class="form-control" id="fdmaTitle1" name="fdmaTitle1" type="text" >
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-left: 2px;">
-			<input class="form-control" id="fdmaTitle2" name="fdmaTitle2" type="text" disabled="disabled">
+			<input class="form-control" id="fdmaTitle2" name="fdmaTitle2" type="text">
 		</div>		
 		<div class="d-grid gap-2 col-6 col-lg-6 col-sm-12">
 		</div>

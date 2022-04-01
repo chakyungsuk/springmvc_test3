@@ -195,7 +195,7 @@
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>
 			<div class="input-group mb-2">
-				<input type="text" id="sample6_postcode" name="fdmaZipcode" class="form-control"  aria-describedby="button-addon2" disabled value="<c:out value="${item.fdmaZipcode}"/>">
+				<input type="text" id="sample6_postcode" name="fdmaZipcode" class="form-control"  aria-describedby="button-addon2" readonly="readonly" value="<c:out value="${item.fdmaZipcode}"/>">
 				<button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="sample6_execDaumPostcode()">
 					<i class="fa-solid fa-magnifying-glass-plus"></i>
 				</button>
@@ -208,15 +208,15 @@
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-right: 2px;">
-			<input class="form-control" id="sample6_address" name="fdmaTitle1" type="text" disabled="disabled" value="<c:out value="${item.fdmaTitle1}"/>">
+			<input class="form-control" id="sample6_address" name="fdmaTitle1" type="text" readonly="readonly" value="<c:out value="${item.fdmaTitle1}"/>">
 		</div>
 		<div class="col-12 col-lg-3 col-sm-12" style="padding-left: 2px;">
-			<input class="form-control" id="sample6_extraAddress" name="fdmaTitle2" type="text" disabled="disabled" value="<c:out value="${item.fdmaTitle2}"/>">
+			<input class="form-control" id="sample6_extraAddress" name="fdmaTitle2" type="text" readonly="readonly" value="<c:out value="${item.fdmaTitle2}"/>">
 		</div>		
 		<div class="d-grid gap-2 col-6 col-lg-6 col-sm-12">
 		</div>
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" style="margin-top: 10px;">
-		<input class="form-control" id="sample6_detailAddress" name="fdmaAddress" type="text" placeholder="상세주소를 입력해주세요." disabled="disabled" value="<c:out value="${item.fdmaAddress}"/>">
+		<input class="form-control" id="sample6_detailAddress" name="fdmaAddress" type="text" placeholder="상세주소를 입력해주세요." readonly="readonly" value="<c:out value="${item.fdmaAddress}"/>">
 		</div>
 		<div class="row">
 		<div class="col-12 col-lg-6 col-sm-12">
