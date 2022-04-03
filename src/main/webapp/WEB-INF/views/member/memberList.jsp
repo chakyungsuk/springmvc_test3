@@ -69,6 +69,7 @@
 
 <form id="formList" name="formList" method="post" action="/member/memberList">	
 <input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
 <input type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
 <input type="hidden" id="ifmmSeq" name="ifmmSeq">
 
@@ -396,9 +397,9 @@
 	
 	//가짜삭제
 	$("#btnDeleteDelNy").on("click", function(){
-			var answer = confirm ("DelNy 를 1로 바꿀까요 ??")
+			confirm("DelNy 를 1로 바꿀까요 ??");
 			
-			if(answer){
+			if(true){
 				$("input[name=checkboxSeq]:checked").each(function() {
 					checkboxSeqArray.push($(this).val());
 					alert($(this).val());

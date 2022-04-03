@@ -140,6 +140,8 @@ public class MemberController {
 	@RequestMapping(value = "/member/memberNele")
 	public String memberNele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
 		
+		System.out.println("vo.getIfmmSeq()-----------------------" + vo.getIfmmSeq());
+	
 		service.updateDelete(vo);
 		
 		redirectAttributes.addAttribute("thisPage", vo.getThisPage()); // get 방식
@@ -158,7 +160,7 @@ public class MemberController {
 		
 		for(String checkboxSeq : checkboxSeqArray) {
 			vo.setIfmmSeq(checkboxSeq);
-			service.updateDelete(vo);
+			 service.updateDelete(vo); 
 		}
 		
 		redirectAttributes.addFlashAttribute("vo", vo);

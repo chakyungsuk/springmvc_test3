@@ -264,7 +264,7 @@
 			<a href ="/member/memberDele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" class="btn btn-danger btn-sm me-md-2 " id="btnDelete" name="btnDelete" style="float: left;">
 				<i class="fa-solid fa-trash-can"></i>
 			</a>
-			<a href ="/member/memberNele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" class="btn btn-primary btn-sm me-md-2 " id="btnDeleteDelNy" name="btnDeleteDelNy" style="float: left;">
+			<a href ="javascript:memberNele('<c:out value='${item.ifmmSeq}'/>')" class="btn btn-primary btn-sm me-md-2 " type="button" id="btnDeleteDelNy" name="btnDeleteDelNy" style="float: left;">
 				<i class="fa-solid fa-trash-can"></i>
 			</a>
 		</div>
@@ -300,6 +300,14 @@
 
 
 <script type="text/javascript">
+
+	memberNele = function(seq){
+		confirm ("DelNy 를 1로 바꿀까요 ??")		
+		$("#ifmmSeq").val(seq)
+		$("#formView").attr("ation","/member/memberNele")
+		$("#formView").submit();
+	}
+	
 	$("#btnSubmit").on("click", function(){
 		$("#formView").attr("action","/member/memberList")
 		$("#formView").submit();
@@ -320,16 +328,6 @@
 		} 
 	});
 
-	$("#btnDeleteDelNy").on("click", function(){
-			var answer = confirm ("DelNy 를 1로 바꿀까요 ??")
-			
-			if(answer){
-				return true
-			} else {
-				return false
-			} 
-	});
-	
     
 </script>
 
