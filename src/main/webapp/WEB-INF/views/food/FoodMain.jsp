@@ -50,7 +50,8 @@
 </head>
 
 <body class="text-center">
-<form id="formmain" name="formmain" method="post" action="/food/foodList">	
+
+<form id="formmain" name="formmain" method="post" action="/food/FoodMain">	
 
 	<!-- Header S -->
     <div class="container navbar navbar-dark" aria-label="Eighth navbar example" style="margin-bottom: 2px;">
@@ -164,13 +165,13 @@
       <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow">
-			<a class="thumbnail" href="" style="height:250px;">
+			<a class="thumbnail" style="height:250px;">
               <img src="/resources/xdmin/image/user_image/lank2.jpg" style="margin-top: 20px;"></a>
             <div class="card-body" style="">
               <p class="card-text">백파더 백종원 에그치즈토스트 ~ 간단한데 맛은 최고!</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a ref=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
+                  <a href="/food/Fooddater"><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
                 </div>
                 <small class="text-muted">5 mins</small>
               </div>
@@ -179,13 +180,13 @@
         </div>
         <div class="col">
           <div class="card shadow">
-			<a class="thumbnail" href="" style="height:250px;">
+			<a class="thumbnail" style="height:250px;">
               <img src="/resources/xdmin/image/user_image/lank1.jpg" style="margin-top: 20px;"></a>
             <div class="card-body" style="">
               <p class="card-text">닭봉간장조림~ 십년째 만들어 먹는 양념 공유해요!</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a ref=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
+                  <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
                 </div>
                 <small class="text-muted">1 mins</small>
               </div>
@@ -194,13 +195,13 @@
         </div>
         <div class="col">
           <div class="card shadow">
-			<a class="thumbnail" href="" style="height:250px;">
+			<a class="thumbnail" style="height:250px;">
               <img src="/resources/xdmin/image/user_image/lank3.jpg" style="margin-top: 20px;"></a>
             <div class="card-body" style="">
               <p class="card-text">이것은 구름인가 토스트인가 살살 녹는 토스트</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a ref=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
+                  <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
                 </div>
                 <small class="text-muted">10 mins</small>
               </div>
@@ -209,13 +210,13 @@
         </div>
         <div class="col">
           <div class="card shadow">
-			<a class="thumbnail" href="" style="height:250px;">
+			<a class="thumbnail" style="height:250px;">
               <img src="/resources/xdmin/image/user_image/lank4.jpg" style="margin-top: 20px;"></a>
             <div class="card-body" style="">
               <p class="card-text">초간단 간식용 및 반찬 소세시 감자 볶음 레시피 공유!</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a ref=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
+                  <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
                 </div>
                 <small class="text-muted">20 mins</small>
               </div>
@@ -224,13 +225,13 @@
         </div>
         <div class="col">
           <div class="card shadow">
-			<a class="thumbnail" href="" style="height:250px;">
+			<a class="thumbnail" style="height:250px;">
               <img src="/resources/xdmin/image/user_image/lank5.jpg" style="margin-top: 20px;"></a>
             <div class="card-body" style="">
               <p class="card-text">양배추 참치 덮밥</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a ref=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
+                  <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
                 </div>
                 <small class="text-muted">24 mins</small>
               </div>
@@ -239,13 +240,13 @@
         </div>
         <div class="col">
           <div class="card shadow">
-			<a class="thumbnail" href="" style="height:250px;">
+			<a class="thumbnail" style="height:250px;">
               <img src="/resources/xdmin/image/user_image/lank6.jpg" style="margin-top: 20px;"></a>
             <div class="card-body" style="">
               <p class="card-text">이세상 김치 볶음밥이 아니다! 초간단 레시피</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a ref=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
+                  <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
                 </div>
                 <small class="text-muted">30 mins</small>
               </div>
@@ -254,13 +255,13 @@
         </div>
         <div class="col">
           <div class="card shadow">
-			<a class="thumbnail" href="" style="height:250px;">
+			<a class="thumbnail" style="height:250px;">
               <img src="/resources/xdmin/image/user_image/lank7.jpg" style="margin-top: 20px;"></a>
             <div class="card-body" style="">
               <p class="card-text">간식 및 안주용 으로 제격! 새우 튀김 :)</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a ref=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
+                  <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
                 </div>
                 <small class="text-muted">50 mins</small>
               </div>
@@ -269,13 +270,13 @@
         </div>
         <div class="col">
           <div class="card shadow">
-			<a class="thumbnail" href="" style="height:250px;">
+			<a class="thumbnail" style="height:250px;">
               <img src="/resources/xdmin/image/user_image/lank8.jpg" style="margin-top: 20px;"></a>
             <div class="card-body" style="">
               <p class="card-text">(신혼♥)집에서 만드는 간단 반찬 공유~</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a ref=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
+                  <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
                 </div>
                 <small class="text-muted">1 days</small>
               </div>
@@ -284,13 +285,13 @@
         </div>
         <div class="col">
           <div class="card shadow">
-			<a class="thumbnail" href="" style="height:250px;">
+			<a class="thumbnail" style="height:250px;">
               <img src="/resources/xdmin/image/user_image/lank9.jpg" style="margin-top: 20px;"></a>
             <div class="card-body" style="">
               <p class="card-text">술안주로 매콤한 돼지갈비찜 죽입니다!!</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a ref=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
+                  <a href=""><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
                 </div>
                 <small class="text-muted">3 days</small>
               </div>

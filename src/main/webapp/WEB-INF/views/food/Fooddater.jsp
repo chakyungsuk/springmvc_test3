@@ -103,7 +103,7 @@
  <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a href="#" class="nav-link active" aria-current="page">
+      <a href="food/FoodMain" class="nav-link active" aria-current="page">
         <svg class="bi me-2" width="16" height="16"></svg>
         Home
       </a>
@@ -205,9 +205,9 @@
             	<div class="best_tit">
 					<h2><b>조리순서</b><span>Steps</span></h2>
 						<div class="best_tit_rmn" style="text-align: right;">
-							<a href="javascript:void(0);" onclick="chgViewStep(1)"><img id="tabStepView1" src="https://recipe1.ezmember.co.kr/img/mobile/tab_view1_on.png" alt="이미지크게보기" style="width: 40px; height: 40px;"></a>
-							<a href="javascript:void(0);" onclick="chgViewStep(2)"><img id="tabStepView2" src="https://recipe1.ezmember.co.kr/img/mobile/tab_view2.png" alt="텍스트만보기" style="width: 40px; height: 40px;"></a>
-							<a href="javascript:void(0);" onclick="chgViewStep(3)"><img id="tabStepView3" src="https://recipe1.ezmember.co.kr/img/mobile/tab_view3.png" alt="이미지작게보기" style="width: 40px; height: 40px;"></a>
+							<a href="food/Fooddater1" ><img id="tabStepView1" src="https://recipe1.ezmember.co.kr/img/mobile/tab_view1_on.png" alt="이미지크게보기" style="width: 40px; height: 40px;"></a>
+							<a href="food/Fooddater2" ><img id="tabStepView2" src="https://recipe1.ezmember.co.kr/img/mobile/tab_view2.png" alt="텍스트만보기" style="width: 40px; height: 40px;"></a>
+							<a href="food/Fooddater3" ><img id="tabStepView3" src="https://recipe1.ezmember.co.kr/img/mobile/tab_view3.png" alt="이미지작게보기" style="width: 40px; height: 40px;"></a>
 						</div>
             	</div>
 				<div id="stepDiv1" class="view_step_cont media step1">

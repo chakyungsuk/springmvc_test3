@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class FoodController {
 	
-	@RequestMapping(value = "/food/foodLogin")
-	public String foodLogin() throws Exception {
+	@RequestMapping(value = "/food/FoodLogin")
+	public String FoodLogin() throws Exception {
 		
 		
-		return "food/foodLogin";
+		return "food/FoodLogin";
 	}
 	
-	@RequestMapping(value = "/food/foodMain")
-	public String foodMain() throws Exception {
+	@RequestMapping(value = "/food/FoodMain")
+	public String FoodMain() throws Exception {
 		
 		
-		return "food/foodMain";
+		return "food/FoodMain";
 	}
 	
 	@RequestMapping(value = "/food/Fooddater")
@@ -39,6 +39,20 @@ public class FoodController {
 		
 		
 		return "food/Fooddater3";
+	}
+	
+	@RequestMapping(value = "/food/FoodFindPW")
+	public String FoodFindPW() throws Exception {
+		
+		
+		return "food/FoodFindPW";
+	}
+	
+	@RequestMapping(value = "/food/FoodFindPW2")
+	public String FoodFindPW2() throws Exception {
+		
+		
+		return "food/FoodFindPW2";
 	}
 	
 }
