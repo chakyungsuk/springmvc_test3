@@ -261,10 +261,10 @@
 <div class="container-sm">
 	<div class="row">
 		<div class="col-lg-4 col-md-6 col-sm-6" >
-			<a href ="/member/memberDele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" class="btn btn-danger btn-sm me-md-2 " id="btnDelete" name="btnDelete" style="float: left;">
+			<a href ="javascript:memberDele(<c:out value="${item.ifmmSeq}"/>)" class="btn btn-danger btn-sm me-md-2 " id="btnDelete" name="btnDelete" style="float: left;">
 				<i class="fa-solid fa-trash-can"></i>
 			</a>
-			<a href ="javascript:memberNele('<c:out value='${item.ifmmSeq}'/>')" class="btn btn-primary btn-sm me-md-2 " type="button" id="btnDeleteDelNy" name="btnDeleteDelNy" style="float: left;">
+			<a href ="javascript:memberNele(<c:out value='${item.ifmmSeq}'/>)" class="btn btn-primary btn-sm me-md-2 " type="button" id="btnDeleteDelNy" name="btnDeleteDelNy" style="float: left;">
 				<i class="fa-solid fa-trash-can"></i>
 			</a>
 		</div>
@@ -301,12 +301,29 @@
 
 <script type="text/javascript">
 
+// 진짜 삭제
 	memberNele = function(seq){
-		confirm ("DelNy 를 1로 바꿀까요 ??")		
-		$("#ifmmSeq").val(seq)
-		$("#formView").attr("ation","/member/memberNele")
-		$("#formView").submit();
-	}
+		var realDelNy = confirm ("삭제할거에요?")	
+		if(realDelNy){
+			$("#ifmmSeq").val(seq)
+			$("#formView").attr("action","/member/memberDele")
+			$("#formView").submit();
+		} else {
+			return false
+		}
+	};
+
+// 가짜 삭제
+	memberDele = function(seq){
+		var DelNy = confirm ("DelNy 를 1로 바꿀까요 ??")	
+		if(DelNy){
+			$("#ifmmSeq").val(seq)
+			$("#formView").attr("action","/member/memberNele")
+			$("#formView").submit();
+		} else {
+			return false
+		}
+	};
 	
 	$("#btnSubmit").on("click", function(){
 		$("#formView").attr("action","/member/memberList")
@@ -328,7 +345,6 @@
 		} 
 	});
 
-    
 </script>
 
 

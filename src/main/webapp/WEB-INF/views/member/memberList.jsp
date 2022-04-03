@@ -275,7 +275,7 @@
 		<a href ="/member/memberDele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" id="btnDelete" class="btn btn-danger btn-sm me-md-2 "  style="float: left;">
 			<i class="fa-solid fa-trash-can"></i>
 		</a>
-		<a href ="/member/memberNele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" id="btnDeleteDelNy" class="btn btn-primary btn-sm me-md-2 " style="float: left;">
+		<a href ="javascript:memberNele(<c:out value="${item.ifmmSeq}"/>)" id="btnDeleteDelNy" class="btn btn-primary btn-sm me-md-2 " style="float: left;">
 			<i class="fa-solid fa-trash-can"></i>
 		</a>
 	</div>
@@ -302,6 +302,10 @@
 
 
 <script>
+
+	var checkboxSeqArray = [];
+	var goUrlMultiUele = "/member/memberMultiUele";
+
 	goList = function(seq){
 		$("#thisPage").val(seq)		// form 객체를 가져온다.
 		$("#formList").submit();	// 그 가져온 객체를 전달한다.
@@ -338,10 +342,10 @@
 	
 	//리셋	
 	$("#btnLeset").on("click", function(){
-		var answer = confirm ("검색정보가 초기화 됩니다.")
+		var answer = confirm ("검색정보가 초기화 되며, 초기화면으로 돌아갑니다.")
 			
 		if(answer){
-			return true
+			$(location).attr("href","/member/memberList")
 		} else {
 			return false
 		} 
@@ -393,32 +397,27 @@
 		} 
 	});
 	
-	var checkboxSeqArray = [];
+	
 	
 	//가짜삭제
-	$("#btnDeleteDelNy").on("click", function(){
-			confirm("DelNy 를 1로 바꿀까요 ??");
+	memberNele = function(){
+		var DelNy = confirm ("삭제할거에요?")	
+		if(DelNy){
+			$("input[name=checkboxSeq]:checked").each(function() {
+				checkboxSeqArray.push($(this).val());	
+			});
 			
-			if(true){
-				$("input[name=checkboxSeq]:checked").each(function() {
-					checkboxSeqArray.push($(this).val());
-					alert($(this).val());
-				});
-				
-				$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
-				
-				alert((checkboxSeqArray));
-				
-				/* $("#modalConfirm").modal("hide"); */
-				
-				/* $("#formList").attr("action", "memberMultiUele").submit(); */
-		 		$("#formList").attr("action", "/member/memberMultiUele");
-		 		$("#formList").submit();
-			} else {
-				return false;
-			} 
-	});
-	
+			
+			$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+			
+			/* $("#modalConfirm").modal("hide"); */
+			
+			/* $("#formList").attr("action", "memberMultiUele").submit(); */
+	 		$("#formList").attr("action", goUrlMultiUele).submit();
+		} else {
+			return false
+		}
+	};
 	
 	//체크박스
 	$("#checkboxAll").click(function() {

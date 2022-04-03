@@ -140,13 +140,15 @@ public class MemberController {
 	@RequestMapping(value = "/member/memberNele")
 	public String memberNele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
 		
-		System.out.println("vo.getIfmmSeq()-----------------------" + vo.getIfmmSeq());
 	
 		service.updateDelete(vo);
 		
-		redirectAttributes.addAttribute("thisPage", vo.getThisPage()); // get 방식
-		redirectAttributes.addAttribute("shFdcgDelNy", vo.getIfmmDelNy()); // get 방식
-		redirectAttributes.addAttribute("shFdcgName", vo.getIfmmName()); // get 방식
+		/*
+		 * redirectAttributes.addAttribute("thisPage", vo.getThisPage()); // get 방식
+		 * redirectAttributes.addAttribute("shFdcgDelNy", vo.getIfmmDelNy()); // get 방식
+		 * redirectAttributes.addAttribute("shFdcgName", vo.getIfmmName()); // get 방식
+		 */		
+		redirectAttributes.addFlashAttribute("vo", vo);
 		
 		return "redirect:/member/memberList";
 	}
