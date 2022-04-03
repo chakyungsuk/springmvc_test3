@@ -6,7 +6,6 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
 
-<!DOCTYPE HTML>
 <htm1 lang="ko">
 
 <head>
@@ -16,15 +15,23 @@
 <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 <meta name="generator" content="Hugo 0.88.1">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/resources/xdmin/js/bootstrap.bundle.min.js"></script>
+<script src="/resources/xdmin/js/bootstrap.min.js"></script>
+
 <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/navbars/">
 <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sidebars/">
 
 <!-- Bootstrap core CSS -->
-<link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="/resources/common/bootstrap/bootstrap-5.1.3-examples/navbars/navbar.css" rel="stylesheet">
+<link href="/resources/xdmin/css/bootstrap.min.css" rel="stylesheet">
+<link href="/resources/xdmin/css/navbar.css" rel="stylesheet">
 <link href="/resources/common/bootstrap/bootstrap-5.1.3-examples/sidebars/sidebars.css" rel="stylesheet">
 <link href="/resources/common/bootstrap/bootstrap-5.1.3-examples/headers/headers.css" rel="stylesheet">
  <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
+ 
+ 
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 <title>Cha html projects</title>
 
@@ -56,7 +63,7 @@
 	<!-- Header S -->
     <div class="container navbar navbar-dark" aria-label="Eighth navbar example" style="margin-bottom: 2px;">
     <div class="col-lg-8 col-sm-8" style="text-align: left;" >
-      <a class="navbar-brand" href="#">Ten Thousand Recipes</a>
+      <a class="navbar-brand" href="/food/FoodMain">Ten Thousand Recipes</a>
      </div>
      <div class="col-lg-3 col-sm-3">
       <a href=""><input type="button" id="signUp" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
@@ -68,61 +75,47 @@
       </div>
     <!-- Header E -->
 
-     <!-- sidebar body S -->	
-	<div class="offcanvas offcanvas-end flex-shrink-0 p-3 text-white bg-dark " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-	  <div class="offcanvas-header" style="padding-bottom: 0px;">
-	    <h5 id="offcanvasRightLabel">Recipes MENU</h5>
-	    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-	  </div>
-	  <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a href="/food/FoodMain" class="nav-link active" aria-current="page">
-          <svg class="bi me-2" width="16" height="16"></svg>
-          Home
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link text-white">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-          Dashboard
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link text-white">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-          Orders
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link text-white">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-          Products
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link text-white">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-          Customers
-        </a>
-      </li>
-    </ul>
-        <hr>
-    <div class="dropdown">
-      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong>CEO CHA</strong>
+ <!-- sidebar body S -->	
+<div class="offcanvas offcanvas-end flex-shrink-0 p-3 text-white bg-dark " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header" style="padding-bottom: 0px;">
+   <h5 id="offcanvasRightLabel">MENU</h5>
+   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+ </div>
+ <hr>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a href="/food/FoodMain" class="nav-link active" aria-current="page">
+        <svg class="bi me-2" width="16" height="16"></svg>
+        Home(Main)
       </a>
-      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-        <li><a class="dropdown-item" href="#">New project...</a></li>
-        <li><a class="dropdown-item" href="#">Settings</a></li>
-        <li><a class="dropdown-item" href="#">Profile</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
-      </ul>
-    </div>
-  </div>
-  </div>
+    </li>
+    <li>
+      <a href="#" class="nav-link text-white">
+        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+        NEW Recipes
+      </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link text-white">
+        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+        MY Recipes
+      </a>
+    </li>
+    <hr style="margin-top: 380px;">
+    <li>
+    <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"  type="button" id="dropdownMenuLink">
+      <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+      <strong>CEO CHA</strong>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+      <li><a class="dropdown-item" href="#">Profile Setting</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="#">Login out</a></li>
+    </ul>
+    </li>
+  </ul>
+</div>
+</div>
 <!-- sidebar body E -->	
 
 
@@ -313,17 +306,37 @@
 </footer>
 
 
+
+<!-- Bootstrap core Js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/resources/xdmin/js/bootstrap.bundle.min.js"></script>
+<script src="/resources/xdmin/js/bootstrap.min.js"></script>
+<script src="/resources/js/validation.js"></script>
+<script src="/resources/xdmin/js/sidebars.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="/resources/xdmin/js/sidebars.js"></script>
+
 <script type="text/javascript">
+
+$("#dropdownMenuLink").click(function() { //드롭다운 버튼을 눌렀을 때
+	 
+	//Following events are applied to the subnav itself (moving subnav up and down)
+	$(this).parent().find(".dropdown-menu").slideDown('fast').show(); //Drop down the subnav on click
+
+	$(this).parent().hover(function() {
+	}, function(){
+		$(this).parent().find(".dropdown-menu").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+	});
+
+/*  			//마우스가 메뉴에 올려지면 동작 (Hover events for the trigger)
+	}).hover(function() {
+		$(this).addClass("subhover"); //on hover over, add class "subhover"
+	}, function(){	//마우스가 메뉴에서 벗어나면 동작
+		$(this).removeClass("subhover"); //on hover out, remove class "subhover" */
+});
 
 </script>
 
-
-
-
-	<!-- Bootstrap core Js -->
-	<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
-	<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
-	<script src="/resources/common/bootstrap/bootstrap-5.1.3-examples/sidebars/sidebars.js"></script>
 
 </body>
 

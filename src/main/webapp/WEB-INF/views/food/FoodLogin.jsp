@@ -160,7 +160,7 @@
 </nav>
 <!-- sidebar E -->
 
-<form id="formLogin" name="formLogin" method="post" action="/food/foodLogin">
+<form id="formLogin" name="formLogin" method="post" action="/food/FoodLogin">
 	
 	<div class="container1" style="margin-top: 100px;" >
 		<div class="col-12">
@@ -177,7 +177,7 @@
 	</div>
 			
 	<div class="container1" style="margin-top: 50px;">
-		<a href="../member/memberList.html" style="text-decoration: none;">
+		<a href="/food/foodMain" style="text-decoration: none;">
     <button class="btn btn-sm btn-primary" type="submit" style="width: 330px;" id=btnLogin>Login</button>
    	</a>
 		<div class="col-12" style="margin-top: 50px;">
@@ -244,7 +244,7 @@
 			$('#FindPW').val('Find Password');
 		});
 		$("#FindPW").on("click", function(){
-			$("#formLogin").attr("action","/member/memberFindPW")
+			$("#formLogin").attr("action","/food/FoodFindPW")
 			$("#formLogin").submit();
 		});
 
