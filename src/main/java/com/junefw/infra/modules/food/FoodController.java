@@ -20,4 +20,25 @@ public class FoodController {
 		return "food/foodMain";
 	}
 	
+	@RequestMapping(value = "/food/Fooddater")
+	public String Fooddater() throws Exception {
+		
+		
+		return "food/Fooddater";
+	}
+	
+	@RequestMapping(value = "/food/Fooddater2")
+	public String Fooddater2() throws Exception {
+		
+		
+		return "food/Fooddater2";
+	}
+	
+	@RequestMapping(value = "/food/Fooddater3")
+	public String Fooddater3() throws Exception {
+		
+		
+		return "food/Fooddater3";
+	}
+	
 }
