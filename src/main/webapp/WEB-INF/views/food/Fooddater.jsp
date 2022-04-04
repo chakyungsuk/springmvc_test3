@@ -84,7 +84,7 @@
  <a class="navbar-brand" href="/food/FoodMain">Ten Thousand Recipes</a>
 </div>
 <div class="col-lg-3 col-sm-3">
- <a href=""><input type="button" id="" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
+ <a href="/food/Foodreg"><input type="button" id="" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
 </div>
 <div class="col-lg-1 col-sm-1">
 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
@@ -136,61 +136,6 @@
 </div>
 <!-- sidebar body E -->	
 
-<!-- sidebar body S -->	
-<div class="offcanvas offcanvas-end flex-shrink-0 p-3 text-white bg-dark " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-  <div class="offcanvas-header" style="padding-bottom: 0px;">
-   <h5 id="offcanvasRightLabel">MENU</h5>
-   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
- </div>
- <hr>
-  <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
-      <a href="/food/FoodMain" class="nav-link active" aria-current="page">
-        <svg class="bi me-2" width="16" height="16"></svg>
-        Home(Main)
-      </a>
-    </li>
-    <li>
-      <a href="#" class="nav-link text-white">
-        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-        Dashboard
-      </a>
-    </li>
-    <li>
-      <a href="#" class="nav-link text-white">
-        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-        Orders
-      </a>
-    </li>
-    <li>
-      <a href="#" class="nav-link text-white">
-        <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-        Products
-      </a>
-    </li>
-    <li>
-      <a href="#" class="nav-link text-white">
-        <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-        Customers
-      </a>
-    </li>
-  </ul>
-      <hr>
-  <div class="dropdown">
-    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
-      <strong>CEO CHA</strong>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-      <li><a class="dropdown-item" href="#">New project...</a></li>
-      <li><a class="dropdown-item" href="#">Settings</a></li>
-      <li><a class="dropdown-item" href="#">Profile</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Sign out</a></li>
-    </ul>
-  </div>
-</div>
-<!-- sidebar body E -->	
 
 <div class="container">
 	<div class="card mb-3">

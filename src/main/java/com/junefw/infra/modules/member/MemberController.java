@@ -57,7 +57,7 @@ public class MemberController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "member/loginProc")
+	@RequestMapping(value = "/member/loginProc")
 	public Map<String, Object> loginProc(Member dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		

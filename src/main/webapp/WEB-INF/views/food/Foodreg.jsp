@@ -70,6 +70,7 @@
     display: table;
     border-collapse: separate; */
     h4 {
+    	text-align: left;
     	margin-top: 10px; 
     	margin-left: 10px;
     }
@@ -250,61 +251,99 @@
 			</div>
 		</div>
 	</div><!--/cont_box-->
-
+	
 <div class="card mb-3">
-        <span class="guide mag_b_15" style="width:100%;">재료가 남거나 부족하지 않도록 정확한 계량정보를 적어주세요.</span>
-		<div class="mag_b_25 ui-sortable" id="divMaterialGroupArea"><li id="liMaterialGroup_1"><p class="cont_tit6 st2 mag_r_15"><a href="#" class="btn-lineup ui-sortable-handle" data-original-title="" title=""></a><input type="text" name="material_group_title_1" id="material_group_title_1" value="재료" class="form-control" style="font-weight:bold;font-size:18px;width:210px;"><span class="cont_tit_btn"><button id="btnAutoMaterialModal" data-toggle="modal" data-target="#divAutoMaterialModal" type="button" data-group_idx="1" class="btn-sm btn-default"><span class="glyphicon glyphicon-import"></span> 한번에 넣기</button><button type="button" onclick="delMaterialGroup(1)" class="btn-sm btn-default"><span class="glyphicon glyphicon-remove"></span> 묶음삭제</button></span></p><ul id="divMaterialArea_1" class="ui-sortable"><li id="liMaterial_1_1"><a href="#" class="btn-lineup ui-sortable-handle" data-original-title="" title=""></a><input type="text" name="cok_material_nm_1[]" id="cok_material_nm_1_1" class="form-control" style="width:330px;" placeholder="예) 돼지고기"><input type="text" name="cok_material_amt_1[]" id="cok_material_amt_1_1" class="form-control" style="width:280px;" placeholder="예) 300g"><a id="btnMaterialDel_1_1" href="javascript:delMaterial(1,1)" class="btn-del" style="display: none;"></a></li><li id="liMaterial_1_2"><a href="#" class="btn-lineup ui-sortable-handle" data-original-title="" title=""></a><input type="text" name="cok_material_nm_1[]" id="cok_material_nm_1_2" class="form-control" style="width:330px;" placeholder="예) 양배추"><input type="text" name="cok_material_amt_1[]" id="cok_material_amt_1_2" class="form-control" style="width:280px;" placeholder="예) 1/2개"><a id="btnMaterialDel_1_2" href="javascript:delMaterial(1,2)" class="btn-del" style="display: none;"></a></li><li id="liMaterial_1_3"><a href="#" class="btn-lineup ui-sortable-handle" data-original-title="" title=""></a><input type="text" name="cok_material_nm_1[]" id="cok_material_nm_1_3" class="form-control" style="width:330px;" placeholder="예) 참기름"><input type="text" name="cok_material_amt_1[]" id="cok_material_amt_1_3" class="form-control" style="width:280px;" placeholder="예) 1T"><a id="btnMaterialDel_1_3" href="javascript:delMaterial(1,3)" class="btn-del" style="display: none;"></a></li></ul><div class="btn_add" style="padding:0 0 20px 350px; width:800px;"><button type="button" onclick="addMaterial(1)" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"></span>추가</button></div></li></div>
-
-        <div class="noti">※ 양념, 양념장, 소스, 드레싱, 토핑, 시럽, 육수 밑간 등으로 구분해서 작성해주세요.
-            <div class="noti_btn">
-            	<button type="button" onclick="addMaterialGroup('',[],null,'1')" class="btn-lg btn-default"><span class="glyphicon glyphicon-plus"></span> 재료/양념 묶음 추가</button>
-			</div>
-        </div>
+	 <h4>재료</h4><b style="text-align: center;">재료가 남거나 부족하지 않도록 정확한 계량정보를 적어주세요.</b>
+	 <div class="container" style="max-width: 60%; justify-content: center; text-align: center;" >
+		 <p class="cont_tit6 st2 mag_r_15"><a href="#" class="btn-lineup ui-sortable-handle" data-original-title="" title=""></a></p>
+			 <ul id="divMaterialArea_1" class="ui-sortable">
+				 <li id="liMaterial_1_1" style="margin-bottom: 10px;">
+					 <input type="text" name="" id="" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 돼지고기">
+					 <input type="text" name="" id="" class="form-control" style="width:310px; margin: 0;" placeholder="예) 300g">
+				 </li>
+			 	 <li id="liMaterial_1_2" style="margin-bottom: 10px;">
+					 <input type="text" name="" id="" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="text" name="" id="" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+				 </li>
+			 	 <li id="liMaterial_1_3" style="margin-bottom: 10px;"><a href="#" class="btn-lineup" data-original-title="" title=""></a>
+					 <input type="text" name="" id="" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 참기름">
+					 <input type="text" name="" id="" class="form-control" style="width:310px;" placeholder="예) 1T">
+				 </li>
+			  	 <li id="liMaterial_1_4" style="margin-bottom: 10px;"><a href="#" class="btn-lineup"></a>
+					 <input type="text" name="" id="" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 소금">
+					 <input type="text" name="" id="" class="form-control" style="width:310px;" placeholder="예) 2t">
+				 </li>
+				 <li id="liMaterial_1_5" style="margin-bottom: 10px;"><a href="#" class="btn-lineup"></a>
+					 <input type="text" name="" id="" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 고추가루 약간">
+				 	<input type="text" name="" id="" class="form-control" style="width:310px;" placeholder="예) ">
+				 </li>
+			 </ul>
+		 <div class="btn_add" style="padding:0 0 20px 350px; width:800px;"></div>
+	 </div>
 </div>
+
 
 <div class="card mb-3">
       <input type="file" name="file" id="multifile_1" file_gubun="step" style="display:none;" multiple="">
-      <p class="cont_tit3">요리순서
-    	  <button type="button" onclick="document.getElementById('multifile_1').click();" class="btn-sm btn-default"><span class="glyphicon glyphicon-plus"></span> 순서사진 한번에 넣기</button>
-      </p>
+      <h4>요리순서</h4>
 	  <span class="guide mag_b_15"><b>요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요.</b><br>
 		예) 10분간 익혀주세요 ▷ 10분간 약한불로 익혀주세요.<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마늘편은 익혀주세요 ▷ 마늘편을 충분히 익혀주셔야 매운 맛이 사라집니다.<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;꿀을 조금 넣어주세요 ▷ 꿀이 없는 경우, 설탕 1스푼으로 대체 가능합니다.
-	  </span>
-      <div id="divStepArea" class="ui-sortable"><div id="divStepItem_1" class="step">
-            <p id="divStepNum_1" class="cont_tit2_1 ui-sortable-handle" style="cursor:pointer" data-original-title="" title="">Step1</p>
-            <div id="divStepText_1" style="display:inline-block">
-                <textarea name="step_text[]" id="step_text_1" class="form-control step_cont" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:430px; resize:none;"></textarea>
-            </div>
-            <div id="divStepUpload_1" style="display:inline-block">
-                <input type="hidden" name="step_no[]" id="step_no_1" value="">
-                <input type="hidden" name="step_photo[]" id="step_photo_1" value="">
-                <input type="hidden" name="new_step_photo[]" id="new_step_photo_1" value="">
-                <input type="hidden" name="del_step_photo[]" id="del_step_photo_1" value="">
-                <div style="position:absolute;left:-3000px"><input type="file" name="q_step_file_1" id="q_step_file_1" file_gubun="step" accept="jpeg,png,gif" style="display:;width:0px;height:0px;font-size:0px;" text=""></div>
-                <div id="divStepPhotoBox_1" is_over="0">
-                    <img id="stepPhotoHolder_1" onclick="browseStepFile(1)" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
-                </div>
-            </div>
-            <div id="divStepBtn_1" class="step_btn" style="display: none;">
-                <a href="javascript:void(0)"><span class="glyphicon glyphicon-chevron-up moveUp"></span></a>
-                <a href="javascript:void(0)"><span class="glyphicon glyphicon-chevron-down moveDown"></span></a>
-                <a href="javascript:adjustStep(1)"><b>맞춤</b></a>
-                <a href="javascript:addStep(1)"><span class="glyphicon glyphicon-plus"></span></a>
-                <a href="javascript:delStep(1)"><span class="glyphicon glyphicon-remove"></span></a>
-            </div>
-
+	  </span><br>
+	  
+      <div id="divStepArea" class="ui-sortable">
+      <div class="container" style="max-width: 80%; text-align: center;">
+          <div class="row" style="justify-content: center;">
+          
+          	<h4>Step 1</h4><br>
+			<div class="col-12" style="max-width: 80%;">
+				<div class="input-group" style="margin-bottom: 30px;">
+					<textarea id="cmt_tx_content1" name="frm[cmt_tx_content]" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>
+					<img id="stepPhotoHolder_1" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
+				</div>
+			</div>
+          
+          	<h4>Step 2</h4><br>
+			<div class="col-12" style="max-width: 80%;">
+				<div class="input-group" style="margin-bottom: 30px;">
+					<textarea id="cmt_tx_content1" name="frm[cmt_tx_content]" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>
+					<img id="stepPhotoHolder_1" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
+				</div>
+			</div>
+          
+          	<h4>Step 3</h4><br>
+			<div class="col-12" style="max-width: 80%;">
+				<div class="input-group" style="margin-bottom: 30px;">
+					<textarea id="cmt_tx_content1" name="frm[cmt_tx_content]" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>
+					<img id="stepPhotoHolder_1" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
+				</div>
+			</div>
+          
+          	<h4>Step 4</h4><br>
+			<div class="col-12" style="max-width: 80%;">
+				<div class="input-group" style="margin-bottom: 30px;">
+					<textarea id="cmt_tx_content1" name="frm[cmt_tx_content]" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>
+					<img id="stepPhotoHolder_1" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
+				</div>
+			</div>
+          
+          	<h4>Step 5</h4><br>
+			<div class="col-12" style="max-width: 80%;">
+				<div class="input-group" style="margin-bottom: 30px;">
+					<textarea id="cmt_tx_content1" name="frm[cmt_tx_content]" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>
+					<img id="stepPhotoHolder_1" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
+				</div>
+			</div>
+			
+			</div>
           </div>
-          </div>
+	</div>
 </div>
 
-<div class="card mb-3">
-    <p class="cont_tit4">요리팁</p>
-    <textarea name="cok_tip" id="cok_tip" class="form-control step_cont" placeholder="예) 고기요리에는 소금보다 설탕을 먼저 넣어야 단맛이 겉돌지 않고 육질이 부드러워요." style="height:120px; width:620px; resize:none;"></textarea>
-</div>
-
-<div class="card mb-3">
+<div class="card mb-3" style="text-align: center;">
+    <h4>요리팁</h4><br>
+    <textarea name="cok_tip" id="cok_tip" class="form-control step_cont" placeholder="예) 고기요리에는 소금보다 설탕을 먼저 넣어야 단맛이 겉돌지 않고 육질이 부드러워요." style="height:120px; max-width:90%; resize:none; margin: auto; margin-bottom: 30px;"></textarea>
 	<div class="regi_btm" style="padding-top: 35px; padding-bottom: 40px;">
 		<button type="button" class="btn-lg btn-primary">저장</button>
 		<button type="button" class="btn-lg btn-warning">저장 후 공개하기</button>

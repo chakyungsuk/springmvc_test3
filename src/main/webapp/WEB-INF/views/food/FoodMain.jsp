@@ -66,7 +66,7 @@
 		<a class="navbar-brand" href="/food/FoodMain">Ten Thousand Recipes</a>
 	</div>
 	<div class="col-lg-3 col-sm-3">
-		<a href=""><input type="button" id="signUp" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
+		<a href="/food/Foodreg"><input type="button" id="signUp" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
 	</div>
 	<div class="col-lg-1 col-sm-1">
 	<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
@@ -106,12 +106,14 @@
     <li>
     <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"  type="button" id="dropdownMenuLink">
       <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
-      <strong>CEO CHA</strong>
+      <strong><c:out value="${sessId }"/></strong>
     </a>
     <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
       <li><a class="dropdown-item" href="#">Profile Setting</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Login out</a></li>
+      <c:if test="${not empty sessSeq}">
+     	 <li><a class="dropdown-item" type="button" id="btnLogout">Login out</a></li>
+      </c:if>
     </ul>
     </li>
   </ul>
@@ -318,23 +320,42 @@
 
 <script type="text/javascript">
 
-$("#dropdownMenuLink").click(function() { //드롭다운 버튼을 눌렀을 때
-	 
-	//Following events are applied to the subnav itself (moving subnav up and down)
-	$(this).parent().find(".dropdown-menu").slideDown('fast').show(); //Drop down the subnav on click
-
-	$(this).parent().hover(function() {
-	}, function(){
-		$(this).parent().find(".dropdown-menu").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+	$("#dropdownMenuLink").click(function() { //드롭다운 버튼을 눌렀을 때
+		 
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find(".dropdown-menu").slideDown('fast').show(); //Drop down the subnav on click
+	
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find(".dropdown-menu").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+	
+	/*  			//마우스가 메뉴에 올려지면 동작 (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //on hover over, add class "subhover"
+		}, function(){	//마우스가 메뉴에서 벗어나면 동작
+			$(this).removeClass("subhover"); //on hover out, remove class "subhover" */
 	});
 
-/*  			//마우스가 메뉴에 올려지면 동작 (Hover events for the trigger)
-	}).hover(function() {
-		$(this).addClass("subhover"); //on hover over, add class "subhover"
-	}, function(){	//마우스가 메뉴에서 벗어나면 동작
-		$(this).removeClass("subhover"); //on hover out, remove class "subhover" */
-});
-
+	$("#btnLogout").on("click", function(){
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/food/logoutProc"
+			,data : { "ifmmId" : $("#ifmmId").val(), "ifmmPassword" : $("#ifmmPassword").val()}
+			,success: function(response) {
+				if(response.rt == "success") {
+					location.href = "/food/FoodLogin";
+				} else {
+					alert("회원없음");
+				}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+	});
 </script>
 
 

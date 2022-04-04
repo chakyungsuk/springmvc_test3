@@ -14,7 +14,7 @@ public class CheckLoginSessionInterception extends HandlerInterceptorAdapter{
 		if (request.getSession().getAttribute("sessSeq") != null) {
 			// by pass
 		} else {
-			response.sendRedirect("/member/memberLogin");
+			response.sendRedirect("/food/FoodLogin");
             return false;
 		}
 		

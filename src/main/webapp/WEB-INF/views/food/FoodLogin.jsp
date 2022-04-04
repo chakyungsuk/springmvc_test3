@@ -28,7 +28,6 @@
 <script src="/resources/js/validation.js"></script>
 <script src="/resources/xdmin/js/bootstrap.bundle.min.js"></script>
 <script src="/resources/xdmin/js/bootstrap.min.js"></script>
-<script src="/resources/xdmin/js/bootstrap.sidebars.js"></script>
 <script src="/resources/xdmin/js/sidebars.js"></script>
 
 
@@ -101,20 +100,20 @@
 	<div class="container1" style="margin-top: 100px;" >
 		<div class="col-12">
 			<div class="input">
-				<input type="text" id="ifmmId" name="ifmmId" placeholder="ID" size="40" style="background: transparent; color: white;" autocomplete="off">
+				<input type="text" id="ifmmId" name="ifmmId" placeholder="ID" size="40" style="background: transparent; color: white;" autocomplete="off" value="111">
 			</div>
 		</div>
 		
 		<div class="col-12">
 			<div class="input">
-				<input type="password" id="ifmmPassword" name="ifmmPassword" placeholder="Password" size="40" style="background: transparent; color: white;">
+				<input type="password" id="ifmmPassword" name="ifmmPassword" placeholder="Password" size="40" style="background: transparent; color: white;" value="111">
 			</div>
 		</div>
 	</div>
 			
 	<div class="container1" style="margin-top: 50px;">
-		<a href="/food/FoodMain" style="text-decoration: none;">
-    <button class="btn btn-sm btn-primary" type="submit" style="width: 330px;" id=btnLogin>Login</button>
+	<a href="" style="text-decoration: none;">
+    	<button class="btn btn-sm btn-primary" type="submit" style="width: 330px;" id="btnLogin">Login</button>
    	</a>
 		<div class="col-12" style="margin-top: 50px;">
 			<input type="button" id="signUp" class="btn" style="color: red;" value="Sign Up"/>
@@ -157,10 +156,37 @@
 
 <script type="text/javascript">
 		
-		$("#btnLogin").on("click", function(){
+/* 		$("#btnLogin").on("click", function(){
 			$("#formLogin").attr("action","/food/FoodMain");
 			$("#formLogin").submit();
+		}); */
+		
+		
+		$("#btnLogin").on("click", function(){
+			if(validation() == false) return false;
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/food/loginProc"
+				,data : { "ifmmId" : $("#ifmmId").val(), "ifmmPassword" : $("#ifmmPassword").val()}
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = "/food/FoodMain";
+					} else {
+						alert("회원없음");
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
 		});
+		
+		validation = function() {
+			if(!checkNull($("#ifmmId"), $("#ifmmId").val(), "아이디를 입력해주세요.")) return false;
+			if(!checkNull($("#ifmmPassword"), $("#ifmmPassword").val(), "비밀번호를 입력해주세요.")) return false;
+		}
 		
 		$("#signUp").mouseover(function(){
 			$('#signUp').val('회원가입')
@@ -184,7 +210,7 @@
 			$("#formLogin").submit();
 		});
 
-		
+
 	
 	
 
