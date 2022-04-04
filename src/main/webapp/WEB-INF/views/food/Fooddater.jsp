@@ -84,7 +84,7 @@
  <a class="navbar-brand" href="/food/FoodMain">Ten Thousand Recipes</a>
 </div>
 <div class="col-lg-3 col-sm-3">
- <a href=""><input type="button" id="signUp" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
+ <a href=""><input type="button" id="" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
 </div>
 <div class="col-lg-1 col-sm-1">
 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
@@ -108,7 +108,7 @@
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link text-white">
+      <a href="food/Foodreg" class="nav-link text-white">
         <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
         NEW Recipes
       </a>
@@ -190,8 +190,8 @@
     </ul>
   </div>
 </div>
-</div>
 <!-- sidebar body E -->	
+
 <div class="container">
 	<div class="card mb-3">
 		<div style="text-align: center;">
@@ -407,32 +407,11 @@
 		}
 		
 		
-/* 		$("#btnLogin").on("click", function(){
+ 		$("#btnLogin").on("click", function(){
 			$("#formLogin").attr("action","/food/foodList");
 			$("#formLogin").submit();
 		});
 		
-		$("#signUp").mouseover(function(){
-			$('#signUp').val('회원가입')
-		});
-		$("#signUp").mouseout(function(){
-			$('#signUp').val('SignUp');
-		});
-		$("#signUp").on("click", function(){
-			$("#formLogin").attr("action","/member/memberForm")
-			$("#formLogin").submit();
-		});
-		
-		$("#FindPW").mouseover(function(){
-			$('#FindPW').val('비밀번호찾기')
-		});
-		$("#FindPW").mouseout(function(){
-			$('#FindPW').val('Find Password');
-		});
-		$("#FindPW").on("click", function(){
-			$("#formLogin").attr("action","/member/memberFindPW")
-			$("#formLogin").submit();
-		}); */
 
 		
 	

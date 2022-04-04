@@ -54,5 +54,11 @@ public class FoodController {
 		
 		return "food/FoodFindPW2";
 	}
+	@RequestMapping(value = "/food/Foodreg")
+	public String Foodreg() throws Exception {
+		
+		
+		return "food/Foodreg";
+	}
 	
 }

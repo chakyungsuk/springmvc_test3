@@ -420,10 +420,10 @@
 	};
 	
 	//체크박스
-	$("#checkboxAll").click(function() {
+/* 	$("#checkboxAll").click(function() {
 		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
 		else $("input[name=checkboxSeq]").prop("checked", false);
-	});
+	}); */
 	/* 
 	$("input[name=checkboxSeq]:checked").each(function() { 
 		checkboxSeqArray.push($(this).val());

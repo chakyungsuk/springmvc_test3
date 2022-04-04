@@ -60,20 +60,21 @@
 
 <form id="formmain" name="formmain" method="post" action="/food/FoodMain">	
 
-	<!-- Header S -->
-    <div class="container navbar navbar-dark" aria-label="Eighth navbar example" style="margin-bottom: 2px;">
-    <div class="col-lg-8 col-sm-8" style="text-align: left;" >
-      <a class="navbar-brand" href="/food/FoodMain">Ten Thousand Recipes</a>
-     </div>
-     <div class="col-lg-3 col-sm-3">
-      <a href=""><input type="button" id="signUp" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
-      </div>
-      <div class="col-lg-1 col-sm-1">
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      </div>
-    <!-- Header E -->
+<!-- Header S -->
+<div class="container navbar navbar-dark" aria-label="Eighth navbar example" style="margin-bottom: 2px;">
+	<div class="col-lg-8 col-sm-8" style="text-align: left;" >
+		<a class="navbar-brand" href="/food/FoodMain">Ten Thousand Recipes</a>
+	</div>
+	<div class="col-lg-3 col-sm-3">
+		<a href=""><input type="button" id="signUp" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
+	</div>
+	<div class="col-lg-1 col-sm-1">
+	<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	</div>
+</div>
+<!-- Header E -->
 
  <!-- sidebar body S -->	
 <div class="offcanvas offcanvas-end flex-shrink-0 p-3 text-white bg-dark " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -114,7 +115,6 @@
     </ul>
     </li>
   </ul>
-</div>
 </div>
 <!-- sidebar body E -->	
 
