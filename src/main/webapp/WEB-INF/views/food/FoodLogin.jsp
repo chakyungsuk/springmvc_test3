@@ -156,14 +156,9 @@
 
 <script type="text/javascript">
 		
-/* 		$("#btnLogin").on("click", function(){
-			$("#formLogin").attr("action","/food/FoodMain");
-			$("#formLogin").submit();
-		}); */
-		
 		
 		$("#btnLogin").on("click", function(){
-			if(validation() == false) return false;
+			if(validation() == false) return false; 
 			$.ajax({
 				async: true 
 				,cache: false

@@ -103,25 +103,25 @@
       </a>
     </li>
     <hr style="margin-top: 380px;">
-    <li>
-    <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"  type="button" id="dropdownMenuLink">
-      <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
-      <strong><c:out value="${sessId }"/></strong>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-      <li><a class="dropdown-item" href="#">Profile Setting</a></li>
-      <li><hr class="dropdown-divider"></li>
       <c:if test="${not empty sessSeq}">
-     	 <li><a class="dropdown-item" type="button" id="btnLogout">Login out</a></li>
+	    <li>
+	    <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"  type="button" id="dropdownMenuLink">
+	      <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+	      <strong><c:out value="${sessId }"/> 회원님 안녕하세요.</strong>
+	    </a>
+	    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+	      <li><a class="dropdown-item" href="#">Profile Setting</a></li>
+	      <li><hr class="dropdown-divider"></li>
+	     	 <li><a class="dropdown-item" type="button" id="btnLogout">Login out</a></li>
+	    </ul>
       </c:if>
-    </ul>
     </li>
   </ul>
 </div>
 <!-- sidebar body E -->	
 
 
-	<!-- Body S -->
+<!-- Body S -->
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

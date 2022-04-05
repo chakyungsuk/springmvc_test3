@@ -9,39 +9,20 @@ public class FoodVo {
 	private String ifmmId;
 	private String ifmmPassword;
 	private String ifmmName;
-	private Integer ifmmGenderCd;
-	private Integer shGenderCd;
-	private String ifmmDob;
 	private String ifmmSaved;
 	private Integer ifmmDelNy;
+	
+	//food
+	private String fdrsSeq;
+	private String fdrsName;
+	private String fdrsIntroduction;
+	private Integer fdrsServingsCd;
+	private Integer fdrsTimeCd;
+	private Integer fdrsDifficultyCd;
+	private String fdrsTip;
+	private Integer fdrsDelNy;
 
-	//memberEmail
-	private String fdmeEmailFull;
-	
-	//memberAddress
-	private String fdmazipcode;
-	private String fdmatitle1;
-	private String fdmatitle2;
-	private String fdmaAddress;
-	
-	//memberMobile
-	private String fdmpNumber;
-	private String mobile;
-	private Integer fdmpTelecomCd;
-	
-	//ConsentNy
-	private Integer ifmmEmailConsentNy;
-	private Integer ifmmSmsConsentNy;
-	private String EmailConsent;
-	private String MobileConsent;
-	
-	//shmemberId = search
-	private String shMemberName;
-	private Integer shmemberDelNy;
-//	
 	//common
-	private String shOption;
-	private String shValue;
 	private Integer shOptionDate;
 	private String shDateStart;
 	private String shDateEnd;
@@ -137,6 +118,14 @@ public class FoodVo {
 		this.ifmmPassword = ifmmPassword;
 	}
 
+	public String getIfmmName() {
+		return ifmmName;
+	}
+
+	public void setIfmmName(String ifmmName) {
+		this.ifmmName = ifmmName;
+	}
+
 	public String getIfmmSaved() {
 		return ifmmSaved;
 	}
@@ -153,28 +142,108 @@ public class FoodVo {
 		this.ifmmDelNy = ifmmDelNy;
 	}
 
-	public String getFdmeEmailFull() {
-		return fdmeEmailFull;
+	public String getFdrsSeq() {
+		return fdrsSeq;
 	}
 
-	public void setFdmeEmailFull(String fdmeEmailFull) {
-		this.fdmeEmailFull = fdmeEmailFull;
+	public void setFdrsSeq(String fdrsSeq) {
+		this.fdrsSeq = fdrsSeq;
 	}
 
-	public String getFdmpNumber() {
-		return fdmpNumber;
+	public String getFdrsName() {
+		return fdrsName;
 	}
 
-	public void setFdmpNumber(String fdmpNumber) {
-		this.fdmpNumber = fdmpNumber;
+	public void setFdrsName(String fdrsName) {
+		this.fdrsName = fdrsName;
 	}
 
-	public String getMobile() {
-		return mobile;
+	public String getFdrsIntroduction() {
+		return fdrsIntroduction;
 	}
 
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public void setFdrsIntroduction(String fdrsIntroduction) {
+		this.fdrsIntroduction = fdrsIntroduction;
+	}
+
+	public Integer getFdrsServingsCd() {
+		return fdrsServingsCd;
+	}
+
+	public void setFdrsServingsCd(Integer fdrsServingsCd) {
+		this.fdrsServingsCd = fdrsServingsCd;
+	}
+
+	public Integer getFdrsTimeCd() {
+		return fdrsTimeCd;
+	}
+
+	public void setFdrsTimeCd(Integer fdrsTimeCd) {
+		this.fdrsTimeCd = fdrsTimeCd;
+	}
+
+	public Integer getFdrsDifficultyCd() {
+		return fdrsDifficultyCd;
+	}
+
+	public void setFdrsDifficultyCd(Integer fdrsDifficultyCd) {
+		this.fdrsDifficultyCd = fdrsDifficultyCd;
+	}
+
+	public String getFdrsTip() {
+		return fdrsTip;
+	}
+
+	public void setFdrsTip(String fdrsTip) {
+		this.fdrsTip = fdrsTip;
+	}
+
+	public Integer getFdrsDelNy() {
+		return fdrsDelNy;
+	}
+
+	public void setFdrsDelNy(Integer fdrsDelNy) {
+		this.fdrsDelNy = fdrsDelNy;
+	}
+
+	public Integer getShOptionDate() {
+		return shOptionDate;
+	}
+
+	public void setShOptionDate(Integer shOptionDate) {
+		this.shOptionDate = shOptionDate;
+	}
+
+	public String getShDateStart() {
+		return shDateStart;
+	}
+
+	public void setShDateStart(String shDateStart) {
+		this.shDateStart = shDateStart;
+	}
+
+	public String getShDateEnd() {
+		return shDateEnd;
+	}
+
+	public void setShDateEnd(String shDateEnd) {
+		this.shDateEnd = shDateEnd;
+	}
+
+	public String getShDate() {
+		return shDate;
+	}
+
+	public void setShDate(String shDate) {
+		this.shDate = shDate;
+	}
+
+	public String[] getCheckboxSeqArray() {
+		return checkboxSeqArray;
+	}
+
+	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
+		this.checkboxSeqArray = checkboxSeqArray;
 	}
 
 	public int getThisPage() {
@@ -265,182 +334,6 @@ public class FoodVo {
 		this.startRnumForMysql = startRnumForMysql;
 	}
 
-	public String getShMemberName() {
-		return shMemberName;
-	}
-
-	public void setShMemberName(String shMemberName) {
-		this.shMemberName = shMemberName;
-	}
-
-	public Integer getShmemberDelNy() {
-		return shmemberDelNy;
-	}
-
-	public void setShmemberDelNy(Integer shmemberDelNy) {
-		this.shmemberDelNy = shmemberDelNy;
-	}
-
-	public String getShOption() {
-		return shOption;
-	}
-
-	public void setShOption(String shOption) {
-		this.shOption = shOption;
-	}
-
-	public String getShValue() {
-		return shValue;
-	}
-
-	public void setShValue(String shValue) {
-		this.shValue = shValue;
-	}
-
-	public Integer getIfmmEmailConsentNy() {
-		return ifmmEmailConsentNy;
-	}
-
-	public void setIfmmEmailConsentNy(Integer ifmmEmailConsentNy) {
-		this.ifmmEmailConsentNy = ifmmEmailConsentNy;
-	}
-
-	public Integer getIfmmSmsConsentNy() {
-		return ifmmSmsConsentNy;
-	}
-
-	public void setIfmmSmsConsentNy(Integer ifmmSmsConsentNy) {
-		this.ifmmSmsConsentNy = ifmmSmsConsentNy;
-	}
-
-	public String getEmailConsent() {
-		return EmailConsent;
-	}
-
-	public void setEmailConsent(String emailConsent) {
-		EmailConsent = emailConsent;
-	}
-
-	public String getMobileConsent() {
-		return MobileConsent;
-	}
-
-	public void setMobileConsent(String mobileConsent) {
-		MobileConsent = mobileConsent;
-	}
-
-
-	public Integer getShOptionDate() {
-		return shOptionDate;
-	}
-
-	public void setShOptionDate(Integer shOptionDate) {
-		this.shOptionDate = shOptionDate;
-	}
-
-	public String getShDateStart() {
-		return shDateStart;
-	}
-
-	public void setShDateStart(String shDateStart) {
-		this.shDateStart = shDateStart;
-	}
-
-	public String getShDateEnd() {
-		return shDateEnd;
-	}
-
-	public void setShDateEnd(String shDateEnd) {
-		this.shDateEnd = shDateEnd;
-	}
-
-	public String getShDate() {
-		return shDate;
-	}
-
-	public void setShDate(String shDate) {
-		this.shDate = shDate;
-	}
-
-	public String getIfmmName() {
-		return ifmmName;
-	}
-
-	public void setIfmmName(String ifmmName) {
-		this.ifmmName = ifmmName;
-	}
-
-	public Integer getIfmmGenderCd() {
-		return ifmmGenderCd;
-	}
-
-	public void setIfmmGenderCd(Integer ifmmGenderCd) {
-		this.ifmmGenderCd = ifmmGenderCd;
-	}
-
-	public String getIfmmDob() {
-		return ifmmDob;
-	}
-
-	public void setIfmmDob(String ifmmDob) {
-		this.ifmmDob = ifmmDob;
-	}
-
-	public String getFdmaAddress() {
-		return fdmaAddress;
-	}
-
-	public void setFdmaAddress(String fdmaAddress) {
-		this.fdmaAddress = fdmaAddress;
-	}
-
-	public String[] getCheckboxSeqArray() {
-		return checkboxSeqArray;
-	}
-
-	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
-		this.checkboxSeqArray = checkboxSeqArray;
-	}
-
-	public Integer getFdmpTelecomCd() {
-		return fdmpTelecomCd;
-	}
-
-	public void setFdmpTelecomCd(Integer fdmpTelecomCd) {
-		this.fdmpTelecomCd = fdmpTelecomCd;
-	}
-
-	public String getFdmazipcode() {
-		return fdmazipcode;
-	}
-
-	public void setFdmazipcode(String fdmazipcode) {
-		this.fdmazipcode = fdmazipcode;
-	}
-
-	public String getFdmatitle1() {
-		return fdmatitle1;
-	}
-
-	public void setFdmatitle1(String fdmatitle1) {
-		this.fdmatitle1 = fdmatitle1;
-	}
-
-	public String getFdmatitle2() {
-		return fdmatitle2;
-	}
-
-	public void setFdmatitle2(String fdmatitle2) {
-		this.fdmatitle2 = fdmatitle2;
-	}
-
-	public Integer getShGenderCd() {
-		return shGenderCd;
-	}
-
-	public void setShGenderCd(Integer shGenderCd) {
-		this.shGenderCd = shGenderCd;
-	}
 
 
 

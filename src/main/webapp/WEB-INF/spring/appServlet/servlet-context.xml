@@ -30,9 +30,12 @@
 			<exclude-mapping path="/resources/**" />
 			<exclude-mapping path="/member/memberLogin" />
 			<exclude-mapping path="/member/loginProc" />
+			<exclude-mapping path="/member/memberForm" />
 			<exclude-mapping path="/food/FoodLogin" />
 			<exclude-mapping path="/food/loginProc" />
 			<exclude-mapping path="/food/FoodMain" />
+			<exclude-mapping path="/food/FoodFindPW" />
+			<exclude-mapping path="/food/FoodFindPW2" />
 			<beans:bean id="CheckLoginSessionInterception" class="com.junefw.infra.common.interceptor.CheckLoginSessionInterception"/>
 		</interceptor>
 	</interceptors>	

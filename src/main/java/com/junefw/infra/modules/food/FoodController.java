@@ -25,16 +25,19 @@ public class FoodController {
 		return "food/FoodLogin";
 	}
 	
+	
 	@ResponseBody
-	@RequestMapping(value = "/food/loginProc")
+	@RequestMapping(value = "/food/loginProc") // 로그인
 	public Map<String, Object> loginProc(Food dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
 		Food rtFood = service.selectOneLogin(dto);
 		
+		System.out.println("rtFood()----------" + rtFood);
+		
 		if(rtFood != null) {
 //			rtMember = service.selectOneLogin(dto);
-
+		System.out.println("rtFood.getIfmmSeq()----------" + rtFood.getIfmmSeq());
 			if(rtFood.getIfmmSeq() != null) {
 				httpSession.setMaxInactiveInterval( 60 * Constants.SESSION_MINUTE);	//60second * 30 = 30minute  
 //				session.setMaxInactiveInterval(-1);		// session time unlimited
@@ -53,8 +56,9 @@ public class FoodController {
 		return returnMap;
 	}
 	
+	
 	@ResponseBody
-	@RequestMapping(value = "/food/logoutProc")
+	@RequestMapping(value = "/food/logoutProc")   // 로그아웃
 	public Map<String, Object> logoutProc(HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		httpSession.invalidate();

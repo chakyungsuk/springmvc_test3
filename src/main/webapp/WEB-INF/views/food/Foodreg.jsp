@@ -255,11 +255,11 @@
 <div class="card mb-3">
 	 <h4>재료</h4><b style="text-align: center;">재료가 남거나 부족하지 않도록 정확한 계량정보를 적어주세요.</b>
 	 <div class="container" style="max-width: 60%; justify-content: center; text-align: center;" >
-		 <p class="cont_tit6 st2 mag_r_15"><a href="#" class="btn-lineup ui-sortable-handle" data-original-title="" title=""></a></p>
+		 <p class="cont_tit6 st2 mag_r_15"><a href="#" class="btn-lineup ui-sortable-handle" id="divMaterialArea"></a></p>
 			 <ul id="divMaterialArea_1" class="ui-sortable">
 				 <li id="liMaterial_1_1" style="margin-bottom: 10px;">
-					 <input type="text" name="" id="" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 돼지고기">
-					 <input type="text" name="" id="" class="form-control" style="width:310px; margin: 0;" placeholder="예) 300g">
+					 <input type="text" name="" id="MaterialName" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 돼지고기">
+					 <input type="text" name="" id="MaterialAmount" class="form-control" style="width:310px; margin: 0;" placeholder="예) 300g">
 				 </li>
 			 	 <li id="liMaterial_1_2" style="margin-bottom: 10px;">
 					 <input type="text" name="" id="" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
@@ -269,15 +269,10 @@
 					 <input type="text" name="" id="" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 참기름">
 					 <input type="text" name="" id="" class="form-control" style="width:310px;" placeholder="예) 1T">
 				 </li>
-			  	 <li id="liMaterial_1_4" style="margin-bottom: 10px;"><a href="#" class="btn-lineup"></a>
-					 <input type="text" name="" id="" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 소금">
-					 <input type="text" name="" id="" class="form-control" style="width:310px;" placeholder="예) 2t">
-				 </li>
-				 <li id="liMaterial_1_5" style="margin-bottom: 10px;"><a href="#" class="btn-lineup"></a>
-					 <input type="text" name="" id="" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 고추가루 약간">
-				 	<input type="text" name="" id="" class="form-control" style="width:310px;" placeholder="예) ">
-				 </li>
 			 </ul>
+			 <div>
+				 <button class="btn btn-lg-danger" type="button" onclick="MaterialCreate()" id="" name="">추가</button>
+			 </div>
 		 <div class="btn_add" style="padding:0 0 20px 350px; width:800px;"></div>
 	 </div>
 </div>
@@ -294,49 +289,30 @@
 	  
       <div id="divStepArea" class="ui-sortable">
       <div class="container" style="max-width: 80%; text-align: center;">
-          <div class="row" style="justify-content: center;">
+          <div class="row" id="StepCount" style="justify-content: center;">
           
-          	<h4>Step 1</h4><br>
 			<div class="col-12" style="max-width: 80%;">
 				<div class="input-group" style="margin-bottom: 30px;">
-					<textarea id="cmt_tx_content1" name="frm[cmt_tx_content]" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>
-					<img id="stepPhotoHolder_1" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
+          			<h4 id="" style="margin-right: 30px;">Step 1</h4>
+					<textarea id="" name="" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none; float: left;"></textarea>
+					<img id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
+					<button class="btn" onclick="StepDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button>
 				</div>
 			</div>
           
-          	<h4>Step 2</h4><br>
-			<div class="col-12" style="max-width: 80%;">
-				<div class="input-group" style="margin-bottom: 30px;">
-					<textarea id="cmt_tx_content1" name="frm[cmt_tx_content]" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>
-					<img id="stepPhotoHolder_1" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
+<!-- 			<div class="col-12" style="max-width: 80%;">
+				<div class="input-group" style="margin-bottom: 30px; margin-right: 20px;">
+          			<h4 id="" style="margin-right: 30px;">Step 2</h4>
+					<textarea id="" name="" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:150px; resize:none;"></textarea>
+					<img id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
 				</div>
-			</div>
-          
-          	<h4>Step 3</h4><br>
-			<div class="col-12" style="max-width: 80%;">
-				<div class="input-group" style="margin-bottom: 30px;">
-					<textarea id="cmt_tx_content1" name="frm[cmt_tx_content]" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>
-					<img id="stepPhotoHolder_1" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
-				</div>
-			</div>
-          
-          	<h4>Step 4</h4><br>
-			<div class="col-12" style="max-width: 80%;">
-				<div class="input-group" style="margin-bottom: 30px;">
-					<textarea id="cmt_tx_content1" name="frm[cmt_tx_content]" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>
-					<img id="stepPhotoHolder_1" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
-				</div>
-			</div>
-          
-          	<h4>Step 5</h4><br>
-			<div class="col-12" style="max-width: 80%;">
-				<div class="input-group" style="margin-bottom: 30px;">
-					<textarea id="cmt_tx_content1" name="frm[cmt_tx_content]" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>
-					<img id="stepPhotoHolder_1" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
-				</div>
+			</div> -->
 			</div>
 			
-			</div>
+			 <div style="margin-bottom: 20px;">
+				 <button class="btn btn-lg-danger" type="button" onclick="StepCreate();" id="" name="">Step 추가</button>
+			 </div>
+          
           </div>
 	</div>
 </div>
@@ -398,7 +374,60 @@
 			$("#formLogin").submit();
 		});
 		
+		function MaterialCreate(){
+			var html = '';
+						
+			var Name = $("#MaterialName").val();
+			var Amount = $("#MaterialAmount").val();
+			
+			 var remove = $("remove").val(); 
+						
+			html += '<li style="margin-bottom: 18px;">';
+			html += '<input type="text" name="" id="MaterialName" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 돼지고기">';
+			html += '<input type="text" name="" id="MaterialAmount" class="form-control" style="width:310px; float: left; margin: 0px;" placeholder="예) 300g">';
+			html += '<button class="btn" onclick="MaterialDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button>'; 
+			html += "</li>";
+			
+			$("#divMaterialArea_1").append(html);
+						
+			$("#MaterialName").val('');
+			$("#MaterialAmount").val('');
+		};
 
+		function MaterialDelete(obj){
+			var tr = $(obj).parent();
+
+			tr.remove();
+		}
+		
+		function StepCreate(){
+			var html = '';
+						
+/* 			var Name = $("#MaterialName").val();
+			var Amount = $("#MaterialAmount").val(); */
+			
+			var remove = $("remove").val(); 
+						
+			html += '<div class="col-12" style="max-width: 80%;">';
+			html += '<div class="input-group" style="margin-bottom: 30px;">';
+			html += '<h4 id="" style="margin-right: 30px;">Step 1</h4>';
+			html += '<textarea id="" name="" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>'; 
+			html += '<img id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">';
+			html += '<button class="btn" onclick="StepDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button> ';
+			html += '</div>';
+			html += '</div>';
+			
+			$("#StepCount").append(html);
+						
+/* 			$("#MaterialName").val('');
+			$("#MaterialAmount").val(''); */
+		};
+
+		function StepDelete(obj){
+			var tr = $(obj).parent();
+
+			tr.remove();
+		}
 </script>
 
 
