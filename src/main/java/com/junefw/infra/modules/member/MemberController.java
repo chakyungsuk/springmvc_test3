@@ -28,7 +28,6 @@ public class MemberController {
 	MemberServiceImpl service;
 	
 	@RequestMapping(value = "/member/memberList")
-	
 	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 		
 		vo.setShOptionDate(vo.getShOptionDate() == null ? 1 : vo.getShOptionDate());

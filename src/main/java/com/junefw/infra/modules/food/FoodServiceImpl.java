@@ -14,8 +14,8 @@ public class FoodServiceImpl implements FoodService{
 	FoodDao dao;
 	
 	@Override
-	public int selectOneMember(FoodVo vo) throws Exception {
-		return dao.selectOneMember(vo);
+	public int selectOneFood(FoodVo vo) throws Exception {
+		return dao.selectOneFood(vo);
 	}
 	
 	@Override

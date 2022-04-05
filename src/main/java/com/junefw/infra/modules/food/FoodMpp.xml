@@ -10,10 +10,10 @@
 
 	<sql id="selectCommon">
 		FROM
-			fdmember a
-		LEFT JOIN fdmemberemail b on b.ifmmSeq = a.ifmmSeq
+			fdrecipesave a
+<!-- 		LEFT JOIN fdmemberemail b on b.ifmmSeq = a.ifmmSeq
 		LEFT JOIN fdmemberphone c on c.ifmmSeq = a.ifmmSeq
-		LEFT JOIN fdmemberaddress d on d.ifmmSeq = a.ifmmSeq
+		LEFT JOIN fdmemberaddress d on d.ifmmSeq = a.ifmmSeq -->
 		WHERE 1=1
 			<choose>
 				<when test="shmemberDelNy == 1">AND ifmmDelNy = 1</when>
@@ -24,25 +24,25 @@
 				<when test="shOptionDate == 2">AND a.modDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 				<when test="shOptionDate == 3">AND a.ifmmDob BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 			</choose> -->
-			<choose>
+			<!-- <choose>
 				<when test="shOption == 1">AND ifmmname LIKE concat('%',#{shValue},'%')</when>
 				<when test="shOption == 2">AND ifmmId LIKE concat('%',#{shValue},'%')</when>
 				<when test="shOption == 3">AND ifmmPassword LIKE concat('%',#{shValue},'%')</when>
 				<when test="shOption == 4">AND fdmeEmailFull LIKE concat('%',#{shValue},'%')</when>
 				<when test="shOption == 5">AND fdmpNumber LIKE concat('%',#{shValue},'%')</when>
-				<!-- <when test="shOption == 6">AND ifmmgendercd LIKE concat('%',#{shValue},'%')</when> -->
+				<when test="shOption == 6">AND ifmmgendercd LIKE concat('%',#{shValue},'%')</when>
 				<when test="shOption == 6">AND ifmmGenderCd = #{shGenderCd}</when>
-			</choose>
+			</choose> -->
 			<!-- <if test="shValue != null and !shValue.equals('')"> AND ifmmId LIKE concat('%',#{shValue},'%')</if>	 -->
 			<!-- <if test="shFdcgSeq != null and !shFdcgSeq.equals('')"> AND fdcgSeq = #{shFdcgSeq}</if>	 -->
-			<choose>
+			<!-- <choose>
 				<when test="shOptionDate == 1">and a.regDateTime between #{shDateStart} and #{shDateEnd}</when>
 				<when test="shOptionDate == 2">and a.modDateTime between #{shDateStart} and #{shDateEnd}</when>
 				<when test="shOptionDate == 3">and a.ifmmdob between #{shDateStart} and #{shDateEnd}</when>
-			</choose>
+			</choose> -->
 	</sql>
 
-	<select id="selectOneMember" resultType="Integer">
+	<select id="selectOneFood" resultType="Integer">
 		SELECT 
 			count(*)
 		<include refid="selectCommon" />
@@ -51,25 +51,14 @@
 	
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
-			a.ifmmSeq
-			, a.ifmmId
-			, a.ifmmPassword
-			, a.ifmmName
-			, a.ifmmGenderCd
-			, a.ifmmDob
-			, a.ifmmDelNy
-			, a.ifmmSaved
-			, b.fdmeEmailFull
-			, c.fdmpTelecomCd
-			, c.fdmpNumber
-			<!-- , concat(substring(c.fdmpNumber,1,3),"-",substring(c.fdmpNumber,4,4),"-",substring(c.fdmpNumber,7,4)) as mobile -->
-			<!-- , concat_ws(",",d.fdmaZipcode,d.fdmaTitle1,d.fdmaTitle2,d.fdmaAddress) as Address -->
-			, d.fdmaZipcode
-			, d.fdmaTitle1
-			, d.fdmaTitle2
-			, d.fdmaAddress		
-			, a.ifmmEmailConsentNy
-			, a.ifmmSmsConsentNy
+			a.fdrsSeq
+			, a.fdrsName
+			, a.fdrsIntroduction
+			, a.fdrsServingsCd
+			, a.fdrsTimeCd
+			, a.fdrsDifficultyCd
+			, a.fdrsTip
+			, a.fdrsDelNy
 			, a.regDateTime
 			, a.modDateTime
 	<include refid="selectCommon" />

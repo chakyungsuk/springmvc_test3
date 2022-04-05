@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface FoodService {
 	
-	int selectOneMember(FoodVo vo) throws Exception;
+	int selectOneFood(FoodVo vo) throws Exception;
 	List<Food> selectList(FoodVo vo) throws Exception; 
 	int insert(Food dto) throws Exception; 
 	int insertEmail(Food dto) throws Exception; 

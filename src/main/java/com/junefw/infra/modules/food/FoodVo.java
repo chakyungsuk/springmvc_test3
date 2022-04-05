@@ -22,6 +22,10 @@ public class FoodVo {
 	private String fdrsTip;
 	private Integer fdrsDelNy;
 
+	//shmemberId = search
+	private String shMemberName;
+	private Integer shmemberDelNy;
+	
 	//common
 	private Integer shOptionDate;
 	private String shDateStart;
@@ -332,6 +336,22 @@ public class FoodVo {
 
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
+	}
+
+	public String getShMemberName() {
+		return shMemberName;
+	}
+
+	public void setShMemberName(String shMemberName) {
+		this.shMemberName = shMemberName;
+	}
+
+	public Integer getShmemberDelNy() {
+		return shmemberDelNy;
+	}
+
+	public void setShmemberDelNy(Integer shmemberDelNy) {
+		this.shmemberDelNy = shmemberDelNy;
 	}
 
 

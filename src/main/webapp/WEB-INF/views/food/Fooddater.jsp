@@ -168,17 +168,17 @@
     <div class="container" style="max-width: 60%; text-align: center;">
 	  <div class="row">
 	  	<div class="col-6" style="">
-		    <h5 class="card-text">[재료]</h5><br>
-		    <p>식빵</p>
-		    <p>체다슬라이스치즈</p>
-		    <p>소금</p>
-		    <p>계란</p>
+	  	<ul>
+		   <li>식빵 2개</li>
+		   <li>체다슬라이스치즈
+		   <li>소금
+		   <li>계란
 	    </div>
-	  	<div class="col-6" style="padding-left: 90px;">
-		    <h5 class="card-text">[양념]</h5><br>
-		    <p>과일잼(또는 설탕)</p>
-		    <p>버터(또는 식용유)</p>
+	  	<div class="col-6">
+		   	<li>과일잼(또는 설탕)
+		    <li>버터(또는 식용유)
 	    </div>
+	    </ul>
 	  </div>
 	  </div>
 	  </div>

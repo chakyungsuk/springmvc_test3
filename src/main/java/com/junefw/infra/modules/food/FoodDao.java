@@ -16,7 +16,7 @@ public class FoodDao {
 	
 	private static String namespace = "com.junefw.infra.modules.food.FoodMpp";
 	
-	public int selectOneMember(FoodVo vo) {return sqlSession.selectOne(namespace + ".selectOneMember", vo);}
+	public int selectOneFood(FoodVo vo) {return sqlSession.selectOne(namespace + ".selectOneFood", vo);}
 	public List<Food> selectList(FoodVo vo){ return sqlSession.selectList(namespace + ".selectList", vo);}
 	
 	public int insert(Food dto){ return sqlSession.insert(namespace + ".insert", dto);}

@@ -1,22 +1,55 @@
 package com.junefw.infra.modules.food;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.junefw.infra.common.constants.Constants;
+import com.junefw.infra.common.util.UtilDateTime;
 
 @Controller
 public class FoodController {
+	
+	private static final String FoodVo = null;
 	@Autowired
 	FoodServiceImpl service;
 	
+	@RequestMapping(value = "/food/FoodMain")
+	public String FoodMain(@ModelAttribute("vo") FoodVo vo, Model model) throws Exception {
+		
+		vo.setShOptionDate(vo.getShOptionDate() == null ? 1 : vo.getShOptionDate());
+		vo.setShDateStart(vo.getShDateStart() == null ? UtilDateTime.calculateDayString(UtilDateTime.nowLocalDateTime(), Constants.DATE_INTERVAL) : UtilDateTime.add00TimeString(vo.getShDateStart()));
+		vo.setShDateEnd(vo.getShDateEnd() == null ? UtilDateTime.nowString() : UtilDateTime.addNowTimeString(vo.getShDateEnd()));
+		 
+		// count 가져올 것
+		int count = service.selectOneFood(vo);
+		
+		vo.setParamsPaging(count);
+		
+		// count 가 0이 아니면 List 가져오는 부분 수행 후 model 개체에 담기
+		if (count != 0) {
+			List<Food> list = service.selectList(vo);
+			model.addAttribute("list", list);
+		} else {
+			// by pass
+		}
+		
+		System.out.println("UtilDateTime.nowLocalDateTime(): " + UtilDateTime.nowLocalDateTime());
+       	System.out.println("UtilDateTime.nowDate(): " + UtilDateTime.nowDate());
+	    System.out.println("UtilDateTime.nowString(): " + UtilDateTime.nowString());
+		
+		return "/food/FoodMain";
+		
+	}
 	
 	@RequestMapping(value = "/food/FoodLogin")
 	public String FoodLogin() throws Exception {
@@ -66,12 +99,6 @@ public class FoodController {
 		return returnMap;
 	}
 	
-	@RequestMapping(value = "/food/FoodMain")
-	public String FoodMain() throws Exception {
-		
-		
-		return "food/FoodMain";
-	}
 	
 	@RequestMapping(value = "/food/Fooddater")
 	public String Fooddater() throws Exception {

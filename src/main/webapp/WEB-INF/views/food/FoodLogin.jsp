@@ -158,6 +158,7 @@
 		
 		
 		$("#btnLogin").on("click", function(){
+			alert("로그인 시도")
 			if(validation() == false) return false; 
 			$.ajax({
 				async: true 
