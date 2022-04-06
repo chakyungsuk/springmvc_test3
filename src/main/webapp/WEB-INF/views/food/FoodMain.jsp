@@ -164,6 +164,36 @@
 				</c:otherwise>
 			</c:choose>	
 		</div>
+		
+<nav aria-label="..." style="margin-top: 40px;">
+	<ul class="pagination justify-content-center">
+		  
+<!-- Previous -->
+	<c:if test="${vo.startPage gt vo.pageNumToShow}">
+		<li class="page-item"><a class="page-link" href="javascript:goList('<c:out value='${vo.startPage - 1}'/>');">Previous</a></li>
+	</c:if>
+	
+<!-- Page -->    
+	<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+		<c:choose>
+			<c:when test="${i.index eq vo.thisPage}">  
+				<li class="page-item active"><a class="page-link" href="javascript:goList('<c:out value='${i.index}'/>');">${i.index}</a></li>
+			</c:when>
+			<c:otherwise>             
+				<li class="page-item"><a class="page-link" href="javascript:goList('<c:out value='${i.index}'/>');">${i.index}</a></li>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>  
+	
+<!-- Next -->
+	<c:if test="${vo.endPage ne vo.totalPages}">                
+		<li class="page-item"><a class="page-link" href="javascript:goList('<c:out value='${vo.endPage + 1}'/>');">Next</a></li>
+	</c:if>
+	
+<!-- Page E -->
+	</ul>
+</nav>
+
 	</div>
 </div>
 
@@ -186,6 +216,7 @@
 		</div>
 	</div>
 </div>
+
 
 <footer class="text" style="margin-top: 20px;">
   <div class="container">
@@ -214,6 +245,11 @@ Copyright ©EZHLD Inc. All Rights Reserved</p>
 <script src="/resources/xdmin/js/sidebars.js"></script>
 
 <script type="text/javascript">
+
+	goList = function(seq){
+		$("#thisPage").val(seq)		// form 객체를 가져온다.
+		$("#FoodMain").submit();	// 그 가져온 객체를 전달한다.
+	}
 
 	$("#dropdownMenuLink").click(function() { //드롭다운 버튼을 눌렀을 때
 		 

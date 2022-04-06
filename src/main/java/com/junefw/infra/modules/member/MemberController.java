@@ -38,7 +38,7 @@ public class MemberController {
 		int count = service.selectOneMember(vo);
 		
 		vo.setParamsPaging(count);
-		
+		 
 		// count 가 0이 아니면 List 가져오는 부분 수행 후 model 개체에 담기
 		if (count != 0) {
 			List<Member> list = service.selectList(vo);

@@ -150,7 +150,6 @@ public class FoodController {
 	public String FoodInst(FoodVo vo, Food dto, RedirectAttributes redirectAttributes) throws Exception {
 
 		service.insert(dto);
-		service.insertmaterial(dto);
 	
 		vo.setFdrsSeq(dto.getFdrsSeq());
 		
