@@ -212,15 +212,15 @@
 						<img id="mainPhotoHolder" src="https://recipe1.ezmember.co.kr/img/pic_none4.gif" style="width: 250px; height: 250px; cursor:pointer">
 					</div>
 				</div>
-				<div class="cont_line"><p class="cont_tit4">레시피 제목</p><input type="text" name="cok_title" id="cok_title" value="" class="form-control" placeholder="예) 소고기 미역국 끓이기" style="width:610px; "></div><br>
-				<div class="cont_line pad_b_25"><p class="cont_tit4">요리소개</p><textarea name="cok_intro" id="cok_intro" class="form-control step_cont" placeholder="이 레시피의 탄생배경을 적어주세요. 예) 남편의 생일을 맞아 소고기 미역국을 끓여봤어요. 어머니로부터 배운 미역국 레시피를 남편의 입맛에 맞게 고안했습니다." style="height:100px; width:610px; resize:none;"></textarea></div>
+				<div class="cont_line"><p class="cont_tit4">레시피 제목</p><input type="text" name="fdrsName" id="fdrsName" value="" class="form-control" placeholder="예) 소고기 미역국 끓이기" style="width:610px; "></div><br>
+				<div class="cont_line pad_b_25"><p class="cont_tit4">요리소개</p><textarea name="fdrsIntroduction" id="fdrsIntroduction" class="form-control step_cont" placeholder="이 레시피의 탄생배경을 적어주세요. 예) 남편의 생일을 맞아 소고기 미역국을 끓여봤어요. 어머니로부터 배운 미역국 레시피를 남편의 입맛에 맞게 고안했습니다." style="height:100px; width:610px; resize:none;"></textarea></div>
 				</div>
 			</div>
 			</div>
 			<hr>
 			<div class="cont_line" style="margin-bottom: 40px;"><h4 style="text-align: left;">요리정보</h4>
 			<span class="guide" style="text-align: center;">분류를 바르게 설정해주시면, 이용자들이 쉽게 레시피를 검색할 수 있어요.</span><br><br>
-				<i class="bi bi-person"></i> <select name="cok_portion" id="cok_portion" text="인원" style="margin-right: 50px;">
+				<i class="bi bi-person"></i> <select id="fdrsServingsCd" name="fdrsServingsCd" text="인원" style="margin-right: 50px;">
 					<option value="">인원</option>
 					<option value="1">1인분</option>
 					<option value="2">2인분</option>
@@ -229,7 +229,7 @@
 					<option value="5">4인분이상</option>
 				</select>
 			    <span class="pad_l_30"><i class="bi bi-alarm"></i></span>
-				<select name="cok_time" id="cok_time" text="요리시간">
+				<select id="fdrsTimeCd" name="fdrsTimeCd" text="요리시간">
 					<option value="">시간</option>
 					<option value="5">5분이내</option>
 					<option value="10">10분이내</option>
@@ -238,7 +238,7 @@
 					<option value="25">25분이상</option>
 				</select>
 				<span class="pad_l_30" style="margin-left: 50px;"><i class="bi bi-hand-thumbs-up"></i> </span>
-				<select name="cok_degree" id="cok_degree" text="난이도">
+				<select id="fdrsDifficultyCd" name="fdrsDifficultyCd" text="난이도">
 					<option value="">난이도</option>
 					<option value="1">아무나</option>
 					<option value="2">초급</option>
@@ -257,35 +257,35 @@
 			 <div id="divMaterialArea_1" class="ui-sortable" style="text-align: center; margin-left: 43px;">
 				 <div id="" style="margin-bottom: 10px;">
 					 <input type="text" name="fdmtMaterial" id="fdmtMaterial" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 돼지고기">
-					 <input type="text" name="" id="fdmtAmount" class="form-control" style="width:310px; margin: 0;" placeholder="예) 300g">
+					 <input type="text" name="fdmtAmount" id="fdmtAmount" class="form-control" style="width:310px; margin: 0;" placeholder="예) 300g">
 				 </div>
 			 	 <div id="" style="margin-bottom: 10px;">
-					 <input type="hidden" name="" id="fdmtMaterialArray1" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="hidden" name="" id="fdmtAmountArray1" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+					 <input type="hidden" name="fdmtMaterialArray1" id="fdmtMaterialArray1" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="hidden" name="fdmtAmountArray1" id="fdmtAmountArray1" class="form-control" style="width:310px;" placeholder="예) 1/2개">
 				 </div>
 			 	 <div id="" style="margin-bottom: 10px;">
-					 <input type="hidden" name="" id="fdmtMaterialArray2" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="hidden" name="" id="fdmtAmountArray2" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+					 <input type="hidden" name="fdmtMaterialArray2" id="fdmtMaterialArray2" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="hidden" name="fdmtAmountArray2" id="fdmtAmountArray2" class="form-control" style="width:310px;" placeholder="예) 1/2개">
 				 </div>
 			 	 <div id="" style="margin-bottom: 10px;">
-					 <input type="hidden" name="" id="fdmtMaterialArray3" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="hidden" name="" id="fdmtAmountArray3" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+					 <input type="hidden" name="fdmtMaterialArray3" id="fdmtMaterialArray3" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="hidden" name="fdmtAmountArray3" id="fdmtAmountArray3" class="form-control" style="width:310px;" placeholder="예) 1/2개">
 				 </div>
 			 	 <div id="" style="margin-bottom: 10px;">
-					 <input type="hidden" name="" id="fdmtMaterialArray4" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="hidden" name="" id="fdmtAmountArray4" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+					 <input type="hidden" name="fdmtMaterialArray4" id="fdmtMaterialArray4" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="hidden" name="fdmtAmountArray4" id="fdmtAmountArray4" class="form-control" style="width:310px;" placeholder="예) 1/2개">
 				 </div>
 			 	 <div id="" style="margin-bottom: 10px;">
-					 <input type="hidden" name="" id="fdmtMaterialArray5" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="hidden" name="" id="fdmtAmountArray5" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+					 <input type="hidden" name="fdmtMaterialArray5" id="fdmtMaterialArray5" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="hidden" name="fdmtAmountArray5" id="fdmtAmountArray5" class="form-control" style="width:310px;" placeholder="예) 1/2개">
 				 </div>
 			 	 <div id="" style="margin-bottom: 10px;">
-					 <input type="hidden" name="" id="fdmtMaterialArray6" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="hidden" name="" id="fdmtAmountArray6" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+					 <input type="hidden" name="fdmtMaterialArray6" id="fdmtMaterialArray6" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="hidden" name="fdmtAmountArray6" id="fdmtAmountArray6" class="form-control" style="width:310px;" placeholder="예) 1/2개">
 				 </div>
 			 	 <div id="" style="margin-bottom: 10px;">
-					 <input type="hidden" name="" id="fdmtMaterialArray7" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="hidden" name="" id="fdmtAmountArray7" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+					 <input type="hidden" name="fdmtMaterialArray7" id="fdmtMaterialArray7" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="hidden" name="fdmtAmountArray7" id="fdmtAmountArray7" class="form-control" style="width:310px;" placeholder="예) 1/2개">
 				 </div>
 			 </div>
 			 <div>
@@ -339,8 +339,7 @@
     <h4>요리팁</h4><br>
     <textarea name="cok_tip" id="cok_tip" class="form-control step_cont" placeholder="예) 고기요리에는 소금보다 설탕을 먼저 넣어야 단맛이 겉돌지 않고 육질이 부드러워요." style="height:120px; max-width:90%; resize:none; margin: auto; margin-bottom: 30px;"></textarea>
 	<div class="regi_btm" style="padding-top: 35px; padding-bottom: 40px;">
-		<button type="button" class="btn-lg btn-primary">저장</button>
-		<button type="button" class="btn-lg btn-warning">저장 후 공개하기</button>
+		<button type="submit" id="btnSubmit" name="btnSubmit" class="btn-lg btn-primary">등록</button>
 	    <button type="button" class="btn-lg btn-default">취소</button>
      </div>
 </div>
@@ -363,6 +362,14 @@
 	
 
 <script type="text/javascript">
+		
+		$("#btnSubmit").on("click", function(){
+		
+			alert("sdkjfkw")
+			$("#btnSubmit").attr("action", "/member/memberInst");
+			$("#btnSubmit").submit(); 
+		
+		});
 		
 		$("#dropdownMenuLink").click(function() { //드롭다운 버튼을 눌렀을 때
 		 

@@ -195,6 +195,7 @@
 									<c:forEach items="${list}" var="item" varStatus="status">	
 									<tr>
 										<td><input class="form-check-input" type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${item.ifmmSeq}"/>"> <br><br></td>
+										<td><c:out value="${item.ifmmSeq }"/></td>
 										<td><a href="javascript:goView(<c:out value="${item.ifmmSeq}"/>)"><c:out value="${item.ifmmName}"/></a> <br><br></td>
 										<td><c:out value="${item.ifmmId}"/> <br><br></td>
 										<td><c:out value="${item.ifmmPassword}"/> <br><br></td>
