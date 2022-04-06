@@ -81,7 +81,7 @@
 
 <body class="text-center">
 
-<form id="Foodreg" name="Foodreg" method="post" action="/food/Foodreg">
+<form id="FoodInst" name="FoodInst" method="post" action="/food/FoodInst">
 	
 <!-- Header S -->
 <div class="container navbar navbar-dark" aria-label="Eighth navbar example" style="margin-bottom: 10px;">
@@ -221,28 +221,26 @@
 			<div class="cont_line" style="margin-bottom: 40px;"><h4 style="text-align: left;">요리정보</h4>
 			<span class="guide" style="text-align: center;">분류를 바르게 설정해주시면, 이용자들이 쉽게 레시피를 검색할 수 있어요.</span><br><br>
 				<i class="bi bi-person"></i> <select name="cok_portion" id="cok_portion" text="인원" style="margin-right: 50px;">
-					<option value="">인원</option><option value="1">1인분</option>
+					<option value="">인원</option>
+					<option value="1">1인분</option>
 					<option value="2">2인분</option>
 					<option value="3">3인분</option>
 					<option value="4">4인분</option>
-					<option value="5">5인분</option>
-					<option value="6">6인분이상</option>
+					<option value="5">4인분이상</option>
 				</select>
 			    <span class="pad_l_30"><i class="bi bi-alarm"></i></span>
 				<select name="cok_time" id="cok_time" text="요리시간">
-					<option value="">시간</option><option value="5">5분이내</option>
+					<option value="">시간</option>
+					<option value="5">5분이내</option>
 					<option value="10">10분이내</option>
 					<option value="15">15분이내</option>
 					<option value="20">20분이내</option>
-					<option value="30">30분이내</option>
-					<option value="60">60분이내</option>
-					<option value="90">90분이내</option>
-					<option value="120">2시간이내</option>
-					<option value="999">2시간이상</option>
+					<option value="25">25분이상</option>
 				</select>
 				<span class="pad_l_30" style="margin-left: 50px;"><i class="bi bi-hand-thumbs-up"></i> </span>
 				<select name="cok_degree" id="cok_degree" text="난이도">
-					<option value="">난이도</option><option value="1">아무나</option>
+					<option value="">난이도</option>
+					<option value="1">아무나</option>
 					<option value="2">초급</option>
 					<option value="3">중급</option>
 					<option value="4">고급</option>
@@ -254,22 +252,42 @@
 	
 <div class="card mb-3">
 	 <h4>재료</h4><b style="text-align: center;">재료가 남거나 부족하지 않도록 정확한 계량정보를 적어주세요.</b>
-	 <div class="container" style="max-width: 60%; justify-content: center; text-align: center;" >
 		 <p class="cont_tit6 st2 mag_r_15"><a href="#" class="btn-lineup ui-sortable-handle" id="divMaterialArea"></a></p>
-			 <ul id="divMaterialArea_1" class="ui-sortable">
-				 <li id="liMaterial_1_1" style="margin-bottom: 10px;">
-					 <input type="text" name="" id="MaterialName" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 돼지고기">
-					 <input type="text" name="" id="MaterialAmount" class="form-control" style="width:310px; margin: 0;" placeholder="예) 300g">
-				 </li>
-			 	 <li id="liMaterial_1_2" style="margin-bottom: 10px;">
-					 <input type="text" name="" id="" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="text" name="" id="" class="form-control" style="width:310px;" placeholder="예) 1/2개">
-				 </li>
-			 	 <li id="liMaterial_1_3" style="margin-bottom: 10px;"><a href="#" class="btn-lineup" data-original-title="" title=""></a>
-					 <input type="text" name="" id="" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 참기름">
-					 <input type="text" name="" id="" class="form-control" style="width:310px;" placeholder="예) 1T">
-				 </li>
-			 </ul>
+	 <div class="container" style="max-width: 60%; text-align: center;" >
+			 <div id="divMaterialArea_1" class="ui-sortable" style="text-align: center; margin-left: 43px;">
+				 <div id="" style="margin-bottom: 10px;">
+					 <input type="text" name="fdmtMaterial" id="fdmtMaterial" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 돼지고기">
+					 <input type="text" name="" id="fdmtAmount" class="form-control" style="width:310px; margin: 0;" placeholder="예) 300g">
+				 </div>
+			 	 <div id="" style="margin-bottom: 10px;">
+					 <input type="hidden" name="" id="fdmtMaterialArray1" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="hidden" name="" id="fdmtAmountArray1" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+				 </div>
+			 	 <div id="" style="margin-bottom: 10px;">
+					 <input type="hidden" name="" id="fdmtMaterialArray2" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="hidden" name="" id="fdmtAmountArray2" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+				 </div>
+			 	 <div id="" style="margin-bottom: 10px;">
+					 <input type="hidden" name="" id="fdmtMaterialArray3" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="hidden" name="" id="fdmtAmountArray3" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+				 </div>
+			 	 <div id="" style="margin-bottom: 10px;">
+					 <input type="hidden" name="" id="fdmtMaterialArray4" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="hidden" name="" id="fdmtAmountArray4" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+				 </div>
+			 	 <div id="" style="margin-bottom: 10px;">
+					 <input type="hidden" name="" id="fdmtMaterialArray5" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="hidden" name="" id="fdmtAmountArray5" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+				 </div>
+			 	 <div id="" style="margin-bottom: 10px;">
+					 <input type="hidden" name="" id="fdmtMaterialArray6" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="hidden" name="" id="fdmtAmountArray6" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+				 </div>
+			 	 <div id="" style="margin-bottom: 10px;">
+					 <input type="hidden" name="" id="fdmtMaterialArray7" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
+					 <input type="hidden" name="" id="fdmtAmountArray7" class="form-control" style="width:310px;" placeholder="예) 1/2개">
+				 </div>
+			 </div>
 			 <div>
 				 <button class="btn btn-lg-danger" type="button" onclick="MaterialCreate()" id="" name="">추가</button>
 			 </div>
@@ -377,16 +395,16 @@
 		function MaterialCreate(){
 			var html = '';
 						
-			var Name = $("#MaterialName").val();
-			var Amount = $("#MaterialAmount").val();
+/* 			var Name = $("#MaterialName").val();
+			var Amount = $("#MaterialAmount").val(); */
 			
 			 var remove = $("remove").val(); 
 						
-			html += '<li style="margin-bottom: 18px;">';
+			html += '<div style="margin-bottom: 18px;">';
 			html += '<input type="text" name="" id="MaterialName" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 돼지고기">';
 			html += '<input type="text" name="" id="MaterialAmount" class="form-control" style="width:310px; float: left; margin: 0px;" placeholder="예) 300g">';
 			html += '<button class="btn" onclick="MaterialDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button>'; 
-			html += "</li>";
+			html += "</div>";
 			
 			$("#divMaterialArea_1").append(html);
 						
@@ -435,4 +453,8 @@
 </body>
 
 </htm1>
+
+
+
+
 

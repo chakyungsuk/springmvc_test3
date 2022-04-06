@@ -69,7 +69,7 @@
 		<a class="navbar-brand" href="/food/FoodMain">Ten Thousand Recipes</a>
 	</div>
 	<div class="col-lg-3 col-sm-3">
-		<a href="/food/Foodreg"><input type="button" id="signUp" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
+		<a href="/food/FoodInst"><input type="button" id="signUp" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
 	</div>
 	<div class="col-lg-1 col-sm-1">
 	<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
@@ -125,32 +125,8 @@
 
 
 <!-- Body S -->
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="1500">
-      <img src="/resources/xdmin/image/user_image/fd_re1.png" class="d-block w-100" alt="..." style="height: 600px;">
-    </div>
-    <div class="carousel-item" data-bs-interval="1500">
-      <img src="/resources/xdmin/image/user_image/fd6-1.jpg" class="d-block w-100" alt="..." style="height: 600px;">
-    </div>
-    <div class="carousel-item" data-bs-interval="1500">
-      <img src="/resources/xdmin/image/user_image/fd3.jpg" class="d-block w-100" alt="..." style="height: 600px;">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+<iframe width="100%" height="620" src="https://play-tv.kakao.com/embed/player/cliplink/378098892?service=player_share&autoplay=1&mute=1&loop=1" allowfullscreen frameborder="0" scrolling="no" allow="autoplay; fullscreen; encrypted-media" loop="loop"></iframe>
+
 
 	
 <div class="album py-5 bg-light">
@@ -191,14 +167,39 @@
 	</div>
 </div>
 
+<div class="container" style="margin-top: 20px;">
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="card">
+				<a href="#" class="btn"><img src="https://recipe1.ezmember.co.kr/cache/rpe/2022/03/08/5bf841be02faba75b9004922051164d31.jpg" style="width:360px; border: 1px solid #eee;"></a>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="card">
+				<a href="#" class="btn"><img src="https://recipe1.ezmember.co.kr/cache/rpe/2022/02/07/52315331a43fddda7d1d806eb012aff41.jpg" style="width:360px; border: 1px solid #eee;"></a>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="card">
+				<a href="#" class="btn"><img src="https://recipe1.ezmember.co.kr/cache/rpe/2021/10/18/ad85ee0ef9a5e19b0547cef2344525b91.jpg" style="width:360px; border: 1px solid #eee;"></a>
+			</div>
+		</div>
+	</div>
+</div>
 
-<footer class="text">
+<footer class="text" style="margin-top: 20px;">
   <div class="container">
     <p class="float-end mb-1">
-      <a href="#" style="color: white;">Back to top</a>
     </p>
-<p class="" style="color: white; justify-content: center;">&copy; Happy Food 2022 ~</p> 
+<p class="" style="color: white; justify-content: center;">&copy;
+서울 어딘가의 회사
+문의전화(운영시간 비밀)
+쇼핑문의 : 02-2222-8888
+서비스 이용문의 : 000-0000-0000
+<br>
+Copyright ©EZHLD Inc. All Rights Reserved</p> 
  </div>
+      <a href="#" style="color: white;">Back to top</a>
 </footer>
 
 
@@ -252,7 +253,6 @@
 	});
 	
 	goView = function(seq){
-		alert("asd")
 		$("#fdrsSeq").val(seq)	
 		$("#FoodMain").attr("action","/food/Fooddater");
 		$("#FoodMain").submit();

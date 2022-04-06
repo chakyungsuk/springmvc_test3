@@ -67,116 +67,61 @@
 	
 	
 	<insert id="insert">
-		insert into fdMember(
-			ifmmId
-			, ifmmPassword
-			, ifmmName
-			, ifmmGenderCd
-			, ifmmDob
-			, ifmmDelNy
-			, ifmmSaved
-			, ifmmEmailConsentNy
-			, ifmmSmsConsentNy
+		insert into fdrecipesave(
+			fdrsName
+			, fdrsIntroduction
+			, fdrsServingsCd
+			, fdrsTimeCd
+			, fdrsDifficultyCd
+			, fdrsTip
+			, fdrsDelNy
 			, regDateTime
 			, modDateTime
 		) values (
-			#{ifmmId}
-			, #{ifmmPassword}
-			, #{ifmmName}
-			, #{ifmmGenderCd}
-			, #{ifmmDob}
+			#{fdrsName}
+			, #{fdrsIntroduction}
+			, #{fdrsServingsCd}
+			, #{fdrsTimeCd}
+			, #{fdrsDifficultyCd}
+			, #{fdrsTip}
 			, 0
-			, #{ifmmSaved}
-			, #{ifmmEmailConsentNy}
-			, #{ifmmSmsConsentNy}
 			, #{regDateTime}
 			, #{modDateTime}
 		)
-		<selectKey resultType="String" keyProperty="ifmmSeq" order="AFTER">
+		<selectKey resultType="String" keyProperty="fdrsSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
-	</insert>
+	</insert> 
 	
-		<insert id="insertEmail">
-		INSERT INTO fdmemberemail (
-			fdmeEmailFull
-			, fdmeDelNy
-			, fdmeDefaultNy
-			, ifmmSeq
+	<insert id="insertmaterial">
+		INSERT INTO fdmaterial (
+			fdmtMaterial
+			, fdmtAmount
+			, fdmtDelNy
+			, fdrsSeq
 		) VALUES (
-			#{fdmeEmailFull}
-			,0
-			,1
-			,#{ifmmSeq}
+			#{fdmtMaterial}
+			, #{fdmtAmount}
+			, 0
+			, #{fdrsSeq}
 		)	
 	</insert>
 	
-		<insert id="insertMobile">
-		INSERT INTO fdmemberphone (
-			fdmpNumber
-			, fdmpTelecomCd 
-			, fdmpDelNy
-			, fdmpDefaultNy
-			, ifmmSeq
-		) VALUES (
-			#{fdmpNumber}
-			,#{fdmpTelecomCd} 
-			,0
-			,1
-			,#{ifmmSeq}
-		)	
-	</insert>
-	
-	<insert id="insertAddress">
-	INSERT INTO fdmemberaddress (
-		fdmaZipcode
-		, fdmaTitle1 
-		, fdmaTitle2
-		, fdmaAddress
-		, fdmaDelNy
-		, fdmaDefaultNy
-		, ifmmSeq
-	) VALUES (
-		#{fdmaZipcode}
-		,#{fdmaTitle1}
-		,#{fdmaTitle2}
-		,#{fdmaAddress} 
-		,0
-		,1
-		,#{ifmmSeq}
-	)	
-	</insert>
+
 	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT 
-			a.ifmmSeq
-			, a.ifmmId
-			, a.ifmmPassword
-			, a.ifmmName
-			, a.ifmmGenderCd
-			, a.ifmmDob
-			, a.ifmmDelNy
-			, a.ifmmSaved
-			, b.fdmeEmailFull
-			, c.fdmpTelecomCd 
-			, c.fdmpNumber
-			<!-- , concat(substring(c.fdmpNumber,1,3),"-",substring(c.fdmpNumber,4,4),"-",substring(c.fdmpNumber,7,4)) as mobile -->
-			<!-- , concat_ws(",",d.fdmaZipcode,d.fdmaTitle1,d.fdmaTitle2,d.fdmaAddress) as Address -->
-			, d.fdmaZipcode	
-			, d.fdmaTitle1	
-			, d.fdmaTitle2	
-			, d.fdmaAddress		
-			, a.ifmmEmailConsentNy
-			, a.ifmmSmsConsentNy
-			, a.regDateTime
-			, a.modDateTime
+		a.fdrsSeq
+			, a.fdrsName
+			, a.fdrsIntroduction
+			, a.fdrsServingsCd
+			, a.fdrsTimeCd
+			, a.fdrsDifficultyCd
+			, a.fdrsTip
 		FROM
-			fdmember a
-		LEFT JOIN fdmemberemail b on b.ifmmSeq = a.ifmmSeq
-		LEFT JOIN fdmemberphone c on c.ifmmSeq = a.ifmmSeq
-		LEFT JOIN fdmemberAddress d on d.ifmmSeq = a.ifmmSeq
+			fdrecipesave a
 		WHERE 1=1
-			and a.ifmmSeq = #{ifmmSeq}
+			and a.fdrsSeq = #{fdrsSeq}
 	</select>
 	
 	<select id="selectOneLogin" resultMap="resultMapObj">

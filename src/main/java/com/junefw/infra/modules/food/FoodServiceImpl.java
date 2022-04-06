@@ -30,8 +30,7 @@ public class FoodServiceImpl implements FoodService{
 		dto.setModDateTime(UtilDateTime.nowDate());		// 날짜
 		
 		dao.insert(dto);
-		dao.insertMobile(dto);
-		dao.insertAddress(dto);
+		dao.insertmaterial(dto);
 		
 		return 1; 
 	}
@@ -52,20 +51,7 @@ public class FoodServiceImpl implements FoodService{
 		return 1;
 	}
 
-	@Override
-	public int insertEmail(Food dto) throws Exception {
-		return dao.insertEmail(dto);
-	}
 
-	@Override
-	public int insertMobile(Food dto) throws Exception {
-		return dao.insertMobile(dto);
-	}
-	
-	@Override
-	public int insertAddress(Food dto) throws Exception {
-		return dao.insertAddress(dto);
-	}
 
 		
   @Override public int updateEmail(Food dto) throws Exception { 
@@ -93,6 +79,11 @@ public class FoodServiceImpl implements FoodService{
 	@Override
 	public Food selectOneLogin(Food dto) throws Exception {
 		return dao.selectOneLogin(dto);
+	}
+
+	@Override
+	public int insertmaterial(Food dto) throws Exception {
+		return dao.insertmaterial(dto);
 	}
 
 }

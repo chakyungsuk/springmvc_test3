@@ -17,13 +17,28 @@ public class Food {
 	//food
 	private String fdrsSeq;
 	private String fdrsName;
+	private String fdrsIntroduction;
+	private Integer fdrsServingsCd;
+	private Integer fdrsTimeCd;
+	private Integer fdrsDifficultyCd;
+	private String fdrsTip;
 	private Integer fdrsDelNy;
+	
+	
+	//material
+	private String fdmtMaterial;
+	private String fdmtAmount;
+	private Integer fdmtDelNy;
+	
+	//materialArray
+	private String[] fdmtMaterialArray;
+	private String[] fdmtAmountArray;
 	
 	//Date
 	private Date RegDateTime;
 	private Date ModDateTime;
 	
-	// checkbox
+	//checkbox
 	private String[] checkboxSeqArray;
 //  ============================================	
 
@@ -122,6 +137,88 @@ public class Food {
 	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
 		this.checkboxSeqArray = checkboxSeqArray;
 	}
+
+	public String getFdrsIntroduction() {
+		return fdrsIntroduction;
+	}
+
+	public void setFdrsIntroduction(String fdrsIntroduction) {
+		this.fdrsIntroduction = fdrsIntroduction;
+	}
+
+	public Integer getFdrsServingsCd() {
+		return fdrsServingsCd;
+	}
+
+	public void setFdrsServingsCd(Integer fdrsServingsCd) {
+		this.fdrsServingsCd = fdrsServingsCd;
+	}
+
+	public Integer getFdrsTimeCd() {
+		return fdrsTimeCd;
+	}
+
+	public void setFdrsTimeCd(Integer fdrsTimeCd) {
+		this.fdrsTimeCd = fdrsTimeCd;
+	}
+
+	public Integer getFdrsDifficultyCd() {
+		return fdrsDifficultyCd;
+	}
+
+	public void setFdrsDifficultyCd(Integer fdrsDifficultyCd) {
+		this.fdrsDifficultyCd = fdrsDifficultyCd;
+	}
+
+	public String getFdrsTip() {
+		return fdrsTip;
+	}
+
+	public void setFdrsTip(String fdrsTip) {
+		this.fdrsTip = fdrsTip;
+	}
+
+	public String getFdmtMaterial() {
+		return fdmtMaterial;
+	}
+
+	public void setFdmtMaterial(String fdmtMaterial) {
+		this.fdmtMaterial = fdmtMaterial;
+	}
+
+	public String getFdmtAmount() {
+		return fdmtAmount;
+	}
+
+	public void setFdmtAmount(String fdmtAmount) {
+		this.fdmtAmount = fdmtAmount;
+	}
+
+	public Integer getFdmtDelNy() {
+		return fdmtDelNy;
+	}
+
+	public void setFdmtDelNy(Integer fdmtDelNy) {
+		this.fdmtDelNy = fdmtDelNy;
+	}
+
+	public String[] getFdmtMaterialArray() {
+		return fdmtMaterialArray;
+	}
+
+	public void setFdmtMaterialArray(String[] fdmtMaterialArray) {
+		this.fdmtMaterialArray = fdmtMaterialArray;
+	}
+
+	public String[] getFdmtAmountArray() {
+		return fdmtAmountArray;
+	}
+
+	public void setFdmtAmountArray(String[] fdmtAmountArray) {
+		this.fdmtAmountArray = fdmtAmountArray;
+	}
+
+
 
 
 	

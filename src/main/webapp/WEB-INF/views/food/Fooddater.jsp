@@ -6,6 +6,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<% pageContext.setAttribute("lf", "\\n"); %>
+<%-- <% pageContext.setAttribute("br", "\n"); %> --%>
+
+
 
 <htm1 lang="ko">
 
@@ -77,6 +81,7 @@
 <body class="text-center">
 
 <form id="Fooddater" name="Fooddater" method="post" action="/food/Fooddater">
+<input type="hidden" id="fdrsSeq" name="fdrsSeq">
 	
 <!-- Header S -->
 <div class="container navbar navbar-dark" aria-label="Eighth navbar example" style="margin-bottom: 10px;">
@@ -143,20 +148,40 @@
 			<img src="https://recipe1.ezmember.co.kr/cache/recipe/2020/08/18/32775e06923a4bef0cb6093ff84d28ef1.jpg" class="card-img-top" style="height: 500px; width: 800px; margin-top: 20px;">
 		</div>
   	<div class="card-body">
-	    <h4 class="card-title" style="margin-bottom: 20px;">백파더 백종원 에그치즈토스트 ~ 간단한데 맛은 최고!</h4>
-	    <span class="card-text">요즘 백파더 백종원 에그치즈토스트가 대유행이라죠! <br> 칼질도 필요 없고, 원팬으로 만들기로 간단하지만 맛은 대박~ <br> 요건 꼭 만들어 보세요 에그드랍 가실 필요 없어요^^</span>
+	    <h4 class="card-title" style="margin-bottom: 20px;"><c:out value="${item.fdrsName }"/></h4>
+	    <span class="card-text">${fn:replace(item.fdrsIntroduction, lf, "<br>")}</span> 
+	    <%-- <span class="card-text">${fn:replace(item.fdrsIntroduction, br, '<br/>')}</span> --%>
+	    
 	<div class="row" style="text-decoration: underline; margin-top: 30px;" >	   
 	<div class="col-4" style="padding-left: 300px;">
 		<i class="bi bi-person"></i><br>
-		<span>2인분</span>  
+		<c:choose>
+			<c:when test="${item.fdrsServingsCd eq 1}">1인분</c:when>
+			<c:when test="${item.fdrsServingsCd eq 2}">2인분</c:when>
+			<c:when test="${item.fdrsServingsCd eq 3}">3인분</c:when>
+			<c:when test="${item.fdrsServingsCd eq 4}">4인분</c:when>
+			<c:when test="${item.fdrsServingsCd eq 5}">4인분 이상</c:when>
+		</c:choose>
     </div>   
 	<div class="col-4" style="">
 		<i class="bi bi-alarm"></i><br>
-		<span>15분 이내</span>  
+		<c:choose>
+			<c:when test="${item.fdrsTimeCd eq 5}">5분 이내</c:when>
+			<c:when test="${item.fdrsTimeCd eq 10}">10분 이내</c:when>
+			<c:when test="${item.fdrsTimeCd eq 15}">15분 이내</c:when>
+			<c:when test="${item.fdrsTimeCd eq 20}">20분 이내</c:when>
+			<c:when test="${item.fdrsTimeCd eq 25}">25분 이상</c:when>
+		</c:choose>  
     </div>   
 	<div class="col-4" style="padding-right: 300px;">
 		<i class="bi bi-hand-thumbs-up"></i><br>
-		<span>아무나</span>  
+		<c:choose>
+			<c:when test="${item.fdrsDifficultyCd eq 1}">아무나</c:when>
+			<c:when test="${item.fdrsDifficultyCd eq 2}">초급</c:when>
+			<c:when test="${item.fdrsDifficultyCd eq 3}">중급</c:when>
+			<c:when test="${item.fdrsDifficultyCd eq 4}">고급</c:when>
+			<c:when test="${item.fdrsDifficultyCd eq 5}">신의 경지</c:when>
+		</c:choose>  
 	</div>
 	</div>
 	</div>
@@ -280,7 +305,7 @@
 
 				<dl class="view_step_tip" style="margin-top: 100px;">
 					<dt><img src="https://recipe1.ezmember.co.kr/img/tit_tip.gif" alt="팁-주의사항"></dt>
-					<dd>원래의 백파더 에그치즈토스트는 버터와 잼대신 , 식용유와 설탕을 사용했어요 ~ 저는 버터와 잼으로 변경하며 만든레시피 입니다 . <br>버터를 사용하면 풍미가 더욱 좋고 , 설탕을 싫어하시는 분들은 잼을 사용하셔도 아주 맛있답니다 ~</dd>
+					<dd>${fn:replace(item.fdrsTip, lf, "<br>")}</dd>
 				</dl>
 			</div>
 		</div>
@@ -327,6 +352,8 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	
 
+</form>
+
 <script type="text/javascript">
 		
 		$("#dropdownMenuLink").click(function() { //드롭다운 버튼을 눌렀을 때
@@ -357,18 +384,12 @@
 			$("#formLogin").submit();
 		});
 		
-
-		
-	
-	
-
 </script>
 
 
 
 
 
-</form>
 </body>
 
 </htm1>

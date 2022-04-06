@@ -7,9 +7,7 @@ public interface FoodService {
 	int selectOneFood(FoodVo vo) throws Exception;
 	List<Food> selectList(FoodVo vo) throws Exception; 
 	int insert(Food dto) throws Exception; 
-	int insertEmail(Food dto) throws Exception; 
-	int insertMobile(Food dto) throws Exception; 
-	int insertAddress(Food dto) throws Exception; 
+	int insertmaterial(Food dto) throws Exception; 
 
 	Food selectOne(FoodVo vo) throws Exception;
 	

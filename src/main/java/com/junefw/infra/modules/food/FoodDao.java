@@ -20,8 +20,7 @@ public class FoodDao {
 	public List<Food> selectList(FoodVo vo){ return sqlSession.selectList(namespace + ".selectList", vo);}
 	
 	public int insert(Food dto){ return sqlSession.insert(namespace + ".insert", dto);}
-	public int insertEmail(Food dto){ return sqlSession.insert(namespace + ".insertEmail", dto);}
-	public int insertMobile(Food dto){ return sqlSession.insert(namespace + ".insertMobile", dto);}
+	public int insertmaterial(Food dto){ return sqlSession.insert(namespace + ".insertmaterial", dto);}
 	public int insertAddress(Food dto){ return sqlSession.insert(namespace + ".insertAddress", dto);}
 	
 	public Food selectOne(FoodVo vo) {return sqlSession.selectOne(namespace + ".selectOne", vo);}

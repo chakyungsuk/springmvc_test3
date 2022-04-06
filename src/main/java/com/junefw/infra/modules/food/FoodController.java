@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.junefw.infra.common.constants.Constants;
 import com.junefw.infra.common.util.UtilDateTime;
@@ -101,8 +102,11 @@ public class FoodController {
 	
 	
 	@RequestMapping(value = "/food/Fooddater")
-	public String Fooddater() throws Exception {
+	public String Fooddater(@ModelAttribute("vo") FoodVo vo, Model model) throws Exception {
 		
+		Food rt = service.selectOne(vo);
+		
+		model.addAttribute("item", rt);
 		
 		return "food/Fooddater";
 	}
@@ -134,11 +138,27 @@ public class FoodController {
 		
 		return "food/FoodFindPW2";
 	}
+	
 	@RequestMapping(value = "/food/Foodreg")
-	public String Foodreg() throws Exception {
-		
+	public String Foodreg(Model model) throws Exception {
 		
 		return "food/Foodreg";
 	}
 	
+	@SuppressWarnings(value = {"all"})
+	@RequestMapping(value = "/food/FoodInst")
+	public String FoodInst(FoodVo vo, Food dto, RedirectAttributes redirectAttributes) throws Exception {
+
+		service.insert(dto);
+	
+		vo.setFdrsSeq(dto.getFdrsSeq());
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
+
+		if (Constants.INSERT_AFTER_TYPE == 1) {
+			return "redirect:/food/Foodreg";
+		} else {
+			return "redirect:/food/FoodMain";
+		}
+	}	
 }
