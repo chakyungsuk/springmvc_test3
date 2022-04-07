@@ -7,7 +7,8 @@
 
 <link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">
 
-<form id="form" method="post" action="/code/codeGroupInst">
+<!-- <form id="form" method="post" action="/code/codeGroupInst"> -->
+<form id="form" method="post" action="/code/codeGroupInst" enctype="multipart/form-data">
 	<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }"/>">
 	<input type="hidden" name="shFdcgDelNy" value="<c:out value="${vo.shFdcgDelNy }"/>">
 	<input type="hidden" name="shFdcgName" value="<c:out value="${vo.shFdcgName }"/>">
@@ -16,7 +17,9 @@
 	
 	<input type="text" id="fdcgName" name="fdcgName" placeholder="이름">
 	<input type="text" id="abcDate" name="abc" autocomplete="off">
-	<input type="submit" id="btnSubmit" value="제출">
+	<br><input type="file" id="originalFileName" name="file">
+	<br><input type="file" id="uuidFileName" name="file1">
+	<br><input type="submit" id="btnSubmit" value="제출">
 </form> 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

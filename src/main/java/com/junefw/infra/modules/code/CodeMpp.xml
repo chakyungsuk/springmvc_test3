@@ -56,9 +56,13 @@
 		INSERT INTO fdcodegroup (
 			fdcgName
 			, fdcgDelNy
+			, originalFileName
+			, uuidFileName
 		) VALUES (
 			#{fdcgName}
 			,0
+			,#{originalFileName}
+			,#{uuidFileName}
 		)	
 		<selectKey resultType="String" keyProperty="fdcgSeq" order="AFTER">
 			SELECT last_insert_id()
@@ -71,6 +75,8 @@
 			a. fdcgSeq
             , a.fdcgName
             , a.fdcgDelNy
+            , originalFileName
+			, uuidFileName
 		FROM 
 			fdcodegroup a
 		WHERE 1=1

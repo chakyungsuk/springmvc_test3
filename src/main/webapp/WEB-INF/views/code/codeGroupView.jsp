@@ -13,6 +13,7 @@
 <input type="hidden" id="shFdcgName" name="shFdcgName" value="<c:out value="${vo.shFdcgName}"/>">
 <input type="hidden" id="shOption" name="shOption" value="<c:out value="${vo.shOption}"/>">
 <input type="hidden" id="shValue" name="shValue" value="<c:out value="${vo.shValue}"/>">
+<input type="hidden" id="file" name="file">
 
 </form>	
 	
@@ -23,8 +24,9 @@
 		<a href ="/code/codeGroupForm?fdcgSeq=${item.fdcgSeq}">등록</a> <br>
 		<a href ="/code/codeGroupDele?fdcgSeq=${item.fdcgSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shFdcgDelNy}"/>&shFdcgName=<c:out value="${vo.shFdcgName}"/>" id="btnDelete">삭제(진짜)</a><br>
 		<a href ="/code/codeGroupNele?fdcgSeq=${item.fdcgSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shFdcgDelNy}"/>&shFdcgName=<c:out value="${vo.shFdcgName}"/>" id="btnDeleteDelNy">삭제(가짜)</a><br>
+		<a href="/resources/uploaded/<c:out value="${item.originalFileName}"/>"><img src="/resources/uploaded/<c:out value="${item.originalFileName}"/>"/></a><br>	
+		<a href="/resources/uploaded/<c:out value="${item.uuidFileName}"/>"><img src="/resources/uploaded/<c:out value="${item.uuidFileName}"/>"/></a><br>	
 		<a href="javascript:goForm('<c:out value="${item.fdcgSeq}"/>')">목록</a>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		

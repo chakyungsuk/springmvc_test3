@@ -3,6 +3,8 @@ package com.junefw.infra.modules.code;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Code {
 	
 // DTO
@@ -11,6 +13,9 @@ public class Code {
 	private String fdcgName;
 	private Integer fdcgDelNy;
 	private String fdcgNameEng;
+	private String originalFileName;
+	private String uuidFileName;
+	
 // --------------------------------	
 	//fdcode
 	private String fdcdSeq;
@@ -19,9 +24,14 @@ public class Code {
 	private String fdcdOrder;
 	private String ifcgSeq;
 	
+	//uploaded
+	public MultipartFile file;
+	public MultipartFile file1;
+	
+	
 	//	for cache
 	public static List<Code> cachedCodeArrayList = new ArrayList<Code>();	//메모리에 리스트가 상주돼있음
-//  ============================================	
+	//  ============================================	
 	
 	public String getIfcgSeq() {
 		return ifcgSeq;
@@ -54,6 +64,18 @@ public class Code {
 		this.fdcgNameEng = fdcgNameEng;
 	}
 	
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	public MultipartFile getFile1() {
+		return file1;
+	}
+	public void setFile1(MultipartFile file1) {
+		this.file1 = file1;
+	}
 	// --------------------------------------------
 	public String getFdcdSeq() {
 		return fdcdSeq;
@@ -78,6 +100,18 @@ public class Code {
 	}
 	public void setFdcdOrder(String fdcdOrder) {
 		this.fdcdOrder = fdcdOrder;
+	}
+	public String getOriginalFileName() {
+		return originalFileName;
+	}
+	public void setOriginalFileName(String originalFileName) {
+		this.originalFileName = originalFileName;
+	}
+	public String getUuidFileName() {
+		return uuidFileName;
+	}
+	public void setUuidFileName(String uuidFileName) {
+		this.uuidFileName = uuidFileName;
 	}
 	
 
