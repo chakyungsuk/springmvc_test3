@@ -144,6 +144,8 @@
 		, fdmaTitle1 
 		, fdmaTitle2
 		, fdmaAddress
+		, fdmaLat
+		, fdmaLng
 		, fdmaDelNy
 		, fdmaDefaultNy
 		, ifmmSeq
@@ -152,6 +154,8 @@
 		,#{fdmaTitle1}
 		,#{fdmaTitle2}
 		,#{fdmaAddress} 
+		,#{fdmaLat} 
+		,#{fdmaLng} 
 		,0
 		,1
 		,#{ifmmSeq}
@@ -176,7 +180,9 @@
 			, d.fdmaZipcode	
 			, d.fdmaTitle1	
 			, d.fdmaTitle2	
-			, d.fdmaAddress		
+			, d.fdmaAddress
+			, d.fdmaLat
+			, d.fdmaLng
 			, a.ifmmEmailConsentNy
 			, a.ifmmSmsConsentNy
 			, a.regDateTime

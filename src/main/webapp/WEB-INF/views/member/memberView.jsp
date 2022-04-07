@@ -220,10 +220,12 @@
 		</div>
 		<div class="row">
 		<div class="col-12 col-lg-6 col-sm-12">
+		<input class="form-control" id="" name="" value="<c:out value="${item.fdmaLat }"/>" type="text" placeholder="위도" readonly="readonly">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
+		<input class="form-control" id="" name=""  value="<c:out value="${item.fdmaLng }"/>" type="text" placeholder="경도" readonly="readonly">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>

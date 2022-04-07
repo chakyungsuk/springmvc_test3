@@ -170,24 +170,24 @@
 		  
 <!-- Previous -->
 	<c:if test="${vo.startPage gt vo.pageNumToShow}">
-		<li class="page-item"><a class="page-link" href="javascript:goList('<c:out value='${vo.startPage - 1}'/>');">Previous</a></li>
+		<li class="page-item"><a class="page-link" href='javascript:void(0);' onclick="goList('<c:out value='${vo.startPage - 1}'/>');">Previous</a></li>
 	</c:if>
 	
 <!-- Page -->    
 	<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
 		<c:choose>
 			<c:when test="${i.index eq vo.thisPage}">  
-				<li class="page-item active"><a class="page-link" href="javascript:goList('<c:out value='${i.index}'/>');">${i.index}</a></li>
+				<li class="page-item active"><a class="page-link" href='javascript:void(0);' onclick="goList('<c:out value='${i.index}'/>');">${i.index}</a></li>
 			</c:when>
 			<c:otherwise>             
-				<li class="page-item"><a class="page-link" href="javascript:goList('<c:out value='${i.index}'/>');">${i.index}</a></li>
+				<li class="page-item"><a class="page-link" href='javascript:void(0);' onclick="goList('<c:out value='${i.index}'/>');">${i.index}</a></li>
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>  
 	
 <!-- Next -->
 	<c:if test="${vo.endPage ne vo.totalPages}">                
-		<li class="page-item"><a class="page-link" href="javascript:goList('<c:out value='${vo.endPage + 1}'/>');">Next</a></li>
+		<li class="page-item"><a class="page-link" href='javascript:void(0);' onclick="goList('<c:out value='${vo.endPage + 1}'/>');">Next</a></li>
 	</c:if>
 	
 <!-- Page E -->

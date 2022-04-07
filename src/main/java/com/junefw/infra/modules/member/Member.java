@@ -29,6 +29,17 @@ public class Member {
 	private String fdmaTitle1;
 	private String fdmaTitle2;
 	private String fdmaAddress;
+	private Double fdmaLat;
+	private Double fdmaLng;
+	
+	
+	//memberAddressArray
+	private String[] fdmaZipcodeArray;
+	private String[] fdmaTitle1Array;
+	private String[] fdmaTitle2Array;
+	private String[] fdmaAddressArray;
+	private Double[] fdmaLatArray;
+	private Double[] fdmaLngArray;
 	
 	
 	//ConsentNy
@@ -183,6 +194,54 @@ public class Member {
 	public void setFdmpTelecomCd(Integer fdmpTelecomCd) {
 		this.fdmpTelecomCd = fdmpTelecomCd;
 	}
-	
+	public Double getFdmaLat() {
+		return fdmaLat;
+	}
+	public void setFdmaLat(Double fdmaLat) {
+		this.fdmaLat = fdmaLat;
+	}
+	public Double getFdmaLng() {
+		return fdmaLng;
+	}
+	public void setFdmaLng(Double fdmaLng) {
+		this.fdmaLng = fdmaLng;
+	}
+	public String[] getFdmaZipcodeArray() {
+		return fdmaZipcodeArray;
+	}
+	public void setFdmaZipcodeArray(String[] fdmaZipcodeArray) {
+		this.fdmaZipcodeArray = fdmaZipcodeArray;
+	}
+	public String[] getFdmaTitle1Array() {
+		return fdmaTitle1Array;
+	}
+	public void setFdmaTitle1Array(String[] fdmaTitle1Array) {
+		this.fdmaTitle1Array = fdmaTitle1Array;
+	}
+	public String[] getFdmaTitle2Array() {
+		return fdmaTitle2Array;
+	}
+	public void setFdmaTitle2Array(String[] fdmaTitle2Array) {
+		this.fdmaTitle2Array = fdmaTitle2Array;
+	}
+	public String[] getFdmaAddressArray() {
+		return fdmaAddressArray;
+	}
+	public void setFdmaAddressArray(String[] fdmaAddressArray) {
+		this.fdmaAddressArray = fdmaAddressArray;
+	}
+	public Double[] getFdmaLatArray() {
+		return fdmaLatArray;
+	}
+	public void setFdmaLatArray(Double[] fdmaLatArray) {
+		this.fdmaLatArray = fdmaLatArray;
+	}
+	public Double[] getFdmaLngArray() {
+		return fdmaLngArray;
+	}
+	public void setFdmaLngArray(Double[] fdmaLngArray) {
+		this.fdmaLngArray = fdmaLngArray;
+	}
+
 	
 }

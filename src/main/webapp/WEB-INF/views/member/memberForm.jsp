@@ -216,10 +216,12 @@
 		</div>
 		<div class="row">
 		<div class="col-12 col-lg-6 col-sm-12">
+		<input class="form-control" id="fdmaLatArray0" name="fdmaLat" type="text" placeholder="위도">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
+		<input class="form-control" id="fdmaLngArray0" name="fdmaLng" type="text" placeholder="경도">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
@@ -300,6 +302,7 @@
 
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9d80e2a3ed34412759bd6b1eea6603bb&libraries=services"></script>
 <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -386,9 +389,55 @@
                 document.getElementById("fdmaTitle1").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
                 document.getElementById("fdmaAddress").focus();
+                
+            	/* lat and lng from address s */
+    			
+        		// 주소-좌표 변환 객체를 생성
+        		var geocoder = new daum.maps.services.Geocoder();
+        		
+        		// 주소로 좌표를 검색
+        		geocoder.addressSearch(addr, function(result, status) {
+        		 
+        			// 정상적으로 검색이 완료됐으면,
+        			if (status == daum.maps.services.Status.OK) {
+        				
+        				document.getElementById("fdmaLatArray0").value=result[0].x;
+        				document.getElementById("fdmaLngArray0").value=result[0].y;
+        				
+        /* 						
+        				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+        		
+        				y = result[0].x;
+        				x = result[0].y;
+        		
+        				// 결과값으로 받은 위치를 마커로 표시합니다.
+        				var marker = new daum.maps.Marker({
+        					map: map,
+        					position: coords
+        				});
+        		
+        				// 인포윈도우로 장소에 대한 설명표시
+        				var infowindow = new daum.maps.InfoWindow({
+        					content: '<div style="width:150px;text-align:center;padding:5px 0;">좌표위치</div>'
+        				});
+        		
+        				infowindow.open(map,marker);
+        		
+        				// 지도 중심을 이동
+        				map.setCenter(coords);
+        				
+        				document.getElementById("ifmaLatArray0").value=x;
+        				document.getElementById("ifmaLngArray0").value=y;
+        */						
+        			}
+        		});
+        		/* lat and lng from address e */
             }
         }).open();
+        
+		
     }
+    
     
 	$(document).ready(function(){
 		 $("#shDate").datepicker();
