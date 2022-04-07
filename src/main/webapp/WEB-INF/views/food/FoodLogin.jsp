@@ -30,6 +30,17 @@
 <script src="/resources/xdmin/js/bootstrap.min.js"></script>
 <script src="/resources/xdmin/js/sidebars.js"></script>
 
+<!-- naverLogin -->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  
+<!-- GoogleLogin -->
+<meta name ="google-signin-client_id" content="705025172192-b6e4avr6h5p13nrdj40u8tduucmti0fu.apps.googleusercontent.com">  
+<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+
+<!-- facebookLogin -->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v10.0&appId=1588150011384568" nonce="SiOBIhLG"></script>
+
 
 <title>Cha html projects</title>
 
@@ -124,23 +135,23 @@
 <div class="container1">
    	<div class="" style="margin-top: 120px;">
 		<div class="col-lg-12 col-sm-12">
-		    <button class="btn btn-sm" type="submit">
-    			<a href="https://www.facebook.com/" style="text-decoration: none;">
+		    <button class="btn btn-sm" type="button" onclick="fnFbCustomLogin();">
+    			<a href="javascript:void(0)" style="text-decoration: none;">
     				<div style="color: #3b5998;">Facebook</div>
    				</a>
    			</button>
-		    <button class="btn btn-sm" type="submit">
-    			<a href="https://www.kakaocorp.com/" style="text-decoration: none;">
+		    <button class="btn btn-sm" type="button">
+    			<a href="javascript:void(0)" style="text-decoration: none;">
     				<div style="color: #fff115;">Kakao</div>
     			</a>
    			</button>
-		    <button class="btn btn-sm" type="submit">
-    			<a href="https://www.google.co.kr/" style="text-decoration: none;">
+		    <button class="btn btn-sm" type="button" id="GgCustomLogin">
+    			<a href="javascript:void(0)" style="text-decoration: none;">
     				<div style="color: #ffffff;">Google</div>
     			</a>
    			</button>
-		    <button class="btn btn-sm" type="submit">
-    			<a href="https://www.naver.com/" style="text-decoration: none;">
+		    <button class="btn btn-sm" type="button" id="naver_id_login">
+    			<a href="javascript:void(0)" style="text-decoration: none;">
     				<div style="color: #00bd00;">Naver</div>
     			</a>
    			</button>
@@ -152,7 +163,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/xdmin/js/sidebars.js"></script>
-	
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>	
 
 <script type="text/javascript">
 		
@@ -206,15 +217,94 @@
 			$("#formLogin").submit();
 		});
 
-
-	
-	
-
 </script>
 
+<!-- 네이버 연동 -->
+<script type="text/javascript">
 
+	var naver_id_login = new naver_id_login("_TY46wZutTekwAAcohlV", "http://localhost:8090/food/FoodMain");
+	var state = naver_id_login.getUniqState();
+	naver_id_login.setButton("white", 2,30);
+	naver_id_login.setDomain("http://localhost:8090/food/FoodLogin");
+	naver_id_login.setState(state);
+	naver_id_login.setPopup();
+	naver_id_login.init_naver_id_login();
+	
+</script>
 
+<!-- 구글 연동 -->
+<script type="text/javascript">
+//처음 실행하는 함수
+function init() {
+	gapi.load('auth2', function() {
+		gapi.auth2.init();
+		options = new gapi.auth2.SigninOptionsBuilder();
+		options.setPrompt('select_account');
+        // 추가는 Oauth 승인 권한 추가 후 띄어쓰기 기준으로 추가
+		options.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
+        // 인스턴스의 함수 호출 - element에 로그인 기능 추가
+        // GgCustomLogin은 li태그안에 있는 ID, 위에 설정한 options와 아래 성공,실패시 실행하는 함수들
+		gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', options, onSignIn, onSignInFailure);
+	})
+}
+function onSignIn(googleUser) {
+	var access_token = googleUser.getAuthResponse().access_token
+	$.ajax({
+    	// people api를 이용하여 프로필 및 생년월일에 대한 선택동의후 가져온다.
+		url: 'https://people.googleapis.com/v1/people/me'
+        // key에 자신의 API 키를 넣습니다.
+		, data: {personFields:'birthdays', key:'AIzaSyDU8X06NIy7HyTssgzCLXbe-0S3xveczSM', 'access_token': access_token}
+		, method:'GET'
+	})
+	.done(function(e){
+        //프로필을 가져온다.
+		var profile = googleUser.getBasicProfile();
+		console.log(profile)
+	})
+	.fail(function(e){
+		console.log(e);
+	})
+}
+function onSignInFailure(t){		
+	console.log(t);
+}
+</script>
 
+<!-- 페이스북 연동 -->
+<script>
+//기존 로그인 상태를 가져오기 위해 Facebook에 대한 호출
+function statusChangeCallback(res){
+	statusChangeCallback(response);
+}
+  
+function fnFbCustomLogin(){
+	FB.login(function(response) {
+		if (response.status === 'connected') {
+			FB.api('/me', 'get', {fields: 'name,email'}, function(r) {
+				console.log(r);
+			})
+		} else if (response.status === 'not_authorized') {
+			// 사람은 Facebook에 로그인했지만 앱에는 로그인하지 않았습니다.
+			alert('앱에 로그인해야 이용가능한 기능입니다.');
+		} else {
+			// 그 사람은 Facebook에 로그인하지 않았으므로이 앱에 로그인했는지 여부는 확실하지 않습니다.
+			alert('페이스북에 로그인해야 이용가능한 기능입니다.');
+		}
+	}, {scope: 'public_profile,email'});
+}
+
+window.fbAsyncInit = function() {
+	FB.init({
+		appId      : '299726265629174', // 내 앱 ID를 입력한다.
+		cookie     : true,
+		xfbml      : true,
+		version    : 'v13.0'
+	});
+	FB.AppEvents.logPageView();   
+};
+</script>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v10.0&appId=299726265629174" nonce="SiOBIhLG"></script>
 
 </form>
 </body>
