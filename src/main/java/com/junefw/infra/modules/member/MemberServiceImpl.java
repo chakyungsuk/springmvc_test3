@@ -33,9 +33,9 @@ public class MemberServiceImpl implements MemberService{
 		
 		
 		  dao.insert(dto); 
-		  dao.insertMobile(dto); 
-		  dao.insertAddress(dto);
-		  dao.insertUploaded(dto);
+			/*
+			 * dao.insertMobile(dto); dao.insertAddress(dto); dao.insertUploaded(dto);
+			 */
 		 
 		
 		int j = 0;
@@ -43,12 +43,20 @@ public class MemberServiceImpl implements MemberService{
 			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
 			UtilUpload.upload(multipartFile, pathModule, dto );
 				
-			  dto.setTableName("fdmemberuploaded"); 
-			  dto.setType(0); 
-			  dto.setDefaultNy(0);
-			  dto.setSort(j); 
-			  dto.setPseq(dto.getIfmmSeq());
-			  
+			System.out.println("multipartFile-----------------" + multipartFile);
+			System.out.println("pathModule----------------------" + pathModule);
+			
+			
+			dto.setTableName("fdmemberuploaded");
+			dto.setType(0);
+			dto.setDefaultNy(0);
+			dto.setSort(j);
+			dto.setPseq(dto.getIfmmSeq());
+			
+			/*
+			 * dto.setTableName("fdmemberuploaded"); dto.setType(0); dto.setDefaultNy(0);
+			 * dto.setSort(j); dto.setPseq(dto.getIfmmSeq());
+			 */			  
 			  dao.insertUploaded(dto);
 			  j++;
 		}
