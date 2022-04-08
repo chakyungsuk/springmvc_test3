@@ -13,8 +13,6 @@ public class Code {
 	private String fdcgName;
 	private Integer fdcgDelNy;
 	private String fdcgNameEng;
-	private String originalFileName;
-	private String uuidFileName;
 	
 // --------------------------------	
 	//fdcode
@@ -28,6 +26,8 @@ public class Code {
 	public MultipartFile file;
 	public MultipartFile file1;
 	
+	private String originalFileName;
+	private String uuidFileName;
 	
 	//	for cache
 	public static List<Code> cachedCodeArrayList = new ArrayList<Code>();	//메모리에 리스트가 상주돼있음

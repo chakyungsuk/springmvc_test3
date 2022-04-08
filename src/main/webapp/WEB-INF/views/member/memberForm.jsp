@@ -53,12 +53,17 @@
  		.container {
 			margin-bottom: 400px;
    		}
+   		.addScroll {
+   			overflow:auto;
+   			height: 90px;
+   			background-color: gray;
+   		}
 </style>
 
 
 <body>
 
-<form id="formInst" name="formInst" method="post" action="/member/memberInst">
+<form id="formInst" name="formInst" method="post" action="/member/memberInst" enctype="multipart/form-data">
 
 
 <div class="container-sm">
@@ -187,6 +192,12 @@
 			</select>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
+			<label for="file0" class="form-label btn btn-info btn-sm">이미지첨부</label>
+			<input class="form-control" id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onchange="upload(0, 2);">
+			<div class="addScroll">
+				<ul id="ulFile0" class="list-group">
+				</ul>
+			</div>
 		</div>
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>
@@ -198,6 +209,12 @@
 			</div>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
+		<label for="file1" class="form-label btn btn-info btn-sm">파일첨부</label>
+			<input class="form-control" id="file1" name="file1" type="file" multiple="multiple" style="display: none;" onchange="upload(1, 2);">
+			<div class="addScroll">
+				<ul id="ulFile1" class="list-group">
+				</ul>
+			</div>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
@@ -215,13 +232,13 @@
 		<input class="form-control" id="fdmaAddress" name="fdmaAddress" type="text" placeholder="상세주소를 입력해주세요.">
 		</div>
 		<div class="row">
-		<div class="col-12 col-lg-6 col-sm-12">
-		<input class="form-control" id="fdmaLatArray0" name="fdmaLat" type="text" placeholder="위도">
+		<div class="col-12 col-lg-6 col-sm-12" style="text-align: center; justify-content:center; margin-top: 10px;">
+		<input class="form-control" id="fdmaLatArray0" name="fdmaLat" type="text" placeholder="위도" style="width: 200px; float: left; margin-right: 20px;">
+		<input class="form-control" id="fdmaLngArray0" name="fdmaLng" type="text" placeholder="경도" style="width: 200px;">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
-		<input class="form-control" id="fdmaLngArray0" name="fdmaLng" type="text" placeholder="경도">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
@@ -309,6 +326,11 @@
 <script src="/resources/js/validation.js"></script>
 <script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.min.js"></script>
 <script src="/resources/common/bootstrap/bootstrap-5.1.3-examples/sidebars/sidebars.js"></script>
+
+<script src="/resources/common/js/commonXdmin.js"></script>
+
+
+
 
 <div id="layer" style="display:none; position:fixed; overflow:hidden; z-index:1;-webkit-overflow-scrolling:touch;">
 <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer; position:absolute; right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
@@ -455,9 +477,58 @@
 	    showMonthAfterYear: true,
 	    yearSuffix: '년'
 	});
+	
+	
 </script>
 
-
+<script type="text/javascript">
+upload = function(seq, div){
+	$("#ulFile"+ seq).children().remove();
+	
+	var fileCount = $("input[type=file]")[seq].files.length;
+	
+	alert(fileCount);
+	
+	if(checkUploadedTotalFileNumber(fileCount,seq) == false) {return false;}
+	
+	var totalFileSize;
+	
+	for (var i = 0; i < fileCount ; i++) {
+		if(div == 1){
+			if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		} else if(div == 2) {
+			if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		} else {
+			return false;
+		}
+		
+		if(checkUploadedEachFileSize($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		totalFileSize += $("input[type=file]")[seq].files[i].size;
+	}
+	
+	if(checkUploadedTotalFileSize(totalFileSize, seq) === false){return false;}
+	
+	for(var i = 0; i< fileCount ; i++){
+		addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
+	}
+}
+	
+		addUploadLi = function (seq, index, name){
+			
+			var ul_list = $("#ulFile0");
+			
+			li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-items-center">';
+			li = li + name;
+			li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+seq+','+index+')"><i class="fa-solid fa-x" style="cursor: pointer;"></i></span>';
+			li = li + '</li>';
+			$("#ulFile"+seq).append(li);
+		}
+	
+	delLi = function(seq, index){
+		$("#li_"+seq+"_"+index).remove();
+	};
+</script>   
+		
 
 </body>
 </htm1>

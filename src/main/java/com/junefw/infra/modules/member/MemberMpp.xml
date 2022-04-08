@@ -162,6 +162,30 @@
 	)	
 	</insert>
 	
+	<insert id="insertUploaded">
+	INSERT INTO ${TableName} (
+		type
+		, defaultNy 
+		, sort
+		, originalName
+		, uuidName
+		, ext
+		, size
+		, DelNy
+		, pseq
+	) VALUES (
+		#{type}
+		, #{defaultNy} 
+		, #{sort}
+		, #{originalName}
+		, #{uuidName}
+		, #{ext}
+		, #{size}
+		, 0
+		, #{pseq}
+	)	
+	</insert>
+	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT 
 			a.ifmmSeq

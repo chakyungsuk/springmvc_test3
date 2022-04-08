@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-<form id="formView" action="" method="post">
+<form id="formView" name="formView" action="code/codeGroupView" method="post">
 
 <input type="hidden" id="fdcgSeq" name="fdcgSeq" value="<c:out value="${vo.fdcgSeq}"/>">
 <input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>">
@@ -24,8 +24,8 @@
 		<a href ="/code/codeGroupForm?fdcgSeq=${item.fdcgSeq}">등록</a> <br>
 		<a href ="/code/codeGroupDele?fdcgSeq=${item.fdcgSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shFdcgDelNy}"/>&shFdcgName=<c:out value="${vo.shFdcgName}"/>" id="btnDelete">삭제(진짜)</a><br>
 		<a href ="/code/codeGroupNele?fdcgSeq=${item.fdcgSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shFdcgDelNy}"/>&shFdcgName=<c:out value="${vo.shFdcgName}"/>" id="btnDeleteDelNy">삭제(가짜)</a><br>
-		<a href="/resources/uploaded/<c:out value="${item.originalFileName}"/>"><img src="/resources/uploaded/<c:out value="${item.originalFileName}"/>"/></a><br>	
-		<a href="/resources/uploaded/<c:out value="${item.uuidFileName}"/>"><img src="/resources/uploaded/<c:out value="${item.uuidFileName}"/>"/></a><br>	
+		<a href="/resources/uploaded/<c:out value="${item.uuidFileName}"/>" download="<c:out value="${item.originalFileName}"/>">다운로드</a><br>
+			
 		<a href="javascript:goForm('<c:out value="${item.fdcgSeq}"/>')">목록</a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

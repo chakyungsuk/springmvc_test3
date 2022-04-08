@@ -18,7 +18,6 @@
 	<input type="text" id="fdcgName" name="fdcgName" placeholder="이름">
 	<input type="text" id="abcDate" name="abc" autocomplete="off">
 	<br><input type="file" id="originalFileName" name="file">
-	<br><input type="file" id="uuidFileName" name="file1">
 	<br><input type="submit" id="btnSubmit" value="제출">
 </form> 
 

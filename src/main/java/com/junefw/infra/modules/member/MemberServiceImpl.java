@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.junefw.infra.common.util.UtilDateTime;
+import com.junefw.infra.modules.Util.UtilUpload;
 
 @Service
 public class MemberServiceImpl implements MemberService{
@@ -29,9 +31,43 @@ public class MemberServiceImpl implements MemberService{
 		dto.setRegDateTime(UtilDateTime.nowDate());		// 날짜
 		dto.setModDateTime(UtilDateTime.nowDate());		// 날짜
 		
-		dao.insert(dto);
-		dao.insertMobile(dto);
-		dao.insertAddress(dto);
+		
+		  dao.insert(dto); 
+		  dao.insertMobile(dto); 
+		  dao.insertAddress(dto);
+		  dao.insertUploaded(dto);
+		 
+		
+		int j = 0;
+		for(MultipartFile multipartFile : dto.getFile0() ) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			UtilUpload.upload(multipartFile, pathModule, dto );
+				
+			  dto.setTableName("fdmemberuploaded"); 
+			  dto.setType(0); 
+			  dto.setDefaultNy(0);
+			  dto.setSort(j); 
+			  dto.setPseq(dto.getIfmmSeq());
+			  
+			  dao.insertUploaded(dto);
+			  j++;
+		}
+		
+		j = 0;
+		for(MultipartFile multipartFile : dto.getFile1() ) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			UtilUpload.upload(multipartFile, pathModule, dto );
+			
+			
+			dto.setTableName("fdmemberuploaded"); 
+			dto.setType(1); 
+			dto.setDefaultNy(0);
+			dto.setSort(j); 
+			dto.setPseq(dto.getIfmmSeq());
+			
+			dao.insertUploaded(dto);
+			j++;
+		}
 		
 		return 1; 
 	}
@@ -81,6 +117,10 @@ public class MemberServiceImpl implements MemberService{
   }
 
 	@Override
+	public int insertUploaded(Member dto) throws Exception {
+		return dao.insertUploaded(dto);
+	}
+	@Override
 	public int delete(MemberVo vo) throws Exception {
 		return dao.delete(vo);
 	}
@@ -94,6 +134,7 @@ public class MemberServiceImpl implements MemberService{
 	public Member selectOneLogin(Member dto) throws Exception {
 		return dao.selectOneLogin(dto);
 	}
+
 
 }
 		 
