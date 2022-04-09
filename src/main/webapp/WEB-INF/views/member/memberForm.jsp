@@ -487,8 +487,6 @@ upload = function(seq, div){
 	
 	var fileCount = $("input[type=file]")[seq].files.length;
 	
-	alert(fileCount);
-	
 	if(checkUploadedTotalFileNumber(fileCount,seq) == false) {return false;}
 	
 	var totalFileSize;

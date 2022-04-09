@@ -15,5 +15,5 @@ public static final int INSERT_AFTER_TYPE = 1;
 public static final int UPDATE_AFTER_TYPE = 1;
 
 
-public static final String UPLOAD_PATH_PREFIX = "D:/factory/ws_sts_4130/springmvc_test3/src/main/webapp/resources/uploaded";
+public static final String UPLOAD_PATH_PREFIX = "D:/factory/ws_sts_4130/springmvc_test3/src/main/webapp/resources/uploaded/";
 }
