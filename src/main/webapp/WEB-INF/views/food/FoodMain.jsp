@@ -246,6 +246,7 @@ Copyright ©EZHLD Inc. All Rights Reserved</p>
 <script src="/resources/xdmin/js/sidebars.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/xdmin/js/sidebars.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 <script type="text/javascript">
 
@@ -313,6 +314,49 @@ Copyright ©EZHLD Inc. All Rights Reserved</p>
   }
 </script>
 
+
+<!-- 카카오 정보-->
+<script>
+	Kakao.init('9d80e2a3ed34412759bd6b1eea6603bb');
+	console.log(Kakao.isInitialized());
+
+
+	kakaoLogin = function(){ 
+//리다이렉트 된 후 토큰값을 이용하여 사용자 정보를 받을 코드
+	Kakao.Auth.login({ 
+			success : function(authObj) {		
+				console.log(authObj);
+
+				Kakao.API.request({
+					url : '/v2/user/me',
+					success : function(res) {
+
+						console.log(res);
+						console.log(res.id);
+						console.log(res.kakao_account.email);
+						console.log(res.properties.nickname);
+					}
+				})
+			}
+		});
+	}
+</script>
+<script>
+ 
+/* kakao 로그아웃 */    
+    window.Kakao.init('9d80e2a3ed34412759bd6b1eea6603bb');
+	function kakaoLogout() {
+    	if (!Kakao.Auth.getAccessToken()) {
+		    console.log('Not logged in.');
+		    return;
+	    }
+	    Kakao.Auth.logout(function(response) {
+    		alert(response +' logout');
+		    window.location.href='/'
+	    });
+	};
+
+</script>
 
 </form>
 </body>

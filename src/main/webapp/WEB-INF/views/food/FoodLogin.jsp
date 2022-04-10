@@ -141,7 +141,7 @@
    				</a>
    			</button>
 		    <button class="btn btn-sm" type="button">
-    			<a href="javascript:void(0)" style="text-decoration: none;">
+    			<a href="javascript:kakaoLogin();" style="text-decoration: none;">
     				<div style="color: #fff115;">Kakao</div>
     			</a>
    			</button>
@@ -164,6 +164,7 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/xdmin/js/sidebars.js"></script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>	
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 <script type="text/javascript">
 		
@@ -303,8 +304,26 @@ window.fbAsyncInit = function() {
 	FB.AppEvents.logPageView();   
 };
 </script>
-
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v10.0&appId=299726265629174" nonce="SiOBIhLG"></script>
+
+<!-- kakao 로그인 -->
+<script>
+	Kakao.init('9d80e2a3ed34412759bd6b1eea6603bb');
+	console.log(Kakao.isInitialized());   // 웹화면상에서 제대로 초기화가 되었는지 콘솔에서 확인할 수 있습니다.
+
+	kakaoLogin = function(){     // 버튼에 링크를 걸었던 자바스크립트 함수.
+		
+		Kakao.Auth.authorize({   //사용자가 앱에 로그인할 수 있도록 인가 코드를 요청
+			redirectUri: 'http://localhost:8090/food/FoodMain'
+			//kakao developers 페이지에서 설정했던 redirectUri를 그대로 작성해줍니다.
+			//이렇게 하면 로그인 성공시 해당 주소로 redirect 됩니다.
+		});
+		
+	}
+
+</script>
+
+
 
 </form>
 </body>
