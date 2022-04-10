@@ -18,4 +18,4 @@
 	<input type="text" name="fdcdDelNy" placeholder="DelNy">
 	<input type="text" name="ifcgSeq" placeholder="cgSeq">
 	<input type="submit" value="제출">
-</form>
+</form> 
