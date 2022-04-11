@@ -116,8 +116,6 @@
 			<input class="form-control" type="text" id="ifmmName" name="ifmmName">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
-			<h6>이름(영문)</h6>
-			<input class="form-control" type="text">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>성별</h6>
@@ -183,19 +181,18 @@
 			</div>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
-			<h6>거주국가</h6>
-			<select class="form-select">
-				<option selected>::선택::</option>
-				<option value="1">한국</option>
-				<option value="2">미국</option>
-				<option value="3">일본</option>
-			</select>
-		</div>
-		<div class="col-12 col-lg-6 col-sm-12">
 			<label for="file0" class="form-label btn btn-info btn-sm">이미지첨부</label>
 			<input class="form-control" id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onchange="upload(0, 2);">
 			<div class="addScroll">
 				<ul id="ulFile0" class="list-group">
+				</ul>
+			</div>
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12">
+			<label for="file1" class="form-label btn btn-info btn-sm">파일첨부</label>
+			<input class="form-control" id="file1" name="file1" type="file" multiple="multiple" style="display: none;" onchange="upload(1, 2);">
+			<div class="addScroll">
+				<ul id="ulFile1" class="list-group">
 				</ul>
 			</div>
 		</div>
@@ -209,12 +206,6 @@
 			</div>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
-		<label for="file1" class="form-label btn btn-info btn-sm">파일첨부</label>
-			<input class="form-control" id="file1" name="file1" type="file" multiple="multiple" style="display: none;" onchange="upload(1, 2);">
-			<div class="addScroll">
-				<ul id="ulFile1" class="list-group">
-				</ul>
-			</div>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
@@ -248,12 +239,9 @@
 
 		<div class="col-12 col-lg-6 col-sm-12">
 			<label for="exampleFormControlTextarea1" class="form-label">설명</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="margin-bottom: 12px;"></textarea>
+			<textarea class="form-control" id="ifmmDesc" name="ifmmDesc" rows="3" style="margin-bottom: 12px;"></textarea>
 		</div>
         <div class="col-sm-6 mt-3 mt-sm-0">
-            <label for="ifmmDesc" class="form-label">설명</label>
-            <%-- <p>${fn:replace(item.ifmmDesc, br, '<br/>')}</p> --%>
-            <p><c:out value="${fn:replace(item.ifmmDesc, br, '<br/>')}" escapeXml = "false"/></p>
         </div>
 		<div class="col-6 col-lg-3 col-sm-6">
 			<h6>최종수정자</h6>

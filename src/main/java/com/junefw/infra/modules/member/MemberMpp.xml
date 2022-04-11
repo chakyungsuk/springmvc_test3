@@ -40,6 +40,7 @@
 				<when test="shOptionDate == 2">and a.modDateTime between #{shDateStart} and #{shDateEnd}</when>
 				<when test="shOptionDate == 3">and a.ifmmdob between #{shDateStart} and #{shDateEnd}</when>
 			</choose>
+			ORDER BY a.ifmmSeq DESC
 	</sql>
 
 	<select id="selectOneMember" resultType="Integer">
@@ -88,6 +89,7 @@
 			, ifmmSaved
 			, ifmmEmailConsentNy
 			, ifmmSmsConsentNy
+			, ifmmDesc
 			, regDateTime
 			, modDateTime
 		) values (
@@ -100,6 +102,7 @@
 			, #{ifmmSaved}
 			, #{ifmmEmailConsentNy}
 			, #{ifmmSmsConsentNy}
+			, #{ifmmDesc}
 			, #{regDateTime}
 			, #{modDateTime}
 		)
@@ -209,6 +212,7 @@
 			, d.fdmaLng
 			, a.ifmmEmailConsentNy
 			, a.ifmmSmsConsentNy
+			, a.ifmmDesc
 			, a.regDateTime
 			, a.modDateTime
 		FROM
@@ -242,6 +246,7 @@
 			, ifmmName = #{ifmmName}
 			, ifmmGenderCd = #{ifmmGenderCd}
 			, ifmmDob = #{ifmmDob}
+			, ifmmDesc = #{ifmmDesc}
 		WHERE 1=1
 			AND ifmmSeq = #{ifmmSeq}
 	</update>

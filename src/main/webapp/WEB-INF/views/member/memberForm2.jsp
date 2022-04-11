@@ -113,8 +113,6 @@
 			<input class="form-control" id="ifmmName" name="ifmmName" type="text" value="<c:out value="${item.ifmmName}"/>">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
-			<h6>이름(영문)</h6>
-			<input class="form-control" type="text" aria-label="default input example">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>성별</h6>
@@ -179,17 +177,6 @@
 				<label class="form-check-label" for="flexCheckDefault"> 동의합니다. </label>
 			</div>
 		</div>
-		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
-			<h6>거주국가</h6>
-			<select class="form-select" aria-label="Default select example">
-				<option selected>::선택::</option>
-				<option value="1">한국</option>
-				<option value="2">미국</option>
-				<option value="3">일본</option>
-			</select>
-		</div>
-		<div class="col-12 col-lg-6 col-sm-12">
-		</div>
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>
 			<div class="input-group mb-2">
@@ -217,7 +204,9 @@
 		<input class="form-control" id="fdmaAddress" name="fdmaAddress" type="text" placeholder="상세주소를 입력해주세요." value="<c:out value="${item.fdmaAddress}"/>">
 		</div>
 		<div class="row">
-		<div class="col-12 col-lg-6 col-sm-12">
+		<div class="col-12 col-lg-6 col-sm-12" style="margin-top: 10px;">
+		<input class="form-control" id="fdmaLatArray0" name="fdmaLat" value="<c:out value="${item.fdmaLat }"/>" type="text" placeholder="위도" readonly="readonly" style="width: 200px; float: left; margin-right: 20px;">
+		<input class="form-control" id="fdmaLatArray0" name="fdmaLng"  value="<c:out value="${item.fdmaLng }"/>" type="text" placeholder="경도" readonly="readonly" style="width: 200px;">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
@@ -231,7 +220,8 @@
 
 		<div class="col-12 col-lg-6 col-sm-12">
 			<label for="exampleFormControlTextarea1" class="form-label">설명</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="margin-bottom: 12px;"></textarea>
+			<textarea class="form-control" id="ifmmDesc" name="ifmmDesc" style="margin-bottom: 12px;">
+			<c:out value="${fn:replace(item.ifmmDesc, br, '<br/>')}" escapeXml = "false"/></textarea>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
@@ -407,7 +397,51 @@
 	    yearSuffix: '년'
 	});
 </script>
-
+<script type="text/javascript">
+upload = function(seq, div){
+	$("#ulFile"+ seq).children().remove();
+	
+	var fileCount = $("input[type=file]")[seq].files.length;
+	
+	if(checkUploadedTotalFileNumber(fileCount,seq) == false) {return false;}
+	
+	var totalFileSize;
+	
+	for (var i = 0; i < fileCount ; i++) {
+		if(div == 1){
+			if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		} else if(div == 2) {
+			if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		} else {
+			return false;
+		}
+		
+		if(checkUploadedEachFileSize($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		totalFileSize += $("input[type=file]")[seq].files[i].size;
+	}
+	
+	if(checkUploadedTotalFileSize(totalFileSize, seq) === false){return false;}
+	
+	for(var i = 0; i< fileCount ; i++){
+		addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
+	}
+}
+	
+		addUploadLi = function (seq, index, name){
+			
+			var ul_list = $("#ulFile0");
+			
+			li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-items-center">';
+			li = li + name;
+			li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+seq+','+index+')"><i class="fa-solid fa-x" style="cursor: pointer;"></i></span>';
+			li = li + '</li>';
+			$("#ulFile"+seq).append(li);
+		}
+	
+	delLi = function(seq, index){
+		$("#li_"+seq+"_"+index).remove();
+	};
+</script>
 
 
 </body>

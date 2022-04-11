@@ -14,6 +14,8 @@ public class MemberVo {
 	private String ifmmDob;
 	private String ifmmSaved;
 	private Integer ifmmDelNy;
+	private String ifmmDesc;
+	
 
 	//memberEmail
 	private String fdmeEmailFull;
@@ -440,6 +442,14 @@ public class MemberVo {
 
 	public void setShGenderCd(Integer shGenderCd) {
 		this.shGenderCd = shGenderCd;
+	}
+
+	public String getIfmmDesc() {
+		return ifmmDesc;
+	}
+
+	public void setIfmmDesc(String ifmmDesc) {
+		this.ifmmDesc = ifmmDesc;
 	}
 
 

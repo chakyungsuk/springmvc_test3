@@ -33,9 +33,6 @@ public class MemberServiceImpl implements MemberService{
 		
 		
 		  dao.insert(dto); 
-			/*
-			 * dao.insertMobile(dto); dao.insertAddress(dto); dao.insertUploaded(dto);
-			 */
 		 
 		
 		int j = 0;
@@ -73,6 +70,10 @@ public class MemberServiceImpl implements MemberService{
 			j++;
 		}
 		
+		 dao.insertMobile(dto); 
+		 dao.insertEmail(dto);
+		 dao.insertAddress(dto); 
+			/* dao.insertUploaded(dto); */
 		return 1; 
 	}
 

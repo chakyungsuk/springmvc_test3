@@ -16,6 +16,8 @@ public class Member {
 	private String ifmmDob;
 	private Integer ifmmDelNy;
 	private String ifmmSaved;
+	private String ifmmDesc;
+	
 	/* @DateTimeFormat */
 	
 	//memberEmail
@@ -443,6 +445,14 @@ public class Member {
 
 	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
 		this.checkboxSeqArray = checkboxSeqArray;
+	}
+
+	public String getIfmmDesc() {
+		return ifmmDesc;
+	}
+
+	public void setIfmmDesc(String ifmmDesc) {
+		this.ifmmDesc = ifmmDesc;
 	}
 	
 	

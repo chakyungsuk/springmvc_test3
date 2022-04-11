@@ -314,7 +314,7 @@
 				<div class="input-group" style="margin-bottom: 30px;">
           			<h4 id="" style="margin-right: 30px;">Step 1</h4>
 					<textarea id="" name="" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none; float: left;"></textarea>
-					<img id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
+					<div class="" type="file"><img id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer"></div>
 					<button class="btn" onclick="StepDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button>
 				</div>
 			</div>
@@ -402,11 +402,11 @@
 		
 		function MaterialCreate(){
 			var html = '';
+		 	var remove = $("remove").val(); 
 						
 /* 			var Name = $("#MaterialName").val();
 			var Amount = $("#MaterialAmount").val(); */
 			
-			 var remove = $("remove").val(); 
 						
 			html += '<div id="" style="margin-bottom: 10px;">';
 			html += '<input type="text" name="fdmtMaterialArray[]" id="fdmtMaterialArray" class="form-control" style="width:330px; float: left; margin-right: 10px; margin-bottom: 8px;" placeholder="예) 양배추">';
@@ -425,18 +425,17 @@
 
 			tr.remove();
 		}
-		
+			
 		function StepCreate(){
 			var html = '';
-						
 /* 			var Name = $("#MaterialName").val();
 			var Amount = $("#MaterialAmount").val(); */
-			
 			var remove = $("remove").val(); 
-						
+			var i=1;			
+			
 			html += '<div class="col-12" style="max-width: 80%;">';
 			html += '<div class="input-group" style="margin-bottom: 30px;">';
-			html += '<h4 id="" style="margin-right: 30px;">Step 1</h4>';
+			html += '<h4 id="" style="margin-right: 30px;">Step' + "&nbsp" + i +'</h4>';
 			html += '<textarea id="" name="" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>'; 
 			html += '<img id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">';
 			html += '<button class="btn" onclick="StepDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button> ';
@@ -444,16 +443,16 @@
 			html += '</div>';
 			
 			$("#StepCount").append(html);
-						
 /* 			$("#MaterialName").val('');
 			$("#MaterialAmount").val(''); */
+			i++; // 함수 내 하단에 증가문 설정	
 		};
-
 		function StepDelete(obj){
 			var tr = $(obj).parent();
 
 			tr.remove();
 		}
+		
 </script>
 
 

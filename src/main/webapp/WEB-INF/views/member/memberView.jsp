@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<%pageContext.setAttribute("br", "<br/>");%> 
 
 
 <!DOCTYPE HTML>
@@ -49,6 +50,11 @@
  		.container {
 			margin-bottom: 400px;
    		}
+   		textarea {
+		    min-height: 5rem;
+		    overflow-y: hidden;
+		    resize: none;
+		}
 </style>
 
 <body>
@@ -115,8 +121,6 @@
 			<input class="form-control" id="ifmmName" name="ifmmName" type="text" value="<c:out value="${item.ifmmName}"/>" disabled="disabled">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
-			<h6>이름(영문)</h6>
-			<input class="form-control" type="text" aria-label="default input example" disabled="disabled">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>성별</h6>
@@ -219,13 +223,13 @@
 		<input class="form-control" id="sample6_detailAddress" name="fdmaAddress" type="text" placeholder="상세주소를 입력해주세요." readonly="readonly" value="<c:out value="${item.fdmaAddress}"/>">
 		</div>
 		<div class="row">
-		<div class="col-12 col-lg-6 col-sm-12">
-		<input class="form-control" id="" name="" value="<c:out value="${item.fdmaLat }"/>" type="text" placeholder="위도" readonly="readonly">
+		<div class="col-12 col-lg-6 col-sm-12" style="margin-top: 10px;">
+		<input class="form-control" id="" name="" value="<c:out value="${item.fdmaLat }"/>" type="text" placeholder="위도" readonly="readonly" style="width: 200px; float: left; margin-right: 20px;">
+		<input class="form-control" id="" name=""  value="<c:out value="${item.fdmaLng }"/>" type="text" placeholder="경도" readonly="readonly" style="width: 200px;">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
-		<input class="form-control" id="" name=""  value="<c:out value="${item.fdmaLng }"/>" type="text" placeholder="경도" readonly="readonly">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
@@ -235,7 +239,8 @@
 
 		<div class="col-12 col-lg-6 col-sm-12">
 			<label for="exampleFormControlTextarea1" class="form-label">설명</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="margin-bottom: 12px;" disabled="disabled"></textarea>
+			<textarea class="form-control" id="exampleFormControlTextarea1"  style="margin-bottom: 12px; resize: none;" disabled="disabled" onkeydown="resize(this)" onkeyup="resize(this)" >
+			<c:out value="${fn:replace(item.ifmmDesc, br, '<br/>')}" escapeXml = "false"/></textarea>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
@@ -302,6 +307,11 @@
 
 
 <script type="text/javascript">
+
+	function resize(obj) {
+	    obj.style.height = '1px';
+	    obj.style.height = (12 + obj.scrollHeight) + 'px';
+	}
 
 // 진짜 삭제
 	memberNele = function(seq){
