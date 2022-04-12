@@ -104,7 +104,6 @@ public class FoodController {
 		return returnMap;
 	}
 
-	
 	/* NaverLoginBO */
 	private NaverLoginBO naverLoginBO;
 
@@ -122,8 +121,7 @@ public class FoodController {
         /* 생성한 인증 URL을 View로 전달 */
         return new ModelAndView("/food/FoodLogin", "url", naverAuthUrl);
     }
-        
-    @RequestMapping("/food/callback")
+    @RequestMapping("/index/callback")
 	public String callback(@RequestParam String code, @RequestParam String state, HttpSession session) throws IOException {
 		OAuth2AccessToken oauthToken = naverLoginBO.getAccessToken(session, code, state);
 		

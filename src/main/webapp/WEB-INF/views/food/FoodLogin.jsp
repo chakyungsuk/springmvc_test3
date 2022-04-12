@@ -152,7 +152,8 @@
     				<div style="color: #ffffff;">Google</div>
     			</a>
    			</button>
-		    <button class="btn btn-sm" type="button" id="naver_id_login" onclick="location.href='${url}';">
+		    <button class="btn btn-sm" type="button" onclick="location.href='${url}';">
+		    	<div id="naver_id_login" style="display:none;"></div>
     			<a href="javascript:void(0)" style="text-decoration: none;">
     				<div style="color: #00bd00;">Naver</div>
     			</a>
@@ -224,10 +225,10 @@
 <!-- 네이버 연동 -->
 <script type="text/javascript">
 
-	var naver_id_login = new naver_id_login("_TY46wZutTekwAAcohlV", "http://localhost:8090/food/FoodMain");
+	var naver_id_login = new naver_id_login("_TY46wZutTekwAAcohlV", "http://localhost:8090/index/callback");
 	var state = naver_id_login.getUniqState();
 	naver_id_login.setButton("white", 2,40);
-  	naver_id_login.setDomain("http://localhost:8090/food/callback");
+  	naver_id_login.setDomain("http://localhost:8090/food/FoodLogin");
   	naver_id_login.setState(state);
   	naver_id_login.setPopup();
   	naver_id_login.init_naver_id_login();

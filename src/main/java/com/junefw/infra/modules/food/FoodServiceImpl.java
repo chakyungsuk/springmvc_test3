@@ -28,10 +28,13 @@ public class FoodServiceImpl implements FoodService{
 		
 		dto.setRegDateTime(UtilDateTime.nowDate());		// 날짜
 		dto.setModDateTime(UtilDateTime.nowDate());		// 날짜
-		
 		dao.insert(dto);
-		dao.insertmaterial(dto);
 		
+		for(int i = 0; i < dto.getFdmtMaterialArray().length; i++) {
+			dto.setFdmtMaterial(dto.getFdmtMaterialArray()[i]);
+			dto.setFdmtAmount(dto.getFdmtAmountArray()[i]);
+			dao.insertmaterial(dto);
+		} 
 		return 1; 
 	}
 

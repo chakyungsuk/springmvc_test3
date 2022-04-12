@@ -18,7 +18,7 @@ public class NaverLoginBO {
 
 	private final static String CLIENT_ID = "_TY46wZutTekwAAcohlV";
 	private final static String CLIENT_SECRET = "q2MHBRrBsg";
-	private final static String REDIRECT_URI = "http://localhost:8090/food/callback";
+	private final static String REDIRECT_URI = "http://localhost:8090/index/callback";
 	private final static String SESSION_STATE = "oauth_state";
 
 	/* 프로필 조회 API URL */

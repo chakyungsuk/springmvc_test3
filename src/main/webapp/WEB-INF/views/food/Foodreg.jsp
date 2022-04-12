@@ -259,7 +259,7 @@
 					 <input type="text" name="fdmtMaterial" id="fdmtMaterial" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 돼지고기">
 					 <input type="text" name="fdmtAmount" id="fdmtAmount" class="form-control" style="width:310px; margin: 0;" placeholder="예) 300g">
 				 </div>
-			 	 <div id="" style="margin-bottom: 10px;">
+			 	<!--  <div id="" style="margin-bottom: 10px;">
 					 <input type="hidden" name="fdmtMaterialArray1" id="fdmtMaterialArray1" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
 					 <input type="hidden" name="fdmtAmountArray1" id="fdmtAmountArray1" class="form-control" style="width:310px;" placeholder="예) 1/2개">
 				 </div>
@@ -286,7 +286,7 @@
 			 	 <div id="" style="margin-bottom: 10px;">
 					 <input type="hidden" name="fdmtMaterialArray7" id="fdmtMaterialArray7" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
 					 <input type="hidden" name="fdmtAmountArray7" id="fdmtAmountArray7" class="form-control" style="width:310px;" placeholder="예) 1/2개">
-				 </div>
+				 </div> -->
 			 </div>
 			 <br>
 			 <div>
@@ -409,8 +409,8 @@
 			
 						
 			html += '<div id="" style="margin-bottom: 10px;">';
-			html += '<input type="text" name="fdmtMaterialArray[]" id="fdmtMaterialArray" class="form-control" style="width:330px; float: left; margin-right: 10px; margin-bottom: 8px;" placeholder="예) 양배추">';
-			html += '<input type="text" name="fdmtAmountArray[]" id="fdmtAmountArray" class="form-control" style="width:310px; float:left; margin-bottom: 8px;"; placeholder="예) 1/2개">';
+			html += '<input type="text" name="fdmtMaterial" id="fdmtMaterialArray" class="form-control" style="width:330px; float: left; margin-right: 10px; margin-bottom: 8px;" placeholder="예) 양배추">';
+			html += '<input type="text" name="fdmtAmount" id="fdmtAmountArray" class="form-control" style="width:310px; float:left; margin-bottom: 8px;"; placeholder="예) 1/2개">';
 			html += '<button class="btn" onclick="MaterialDelete(this)" id="remove" style="margin-top: 7px;"><i class="bi bi-x-circle" style="size: 20px;"></i></button>'; 
 			html += "</div>";
 			
