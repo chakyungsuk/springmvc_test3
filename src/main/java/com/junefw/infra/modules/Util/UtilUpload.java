@@ -13,31 +13,25 @@ public class UtilUpload {
 
 	public static void upload(MultipartFile multipartFile, String className, Member dto) throws Exception{
 		String fileName = multipartFile.getOriginalFilename();
-		System.out.println("fileName------------------" + fileName);
 		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
-		System.out.println("ext-------------------" + ext);
 		String uuid = UUID.randomUUID().toString();
 		System.out.println("uuid------------------" + uuid);
 		String uuidFileName = uuid + "." + ext;
-		System.out.println("uuidFileName-----------" + uuidFileName);
 		String pathModule = className;
 		String nowString = UtilDateTime.nowString();
 		String pathDate = nowString.substring(0,4) + "/" + nowString.substring(5,7) + "/" + nowString.substring(8,10);
 		String path = Constants.UPLOAD_PATH_PREFIX + "/" + pathModule + "/" + pathDate + "/";
 		
 		createPath(path);
-		System.out.println("path-------------" + path);
 		
 		multipartFile.transferTo(new File(path + uuidFileName));
 		
-		System.out.println("new File(path + uuidFileName)-------------" + new File(path + uuidFileName));
 		
-
 		dto.setOriginalName(fileName);
-		System.out.println("fileName------------------" + fileName);
 		dto.setUuidName(uuidFileName);
 		dto.setExt(ext);
 		dto.setSize(multipartFile.getSize());
+		dto.setPath("/resources/uploaded/" + pathModule + "/" + pathDate + "/");
 		
 		
 	}

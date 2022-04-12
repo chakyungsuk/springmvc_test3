@@ -77,6 +77,26 @@
 		LIMIT #{startRnumForMysql},#{rowNumToShow}
 	</select>
 	
+	<select id="selectListMemberUploaded" resultMap = "resultMapObj">
+		SELECT
+			seq
+			, type
+			, defaultNy
+			, sort
+			, originalName
+			, uuidName 
+			, ext
+			, size
+			, delNy
+			, pseq
+			, path
+		FROM
+			fdMemberUploaded
+		WHERE 1=1
+			AND pseq = #{ifmmSeq}
+		ORDER BY
+			sort
+	</select>
 	
 	<insert id="insert">
 		insert into fdMember(

@@ -41,20 +41,20 @@
 		.row {
 			margin-bottom: 12px;
 		}
-	 	@media all and (min-width:359px) and (max-width:1024px)) {
       	.container {
           	width: auto;
+       		margin-bottom: 400px;
         } 
-
-	    @media (min-height: 1024px), screen and (orientation: portrait) { 
- 		.container {
-			margin-bottom: 400px;
-   		}
    		textarea {
 		    min-height: 5rem;
 		    overflow-y: hidden;
 		    resize: none;
 		}
+   		.addScroll {
+   			overflow:auto;
+   			height: 90px;
+   			background-color: white;
+   		}
 </style>
 
 <body>
@@ -186,15 +186,12 @@
 			</div>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
-			<h6>거주국가</h6>
-			<select class="form-select" aria-label="Default select example" disabled="disabled">
-				<option selected>::선택::</option>
-				<option value="1">한국</option>
-				<option value="2">미국</option>
-				<option value="3">일본</option>
-			</select>
+			<label for="file0" class="form-label btn btn-info btn-sm">이미지첨부</label>
+			<div class="" id=""><c:out value="${item.path}"/></div>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
+			<label for="file1" class="form-label btn btn-info btn-sm">파일첨부</label>
+			<input class="form-control" id="file1" name="file1" type="" multiple="multiple" style="display: none;" onchange="upload(1, 2);" readonly="readonly">
 		</div>
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>

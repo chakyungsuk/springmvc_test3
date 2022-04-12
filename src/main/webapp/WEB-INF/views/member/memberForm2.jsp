@@ -40,14 +40,14 @@
 		.row {
 			margin-bottom: 12px;
 		}
-	 	@media all and (min-width:359px) and (max-width:1024px)) {
       	.container {
           	width: auto;
+          	margin-bottom: 400px;
         } 
-
-	    @media (min-height: 1024px), screen and (orientation: portrait) { 
- 		.container {
-			margin-bottom: 400px;
+   		.addScroll {
+   			overflow:auto;
+   			height: 90px;
+   			background-color: white;
    		}
 </style>
 
@@ -175,6 +175,22 @@
 			<div class="form-check">
 				<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 				<label class="form-check-label" for="flexCheckDefault"> 동의합니다. </label>
+			</div>
+		</div>
+				<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
+			<label for="file0" class="form-label btn btn-info btn-sm">이미지첨부</label>
+			<input class="form-control" id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onchange="upload(0, 2);">
+			<div class="addScroll">
+				<ul id="ulFile0" class="list-group">
+				</ul>
+			</div>
+		</div>
+		<div class="col-12 col-lg-6 col-sm-12">
+			<label for="file1" class="form-label btn btn-info btn-sm">파일첨부</label>
+			<input class="form-control" id="file1" name="file1" type="file" multiple="multiple" style="display: none;" onchange="upload(1, 2);">
+			<div class="addScroll">
+				<ul id="ulFile1" class="list-group">
+				</ul>
 			</div>
 		</div>
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
@@ -441,8 +457,7 @@ upload = function(seq, div){
 	delLi = function(seq, index){
 		$("#li_"+seq+"_"+index).remove();
 	};
-</script>
-
+</script>   
 
 </body>
 </htm1>

@@ -1,5 +1,6 @@
 package com.junefw.infra.modules.food;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,11 +12,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.junefw.infra.common.constants.Constants;
 import com.junefw.infra.common.util.UtilDateTime;
+import com.junefw.infra.modules.naver.NaverLoginBO;
 
 @Controller
 public class FoodController {
@@ -52,13 +57,6 @@ public class FoodController {
 		
 	}
 	
-	@RequestMapping(value = "/food/FoodLogin")
-	public String FoodLogin() throws Exception {
-		
-		
-		return "food/FoodLogin";
-	}
-	
 	
 	@ResponseBody
 	@RequestMapping(value = "/food/loginProc") // 로그인
@@ -91,6 +89,56 @@ public class FoodController {
 	}
 	
 	
+	@ResponseBody //구글 로그인
+	@RequestMapping(value = "/food/loginProcGoogle")
+	public Map<String, Object> GloginProc(@RequestParam("ifmmName")String name,Food dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		System.out.println(name);
+		httpSession.setAttribute("sessSeq","구글 회원입니다");
+		httpSession.setAttribute("sessName",name);
+		httpSession.setAttribute("sessId","차경석");
+	
+		returnMap.put("rt", "success");
+		
+		return returnMap;
+	}
+
+	
+	/* NaverLoginBO */
+	private NaverLoginBO naverLoginBO;
+
+	/* NaverLoginBO */
+	@Autowired
+	private void setNaverLoginBO(NaverLoginBO naverLoginBO){
+		this.naverLoginBO = naverLoginBO;
+	}
+	
+    @RequestMapping("/food/FoodLogin")
+    public ModelAndView FoodLogin(HttpSession session) {
+        /* 네아로 인증 URL을 생성하기 위하여 getAuthorizationUrl을 호출 */
+        String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
+        
+        /* 생성한 인증 URL을 View로 전달 */
+        return new ModelAndView("/food/FoodLogin", "url", naverAuthUrl);
+    }
+        
+    @RequestMapping("/food/callback")
+	public String callback(@RequestParam String code, @RequestParam String state, HttpSession session) throws IOException {
+		OAuth2AccessToken oauthToken = naverLoginBO.getAccessToken(session, code, state);
+		
+		//로그인 사용자 정보를 읽어온다.
+		String apiResult = naverLoginBO.getUserProfile(oauthToken);
+//      System.out.println(naverLoginBO.getUserProfile(oauthToken).toString());
+        session.setAttribute("result", apiResult);
+        System.out.println("result"+apiResult);
+        
+        session.setAttribute("sessSeq", 0);
+		
+		return "redirect:/food/FoodMain"; //사용자설정
+	}
+
+    
 	@ResponseBody
 	@RequestMapping(value = "/food/logoutProc")   // 로그아웃
 	public Map<String, Object> logoutProc(HttpSession httpSession) throws Exception {

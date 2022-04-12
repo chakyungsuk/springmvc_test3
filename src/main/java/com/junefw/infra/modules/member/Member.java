@@ -17,6 +17,7 @@ public class Member {
 	private Integer ifmmDelNy;
 	private String ifmmSaved;
 	private String ifmmDesc;
+	private String Path;
 	
 	/* @DateTimeFormat */
 	
@@ -453,6 +454,14 @@ public class Member {
 
 	public void setIfmmDesc(String ifmmDesc) {
 		this.ifmmDesc = ifmmDesc;
+	}
+
+	public String getPath() {
+		return Path;
+	}
+
+	public void setPath(String path) {
+		Path = path;
 	}
 	
 	

@@ -40,6 +40,8 @@
 			<exclude-mapping path="/member/memberLogin" />
 			<exclude-mapping path="/member/loginProc" />
 			<exclude-mapping path="/member/memberForm" />
+			<exclude-mapping path="/food/loginProcGoogle" />
+			<exclude-mapping path="/food/callback" />
 			<exclude-mapping path="/food/FoodLogin" />
 			<exclude-mapping path="/food/loginProc" />
 			<exclude-mapping path="/food/FoodMain" />
@@ -49,5 +51,8 @@
 		</interceptor>
 	</interceptors>	
 	<!-- session interceptor e 2022.03.13 for logincheck -->
+	
+	<beans:bean id="naverLoginBO" class="com.junefw.infra.modules.naver.NaverLoginBO" />
+   	<!-- NaverLoginBO Class에 대한 Bean설정 추가 -->
 	
 </beans:beans>

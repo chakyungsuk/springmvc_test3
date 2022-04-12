@@ -44,19 +44,14 @@
 		.row {
 			margin-bottom: 12px;
 		}
-	 	@media all and (min-width:359px) and (max-width:1024px)) {
       	.container {
           	width: auto;
+          	margin-bottom: 400px;
         } 
-
-	    @media (min-height: 1024px), screen and (orientation: portrait) { 
- 		.container {
-			margin-bottom: 400px;
-   		}
    		.addScroll {
    			overflow:auto;
    			height: 90px;
-   			background-color: gray;
+   			background-color: white;
    		}
 </style>
 

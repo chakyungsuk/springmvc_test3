@@ -26,6 +26,11 @@ public class MemberServiceImpl implements MemberService{
 	}
 	
 	@Override
+	public List<Member> selectListMemberUploaded(MemberVo vo) throws Exception {
+		return dao.selectListMemberUploaded(vo);
+	}
+	
+	@Override
 	public int insert(Member dto) throws Exception {
 		
 		dto.setRegDateTime(UtilDateTime.nowDate());		// 날짜
@@ -139,6 +144,8 @@ public class MemberServiceImpl implements MemberService{
 	public Member selectOneLogin(Member dto) throws Exception {
 		return dao.selectOneLogin(dto);
 	}
+
+
 
 
 }

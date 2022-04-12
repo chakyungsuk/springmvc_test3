@@ -179,10 +179,10 @@ public class MemberController {
 	
 	@RequestMapping(value = "/member/memberView")
 	public String memberView(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
-		
 		Member rt = service.selectOne(vo);
 		
 		model.addAttribute("item", rt);
+		model.addAttribute("listUploaded", service.selectListMemberUploaded(vo));
 		
 		return "member/memberView";
 	}

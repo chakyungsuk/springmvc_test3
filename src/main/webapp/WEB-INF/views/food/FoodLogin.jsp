@@ -37,6 +37,8 @@
 <!-- GoogleLogin -->
 <meta name ="google-signin-client_id" content="705025172192-b6e4avr6h5p13nrdj40u8tduucmti0fu.apps.googleusercontent.com">  
 <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+<!-- content에 자신의 OAuth2.0 클라이언트ID를 넣습니다. -->
+
 
 <!-- facebookLogin -->
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v10.0&appId=1588150011384568" nonce="SiOBIhLG"></script>
@@ -150,7 +152,7 @@
     				<div style="color: #ffffff;">Google</div>
     			</a>
    			</button>
-		    <button class="btn btn-sm" type="button" id="naver_id_login">
+		    <button class="btn btn-sm" type="button" id="naver_id_login" onclick="location.href='${url}';">
     			<a href="javascript:void(0)" style="text-decoration: none;">
     				<div style="color: #00bd00;">Naver</div>
     			</a>
@@ -167,7 +169,6 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 <script type="text/javascript">
-		
 		
 		$("#btnLogin").on("click", function(){
 			alert("로그인 시도")
@@ -225,16 +226,17 @@
 
 	var naver_id_login = new naver_id_login("_TY46wZutTekwAAcohlV", "http://localhost:8090/food/FoodMain");
 	var state = naver_id_login.getUniqState();
-	naver_id_login.setButton("white", 2,30);
-	naver_id_login.setDomain("http://localhost:8090/food/FoodLogin");
-	naver_id_login.setState(state);
-	naver_id_login.setPopup();
-	naver_id_login.init_naver_id_login();
+	naver_id_login.setButton("white", 2,40);
+  	naver_id_login.setDomain("http://localhost:8090/food/callback");
+  	naver_id_login.setState(state);
+  	naver_id_login.setPopup();
+  	naver_id_login.init_naver_id_login();
 	
 </script>
 
-<!-- 구글 연동 -->
-<script type="text/javascript">
+<!-- 구글연동 -->
+<script>
+
 //처음 실행하는 함수
 function init() {
 	gapi.load('auth2', function() {
@@ -248,28 +250,61 @@ function init() {
 		gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', options, onSignIn, onSignInFailure);
 	})
 }
+
 function onSignIn(googleUser) {
 	var access_token = googleUser.getAuthResponse().access_token
 	$.ajax({
     	// people api를 이용하여 프로필 및 생년월일에 대한 선택동의후 가져온다.
-		url: 'https://people.googleapis.com/v1/people/me'
+		/* url: 'https://people.googleapis.com/v1/people/me' */
         // key에 자신의 API 키를 넣습니다.
-		, data: {personFields:'birthdays', key:'AIzaSyDU8X06NIy7HyTssgzCLXbe-0S3xveczSM', 'access_token': access_token}
+        	/* url : "/infra/member/GloginProc" */
+		 data: {personFields:'birthdays', key:'AIzaSyDU8X06NIy7HyTssgzCLXbe-0S3xveczSM', 'access_token': access_token}
 		, method:'GET'
 	})
 	.done(function(e){
         //프로필을 가져온다.
-		var profile = googleUser.getBasicProfile();
-		console.log(profile)
+     
+		 var profile = googleUser.getBasicProfile();
+		/* console.log(profile); */
+		var id= profile.getId();
+		var username = profile.getName();
+		
+		console.log(username);
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/food/loginProcGoogle"
+			,data : {"ifmmName" : profile.getName()}
+			,success: function(response) {
+				if(response.rt == "success") {
+					/* location.href = "/infra/index/indexView"; */
+					location.href = "/food/FoodMain";
+				} else {
+					alert("구글 로그인 실패");
+				}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		})
+		
 	})
 	.fail(function(e){
 		console.log(e);
 	})
+	
 }
-function onSignInFailure(t){		
+
+function onSignInFailure(t){	
+	
 	console.log(t);
+	
 }
 </script>
+<!-- //구글 api 사용을 위한 스크립트 -->
+<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+
 
 <!-- 페이스북 연동 -->
 <script>
@@ -320,7 +355,6 @@ window.fbAsyncInit = function() {
 		});
 		
 	}
-
 </script>
 
 
