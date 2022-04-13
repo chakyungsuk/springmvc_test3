@@ -72,7 +72,7 @@
 		<a class="navbar-brand" href="/food/FoodMain">Ten Thousand Recipes</a>
 	</div>
 	<div class="col-lg-3 col-sm-3">
-		<a href="/food/FoodInst"><input type="button" id="signUp" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
+		<a href="/food/Foodreg"><input type="button" id="signUp" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
 	</div>
 	<div class="col-lg-1 col-sm-1">
 	<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
@@ -113,7 +113,7 @@
 	    <li>
 	    <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"  type="button" id="dropdownMenuLink">
 	      <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
-	      <strong><c:out value="${sessId }"/> 회원님 안녕하세요.</strong>
+	      <strong id="name"><c:out value="${sessId }"/> 회원님 안녕하세요.</strong>
 	    </a>
 	    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
 	      <li><a class="dropdown-item" href="#">Profile Setting</a></li>
@@ -347,12 +347,14 @@ Copyright ©EZHLD Inc. All Rights Reserved</p>
 <font id="name"></font> <!-- (body에 사용) -->
 
 <script type="text/javascript">
-  $(document).ready(function() {
-	    var name = ${result}.response.nickname;
-	    $("#name").html(name); //font 부분에 텍스트 바꾸기
+	  $(document).ready(function() {
+	    var name = ${result}.response.name;
+	    $("#name").html(name); 
 	    });
-	  //location.href = "${pageContext.request.contextPath}/";
+	 // location.href = "/";
 </script>
+
+
 
 
 </form>

@@ -97,6 +97,7 @@
 		});
 
 		$("#btnLogin").on("click", function(){
+			alert("asdfasdf");
 			$.ajax({
 				async: true 
 				,cache: false
@@ -104,6 +105,8 @@
 				,url: "/member/loginProc"
 				,data : { "ifmmId" : $("#ifmmId").val(), "ifmmPassword" : $("#ifmmPassword").val()}
 				,success: function(response) {
+					
+					alert(response.rt);
 					if(response.rt == "success") {
 						location.href = "/index/indexView";
 					} else {

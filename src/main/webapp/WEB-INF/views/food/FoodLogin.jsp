@@ -108,7 +108,8 @@
 	</div>
 </nav>
 
-<form id="formLogin" name="formLogin" method="post" action="/food/FoodLogin">
+<!-- <form id="formLogin" name="formLogin" method="post" action="/food/FoodLogin"> -->
+<form id="formLogin" name="formLogin" method="post">
 	
 	<div class="container1" style="margin-top: 100px;" >
 		<div class="col-12">
@@ -126,14 +127,15 @@
 			
 	<div class="container1" style="margin-top: 50px;">
 	<a href="" style="text-decoration: none;">
-    	<button class="btn btn-sm btn-primary" type="submit" style="width: 330px;" id="btnLogin">Login</button>
+    	<!-- <button class="btn btn-sm btn-primary" type="submit" style="width: 330px;" id="btnLogin">Login</button> -->
+    	<button class="btn btn-sm btn-primary" style="width: 330px;" id="btnLogin">Login</button>
    	</a>
 		<div class="col-12" style="margin-top: 50px;">
 			<input type="button" id="signUp" class="btn" style="color: red;" value="Sign Up"/>
 			<input type="button" id="FindPW" class="btn" style="color: blue;" value="Find Password"/>
 		</div>
 	</div>
-	
+ 
 <div class="container1">
    	<div class="" style="margin-top: 120px;">
 		<div class="col-lg-12 col-sm-12">
@@ -163,6 +165,7 @@
   	<p class="mt-5 mb-3" style="color: gray;">&copy; Happy Food 2022 ~</p>
 </div>
 
+</form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/xdmin/js/sidebars.js"></script>
@@ -170,7 +173,7 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 <script type="text/javascript">
-		
+	
 		$("#btnLogin").on("click", function(){
 			alert("로그인 시도")
 			if(validation() == false) return false; 
@@ -181,6 +184,9 @@
 				,url: "/food/loginProc"
 				,data : { "ifmmId" : $("#ifmmId").val(), "ifmmPassword" : $("#ifmmPassword").val()}
 				,success: function(response) {
+					
+					alert(response.rt);
+					
 					if(response.rt == "success") {
 						location.href = "/food/FoodMain";
 					} else {
@@ -192,10 +198,11 @@
 				}
 			});
 		});
-		
+	
 		validation = function() {
 			if(!checkNull($("#ifmmId"), $("#ifmmId").val(), "아이디를 입력해주세요.")) return false;
 			if(!checkNull($("#ifmmPassword"), $("#ifmmPassword").val(), "비밀번호를 입력해주세요.")) return false;
+			alert("aasdfasdf");
 		}
 		
 		$("#signUp").mouseover(function(){
@@ -232,6 +239,7 @@
   	naver_id_login.setState(state);
   	naver_id_login.setPopup();
   	naver_id_login.init_naver_id_login();
+  	
 	
 </script>
 
@@ -342,25 +350,69 @@ window.fbAsyncInit = function() {
 </script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v10.0&appId=299726265629174" nonce="SiOBIhLG"></script>
 
-<!-- kakao 로그인 -->
+<!-- 카카오로그인 -->
 <script>
-	Kakao.init('9d80e2a3ed34412759bd6b1eea6603bb');
-	console.log(Kakao.isInitialized());   // 웹화면상에서 제대로 초기화가 되었는지 콘솔에서 확인할 수 있습니다.
+window.Kakao.init('9d80e2a3ed34412759bd6b1eea6603bb');	// 자바스크립트 키 입력
+console.log(Kakao.isInitialized()); 
+function kakaoLogin() {
+    window.Kakao.Auth.login({
+        scope: 'profile_nickname', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
+        success: function(response) {
+            console.log(response) // 로그인 성공하면 받아오는 데이터
+            window.Kakao.API.request({ // 사용자 정보 가져오기 
+                url: '/v2/user/me',
+                success: (res) => {
+                    const kakao_account = res.kakao_account; 
+                    const profile_nickname = res.properties.nickname; 
+                    console.log(kakao_account)		// 받아온 정보들을 출력
+                    console.log(profile_nickname)		// 받아온 정보들을 출력
+                    $.ajax({
+            			async: true 
+            			,cache: false
+            			,type: "post"
+            			,url: "/food/KakaoLgProc"
+            			,data : {"ifmmName" : profile_nickname}
+            			,success: function(response) {
+            				if(response.item == "success") {
+            					location.href = "/food/FoodMain";
+            				} else {
+            					alert("카카오 로그인 실패");
+            				}
+            			}
+            			,error : function(jqXHR, textStatus, errorThrown){
+            				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+            			}
+            		})
+                }
+            });
+            // window.location.href='/ex/kakao_login.html' //리다이렉트 되는 코드
+        }, fail: function(err) { //다른 로그인 일때 실행
+    	    $.ajax({
+        		
+        		type: "post"
+        		,url: "/food/logoutProc"
+        		
+        		,success: function(response) {
+        			if(response.rt == "success") {
+        				location.href = "/food/KakaoLgProc";
+        			} 
+        		}
+        		,error : function(jqXHR, textStatus, errorThrown){
+        			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+        		}
+        		
+        	}); 
+      }
+      
+    })
 
-	kakaoLogin = function(){     // 버튼에 링크를 걸었던 자바스크립트 함수.
-		
-		Kakao.Auth.authorize({   //사용자가 앱에 로그인할 수 있도록 인가 코드를 요청
-			redirectUri: 'http://localhost:8090/food/FoodMain'
-			//kakao developers 페이지에서 설정했던 redirectUri를 그대로 작성해줍니다.
-			//이렇게 하면 로그인 성공시 해당 주소로 redirect 됩니다.
-		});
-		
-	}
+}
+
 </script>
 
 
 
-</form>
+
 </body>
 
 </htm1>

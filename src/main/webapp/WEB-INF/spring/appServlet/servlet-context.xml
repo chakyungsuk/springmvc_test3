@@ -40,8 +40,14 @@
 			<exclude-mapping path="/member/memberLogin" />
 			<exclude-mapping path="/member/loginProc" />
 			<exclude-mapping path="/member/memberForm" />
+			<!-- 구글 -->
 			<exclude-mapping path="/food/loginProcGoogle" />
+			<!-- 카카오 -->
+			<exclude-mapping path="/food/KakaoLgProc" />
+			<!-- 네이버 -->
 			<exclude-mapping path="/food/callback" />
+			<exclude-mapping path="/index/callback" />
+			
 			<exclude-mapping path="/food/FoodLogin" />
 			<exclude-mapping path="/food/loginProc" />
 			<exclude-mapping path="/food/FoodMain" />

@@ -60,6 +60,7 @@ public class MemberController {
 	public Map<String, Object> loginProc(Member dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
+		
 		Member rtMember = service.selectOneLogin(dto);
 		
 		if(rtMember != null) {
