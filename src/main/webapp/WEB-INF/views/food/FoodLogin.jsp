@@ -109,18 +109,18 @@
 </nav>
 
 <!-- <form id="formLogin" name="formLogin" method="post" action="/food/FoodLogin"> -->
-<form id="formLogin" name="formLogin" method="post">
+<form id="formLogin" name="formLogin" method="post" action="./">
 	
 	<div class="container1" style="margin-top: 100px;" >
 		<div class="col-12">
 			<div class="input">
-				<input type="text" id="ifmmId" name="ifmmId" placeholder="ID" size="40" style="background: transparent; color: white;" autocomplete="off" value="111">
+				<input type="text" id="ifmmId" name="" placeholder="ID" size="40" style="background: transparent; color: white;" autocomplete="off" value="111">
 			</div>
 		</div>
 		
 		<div class="col-12">
 			<div class="input">
-				<input type="password" id="ifmmPassword" name="ifmmPassword" placeholder="Password" size="40" style="background: transparent; color: white;" value="111">
+				<input type="password" id="ifmmPassword" name="" placeholder="Password" size="40" style="background: transparent; color: white;" value="111">
 			</div>
 		</div>
 	</div>
@@ -128,7 +128,7 @@
 	<div class="container1" style="margin-top: 50px;">
 	<a href="" style="text-decoration: none;">
     	<!-- <button class="btn btn-sm btn-primary" type="submit" style="width: 330px;" id="btnLogin">Login</button> -->
-    	<button class="btn btn-sm btn-primary" style="width: 330px;" id="btnLogin">Login</button>
+    	<button class="btn btn-sm btn-primary" style="width: 330px;" id="btnLogin" type="button">Login</button>
    	</a>
 		<div class="col-12" style="margin-top: 50px;">
 			<input type="button" id="signUp" class="btn" style="color: red;" value="Sign Up"/>
@@ -166,17 +166,16 @@
 </div>
 
 </form>
+<script src="/resources/xdmin/js/sidebars.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="/resources/xdmin/js/sidebars.js"></script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>	
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 <script type="text/javascript">
 	
 		$("#btnLogin").on("click", function(){
-			alert("로그인 시도")
-			if(validation() == false) return false; 
+			/* if(validation() == false) return false; */ 
 			$.ajax({
 				async: true 
 				,cache: false
@@ -184,8 +183,6 @@
 				,url: "/food/loginProc"
 				,data : { "ifmmId" : $("#ifmmId").val(), "ifmmPassword" : $("#ifmmPassword").val()}
 				,success: function(response) {
-					
-					alert(response.rt);
 					
 					if(response.rt == "success") {
 						location.href = "/food/FoodMain";
@@ -197,12 +194,12 @@
 					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
 				}
 			});
-		});
+			return false;
+		}); 
 	
 		validation = function() {
 			if(!checkNull($("#ifmmId"), $("#ifmmId").val(), "아이디를 입력해주세요.")) return false;
 			if(!checkNull($("#ifmmPassword"), $("#ifmmPassword").val(), "비밀번호를 입력해주세요.")) return false;
-			alert("aasdfasdf");
 		}
 		
 		$("#signUp").mouseover(function(){
@@ -228,6 +225,7 @@
 		});
 
 </script>
+
 
 <!-- 네이버 연동 -->
 <script type="text/javascript">
@@ -315,41 +313,6 @@ function onSignInFailure(t){
 <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 
 
-<!-- 페이스북 연동 -->
-<script>
-//기존 로그인 상태를 가져오기 위해 Facebook에 대한 호출
-function statusChangeCallback(res){
-	statusChangeCallback(response);
-}
-  
-function fnFbCustomLogin(){
-	FB.login(function(response) {
-		if (response.status === 'connected') {
-			FB.api('/me', 'get', {fields: 'name,email'}, function(r) {
-				console.log(r);
-			})
-		} else if (response.status === 'not_authorized') {
-			// 사람은 Facebook에 로그인했지만 앱에는 로그인하지 않았습니다.
-			alert('앱에 로그인해야 이용가능한 기능입니다.');
-		} else {
-			// 그 사람은 Facebook에 로그인하지 않았으므로이 앱에 로그인했는지 여부는 확실하지 않습니다.
-			alert('페이스북에 로그인해야 이용가능한 기능입니다.');
-		}
-	}, {scope: 'public_profile,email'});
-}
-
-window.fbAsyncInit = function() {
-	FB.init({
-		appId      : '299726265629174', // 내 앱 ID를 입력한다.
-		cookie     : true,
-		xfbml      : true,
-		version    : 'v13.0'
-	});
-	FB.AppEvents.logPageView();   
-};
-</script>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v10.0&appId=299726265629174" nonce="SiOBIhLG"></script>
-
 <!-- 카카오로그인 -->
 <script>
 window.Kakao.init('9d80e2a3ed34412759bd6b1eea6603bb');	// 자바스크립트 키 입력
@@ -410,8 +373,77 @@ function kakaoLogin() {
 
 </script>
 
+<!-- 페북로그인 -->
 
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v13.0&appId=299726265629174" nonce="JutAfaKH"></script><!-- &autoLogAppEvents=1 -->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 
+<script>
+function checkLoginState() {               					//로그인 클릭시 호출
+	    FB.getLoginStatus(function(response) {  
+	      statusChangeCallback(response);
+	    });
+	  }
+
+function statusChangeCallback(response) { 					// FB.getLoginStatus()의 결과호출
+	
+ console.log(response);             			 			//사용자의 현재 로그인 상태.
+	if (response.status === 'connected') {   				// 웹페이지와 페이스북에 로그인이 되어있다면
+		testAPI();  
+	} else {         			                       		// 웹페이지와 페이스북에 로그인이 되어있지 않다면
+		console.log('Please log into this webpage.'); 
+	}
+}
+
+function fnFbCustomLogin(){
+	FB.login(function(response) {
+		if (response.status === 'connected') {
+			FB.api('/me', 'get', {fields: 'name,email'}, function(r) {
+				console.log(r);
+				console.log('Successful login for: ' + r.name);
+			/* 	console.log(testAPI(response)); */
+				$.ajax({
+					async: true 
+					,cache: false
+					,type: "post"
+					,url: "/food/FBLgProc"
+					,data : {"ifmmname" : r.name}		// 넘겨줄 데이터를 설정
+					,success: function(response) {
+						if(response.item == "success") {
+							location.href = "/food/FoodMain";
+						} else {
+							alert("페이스북 로그인 실패");
+						}
+					}
+					,error : function(jqXHR, textStatus, errorThrown){
+						alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+					}
+				}) 
+			})
+		} 
+	}, {scope: 'public_profile,email'});		//profile, email 권한을 나중에 추가하려는 경우 FB.login() 함수로 다시 실행할 수 있다.
+}
+
+window.fbAsyncInit = function() {
+	FB.init({
+		appId      : '299726265629174', // 내 앱 ID.
+		cookie     : true,
+		xfbml      : true,
+		version    : 'v13.0'
+	});
+	FB.getLoginStatus(function(response) {   
+		statusChangeCallback(response);        // 로그인 상태를 말해줌
+	});
+}; 
+
+	function testAPI(response) {                      
+	console.log('Welcome!  Fetching your information.... ');
+	FB.api('/me', function(response) {
+		console.log('Thanks for logging in ' + response.name);
+	});
+} 
+
+</script>
 
 </body>
 
