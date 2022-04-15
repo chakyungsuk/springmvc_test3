@@ -409,8 +409,8 @@
 			
 						
 			html += '<div id="" style="margin-bottom: 10px;">';
-			html += '<input type="text" name="fdmtMaterial" id="fdmtMaterialArray" class="form-control" style="width:330px; float: left; margin-right: 10px; margin-bottom: 8px;" placeholder="예) 양배추">';
-			html += '<input type="text" name="fdmtAmount" id="fdmtAmountArray" class="form-control" style="width:310px; float:left; margin-bottom: 8px;"; placeholder="예) 1/2개">';
+			html += '<input type="text" name="fdmtMaterialArray" id="fdmtMaterialArray" class="form-control" style="width:330px; float: left; margin-right: 10px; margin-bottom: 8px;" placeholder="예) 양배추">';
+			html += '<input type="text" name="fdmtAmountArray" id="fdmtAmountArray" class="form-control" style="width:310px; float:left; margin-bottom: 8px;"; placeholder="예) 1/2개">';
 			html += '<button class="btn" onclick="MaterialDelete(this)" id="remove" style="margin-top: 7px;"><i class="bi bi-x-circle" style="size: 20px;"></i></button>'; 
 			html += "</div>";
 			

@@ -194,7 +194,7 @@
 	  <div class="row">
 	  	<div class="col-6" style="">
 	  	<ul>
-		   <li>식빵 2개</li>
+		   <li><c:out value="${item.fdmtMaterial}"/></li>
 		   <li>체다슬라이스치즈
 		   <li>소금
 		   <li>계란

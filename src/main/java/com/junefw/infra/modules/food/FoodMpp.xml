@@ -40,6 +40,7 @@
 				<when test="shOptionDate == 2">and a.modDateTime between #{shDateStart} and #{shDateEnd}</when>
 				<when test="shOptionDate == 3">and a.ifmmdob between #{shDateStart} and #{shDateEnd}</when>
 			</choose> -->
+			ORDER BY a.fdrsSeq DESC
 	</sql>
 
 	<select id="selectOneFood" resultType="Integer">
@@ -118,8 +119,11 @@
 			, a.fdrsTimeCd
 			, a.fdrsDifficultyCd
 			, a.fdrsTip
+			, b.fdmtMaterial
+			, b.fdmtAmount
 		FROM
 			fdrecipesave a
+		LEFT JOIN fdmaterial b on a.fdrsSeq = b.fdrsSeq
 		WHERE 1=1
 			and a.fdrsSeq = #{fdrsSeq}
 	</select>

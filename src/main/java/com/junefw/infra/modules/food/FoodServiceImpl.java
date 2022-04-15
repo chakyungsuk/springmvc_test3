@@ -29,13 +29,20 @@ public class FoodServiceImpl implements FoodService{
 		dto.setRegDateTime(UtilDateTime.nowDate());		// 날짜
 		dto.setModDateTime(UtilDateTime.nowDate());		// 날짜
 		dao.insert(dto);
+		dao.insertmaterial(dto);
 		
 		for(int i = 0; i < dto.getFdmtMaterialArray().length; i++) {
+			System.out.println("dto.getFdmtMaterialArray().length" + dto.getFdmtMaterialArray().length);
 			dto.setFdmtMaterial(dto.getFdmtMaterialArray()[i]);
 			dto.setFdmtAmount(dto.getFdmtAmountArray()[i]);
 			dao.insertmaterial(dto);
-		} 
+			} 
 		return 1; 
+	}
+	
+	@Override
+	public int insertmaterial(Food dto) throws Exception {
+		return dao.insertmaterial(dto);
 	}
 
 	@Override
@@ -84,10 +91,6 @@ public class FoodServiceImpl implements FoodService{
 		return dao.selectOneLogin(dto);
 	}
 
-	@Override
-	public int insertmaterial(Food dto) throws Exception {
-		return dao.insertmaterial(dto);
-	}
 
 }
 		 
