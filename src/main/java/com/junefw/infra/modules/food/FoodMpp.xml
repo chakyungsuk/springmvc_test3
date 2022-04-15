@@ -66,6 +66,18 @@
 		LIMIT #{startRnumForMysql},#{rowNumToShow}
 	</select>
 	
+	<select id="selectfdmaterialList" resultMap="resultMapObj">
+		SELECT
+			fdmtMaterial
+			, fdmtAmount
+			, fdmtDelNy
+			, fdrsSeq
+		FROM 
+			fdmaterial
+		WHERE 1=1
+			and fdrsSeq = #{fdrsSeq}
+	</select>
+	
 	
 	<insert id="insert">
 		insert into fdrecipesave(
@@ -119,11 +131,8 @@
 			, a.fdrsTimeCd
 			, a.fdrsDifficultyCd
 			, a.fdrsTip
-			, b.fdmtMaterial
-			, b.fdmtAmount
 		FROM
 			fdrecipesave a
-		LEFT JOIN fdmaterial b on a.fdrsSeq = b.fdrsSeq
 		WHERE 1=1
 			and a.fdrsSeq = #{fdrsSeq}
 	</select>

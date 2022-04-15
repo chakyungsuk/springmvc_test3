@@ -194,7 +194,10 @@ public class FoodController {
 		Food rt = service.selectOne(vo);
 
 		model.addAttribute("item", rt);
-
+		//파생테이블이 가지고 있는 데이터
+		model.addAttribute("material", service.selectfdmaterialList(vo));
+		
+		
 		return "food/Fooddater";
 	}
 

@@ -18,6 +18,7 @@ public class FoodDao {
 	
 	public int selectOneFood(FoodVo vo) {return sqlSession.selectOne(namespace + ".selectOneFood", vo);}
 	public List<Food> selectList(FoodVo vo){ return sqlSession.selectList(namespace + ".selectList", vo);}
+	public List<Food> selectfdmaterialList(FoodVo vo){ return sqlSession.selectList(namespace + ".selectfdmaterialList", vo);}
 	
 	public int insert(Food dto){ return sqlSession.insert(namespace + ".insert", dto);}
 	public int insertmaterial(Food dto){ return sqlSession.insert(namespace + ".insertmaterial", dto);}

@@ -69,6 +69,9 @@
 	h3 {
 		margin-top: 20px;
 	}
+	hr {
+		text-align: center;
+	}
 /* 	.input-group {
     position: relative;
     display: table;
@@ -190,20 +193,14 @@
 	<div class="card mb-3">
 	  <div class="card-body">
 	    <h4 class="card-title" style="text-align: left; margin-left: 50px;">재료</h4>
-    <div class="container" style="max-width: 60%; text-align: center;">
+    <div class="container" style="max-width: 60%; text-align: center; justify-content: center;">
 	  <div class="row">
-	  	<div class="col-6" style="">
-	  	<ul>
-		   <li><c:out value="${item.fdmtMaterial}"/></li>
-		   <li>체다슬라이스치즈
-		   <li>소금
-		   <li>계란
-	    </div>
-	  	<div class="col-6">
-		   	<li>과일잼(또는 설탕)
-		    <li>버터(또는 식용유)
-	    </div>
-	    </ul>
+	  	<c:forEach items="${material}" var="material" varStatus="status">
+		  		<div class="col-6" style="">
+				   <li><c:out value="${material.fdmtMaterial}"/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<c:out value="${material.fdmtAmount}"/></li>
+				   <hr style="margin-top: 5px;">
+			    </div>
+	    </c:forEach>
 	  </div>
 	  </div>
 	  </div>

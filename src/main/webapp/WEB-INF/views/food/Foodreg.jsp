@@ -204,19 +204,18 @@
 			<div class="regi_title" style="text-align:left;"><h4>레시피 등록</h4></div>
 		</div>
 		<div class="container" style="max-width: 80%; text-align: center;">
-		<div class="row">
-			<div class="cont_box pad_l_60">
-				<div id="divMainPhotoUpload" class="cont_pic2">
-					<div style="position:absolute;left:-3000px"><input type="file" name="q_main_file" id="q_main_file" file_gubun="main" accept="jpeg,png,gif" style="display:;width:0px;height:0px;font-size:0px;" text=""></div>
-					<div id="divMainPhotoBox" is_over="0" style="float: right;">
-						<img id="mainPhotoHolder" src="https://recipe1.ezmember.co.kr/img/pic_none4.gif" style="width: 250px; height: 250px; cursor:pointer">
-					</div>
-				</div>
-				<div class="cont_line"><p class="cont_tit4">레시피 제목</p><input type="text" name="fdrsName" id="fdrsName" value="" class="form-control" placeholder="예) 소고기 미역국 끓이기" style="width:610px; "></div><br>
-				<div class="cont_line pad_b_25"><p class="cont_tit4">요리소개</p><textarea name="fdrsIntroduction" id="fdrsIntroduction" class="form-control step_cont" placeholder="이 레시피의 탄생배경을 적어주세요. 예) 남편의 생일을 맞아 소고기 미역국을 끓여봤어요. 어머니로부터 배운 미역국 레시피를 남편의 입맛에 맞게 고안했습니다." style="height:100px; width:610px; resize:none;"></textarea></div>
+			<div class="row">
+				<div class="cont_box pad_l_60">
+						<div id="" style="float: right;">
+						<label for="file0" class="form-label btn btn-info btn-sm">이미지첨부</label>
+							<!-- <img id="" src="" style="width: 250px; height: 250px; cursor:pointer" for="file0"> -->
+							<input class="form-control" type="file" name="file0" id="file0" accept="jpeg,png,gif" style="display:none;" text="">
+						</div>
+					<div class="cont_line"><p class="cont_tit4">레시피 제목</p><input type="text" name="fdrsName" id="fdrsName" value="" class="form-control" placeholder="예) 소고기 미역국 끓이기" style="width:610px; "></div><br>
+					<div class="cont_line pad_b_25"><p class="cont_tit4">요리소개</p><textarea name="fdrsIntroduction" id="fdrsIntroduction" class="form-control step_cont" placeholder="이 레시피의 탄생배경을 적어주세요. 예) 남편의 생일을 맞아 소고기 미역국을 끓여봤어요. 어머니로부터 배운 미역국 레시피를 남편의 입맛에 맞게 고안했습니다." style="height:100px; width:610px; resize:none;"></textarea></div>
 				</div>
 			</div>
-			</div>
+		</div>
 			<hr>
 			<div class="cont_line" style="margin-bottom: 40px;"><h4 style="text-align: left;">요리정보</h4>
 			<span class="guide" style="text-align: center;">분류를 바르게 설정해주시면, 이용자들이 쉽게 레시피를 검색할 수 있어요.</span><br><br>

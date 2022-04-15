@@ -24,6 +24,11 @@ public class FoodServiceImpl implements FoodService{
 	}
 	
 	@Override
+	public List<Food> selectfdmaterialList(FoodVo vo) throws Exception {
+		return dao.selectfdmaterialList(vo);
+	}
+
+	@Override
 	public int insert(Food dto) throws Exception {
 		
 		dto.setRegDateTime(UtilDateTime.nowDate());		// 날짜
@@ -90,6 +95,7 @@ public class FoodServiceImpl implements FoodService{
 	public Food selectOneLogin(Food dto) throws Exception {
 		return dao.selectOneLogin(dto);
 	}
+
 
 
 }

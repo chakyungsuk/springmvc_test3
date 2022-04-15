@@ -22,6 +22,15 @@ public class FoodVo {
 	private String fdrsTip;
 	private Integer fdrsDelNy;
 
+	//material
+	private String fdmtMaterial;
+	private String fdmtAmount;
+	private Integer fdmtDelNy;
+	
+	//materialArray
+	private String[] fdmtMaterialArray;
+	private String[] fdmtAmountArray;
+	
 	//shmemberId = search
 	private String shMemberName;
 	private Integer shmemberDelNy;
@@ -352,6 +361,46 @@ public class FoodVo {
 
 	public void setShmemberDelNy(Integer shmemberDelNy) {
 		this.shmemberDelNy = shmemberDelNy;
+	}
+
+	public String getFdmtMaterial() {
+		return fdmtMaterial;
+	}
+
+	public void setFdmtMaterial(String fdmtMaterial) {
+		this.fdmtMaterial = fdmtMaterial;
+	}
+
+	public String getFdmtAmount() {
+		return fdmtAmount;
+	}
+
+	public void setFdmtAmount(String fdmtAmount) {
+		this.fdmtAmount = fdmtAmount;
+	}
+
+	public Integer getFdmtDelNy() {
+		return fdmtDelNy;
+	}
+
+	public void setFdmtDelNy(Integer fdmtDelNy) {
+		this.fdmtDelNy = fdmtDelNy;
+	}
+
+	public String[] getFdmtMaterialArray() {
+		return fdmtMaterialArray;
+	}
+
+	public void setFdmtMaterialArray(String[] fdmtMaterialArray) {
+		this.fdmtMaterialArray = fdmtMaterialArray;
+	}
+
+	public String[] getFdmtAmountArray() {
+		return fdmtAmountArray;
+	}
+
+	public void setFdmtAmountArray(String[] fdmtAmountArray) {
+		this.fdmtAmountArray = fdmtAmountArray;
 	}
 
 
