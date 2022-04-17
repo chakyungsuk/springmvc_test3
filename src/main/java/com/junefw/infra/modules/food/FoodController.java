@@ -242,7 +242,7 @@ public class FoodController {
 		redirectAttributes.addFlashAttribute("vo", vo);
 
 		if (Constants.INSERT_AFTER_TYPE == 1) {
-			return "redirect:/food/FoodMain";
+			return "redirect:/food/Fooddater";
 		} else {
 			return "redirect:/food/Foodreg";
 		}

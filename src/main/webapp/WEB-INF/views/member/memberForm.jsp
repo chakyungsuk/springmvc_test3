@@ -474,7 +474,7 @@ upload = function(seq, div){
 	
 	var totalFileSize;
 	
-	for (var i = 0; i < fileCount ; i++) {
+	for (var i = 0; i < fileCount; i++) {
 		if(div == 1){
 			if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
 		} else if(div == 2) {

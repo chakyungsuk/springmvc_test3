@@ -99,7 +99,7 @@
 	</select>
 	
 	<insert id="insert">
-		insert into fdMember(
+		insert into fdmember(
 			ifmmId
 			, ifmmPassword
 			, ifmmName
@@ -195,6 +195,7 @@
 		, ext
 		, size
 		, DelNy
+		, path
 		, pseq
 	) VALUES (
 		#{type}
@@ -205,6 +206,7 @@
 		, #{ext}
 		, #{size}
 		, 0
+		, #{path}
 		, #{pseq}
 	)	
 	</insert>

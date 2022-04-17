@@ -97,7 +97,7 @@
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link text-white">
+      <a href="/food/Foodreg" class="nav-link text-white">
         <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
         NEW Recipes
       </a>

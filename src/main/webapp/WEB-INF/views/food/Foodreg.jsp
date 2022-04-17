@@ -71,9 +71,11 @@
     border-collapse: separate; */
     h4 {
     	text-align: left;
+    	float: left;
     	margin-top: 10px; 
     	margin-left: 10px;
     }
+
 </style>
 
 
@@ -113,7 +115,7 @@
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link text-white">
+      <a href="/food/Foodreg" class="nav-link text-white">
         <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
         NEW Recipes
       </a>
@@ -141,61 +143,6 @@
 </div>
 <!-- sidebar body E -->	
 
-<!-- sidebar body S -->	
-<div class="offcanvas offcanvas-end flex-shrink-0 p-3 text-white bg-dark " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-  <div class="offcanvas-header" style="padding-bottom: 0px;">
-   <h5 id="offcanvasRightLabel">MENU</h5>
-   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
- </div>
- <hr>
-  <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
-      <a href="/food/FoodMain" class="nav-link active" aria-current="page">
-        <svg class="bi me-2" width="16" height="16"></svg>
-        Home(Main)
-      </a>
-    </li>
-    <li>
-      <a href="#" class="nav-link text-white">
-        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-        Dashboard
-      </a>
-    </li>
-    <li>
-      <a href="#" class="nav-link text-white">
-        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-        Orders
-      </a>
-    </li>
-    <li>
-      <a href="#" class="nav-link text-white">
-        <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-        Products
-      </a>
-    </li>
-    <li>
-      <a href="#" class="nav-link text-white">
-        <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-        Customers
-      </a>
-    </li>
-  </ul>
-      <hr>
-  <div class="dropdown">
-    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
-      <strong>CEO CHA</strong>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-      <li><a class="dropdown-item" href="#">New project...</a></li>
-      <li><a class="dropdown-item" href="#">Settings</a></li>
-      <li><a class="dropdown-item" href="#">Profile</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Sign out</a></li>
-    </ul>
-  </div>
-</div>
-<!-- sidebar body E -->	
 
 <div class="container">
 	<div class="card mb-3">
@@ -256,8 +203,8 @@
 	 <div class="container" style="max-width: 60%; text-align: center;" >
 			 <div id="divMaterialArea_1" class="ui-sortable" style="text-align: center; margin-left: 43px;">
 				 <div id="" style="margin-bottom: 10px;">
-					 <input type="text" name="fdmtMaterial" id="fdmtMaterial" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 돼지고기">
-					 <input type="text" name="fdmtAmount" id="fdmtAmount" class="form-control" style="width:310px; margin: 0;" placeholder="예) 300g">
+					 <input type="text" name="fdmtMaterial" id="fdmtMaterial" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 돼지고기" autocomplete="off">
+					 <input type="text" name="fdmtAmount" id="fdmtAmount" class="form-control" style="width:310px; margin: 0;" placeholder="예) 300g" autocomplete="off">
 				 </div>
 			 </div>
 			 <br>
@@ -270,8 +217,14 @@
 
 
 <div class="card mb-3">
-      <input type="file" name="file" id="multifile_1" file_gubun="step" style="display:none;" multiple="">
       <h4>요리순서</h4>
+      <div class="" style="text-align: left;">
+	      <input type="file" name="file" id="multifile" style="display:none;" multiple="multiple">
+	      <button type="button" onclick="document.getElementById('multifile').click();" class="btn-sm btn btn-info">
+			<i class="bi bi-patch-plus-fill"></i> 순서사진 한번에 넣기
+	      </button>
+      </div>
+      <br>
 	  <span class="guide mag_b_15"><b>요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요.</b><br>
 		예) 10분간 익혀주세요 ▷ 10분간 약한불로 익혀주세요.<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마늘편은 익혀주세요 ▷ 마늘편을 충분히 익혀주셔야 매운 맛이 사라집니다.<br>
@@ -315,7 +268,8 @@
 
 <div class="card mb-3" style="text-align: center;">
     <h4>요리팁</h4><br>
-    <textarea name="fdrsTip" id="cok_tip" class="form-control step_cont" placeholder="예) 고기요리에는 소금보다 설탕을 먼저 넣어야 단맛이 겉돌지 않고 육질이 부드러워요." style="height:120px; max-width:90%; resize:none; margin: auto; margin-bottom: 30px;"></textarea>
+    <textarea name="fdrsTip" id="fdrsTip" onkeyup="checkByte(this)" class="form-control step_cont" placeholder="예) 고기요리에는 소금보다 설탕을 먼저 넣어야 단맛이 겉돌지 않고 육질이 부드러워요." style="height:120px; max-width:90%; resize:none; margin: auto; margin-bottom: 30px;"></textarea>
+    <sup>(<span id="nowByte">0</span>/100bytes)</sup>
 	<div class="regi_btm" style="padding-top: 35px; padding-bottom: 40px;">
 		<button type="submit" id="btnSubmit" name="btnSubmit" class="btn-lg btn-primary">등록</button>
 	    <button type="button" class="btn-lg btn-default">취소</button>
@@ -390,8 +344,8 @@
 			
 						
 			html += '<div id="" style="margin-bottom: 10px;">';
-			html += '<input type="text" name="fdmtMaterialArray" id="fdmtMaterialArray" class="form-control" style="width:330px; float: left; margin-right: 10px; margin-bottom: 8px;" placeholder="예) 양배추">';
-			html += '<input type="text" name="fdmtAmountArray" id="fdmtAmountArray" class="form-control" style="width:310px; float:left; margin-bottom: 8px;"; placeholder="예) 1/2개">';
+			html += '<input type="text" name="fdmtMaterialArray" id="fdmtMaterialArray" class="form-control" style="width:330px; float: left; margin-right: 10px; margin-bottom: 8px;" placeholder="예) 양배추" autocomplete="off">';
+			html += '<input type="text" name="fdmtAmountArray" id="fdmtAmountArray" class="form-control" style="width:310px; float:left; margin-bottom: 8px;"; placeholder="예) 1/2개" autocomplete="off">';
 			html += '<button class="btn" onclick="MaterialDelete(this)" id="remove" style="margin-top: 7px;"><i class="bi bi-x-circle" style="size: 20px;"></i></button>'; 
 			html += "</div>";
 			
@@ -441,6 +395,37 @@
 		
 </script>
 
+<script>
+//textarea 바이트 수 체크하는 함수
+function checkByte(obj){
+    const maxByte = 100; //최대 100바이트
+    const text_val = obj.value; //입력한 문자
+    const text_len = text_val.length; //입력한 문자수
+    
+    let totalByte=0;
+    for(let i=0; i<text_len; i++){
+    	const each_char = text_val.charAt(i);
+        const uni_char = escape(each_char); //유니코드 형식으로 변환
+        if(uni_char.length>4){
+        	// 한글 : 2Byte
+            totalByte += 2;
+        }else{
+        	// 영문,숫자,특수문자 : 1Byte
+            totalByte += 1;
+        }
+    }
+    
+    if(totalByte>maxByte){
+    	alert('최대 100Byte까지만 입력가능합니다.');
+        	document.getElementById("nowByte").innerText = totalByte;
+            document.getElementById("nowByte").style.color = "red";
+        }else{
+        	document.getElementById("nowByte").innerText = totalByte;
+            document.getElementById("nowByte").style.color = "green";
+        }
+    }
+
+</script>
 
 </form>
 </body>
