@@ -207,9 +207,10 @@
 			<div class="row">
 				<div class="cont_box pad_l_60">
 						<div id="" style="float: right;">
-						<label for="file0" class="form-label btn btn-info btn-sm">이미지첨부</label>
-							<!-- <img id="" src="" style="width: 250px; height: 250px; cursor:pointer" for="file0"> -->
-							<input class="form-control" type="file" name="file0" id="file0" accept="jpeg,png,gif" style="display:none;" text="">
+						<label for="file0" class="form-label btn btn-sm">
+							 <img id="" src="https://recipe1.ezmember.co.kr/img/pic_none4.gif" style="width: 250px; height: 250px; cursor:pointer">
+						 </label>
+							<input class="form-control" type="file" name="file0" id="file0" accept="jpeg,png,gif" style="display:none;">
 						</div>
 					<div class="cont_line"><p class="cont_tit4">레시피 제목</p><input type="text" name="fdrsName" id="fdrsName" value="" class="form-control" placeholder="예) 소고기 미역국 끓이기" style="width:610px; "></div><br>
 					<div class="cont_line pad_b_25"><p class="cont_tit4">요리소개</p><textarea name="fdrsIntroduction" id="fdrsIntroduction" class="form-control step_cont" placeholder="이 레시피의 탄생배경을 적어주세요. 예) 남편의 생일을 맞아 소고기 미역국을 끓여봤어요. 어머니로부터 배운 미역국 레시피를 남편의 입맛에 맞게 고안했습니다." style="height:100px; width:610px; resize:none;"></textarea></div>
@@ -258,34 +259,6 @@
 					 <input type="text" name="fdmtMaterial" id="fdmtMaterial" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 돼지고기">
 					 <input type="text" name="fdmtAmount" id="fdmtAmount" class="form-control" style="width:310px; margin: 0;" placeholder="예) 300g">
 				 </div>
-			 	<!--  <div id="" style="margin-bottom: 10px;">
-					 <input type="hidden" name="fdmtMaterialArray1" id="fdmtMaterialArray1" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="hidden" name="fdmtAmountArray1" id="fdmtAmountArray1" class="form-control" style="width:310px;" placeholder="예) 1/2개">
-				 </div>
-			 	 <div id="" style="margin-bottom: 10px;">
-					 <input type="hidden" name="fdmtMaterialArray2" id="fdmtMaterialArray2" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="hidden" name="fdmtAmountArray2" id="fdmtAmountArray2" class="form-control" style="width:310px;" placeholder="예) 1/2개">
-				 </div>
-			 	 <div id="" style="margin-bottom: 10px;">
-					 <input type="hidden" name="fdmtMaterialArray3" id="fdmtMaterialArray3" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="hidden" name="fdmtAmountArray3" id="fdmtAmountArray3" class="form-control" style="width:310px;" placeholder="예) 1/2개">
-				 </div>
-			 	 <div id="" style="margin-bottom: 10px;">
-					 <input type="hidden" name="fdmtMaterialArray4" id="fdmtMaterialArray4" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="hidden" name="fdmtAmountArray4" id="fdmtAmountArray4" class="form-control" style="width:310px;" placeholder="예) 1/2개">
-				 </div>
-			 	 <div id="" style="margin-bottom: 10px;">
-					 <input type="hidden" name="fdmtMaterialArray5" id="fdmtMaterialArray5" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="hidden" name="fdmtAmountArray5" id="fdmtAmountArray5" class="form-control" style="width:310px;" placeholder="예) 1/2개">
-				 </div>
-			 	 <div id="" style="margin-bottom: 10px;">
-					 <input type="hidden" name="fdmtMaterialArray6" id="fdmtMaterialArray6" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="hidden" name="fdmtAmountArray6" id="fdmtAmountArray6" class="form-control" style="width:310px;" placeholder="예) 1/2개">
-				 </div>
-			 	 <div id="" style="margin-bottom: 10px;">
-					 <input type="hidden" name="fdmtMaterialArray7" id="fdmtMaterialArray7" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 양배추">
-					 <input type="hidden" name="fdmtAmountArray7" id="fdmtAmountArray7" class="form-control" style="width:310px;" placeholder="예) 1/2개">
-				 </div> -->
 			 </div>
 			 <br>
 			 <div>
@@ -313,7 +286,12 @@
 				<div class="input-group" style="margin-bottom: 30px;">
           			<h4 id="" style="margin-right: 30px;">Step 1</h4>
 					<textarea id="" name="" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none; float: left;"></textarea>
-					<div class="" type="file"><img id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer"></div>
+					<div class="">
+					<label for="file1">
+						<img id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
+					</label>
+						<input class="form-control" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;">
+					</div>
 					<button class="btn" onclick="StepDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button>
 				</div>
 			</div>
@@ -337,7 +315,7 @@
 
 <div class="card mb-3" style="text-align: center;">
     <h4>요리팁</h4><br>
-    <textarea name="cok_tip" id="cok_tip" class="form-control step_cont" placeholder="예) 고기요리에는 소금보다 설탕을 먼저 넣어야 단맛이 겉돌지 않고 육질이 부드러워요." style="height:120px; max-width:90%; resize:none; margin: auto; margin-bottom: 30px;"></textarea>
+    <textarea name="fdrsTip" id="cok_tip" class="form-control step_cont" placeholder="예) 고기요리에는 소금보다 설탕을 먼저 넣어야 단맛이 겉돌지 않고 육질이 부드러워요." style="height:120px; max-width:90%; resize:none; margin: auto; margin-bottom: 30px;"></textarea>
 	<div class="regi_btm" style="padding-top: 35px; padding-bottom: 40px;">
 		<button type="submit" id="btnSubmit" name="btnSubmit" class="btn-lg btn-primary">등록</button>
 	    <button type="button" class="btn-lg btn-default">취소</button>
@@ -364,10 +342,14 @@
 <script type="text/javascript">
 		
 		$("#btnSubmit").on("click", function(){
-		
-			alert("sdkjfkw")
-			$("#btnSubmit").attr("action", "/member/memberInst");
-			$("#btnSubmit").submit(); 
+			var answer = confirm("등록 하시겠습니까?")
+			
+			if(answer){
+				$("#btnSubmit").attr("action", "/member/memberInst");
+				$("#btnSubmit").submit(); 
+			} else {
+				return false;
+			}
 		
 		});
 		
@@ -436,7 +418,12 @@
 			html += '<div class="input-group" style="margin-bottom: 30px;">';
 			html += '<h4 id="" style="margin-right: 30px;">Step' + "&nbsp" + i +'</h4>';
 			html += '<textarea id="" name="" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>'; 
+			html += '<div class="">';
+			html += '<label for="file1">';
 			html += '<img id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">';
+			html += '</label>';
+			html += '<input class="form-control" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;">';
+			html += '</div>';
 			html += '<button class="btn" onclick="StepDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button> ';
 			html += '</div>';
 			html += '</div>';

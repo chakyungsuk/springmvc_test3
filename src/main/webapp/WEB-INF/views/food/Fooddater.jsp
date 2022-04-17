@@ -5,9 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
-
+<% pageContext.setAttribute("br", "\n"); %>
 <% pageContext.setAttribute("lf", "\\n"); %>
-<%-- <% pageContext.setAttribute("br", "\n"); %> --%>
 
 
 
@@ -302,7 +301,7 @@
 
 				<dl class="view_step_tip" style="margin-top: 100px;">
 					<dt><img src="https://recipe1.ezmember.co.kr/img/tit_tip.gif" alt="팁-주의사항"></dt>
-					<dd>${fn:replace(item.fdrsTip, lf, "<br>")}</dd>
+					<dd>${fn:replace(item.fdrsTip, br, '<br/>')}</dd>
 				</dl>
 			</div>
 		</div>
