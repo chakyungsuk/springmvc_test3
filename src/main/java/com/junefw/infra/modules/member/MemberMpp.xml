@@ -91,7 +91,7 @@
 			, pseq
 			, path
 		FROM
-			fdMemberUploaded
+			fdmemberuploaded
 		WHERE 1=1
 			AND pseq = #{ifmmSeq}
 		ORDER BY
@@ -241,7 +241,7 @@
 			fdmember a
 		LEFT JOIN fdmemberemail b on b.ifmmSeq = a.ifmmSeq
 		LEFT JOIN fdmemberphone c on c.ifmmSeq = a.ifmmSeq
-		LEFT JOIN fdmemberAddress d on d.ifmmSeq = a.ifmmSeq
+		LEFT JOIN fdmemberaddress d on d.ifmmSeq = a.ifmmSeq
 		WHERE 1=1
 			and a.ifmmSeq = #{ifmmSeq}
 	</select>

@@ -187,11 +187,19 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<label for="file0" class="form-label btn btn-info btn-sm">이미지첨부</label>
-			<div class="" id=""><c:out value="${item.path}"/></div>
+	<c:forEach items="${listUploaded}" var="listUploaded" varStatus="status">
+		<c:if test="${listUploaded.type eq 0}">
+			<img class="" id="" style="height: 200px;" src="<c:out value="${listUploaded.path}"/><c:out value="${listUploaded.uuidName }"/>">
+		</c:if>
+	</c:forEach>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 			<label for="file1" class="form-label btn btn-info btn-sm">파일첨부</label>
+	<c:forEach items="${listUploaded}" var="listUploaded" varStatus="status">
+		<c:if test="${listUploaded.type eq 1}">
 			<input class="form-control" id="file1" name="file1" type="" multiple="multiple" style="display: none;" onchange="upload(1, 2);" readonly="readonly">
+		</c:if>
+	</c:forEach>
 		</div>
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>

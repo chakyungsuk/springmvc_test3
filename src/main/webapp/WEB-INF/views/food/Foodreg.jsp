@@ -361,12 +361,12 @@
 			tr.remove();
 		}
 			
+			var i=2;			
 		function StepCreate(){
 			var html = '';
 /* 			var Name = $("#MaterialName").val();
 			var Amount = $("#MaterialAmount").val(); */
 			var remove = $("remove").val(); 
-			var i=1;			
 			
 			html += '<div class="col-12" style="max-width: 80%;">';
 			html += '<div class="input-group" style="margin-bottom: 30px;">';
