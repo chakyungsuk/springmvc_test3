@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.junefw.infra.common.constants.Constants;
 import com.junefw.infra.common.util.UtilDateTime;
+import com.junefw.infra.modules.food.Food;
 import com.junefw.infra.modules.member.Member;
 
 public class UtilUpload {
@@ -35,6 +36,32 @@ public class UtilUpload {
 		
 		
 	}
+	
+	public static void upload1(MultipartFile multipartFile, String className, Food dto) throws Exception{
+		String fileName = multipartFile.getOriginalFilename();
+		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
+		String uuid = UUID.randomUUID().toString();
+		System.out.println("uuid------------------" + uuid);
+		String uuidFileName = uuid + "." + ext;
+		String pathModule = className;
+		String nowString = UtilDateTime.nowString();
+		String pathDate = nowString.substring(0,4) + "/" + nowString.substring(5,7) + "/" + nowString.substring(8,10);
+		String path = Constants.UPLOAD_PATH_PREFIX + "/" + pathModule + "/" + pathDate + "/";
+		
+		createPath(path);
+		
+		multipartFile.transferTo(new File(path + uuidFileName));
+		
+		
+		dto.setOriginalName(fileName);
+		dto.setUuidName(uuidFileName);
+		dto.setExt(ext);
+		dto.setSize(multipartFile.getSize());
+		dto.setPath("/resources/uploaded/" + pathModule + "/" + pathDate + "/");
+		
+		
+	}
+
 
 	public static void createPath (String path) {
 		File uploadPath = new File(path);

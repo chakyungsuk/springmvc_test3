@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.junefw.infra.common.util.UtilDateTime;
+import com.junefw.infra.modules.Util.UtilUpload;
 
 @Service
 public class FoodServiceImpl implements FoodService{
@@ -42,6 +44,41 @@ public class FoodServiceImpl implements FoodService{
 			dto.setFdmtAmount(dto.getFdmtAmountArray()[i]);
 			dao.insertmaterial(dto);
 			} 
+		
+		int j = 0;
+		for(MultipartFile multipartFile : dto.getFile0() ) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			UtilUpload.upload1(multipartFile, pathModule, dto );
+				
+			dto.setTableName("fdFoodUploaded");
+			dto.setType(0);
+			dto.setDefaultNy(0);
+			dto.setSort(j);
+			dto.setPseq(dto.getIfmmSeq());
+			
+			/*
+			 * dto.setTableName("fdmemberuploaded"); dto.setType(0); dto.setDefaultNy(0);
+			 * dto.setSort(j); dto.setPseq(dto.getIfmmSeq());
+			 */			  
+			  dao.insertUploaded(dto);
+			  j++;
+		}
+		
+		j = 0;
+		for(MultipartFile multipartFile : dto.getFile1() ) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			UtilUpload.upload1(multipartFile, pathModule, dto );
+			
+			
+			dto.setTableName("fdFoodUploaded"); 
+			dto.setType(1); 
+			dto.setDefaultNy(0);
+			dto.setSort(j); 
+			dto.setPseq(dto.getIfmmSeq());
+			
+			dao.insertUploaded(dto);
+			j++;
+		}
 		return 1; 
 	}
 	

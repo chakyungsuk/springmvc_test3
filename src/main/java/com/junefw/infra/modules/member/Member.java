@@ -17,7 +17,6 @@ public class Member {
 	private Integer ifmmDelNy;
 	private String ifmmSaved;
 	private String ifmmDesc;
-	private String Path;
 	
 	/* @DateTimeFormat */
 	
@@ -52,7 +51,6 @@ public class Member {
 	
 	//fileUploaded
 	private String TableName;
-	
 	private String Seq;
 	private Integer type;
 	private Integer defaultNy;
@@ -62,6 +60,7 @@ public class Member {
 	private String ext;
 	private Long size;
 	private Integer DelNy;
+	private String Path;
 	private String pseq;
 	
 	private String originalFileName;

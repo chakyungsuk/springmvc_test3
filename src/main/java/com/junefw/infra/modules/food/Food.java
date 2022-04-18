@@ -2,6 +2,8 @@ package com.junefw.infra.modules.food;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Food {
 // dto	
 	
@@ -33,6 +35,24 @@ public class Food {
 	//materialArray
 	private String[] fdmtMaterialArray;
 	private String[] fdmtAmountArray;
+	
+	//file
+	private MultipartFile[] file0;
+	private MultipartFile[] file1;
+	
+	//fileUploaded
+	private String TableName;
+	private String Seq;
+	private Integer type;
+	private Integer defaultNy;
+	private Integer sort;
+	private String originalName;
+	private String uuidName;
+	private String ext;
+	private Long size;
+	private Integer DelNy;
+	private String Path;
+	private String pseq;
 	
 	//Date
 	private Date RegDateTime;
@@ -218,8 +238,117 @@ public class Food {
 		this.fdmtAmountArray = fdmtAmountArray;
 	}
 
+	public MultipartFile[] getFile0() {
+		return file0;
+	}
 
+	public void setFile0(MultipartFile[] file0) {
+		this.file0 = file0;
+	}
 
+	public MultipartFile[] getFile1() {
+		return file1;
+	}
+
+	public void setFile1(MultipartFile[] file1) {
+		this.file1 = file1;
+	}
+
+	public String getTableName() {
+		return TableName;
+	}
+
+	public void setTableName(String tableName) {
+		TableName = tableName;
+	}
+
+	public String getSeq() {
+		return Seq;
+	}
+
+	public void setSeq(String seq) {
+		Seq = seq;
+	}
+
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	public Integer getDefaultNy() {
+		return defaultNy;
+	}
+
+	public void setDefaultNy(Integer defaultNy) {
+		this.defaultNy = defaultNy;
+	}
+
+	public Integer getSort() {
+		return sort;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+
+	public String getOriginalName() {
+		return originalName;
+	}
+
+	public void setOriginalName(String originalName) {
+		this.originalName = originalName;
+	}
+
+	public String getUuidName() {
+		return uuidName;
+	}
+
+	public void setUuidName(String uuidName) {
+		this.uuidName = uuidName;
+	}
+
+	public String getExt() {
+		return ext;
+	}
+
+	public void setExt(String ext) {
+		this.ext = ext;
+	}
+
+	public Long getSize() {
+		return size;
+	}
+
+	public void setSize(Long size) {
+		this.size = size;
+	}
+
+	public Integer getDelNy() {
+		return DelNy;
+	}
+
+	public void setDelNy(Integer delNy) {
+		DelNy = delNy;
+	}
+
+	public String getPath() {
+		return Path;
+	}
+
+	public void setPath(String path) {
+		Path = path;
+	}
+
+	public String getPseq() {
+		return pseq;
+	}
+
+	public void setPseq(String pseq) {
+		this.pseq = pseq;
+	}
 
 	
 	

@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.junefw.infra.modules.member.Member;
+
 @Repository
 public class FoodDao {
 	
@@ -23,6 +25,7 @@ public class FoodDao {
 	public int insert(Food dto){ return sqlSession.insert(namespace + ".insert", dto);}
 	public int insertmaterial(Food dto){ return sqlSession.insert(namespace + ".insertmaterial", dto);}
 	public int insertAddress(Food dto){ return sqlSession.insert(namespace + ".insertAddress", dto);}
+	public int insertUploaded(Food dto){ return sqlSession.insert(namespace + ".insertUploaded", dto);}
 	
 	public Food selectOne(FoodVo vo) {return sqlSession.selectOne(namespace + ".selectOne", vo);}
 	
