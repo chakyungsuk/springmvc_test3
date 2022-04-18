@@ -189,7 +189,9 @@
 			<label for="file0" class="form-label btn btn-info btn-sm">이미지첨부</label>
 	<c:forEach items="${listUploaded}" var="listUploaded" varStatus="status">
 		<c:if test="${listUploaded.type eq 0}">
-			<img class="" id="" style="height: 200px;" src="<c:out value="${listUploaded.path}"/><c:out value="${listUploaded.uuidName }"/>">
+			<div class="" style="">
+				<img class="" id="" style="height: 200px; float: left;" src="<c:out value="${listUploaded.path}"/><c:out value="${listUploaded.uuidName }"/>">
+			</div>
 		</c:if>
 	</c:forEach>
 		</div>

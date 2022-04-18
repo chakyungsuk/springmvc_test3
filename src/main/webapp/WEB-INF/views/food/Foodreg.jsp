@@ -200,7 +200,7 @@
 <div class="card mb-3">
 	 <h4>재료</h4><b style="text-align: center;">재료가 남거나 부족하지 않도록 정확한 계량정보를 적어주세요.</b>
 		 <p class="cont_tit6 st2 mag_r_15"><a href="#" class="btn-lineup ui-sortable-handle" id="divMaterialArea"></a></p>
-	 <div class="container" style="max-width: 60%; text-align: center;" >
+	 	<div class="container" style="max-width: 60%; text-align: center;" >
 			 <div id="divMaterialArea_1" class="ui-sortable" style="text-align: center; margin-left: 43px;">
 				 <div id="" style="margin-bottom: 10px;">
 					 <input type="text" name="fdmtMaterial" id="fdmtMaterial" class="form-control" style="width:330px; float: left; margin-right: 10px;" placeholder="예) 돼지고기" autocomplete="off">
@@ -212,7 +212,7 @@
 				 <button class="btn btn-lg-danger" type="button" onclick="MaterialCreate()" id="" name="">추가</button>
 			 </div>
 		 <div class="btn_add" style="padding:0 0 20px 350px; width:800px;"></div>
-	 </div>
+		 </div>
 </div>
 
 
@@ -249,14 +249,7 @@
 				</div>
 			</div>
           
-<!-- 			<div class="col-12" style="max-width: 80%;">
-				<div class="input-group" style="margin-bottom: 30px; margin-right: 20px;">
-          			<h4 id="" style="margin-right: 30px;">Step 2</h4>
-					<textarea id="" name="" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:150px; resize:none;"></textarea>
-					<img id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
-				</div>
-			</div> -->
-			</div>
+		</div>
 			
 			 <div style="margin-bottom: 20px;">
 				 <button class="btn btn-lg-danger" type="button" onclick="StepCreate();" id="" name="">Step 추가</button>
@@ -277,13 +270,19 @@
 </div>
 
 </div>
-<footer class="text">
+<footer class="text" style="margin-top: 20px;">
   <div class="container">
-    <p class="float-end">
-      <a href="#" style="color: white;">Back to top</a>
+    <p class="float-end mb-1">
     </p>
-<p class="" style="color: white; text-align: center;">&copy; Happy Food 2022 ~</p> 
+<p class="" style="color: white; justify-content: center;">&copy;
+서울 어딘가의 회사
+문의전화(운영시간 비밀)
+쇼핑문의 : 02-2222-8888
+서비스 이용문의 : 000-0000-0000
+<br>
+Copyright ©EZHLD Inc. All Rights Reserved</p> 
  </div>
+      <a href="#" style="color: white;">Back to top</a>
 </footer>	
 	
 	
@@ -391,6 +390,7 @@
 			var tr = $(obj).parent();
 
 			tr.remove();
+			i--;
 		}
 		
 </script>

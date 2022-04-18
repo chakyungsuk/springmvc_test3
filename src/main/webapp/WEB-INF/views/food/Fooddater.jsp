@@ -331,14 +331,20 @@
 	</div>
 </div>
  
-<footer class="text">
+<footer class="text" style="margin-top: 20px;">
   <div class="container">
     <p class="float-end mb-1">
-      <a href="#" style="color: white;">Back to top</a>
     </p>
-<p class="" style="color: white; text-align: center;">&copy; Happy Food 2022 ~</p> 
+<p class="" style="color: white; justify-content: center;">&copy;
+서울 어딘가의 회사
+문의전화(운영시간 비밀)
+쇼핑문의 : 02-2222-8888
+서비스 이용문의 : 000-0000-0000
+<br>
+Copyright ©EZHLD Inc. All Rights Reserved</p> 
  </div>
-</footer>	
+      <a href="#" style="color: white;">Back to top</a>
+</footer>
 	
 	
 	
