@@ -76,6 +76,7 @@
     	margin-left: 10px;
     }
 
+	
 </style>
 
 
@@ -153,11 +154,11 @@
 		<div class="container" style="max-width: 80%; text-align: center;">
 			<div class="row">
 				<div class="cont_box pad_l_60">
-						<div id="" style="float: right;">
-						<label for="file0" class="form-label btn btn-sm">
-							 <img id="" src="https://recipe1.ezmember.co.kr/img/pic_none4.gif" style="width: 250px; height: 250px; cursor:pointer">
-						 </label>
-							<input class="form-control" type="file" name="file0" id="file0" accept="jpeg,png,gif" style="display:none;">
+						<div id="image_container" style="float: right;">
+						<label for="file0">
+							<img id="image_hide" src="https://recipe1.ezmember.co.kr/img/pic_none4.gif" style="width: 250px; height: 250px; cursor:pointer">
+							<input class="form-control" type="file" name="file0" id="file0" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail(event);"/>
+						</label>							
 						</div>
 					<div class="cont_line"><p class="cont_tit4">레시피 제목</p><input type="text" name="fdrsName" id="fdrsName" value="" class="form-control" placeholder="예) 소고기 미역국 끓이기" style="width:610px; "></div><br>
 					<div class="cont_line pad_b_25"><p class="cont_tit4">요리소개</p><textarea name="fdrsIntroduction" id="fdrsIntroduction" class="form-control step_cont" placeholder="이 레시피의 탄생배경을 적어주세요. 예) 남편의 생일을 맞아 소고기 미역국을 끓여봤어요. 어머니로부터 배운 미역국 레시피를 남편의 입맛에 맞게 고안했습니다." style="height:100px; width:610px; resize:none;"></textarea></div>
@@ -219,7 +220,7 @@
 <div class="card mb-3">
       <h4>요리순서</h4>
       <div class="" style="text-align: left;">
-	      <input type="file" name="file" id="multifile" style="display:none;" multiple="multiple">
+	      <input type="file" name="file" id="multifile" style="display:none;" multiple="multiple" onchange="setThumbnail1(event);">
 	      <button type="button" onclick="document.getElementById('multifile').click();" class="btn-sm btn btn-info">
 			<i class="bi bi-patch-plus-fill"></i> 순서사진 한번에 넣기
 	      </button>
@@ -426,6 +427,39 @@ function checkByte(obj){
     }
 
 </script>
+
+<script> 
+function setThumbnail(event) { 
+	var reader = new FileReader(); 
+	reader.onload = function(event) { 
+		
+			var img = document.createElement("img"); 
+			img.width = 250;
+		    img.height = 250;
+			img.setAttribute("src", event.target.result);
+			$("#image_hide").hide();
+			document.querySelector("div#image_container").appendChild(img); 
+			
+		}; 
+			reader.readAsDataURL(event.target.files[0]); 
+		} 
+</script>
+<!-- 여러개 사진 업로드 미리보기 -->
+<script> 
+function setThumbnail1(event) { 
+	for (var image of event.target.files) { 
+		var reader = new FileReader(); 
+		reader.onload = function(event) { 
+				var img = document.createElement("img"); 
+				img.setAttribute("src", event.target.result); 
+				document.querySelector("div#image_").appendChild(img);
+			}; 
+				console.log(image); reader.readAsDataURL(image); 
+			} 
+	} 
+</script>
+
+
 
 </form>
 </body>
