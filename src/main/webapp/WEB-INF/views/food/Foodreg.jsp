@@ -220,7 +220,7 @@
 <div class="card mb-3">
       <h4>요리순서</h4>
       <div class="" style="text-align: left;">
-	      <input type="file" name="file" id="multifile" style="display:none;" multiple="multiple" onchange="setThumbnail1(event);">
+	      <input type="file" name="file" id="multifile" style="display:none;" multiple="multiple" onchange="setThumbnail_multi(event);">
 	      <button type="button" onclick="document.getElementById('multifile').click();" class="btn-sm btn btn-info">
 			<i class="bi bi-patch-plus-fill"></i> 순서사진 한번에 넣기
 	      </button>
@@ -240,11 +240,11 @@
 				<div class="input-group" style="margin-bottom: 30px;">
           			<h4 id="" style="margin-right: 30px;">Step 1</h4>
 					<textarea id="" name="" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none; float: left;"></textarea>
-					<div class="">
+					<div class="step_im" id="">
 					<label for="file1">
-						<img id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
+						<img class="step_image" id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
 					</label>
-						<input class="form-control" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;">
+						<input class="" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail_Food(event);">
 					</div>
 					<button class="btn" onclick="StepDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button>
 				</div>
@@ -372,11 +372,11 @@ Copyright ©EZHLD Inc. All Rights Reserved</p>
 			html += '<div class="input-group" style="margin-bottom: 30px;">';
 			html += '<h4 id="" style="margin-right: 30px;">Step' + "&nbsp" + i +'</h4>';
 			html += '<textarea id="" name="" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>'; 
-			html += '<div class="">';
+			html += '<div class="step_im">';
 			html += '<label for="file1">';
 			html += '<img id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">';
 			html += '</label>';
-			html += '<input class="form-control" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;">';
+			html += '<input class="step_image" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail_Food(event);">';
 			html += '</div>';
 			html += '<button class="btn" onclick="StepDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button> ';
 			html += '</div>';
@@ -427,7 +427,7 @@ function checkByte(obj){
     }
 
 </script>
-
+<!-- 메인사진 업로드 -->
 <script> 
 function setThumbnail(event) { 
 	var reader = new FileReader(); 
@@ -444,13 +444,33 @@ function setThumbnail(event) {
 			reader.readAsDataURL(event.target.files[0]); 
 		} 
 </script>
+<!-- STEP 요리 사진 업로드 -->
+<script> 
+function setThumbnail_Food(event) { 
+	var reader = new FileReader(); 
+	reader.onload = function(event) { 
+		
+			var img = document.createElement("img"); 
+			img.width = 160;
+		    img.height = 160;
+			img.setAttribute("src", event.target.result);
+			$(".step_image").hide();
+			document.querySelector("div.step_im").appendChild(img); 
+			
+		}; 
+			reader.readAsDataURL(event.target.files[0]); 
+		} 
+</script>
+
 <!-- 여러개 사진 업로드 미리보기 -->
 <script> 
-function setThumbnail1(event) { 
+function setThumbnail_multi(event) { 
 	for (var image of event.target.files) { 
 		var reader = new FileReader(); 
 		reader.onload = function(event) { 
-				var img = document.createElement("img"); 
+				var img = document.createElement("img");
+				img.width = 160;
+			    img.height = 160;
 				img.setAttribute("src", event.target.result); 
 				document.querySelector("div#image_").appendChild(img);
 			}; 
