@@ -120,7 +120,31 @@
 		)	
 	</insert>
 	
-
+	<insert id="insertUploaded">
+	INSERT INTO ${TableName} (
+		type
+		, defaultNy 
+		, sort
+		, originalName
+		, uuidName
+		, ext
+		, size
+		, DelNy
+		, path
+		, pseq
+	) VALUES (
+		#{type}
+		, #{defaultNy} 
+		, #{sort}
+		, #{originalName}
+		, #{uuidName}
+		, #{ext}
+		, #{size}
+		, 0
+		, #{path}
+		, #{pseq}
+	)	
+	</insert>
 	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT 

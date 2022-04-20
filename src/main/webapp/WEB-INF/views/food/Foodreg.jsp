@@ -84,7 +84,7 @@
 
 <body class="text-center">
 
-<form id="FoodInst" name="FoodInst" method="post" action="/food/FoodInst">
+<form id="FoodInst" name="FoodInst" method="post" action="/food/FoodInst" enctype="multipart/form-data">
 	
 <!-- Header S -->
 <div class="container navbar navbar-dark" aria-label="Eighth navbar example" style="margin-bottom: 10px;">
@@ -157,11 +157,11 @@
 						<div id="image_container" style="float: right;">
 						<label for="file0">
 							<img id="image_hide" src="https://recipe1.ezmember.co.kr/img/pic_none4.gif" style="width: 250px; height: 250px; cursor:pointer">
-							<input class="form-control" type="file" name="file0" id="file0" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail(event);"/>
+							<input class="form-control" type="file" name="file0" id="file0" accept="jpeg,png,gif" style="display:none;" multiple="multiple" onchange="setThumbnail(event);"/>
 						</label>							
 						</div>
-					<div class="cont_line"><p class="cont_tit4">레시피 제목</p><input type="text" name="fdrsName" id="fdrsName" value="" class="form-control" placeholder="예) 소고기 미역국 끓이기" style="width:610px; "></div><br>
-					<div class="cont_line pad_b_25"><p class="cont_tit4">요리소개</p><textarea name="fdrsIntroduction" id="fdrsIntroduction" class="form-control step_cont" placeholder="이 레시피의 탄생배경을 적어주세요. 예) 남편의 생일을 맞아 소고기 미역국을 끓여봤어요. 어머니로부터 배운 미역국 레시피를 남편의 입맛에 맞게 고안했습니다." style="height:100px; width:610px; resize:none;"></textarea></div>
+					<div class="cont_line"><p class="cont_tit4">레시피 제목</p><input type="text" name="fdrsName" id="fdrsName" value="" class="form-control" placeholder="예) 소고기 미역국 끓이기" style="width:610px;" autocomplete="off"></div><br>
+					<div class="cont_line pad_b_25"><p class="cont_tit4">요리소개</p><textarea name="fdrsIntroduction" id="fdrsIntroduction" class="form-control step_cont" placeholder="이 레시피의 탄생배경을 적어주세요. 예) 남편의 생일을 맞아 소고기 미역국을 끓여봤어요. 어머니로부터 배운 미역국 레시피를 남편의 입맛에 맞게 고안했습니다." style="height:100px; width:610px; resize:none;" autocomplete="off"></textarea></div>
 				</div>
 			</div>
 		</div>
@@ -220,7 +220,7 @@
 <div class="card mb-3">
       <h4>요리순서</h4>
       <div class="" style="text-align: left;">
-	      <input type="file" name="file" id="multifile" style="display:none;" multiple="multiple" onchange="setThumbnail_multi(event);">
+	      <input type="file" name="file1" id="multifile" style="display:none;" multiple="multiple" onchange="setThumbnail_multi(event);">
 	      <button type="button" onclick="document.getElementById('multifile').click();" class="btn-sm btn btn-info">
 			<i class="bi bi-patch-plus-fill"></i> 순서사진 한번에 넣기
 	      </button>
