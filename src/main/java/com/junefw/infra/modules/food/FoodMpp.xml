@@ -11,6 +11,7 @@
 	<sql id="selectCommon">
 		FROM
 			fdrecipesave a
+		LEFT JOIN fdFoodUploaded b on b.pseq = a.fdrsSeq
 <!-- 		LEFT JOIN fdmemberemail b on b.ifmmSeq = a.ifmmSeq
 		LEFT JOIN fdmemberphone c on c.ifmmSeq = a.ifmmSeq
 		LEFT JOIN fdmemberaddress d on d.ifmmSeq = a.ifmmSeq -->
@@ -62,6 +63,8 @@
 			, a.fdrsDelNy
 			, a.regDateTime
 			, a.modDateTime
+			, b.path
+			, b.uuidName
 	<include refid="selectCommon" />
 		LIMIT #{startRnumForMysql},#{rowNumToShow}
 	</select>
@@ -155,10 +158,34 @@
 			, a.fdrsTimeCd
 			, a.fdrsDifficultyCd
 			, a.fdrsTip
+			, b.originalName
+			, b.uuidName
 		FROM
 			fdrecipesave a
+		LEFT JOIN fdFoodUploaded b on b.pseq = a.fdrsSeq
 		WHERE 1=1
 			and a.fdrsSeq = #{fdrsSeq}
+	</select>
+	
+	<select id="selectFoodUploaded" resultMap = "resultMapObj">
+		SELECT
+			seq
+			, type
+			, defaultNy
+			, sort
+			, originalName
+			, uuidName 
+			, ext
+			, size
+			, delNy
+			, pseq
+			, path
+		FROM
+			fdFoodUploaded
+		WHERE 1=1
+			AND pseq = #{fdrsSeq}
+		ORDER BY
+			sort
 	</select>
 	
 	<select id="selectOneLogin" resultMap="resultMapObj">

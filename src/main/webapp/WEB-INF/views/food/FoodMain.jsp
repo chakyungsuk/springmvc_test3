@@ -150,7 +150,7 @@
 				
 					<div class="col">
 						<div class="card shadow">
-							<a class="thumbnail" style="height:250px;"><img src="/resources/xdmin/image/user_image/lank2.jpg" style="margin-top: 20px;"></a>
+							<a class="thumbnail" style=""><img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" style="margin-top: 20px; height: 250px; width: 90%;"></a>
 							<div class="card-body" style="">
 								<p class="card-text"><c:out value="${item.fdrsName }"/></p>
 								<div class="d-flex justify-content-between align-items-center">

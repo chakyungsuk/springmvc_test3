@@ -39,7 +39,6 @@ public class FoodServiceImpl implements FoodService{
 		dao.insertmaterial(dto);
 		
 		for(int i = 0; i < dto.getFdmtMaterialArray().length; i++) {
-			System.out.println("dto.getFdmtMaterialArray().length" + dto.getFdmtMaterialArray().length);
 			dto.setFdmtMaterial(dto.getFdmtMaterialArray()[i]);
 			dto.setFdmtAmount(dto.getFdmtAmountArray()[i]);
 			dao.insertmaterial(dto);
@@ -54,7 +53,7 @@ public class FoodServiceImpl implements FoodService{
 			dto.setType(0);
 			dto.setDefaultNy(0);
 			dto.setSort(j);
-			dto.setPseq(dto.getIfmmSeq());
+			dto.setPseq(dto.getFdrsSeq());
 			
 			/*
 			 * dto.setTableName("fdmemberuploaded"); dto.setType(0); dto.setDefaultNy(0);
@@ -64,21 +63,21 @@ public class FoodServiceImpl implements FoodService{
 			  j++;
 		}
 		
-		j = 0;
-		for(MultipartFile multipartFile : dto.getFile1() ) {
-			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-			UtilUpload.upload1(multipartFile, pathModule, dto );
-			
-			
-			dto.setTableName("fdFoodUploaded"); 
-			dto.setType(1); 
-			dto.setDefaultNy(0);
-			dto.setSort(j); 
-			dto.setPseq(dto.getIfmmSeq());
-			
-			dao.insertUploaded(dto);
-			j++;
-		}
+		
+		  j = 0; 
+		  for(MultipartFile multipartFile : dto.getFile1() ) { 
+		  String pathModule= this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", ""); 
+		  UtilUpload.upload1(multipartFile, pathModule, dto );
+		  
+		  dto.setTableName("fdFoodUploaded"); 
+		  dto.setType(1); 
+		  dto.setDefaultNy(0);
+		  dto.setSort(j); 
+		  dto.setPseq(dto.getFdrsSeq());
+		  
+		  dao.insertUploaded(dto);
+		  j++; 
+	  }
 		return 1; 
 	}
 	
@@ -131,6 +130,11 @@ public class FoodServiceImpl implements FoodService{
 	@Override
 	public Food selectOneLogin(Food dto) throws Exception {
 		return dao.selectOneLogin(dto);
+	}
+
+	@Override
+	public List<Food> selectFoodUploaded(FoodVo vo) throws Exception {
+		return dao.selectFoodUploaded(vo);
 	}
 
 

@@ -51,7 +51,7 @@ public class Food {
 	private String ext;
 	private Long size;
 	private Integer DelNy;
-	private String Path;
+	private String path;
 	private String pseq;
 	
 	//Date
@@ -334,20 +334,20 @@ public class Food {
 		DelNy = delNy;
 	}
 
-	public String getPath() {
-		return Path;
-	}
-
-	public void setPath(String path) {
-		Path = path;
-	}
-
 	public String getPseq() {
 		return pseq;
 	}
 
 	public void setPseq(String pseq) {
 		this.pseq = pseq;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 	

@@ -240,7 +240,7 @@
 				<div class="input-group" style="margin-bottom: 30px;">
           			<h4 id="" style="margin-right: 30px;">Step 1</h4>
 					<textarea id="" name="" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none; float: left;"></textarea>
-					<div class="step_im" id="">
+					<div class="" id="step1">
 					<label for="file1">
 						<img class="step_image" id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
 					</label>
@@ -372,9 +372,9 @@ Copyright ©EZHLD Inc. All Rights Reserved</p>
 			html += '<div class="input-group" style="margin-bottom: 30px;">';
 			html += '<h4 id="" style="margin-right: 30px;">Step' + "&nbsp" + i +'</h4>';
 			html += '<textarea id="" name="" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>'; 
-			html += '<div class="step_im">';
+			html += '<div class="" id="step' + i + '">';
 			html += '<label for="file1">';
-			html += '<img id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">';
+			html += '<img class="step_image" id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">';
 			html += '</label>';
 			html += '<input class="step_image" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail_Food(event);">';
 			html += '</div>';
@@ -455,10 +455,19 @@ function setThumbnail_Food(event) {
 		    img.height = 160;
 			img.setAttribute("src", event.target.result);
 			$(".step_image").hide();
-			document.querySelector("div.step_im").appendChild(img); 
-			
+			document.querySelector("div#step1").appendChild(img); 
+			document.querySelector("div#step2").appendChild(img); 
+			document.querySelector("div#step3").appendChild(img); 
+			document.querySelector("div#step4").appendChild(img); 
+			document.querySelector("div#step5").appendChild(img); 
+			document.querySelector("div#step6").appendChild(img); 
+			document.querySelector("div#step7").appendChild(img); 
+			document.querySelector("div#step8").appendChild(img); 
+			document.querySelector("div#step9").appendChild(img); 
+			document.querySelector("div#step10").appendChild(img); 
 		}; 
 			reader.readAsDataURL(event.target.files[0]); 
+			
 		} 
 </script>
 
@@ -472,7 +481,7 @@ function setThumbnail_multi(event) {
 				img.width = 160;
 			    img.height = 160;
 				img.setAttribute("src", event.target.result); 
-				document.querySelector("div#image_").appendChild(img);
+				document.querySelector("div#step1").appendChild(img);
 			}; 
 				console.log(image); reader.readAsDataURL(image); 
 			} 

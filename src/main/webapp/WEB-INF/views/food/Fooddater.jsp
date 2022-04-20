@@ -146,9 +146,13 @@
 
 <div class="container">
 	<div class="card mb-3">
-		<div style="text-align: center;">
-			<img src="https://recipe1.ezmember.co.kr/cache/recipe/2020/08/18/32775e06923a4bef0cb6093ff84d28ef1.jpg" class="card-img-top" style="height: 500px; width: 800px; margin-top: 20px;">
-		</div>
+		<c:forEach items="${foodimage}" var="foodimage" varStatus="status">
+			<c:if test="${foodimage.type eq 0}">
+				<div style="text-align: center;">
+					<img src="<c:out value="${foodimage.path}"/><c:out value="${foodimage.uuidName }"/>" class="card-img-top" style="height: 500px; width: 800px; margin-top: 20px;">
+				</div>
+			</c:if>
+		</c:forEach>
   	<div class="card-body">
 	    <h4 class="card-title" style="margin-bottom: 20px;"><c:out value="${item.fdrsName }"/></h4>
 	    <span class="card-text">${fn:replace(item.fdrsIntroduction, lf, "<br>")}</span> 

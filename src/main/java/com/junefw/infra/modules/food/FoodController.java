@@ -196,6 +196,8 @@ public class FoodController {
 		model.addAttribute("item", rt);
 		//파생테이블이 가지고 있는 데이터
 		model.addAttribute("material", service.selectfdmaterialList(vo));
+		model.addAttribute("foodimage", service.selectFoodUploaded(vo));
+		
 		
 		
 		return "food/Fooddater";
