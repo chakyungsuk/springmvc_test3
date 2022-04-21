@@ -220,7 +220,7 @@
 <div class="card mb-3">
       <h4>요리순서</h4>
       <div class="" style="text-align: left;">
-	      <input type="file" name="file1" id="multifile" style="display:none;" multiple="multiple" onchange="setThumbnail_multi(event);">
+	      <input type="file" name="file1" id="multifile" style="display:none;" multiple="multiple">
 	      <button type="button" onclick="document.getElementById('multifile').click();" class="btn-sm btn btn-info">
 			<i class="bi bi-patch-plus-fill"></i> 순서사진 한번에 넣기
 	      </button>
@@ -239,12 +239,12 @@
 			<div class="col-12" style="max-width: 80%;">
 				<div class="input-group" style="margin-bottom: 30px;">
           			<h4 id="" style="margin-right: 30px;">Step 1</h4>
-					<textarea id="" name="" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none; float: left;"></textarea>
+					<textarea id="fdspStep" name="fdspStep" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none; float: left;"></textarea>
 					<div class="" id="step1">
 					<label for="file1">
 						<img class="step_image" id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
 					</label>
-						<input class="" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail_Food(event);">
+						<input class="" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;" onchange="upload(1,2)" multiple="multiple">
 					</div>
 					<button class="btn" onclick="StepDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button>
 				</div>
@@ -371,12 +371,12 @@ Copyright ©EZHLD Inc. All Rights Reserved</p>
 			html += '<div class="col-12" style="max-width: 80%;">';
 			html += '<div class="input-group" style="margin-bottom: 30px;">';
 			html += '<h4 id="" style="margin-right: 30px;">Step' + "&nbsp" + i +'</h4>';
-			html += '<textarea id="" name="" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>'; 
+			html += '<textarea id="fdspStep" name="fdspStepArray" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>'; 
 			html += '<div class="" id="step' + i + '">';
 			html += '<label for="file1">';
 			html += '<img class="step_image" id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">';
 			html += '</label>';
-			html += '<input class="step_image" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail_Food(event);">';
+			html += '<input class="step_image" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail_Food(event);" onChange="upload(1,2)" multiple="multiple">';
 			html += '</div>';
 			html += '<button class="btn" onclick="StepDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button> ';
 			html += '</div>';
@@ -488,7 +488,35 @@ function setThumbnail_multi(event) {
 	} 
 </script>
 
-
+<script>
+	upload = function(seq,div){
+		
+		$("#ulFile" + seq).children().remove();
+		
+		var fileCount = $("input[type=file]")[seq].files.length;
+		
+		/* if(checkUploadedTotalFileNumber(fileCount, seq) == false) {return false;} */
+		
+		var totalFileSize;
+		for(var i = 0; i < fileCount; i++){
+			if(div==1){
+				if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+			}else if(div==2){
+				if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+			}else {
+				return false;
+			}
+			
+			if(checkUploadedEachFileSize($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+			totalFileSize += $("input[type=file]")[seq].files[i].size;
+		}
+		/* if(checkUploadedTotalFileSize(totalFileSize, seq) == false) {return false;} */
+		
+		for(var i=0; i<fileCount; i++){
+			addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
+		}
+	}
+</script>
 
 </form>
 </body>

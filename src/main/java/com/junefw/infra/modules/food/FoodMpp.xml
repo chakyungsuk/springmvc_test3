@@ -81,6 +81,18 @@
 			and fdrsSeq = #{fdrsSeq}
 	</select>
 	
+	<select id="selectfdrsStepList" resultMap="resultMapObj">
+		SELECT
+			fdspStep
+			, fdmtOrder
+			, fdspDelNy
+			, fdrsSeq
+		FROM 
+			fdrsStep
+		WHERE 1=1
+			and fdrsSeq = #{fdrsSeq}
+	</select>
+	
 	
 	<insert id="insert">
 		insert into fdrecipesave(
@@ -123,6 +135,20 @@
 		)	
 	</insert>
 	
+	<insert id="insertstep">
+		INSERT INTO fdrsStep (
+			fdspStep
+			, fdmtOrder
+			, fdspDelNy
+			, fdrsSeq
+		) VALUES (
+			#{fdspStep}
+			, #{fdmtOrder}
+			, 0
+			, #{fdrsSeq}
+		)	
+	</insert>
+	
 	<insert id="insertUploaded">
 	INSERT INTO ${TableName} (
 		type
@@ -158,11 +184,8 @@
 			, a.fdrsTimeCd
 			, a.fdrsDifficultyCd
 			, a.fdrsTip
-			, b.originalName
-			, b.uuidName
 		FROM
 			fdrecipesave a
-		LEFT JOIN fdFoodUploaded b on b.pseq = a.fdrsSeq
 		WHERE 1=1
 			and a.fdrsSeq = #{fdrsSeq}
 	</select>

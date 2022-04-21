@@ -21,10 +21,12 @@ public class FoodDao {
 	public int selectOneFood(FoodVo vo) {return sqlSession.selectOne(namespace + ".selectOneFood", vo);}
 	public List<Food> selectList(FoodVo vo){ return sqlSession.selectList(namespace + ".selectList", vo);}
 	public List<Food> selectfdmaterialList(FoodVo vo){ return sqlSession.selectList(namespace + ".selectfdmaterialList", vo);}
+	public List<Food> selectfdrsStepList(FoodVo vo){ return sqlSession.selectList(namespace + ".selectfdrsStepList", vo);}
 	public List<Food> selectFoodUploaded(FoodVo vo){ return sqlSession.selectList(namespace + ".selectFoodUploaded", vo);}
 	
 	public int insert(Food dto){ return sqlSession.insert(namespace + ".insert", dto);}
 	public int insertmaterial(Food dto){ return sqlSession.insert(namespace + ".insertmaterial", dto);}
+	public int insertstep(Food dto){ return sqlSession.insert(namespace + ".insertstep", dto);}
 	public int insertAddress(Food dto){ return sqlSession.insert(namespace + ".insertAddress", dto);}
 	public int insertUploaded(Food dto){ return sqlSession.insert(namespace + ".insertUploaded", dto);}
 	

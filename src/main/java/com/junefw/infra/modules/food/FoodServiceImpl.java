@@ -44,6 +44,11 @@ public class FoodServiceImpl implements FoodService{
 			dao.insertmaterial(dto);
 			} 
 		
+		for(int i = 0; i < dto.getFdspStepArray().length; i++) {
+			dto.setFdspStep(dto.getFdspStepArray()[i]);
+			dao.insertstep(dto);
+			} 
+		
 		int j = 0;
 		for(MultipartFile multipartFile : dto.getFile0() ) {
 			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
@@ -59,8 +64,8 @@ public class FoodServiceImpl implements FoodService{
 			 * dto.setTableName("fdmemberuploaded"); dto.setType(0); dto.setDefaultNy(0);
 			 * dto.setSort(j); dto.setPseq(dto.getIfmmSeq());
 			 */			  
-			  dao.insertUploaded(dto);
-			  j++;
+			dao.insertUploaded(dto);
+			j++;
 		}
 		
 		
@@ -86,6 +91,11 @@ public class FoodServiceImpl implements FoodService{
 		return dao.insertmaterial(dto);
 	}
 
+	@Override
+	public int insertstep(Food dto) throws Exception {
+		return dao.insertstep(dto);
+	}
+	
 	@Override
 	public Food selectOne(FoodVo vo) throws Exception {
 		return dao.selectOne(vo);
@@ -136,6 +146,13 @@ public class FoodServiceImpl implements FoodService{
 	public List<Food> selectFoodUploaded(FoodVo vo) throws Exception {
 		return dao.selectFoodUploaded(vo);
 	}
+
+	@Override
+	public List<Food> selectfdrsStepList(FoodVo vo) throws Exception {
+		return dao.selectfdrsStepList(vo);
+	}
+
+
 
 
 

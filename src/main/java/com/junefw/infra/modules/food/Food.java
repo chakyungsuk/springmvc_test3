@@ -26,6 +26,13 @@ public class Food {
 	private String fdrsTip;
 	private Integer fdrsDelNy;
 	
+	//fdspStep
+	private String fdspStep;
+	private Integer fdmtOrder;
+	private Integer fdspDelNy;
+	
+	//fdspStepArray
+	private String[] fdspStepArray;
 	
 	//material
 	private String fdmtMaterial;
@@ -348,6 +355,38 @@ public class Food {
 
 	public void setPath(String path) {
 		this.path = path;
+	}
+
+	public String getFdspStep() {
+		return fdspStep;
+	}
+
+	public void setFdspStep(String fdspStep) {
+		this.fdspStep = fdspStep;
+	}
+
+	public String[] getFdspStepArray() {
+		return fdspStepArray;
+	}
+
+	public void setFdspStepArray(String[] fdspStepArray) {
+		this.fdspStepArray = fdspStepArray;
+	}
+
+	public Integer getFdmtOrder() {
+		return fdmtOrder;
+	}
+
+	public void setFdmtOrder(Integer fdmtOrder) {
+		this.fdmtOrder = fdmtOrder;
+	}
+
+	public Integer getFdspDelNy() {
+		return fdspDelNy;
+	}
+
+	public void setFdspDelNy(Integer fdspDelNy) {
+		this.fdspDelNy = fdspDelNy;
 	}
 
 	
