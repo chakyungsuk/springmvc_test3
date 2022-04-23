@@ -244,7 +244,7 @@
 					<label for="file1">
 						<img class="step_image" id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
 					</label>
-						<input class="" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;" onchange="upload(1,2)" multiple="multiple">
+						<input class="" type="file" name="file1" id="filfe1" accept="jpeg,png,gif" style="display:none;" onchange="upload(1,2), setThumbnail_Food(event)"  multiple="multiple">
 					</div>
 					<button class="btn" onclick="StepDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button>
 				</div>
@@ -373,10 +373,10 @@ Copyright ©EZHLD Inc. All Rights Reserved</p>
 			html += '<h4 id="" style="margin-right: 30px;">Step' + "&nbsp" + i +'</h4>';
 			html += '<textarea id="fdspStep" name="fdspStepArray" class="form-control" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 썰어주세요." style="height:160px; width:200px; resize:none;"></textarea>'; 
 			html += '<div class="" id="step' + i + '">';
-			html += '<label for="file1">';
+			html += '<label for="file' + i + '">';
 			html += '<img class="step_image" id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">';
 			html += '</label>';
-			html += '<input class="step_image" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail_Food(event);" onChange="upload(1,2)" multiple="multiple">';
+			html += '<input class="step_image" type="file" name="file' + i + '" id="file' + i + '" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail_Food(event);" multiple="multiple">';
 			html += '</div>';
 			html += '<button class="btn" onclick="StepDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button> ';
 			html += '</div>';
@@ -490,8 +490,6 @@ function setThumbnail_multi(event) {
 
 <script>
 	upload = function(seq,div){
-		
-		$("#ulFile" + seq).children().remove();
 		
 		var fileCount = $("input[type=file]")[seq].files.length;
 		

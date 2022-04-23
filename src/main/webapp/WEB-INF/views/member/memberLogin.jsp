@@ -97,7 +97,6 @@
 		});
 
 		$("#btnLogin").on("click", function(){
-			alert("asdfasdf");
 			$.ajax({
 				async: true 
 				,cache: false

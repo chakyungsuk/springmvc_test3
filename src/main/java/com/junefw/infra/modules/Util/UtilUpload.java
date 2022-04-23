@@ -16,7 +16,6 @@ public class UtilUpload {
 		String fileName = multipartFile.getOriginalFilename();
 		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
 		String uuid = UUID.randomUUID().toString();
-		System.out.println("uuid------------------" + uuid);
 		String uuidFileName = uuid + "." + ext;
 		String pathModule = className;
 		String nowString = UtilDateTime.nowString();
@@ -41,7 +40,6 @@ public class UtilUpload {
 		String fileName = multipartFile.getOriginalFilename();
 		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
 		String uuid = UUID.randomUUID().toString();
-		System.out.println("uuid------------------" + uuid);
 		String uuidFileName = uuid + "." + ext;
 		String pathModule = className;
 		String nowString = UtilDateTime.nowString();
@@ -61,6 +59,7 @@ public class UtilUpload {
 		
 		
 	}
+	
 
 
 	public static void createPath (String path) {
