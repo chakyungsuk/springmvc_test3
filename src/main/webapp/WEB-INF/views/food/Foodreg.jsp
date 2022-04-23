@@ -244,7 +244,7 @@
 					<label for="file1">
 						<img class="step_image" id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
 					</label>
-						<input class="" type="file" name="file1" id="filfe1" accept="jpeg,png,gif" style="display:none;" onchange="upload(1,2), setThumbnail_Food(event)"  multiple="multiple">
+						<input class="" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail_Food(event)"  multiple="multiple">
 					</div>
 					<button class="btn" onclick="StepDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button>
 				</div>

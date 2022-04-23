@@ -232,7 +232,6 @@ public class FoodController {
 
 		return "food/Foodreg";
 	}
-
 	@SuppressWarnings(value = { "all" })
 	@RequestMapping(value = "/food/FoodInst")
 	public String FoodInst(FoodVo vo, Food dto, RedirectAttributes redirectAttributes) throws Exception {
@@ -243,10 +242,12 @@ public class FoodController {
 
 		redirectAttributes.addFlashAttribute("vo", vo);
 
-		if (Constants.INSERT_AFTER_TYPE == 1) {
-			return "redirect:/food/Fooddater";
-		} else {
-			return "redirect:/food/Foodreg";
-		}
+		
+		  if (Constants.INSERT_AFTER_TYPE == 1) {
+			  return "redirect:/food/Fooddater"; 
+		  } else { 
+			  return "redirect:/food/Foodreg"; 
+		  }
+		 
 	}
 }

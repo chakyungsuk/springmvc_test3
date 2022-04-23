@@ -41,6 +41,7 @@
 				<when test="shOptionDate == 2">and a.modDateTime between #{shDateStart} and #{shDateEnd}</when>
 				<when test="shOptionDate == 3">and a.ifmmdob between #{shDateStart} and #{shDateEnd}</when>
 			</choose> -->
+			AND b.type = 0
 			ORDER BY a.fdrsSeq DESC
 	</sql>
 
@@ -65,6 +66,7 @@
 			, a.modDateTime
 			, b.path
 			, b.uuidName
+			, b.type
 	<include refid="selectCommon" />
 		LIMIT #{startRnumForMysql},#{rowNumToShow}
 	</select>
