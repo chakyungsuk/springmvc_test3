@@ -82,6 +82,33 @@
 
 <body class="text-center">
 
+<c:forEach items="${foodimage }" var="foodimage" varStatus="status">
+	<c:if test="${foodimage.type eq 1 }"> 
+		<c:choose>
+			<c:when test="${foodimage.sort eq 1}">
+				<c:set var="foodimagestep1" value="${foodimage.uuidName}" />
+				<c:set var="foodimagepath1" value="${foodimage.path}" />
+			</c:when>
+			<c:when test="${foodimage.sort eq 2}">
+				<c:set var="foodimagestep2" value="${foodimage.uuidName}" />
+				<c:set var="foodimagepath2" value="${foodimage.path}" />
+			</c:when>
+			<c:when test="${foodimage.sort eq 3}">
+				<c:set var="foodimagestep3" value="${foodimage.uuidName}" />
+				<c:set var="foodimagepath3" value="${foodimage.path}" />
+			</c:when>
+			<c:when test="${foodimage.sort eq 4}">
+				<c:set var="foodimagestep4" value="${foodimage.uuidName}" />
+				<c:set var="foodimagepath4" value="${foodimage.path}" />
+			</c:when>
+			<c:when test="${foodimage.sort eq 5}">
+				<c:set var="foodimagestep5" value="${foodimage.uuidName}" />
+				<c:set var="foodimagepath5" value="${foodimage.path}" />
+			</c:when>
+		</c:choose>
+	</c:if>
+</c:forEach>
+
 <form id="Fooddater" name="Fooddater" method="post" action="/food/Fooddater">
 <input type="hidden" id="fdrsSeq" name="fdrsSeq">
 	
@@ -222,7 +249,7 @@
 							<a href="/food/Fooddater3" ><img id="tabStepView3" src="https://recipe1.ezmember.co.kr/img/mobile/tab_view3.png" alt="이미지작게보기" style="width: 40px; height: 40px;"></a>
 						</div>
             	</div>
-            	<c:forEach items="${step }" var="step" varStatus="status">
+ <%--            	<c:forEach items="${step }" var="step" varStatus="status">
 	            	<c:forEach items="${foodimage }" var="foodimage" varStatus="status">
 		            	<c:if test="${foodimage.type eq 1}" > 
 		            		<c:set var="i" value="${i + 1 }"/>
@@ -233,7 +260,16 @@
 							<hr>
  						</c:if>
 					</c:forEach>
-				</c:forEach>
+				</c:forEach> --%>
+				
+             	<c:forEach items="${step }" var="step" varStatus="status">
+		            		<c:set var="i" value="${i + 1 }"/>
+							<div><h3>Step ${i }</h3></div>
+								<div id="stepDiv1" class="view_step_cont media step1"><div id="stepdescr1" class="media-body"><c:out value="${step.fdspStep}"/></div>
+								<div id="stepimg1" class=""><img src="<c:out value="${foodimagepath1}"/><c:out value="${foodimagestep1 }"/>" style="height: 600px; width: 80%"></div>
+							</div>
+							<hr>
+				</c:forEach> 
 				
 				<dl class="view_step_tip" style="margin-top: 100px;">
 					<dt><img src="https://recipe1.ezmember.co.kr/img/tit_tip.gif" alt="팁-주의사항"></dt>

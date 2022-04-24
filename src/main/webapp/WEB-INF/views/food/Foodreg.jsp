@@ -220,7 +220,7 @@
 <div class="card mb-3">
       <h4>요리순서</h4>
       <div class="" style="text-align: left;">
-	      <input type="file" name="file1" id="multifile" style="display:none;" multiple="multiple">
+	      <input type="file" name="" id="multifile" style="display:none;" multiple="multiple">
 	      <button type="button" onclick="document.getElementById('multifile').click();" class="btn-sm btn btn-info">
 			<i class="bi bi-patch-plus-fill"></i> 순서사진 한번에 넣기
 	      </button>
@@ -244,7 +244,7 @@
 					<label for="file1">
 						<img class="step_image" id="" src="https://recipe1.ezmember.co.kr/img/pic_none2.gif" width="160" height="160" style="cursor:pointer">
 					</label>
-						<input class="" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail_Food(event)"  multiple="multiple">
+						<input class="" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail_Food(event)">
 					</div>
 					<button class="btn" onclick="StepDelete(this)" id="remove"><i class="bi bi-x-circle" style="size: 20px;  margin-top: 15px;"></i></button>
 				</div>
