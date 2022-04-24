@@ -82,7 +82,7 @@
 
 <body class="text-center">
 
-<c:forEach items="${foodimage }" var="foodimage" varStatus="status">
+<%-- <c:forEach items="${foodimage }" var="foodimage" varStatus="status">
 	<c:if test="${foodimage.type eq 1 }"> 
 		<c:choose>
 			<c:when test="${foodimage.sort eq 1}">
@@ -107,7 +107,7 @@
 			</c:when>
 		</c:choose>
 	</c:if>
-</c:forEach>
+</c:forEach> --%>
 
 <form id="Fooddater" name="Fooddater" method="post" action="/food/Fooddater">
 <input type="hidden" id="fdrsSeq" name="fdrsSeq">
@@ -262,13 +262,15 @@
 					</c:forEach>
 				</c:forEach> --%>
 				
-             	<c:forEach items="${step }" var="step" varStatus="status">
+             	<c:forEach items="${foodimage }" var="foodimage" varStatus="status">
+						<c:if test="${foodimage.type eq 1}">
 		            		<c:set var="i" value="${i + 1 }"/>
 							<div><h3>Step ${i }</h3></div>
-								<div id="stepDiv1" class="view_step_cont media step1"><div id="stepdescr1" class="media-body"><c:out value="${step.fdspStep}"/></div>
-								<div id="stepimg1" class=""><img src="<c:out value="${foodimagepath1}"/><c:out value="${foodimagestep1 }"/>" style="height: 600px; width: 80%"></div>
+								<div id="stepDiv1" class="view_step_cont media step1"><div id="stepdescr1" class="media-body"><c:out value="${step[status.index].fdspStep}"/></div>
+								<div id="stepimg1" class=""><img src="<c:out value="${foodimage.path}"/><c:out value="${foodimage.uuidName}"/>" style="height: 600px; width: 80%"></div>
 							</div>
 							<hr>
+						</c:if>
 				</c:forEach> 
 				
 				<dl class="view_step_tip" style="margin-top: 100px;">
