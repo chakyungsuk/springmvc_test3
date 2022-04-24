@@ -43,7 +43,7 @@ public class FoodServiceImpl implements FoodService{
 			dto.setFdmtAmount(dto.getFdmtAmountArray()[i]);
 			dao.insertmaterial(dto);
 			} 
-		
+		dao.insertstep(dto);
 		for(int i = 0; i < dto.getFdspStepArray().length; i++) {
 			dto.setFdspStep(dto.getFdspStepArray()[i]);
 			dao.insertstep(dto);

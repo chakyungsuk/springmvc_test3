@@ -197,6 +197,7 @@ public class FoodController {
 		//파생테이블이 가지고 있는 데이터
 		model.addAttribute("material", service.selectfdmaterialList(vo));
 		model.addAttribute("foodimage", service.selectFoodUploaded(vo));
+		model.addAttribute("step", service.selectfdrsStepList(vo));
 		
 		
 		
