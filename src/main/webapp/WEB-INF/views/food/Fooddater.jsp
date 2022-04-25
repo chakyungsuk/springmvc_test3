@@ -244,34 +244,23 @@
             	<div class="best_tit">
 					<h2><b>조리순서</b><span>Steps</span></h2>
 						<div class="best_tit_rmn" style="text-align: right;">
-							<a href="/food/Fooddater" ><img id="tabStepView1" src="https://recipe1.ezmember.co.kr/img/mobile/tab_view1_on.png" alt="이미지크게보기" style="width: 40px; height: 40px;"></a>
-							<a href="/food/Fooddater2" ><img id="tabStepView2" src="https://recipe1.ezmember.co.kr/img/mobile/tab_view2.png" alt="텍스트만보기" style="width: 40px; height: 40px;"></a>
-							<a href="/food/Fooddater3" ><img id="tabStepView3" src="https://recipe1.ezmember.co.kr/img/mobile/tab_view3.png" alt="이미지작게보기" style="width: 40px; height: 40px;"></a>
+							<button type="button" class="btn btn-sm" id="StepView1"><img id="" src="https://recipe1.ezmember.co.kr/img/mobile/tab_view1_on.png" alt="이미지크게보기" style="width: 40px; height: 40px;"></button>
+							<button type="button" class="btn btn-sm" id="StepView2"><img id="" src="https://recipe1.ezmember.co.kr/img/mobile/tab_view2.png" alt="텍스트만보기" style="width: 40px; height: 40px;"></button>
+							<button type="button" class="btn btn-sm" id="StepView3"><img id="" src="https://recipe1.ezmember.co.kr/img/mobile/tab_view3.png" alt="이미지작게보기" style="width: 40px; height: 40px;"></button>
 						</div>
             	</div>
- <%--            	<c:forEach items="${step }" var="step" varStatus="status">
-	            	<c:forEach items="${foodimage }" var="foodimage" varStatus="status">
-		            	<c:if test="${foodimage.type eq 1}" > 
-		            		<c:set var="i" value="${i + 1 }"/>
-							<div><h3>Step ${i }</h3></div>
-								<div id="stepDiv1" class="view_step_cont media step1"><div id="stepdescr1" class="media-body"><c:out value="${step.fdspStep}"/></div>
-								<div id="stepimg1" class=""><img src="<c:out value="${foodimage.path}"/><c:out value="${foodimage.uuidName }"/>" style="height: 600px; width: 80%"></div>
-							</div>
-							<hr>
- 						</c:if>
-					</c:forEach>
-				</c:forEach> --%>
-				
-             	<c:forEach items="${foodimage }" var="foodimage" varStatus="status">
-						<c:if test="${foodimage.type eq 1}">
-		            		<c:set var="i" value="${i + 1 }"/>
-							<div><h3>Step ${i }</h3></div>
-								<div id="stepDiv1" class="view_step_cont media step1"><div id="stepdescr1" class="media-body"><c:out value="${step[status.index].fdspStep}"/></div>
-								<div id="stepimg1" class=""><img src="<c:out value="${foodimage.path}"/><c:out value="${foodimage.uuidName}"/>" style="height: 600px; width: 80%"></div>
-							</div>
-							<hr>
-						</c:if>
-				</c:forEach> 
+				<div class="" id="tabStepView1"> 
+	             	<c:forEach items="${step }" var="step" varStatus="status">
+			            		<c:set var="i" value="${status.index + 1 }"/>
+								<div><h3>Step ${i }</h3></div>
+									<div id="stepDiv1" class="view_step_cont media step1"><div id="stepdescr1" class="media-body"><c:out value="${step.fdspStep}"/></div>
+								</div>
+									<div id="stepimg1" class=""><img src="<c:out value="${foodimage[status.index].path}"/><c:out value="${foodimage[status.index].uuidName}"/>" style="height: 600px; width: 80%"></div>
+								<hr>
+					</c:forEach> 
+				</div>
+				<div class="" id="tabStepView2" style="display: none;"><%@ include file="/WEB-INF/views/food/Fooddater2.jsp"%></div>
+				<div class="" id="tabStepView3" style="display: none;"><%@ include file="/WEB-INF/views/food/Fooddater3.jsp"%></div>
 				
 				<dl class="view_step_tip" style="margin-top: 100px;">
 					<dt><img src="https://recipe1.ezmember.co.kr/img/tit_tip.gif" alt="팁-주의사항"></dt>
@@ -360,6 +349,30 @@ Copyright ©EZHLD Inc. All Rights Reserved</p>
 			$("#formLogin").submit();
 		});
 		
+ 	//Step 화면전환	
+ 		$("#StepView1").on("click",function(){
+
+ 			$("#tabStepView1").show();
+ 			$("#tabStepView2").hide();
+ 			$("#tabStepView3").hide();
+ 			    
+ 			});  
+ 	
+		$("#StepView2").on("click",function(){
+
+			$("#tabStepView1").hide();
+			$("#tabStepView2").show();
+			$("#tabStepView3").hide();
+		    
+		});  
+		
+		$("#StepView3").on("click",function(){
+
+			$("#tabStepView1").hide();
+			$("#tabStepView2").hide();
+			$("#tabStepView3").show();
+		    
+		});  
 </script>
 
 
