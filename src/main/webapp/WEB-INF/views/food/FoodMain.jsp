@@ -43,7 +43,7 @@
 		width: 100%;
 		/* background-image: url('../../../images/user_image/backC.jpg'); */
 		background-size: cover;
-		background-color: gray;
+		background-color: #222222;
 		background-repeat : no-repeat; 
 	}
 /* 	.album {
@@ -132,12 +132,12 @@
 
 
 	
-<div class="album py-5 bg-light">
+<div class="album py-5" style="background-color: #222222;">
 	<div class="col-12">
-		<h4 style="margin-bottom: 30px;">TOP 레시피 명예의 전당</h4>
+		<h3 style="margin-bottom: 50px; color: white;">TOP 레시피 명예의 전당</h3>
 	</div>
     <div class="container">
-      <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 g-3">
+      <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 g-5">
 	
 	<c:choose>
 		<c:when test="${fn:length(list) eq 0}">
@@ -149,15 +149,14 @@
 			<c:forEach items="${list}" var="item" varStatus="status">		
 				
 					<div class="col">
-						<div class="card shadow">
-							<a class="thumbnail" style=""><img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" style="margin-top: 20px; height: 250px; width: 90%;"></a>
+						<div class="card shadow" style="background-color: transparent;">
+							<a href="javascript:goView(<c:out value="${item.fdrsSeq}"/>)">
+							<img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" style="margin-top: 20px; height: 280px; width: 90%;">	
+							</a>
 							<div class="card-body" style="">
-								<p class="card-text"><c:out value="${item.fdrsName }"/></p>
+								<p class="card-text" style="color: white;"><c:out value="${item.fdrsName }"/></p>
 								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<a href="javascript:goView(<c:out value="${item.fdrsSeq}"/>)"><button type="button" class="btn btn-sm btn-outline-secondary">자세히</button></a>
-									</div>
-									<small class="text-muted"><fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd HH:mm:ss"/></small>
+									<small class="text-muted">등록일 <fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd HH:mm:ss"/></small>
 								</div>
 							</div>
 						</div>

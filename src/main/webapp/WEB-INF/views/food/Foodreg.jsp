@@ -40,7 +40,7 @@
 		width: 100%;
 		/* background-image: url('../../../images/user_image/backC.jpg'); */
 		background-size: cover;
-		background-color: gray;
+		background-color: #222222;
 		background-repeat : no-repeat; 
 	}
 /* 	.album {
