@@ -199,6 +199,8 @@
 	</div>
 </div>
 
+<footer class="text" style="background-color: black;">
+<br><br>
 <div class="container" style="margin-top: 20px;">
 	<div class="row">
 		<div class="col-sm-4">
@@ -218,9 +220,8 @@
 		</div>
 	</div>
 </div>
-
-
-<footer class="text" style="margin-top: 20px;">
+<br>
+<br>
   <div class="container">
     <p class="float-end mb-1">
     </p>

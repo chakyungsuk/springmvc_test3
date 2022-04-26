@@ -363,6 +363,8 @@ Copyright ©EZHLD Inc. All Rights Reserved</p>
 			
 			var i=2;			
 		function StepCreate(){
+			
+			if(i <= 5){
 			var html = '';
 /* 			var Name = $("#MaterialName").val();
 			var Amount = $("#MaterialAmount").val(); */
@@ -386,6 +388,9 @@ Copyright ©EZHLD Inc. All Rights Reserved</p>
 /* 			$("#MaterialName").val('');
 			$("#MaterialAmount").val(''); */
 			i++; // 함수 내 하단에 증가문 설정	
+			} else {
+				alert("Step 은 5개까지만 가능합니다");
+			}
 		};
 		function StepDelete(obj){
 			var tr = $(obj).parent();

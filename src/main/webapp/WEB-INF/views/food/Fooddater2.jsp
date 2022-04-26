@@ -18,17 +18,30 @@
 </head>
 
 <body class="text-center">
-<div>
-	<c:forEach items="${step }" var="step" varStatus="status">
+
+<div class="container">
+	<div class="" id="tabStepView2"> 
+		<c:forEach items="${step }" var="step" varStatus="status">
 			<c:set var="i" value="${status.index + 1 }"/>
 			<div><h3>Step ${i }</h3></div>
-			<div id="stepDiv1" class="view_step_cont media step1"><div id="stepdescr1" class="media-body"><c:out value="${step.fdspStep}"/></div>
+				<div id="stepDiv1" class="view_step_cont media step1"><div id="stepdescr1" class="media-body"><c:out value="${step.fdspStep}"/></div>
 			</div>
+			<br>
 			<hr>
-	</c:forEach> 
+		</c:forEach> 
+	</div>
 </div>
 
+
+<script type="text/javascript">
+
+	
+
+</script>
+
 </body>
+
+
 
 </htm1>
 
