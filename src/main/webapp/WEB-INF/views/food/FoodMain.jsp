@@ -68,10 +68,13 @@
 
 <!-- Header S -->
 <div class="container navbar navbar-dark" aria-label="Eighth navbar example" style="margin-bottom: 2px;">
-	<div class="col-lg-8 col-sm-8" style="text-align: left;" >
+	<div class="col-lg-7 col-sm-6" style="text-align: left;" >
 		<a class="navbar-brand" href="/food/FoodMain">Ten Thousand Recipes</a>
 	</div>
-	<div class="col-lg-3 col-sm-3">
+	<div class="col-lg-2 col-sm-3">
+		<c:if test="${empty sessSeq}"><a href="/food/Foodreg"><input type="button" id="signUp" class="btn" style="color: white;" value="login(회원가입)"/></a></c:if>
+	</div>
+	<div class="col-lg-2 col-sm-2">
 		<a href="/food/Foodreg"><input type="button" id="signUp" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
 	</div>
 	<div class="col-lg-1 col-sm-1">

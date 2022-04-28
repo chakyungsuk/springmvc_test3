@@ -231,7 +231,8 @@
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마늘편은 익혀주세요 ▷ 마늘편을 충분히 익혀주셔야 매운 맛이 사라집니다.<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;꿀을 조금 넣어주세요 ▷ 꿀이 없는 경우, 설탕 1스푼으로 대체 가능합니다.
 	  </span><br>
-	  
+	  <h5 style="text-align: center; color: orange;">//주의// 사진변경시 Step을 지우시고 다시 추가 부탁드립니다.</h5>
+	  <br>
       <div id="divStepArea" class="ui-sortable">
       <div class="container" style="max-width: 80%; text-align: center;">
           <div class="row" id="StepCount" style="justify-content: center;">
@@ -465,11 +466,7 @@ function setThumbnail_Food(event) {
 			document.querySelector("div#step3").appendChild(img); 
 			document.querySelector("div#step4").appendChild(img); 
 			document.querySelector("div#step5").appendChild(img); 
-			document.querySelector("div#step6").appendChild(img); 
-			document.querySelector("div#step7").appendChild(img); 
-			document.querySelector("div#step8").appendChild(img); 
-			document.querySelector("div#step9").appendChild(img); 
-			document.querySelector("div#step10").appendChild(img); 
+
 		}; 
 			reader.readAsDataURL(event.target.files[0]); 
 			
