@@ -157,7 +157,7 @@
 						<div id="image_container" style="float: right;">
 						<label for="file0">
 							<img id="image_hide" src="https://recipe1.ezmember.co.kr/img/pic_none4.gif" style="width: 250px; height: 250px; cursor:pointer">
-							<input class="form-control" type="file" name="file0" id="file0" accept="jpeg,png,gif" style="display:none;" multiple="multiple" onchange="setThumbnail(event);"/>
+							<input class="form-control" type="file" name="file0" id="file0" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail(event);"/>
 						</label>							
 						</div>
 					<div class="cont_line"><p class="cont_tit4">레시피 제목</p><input type="text" name="fdrsName" id="fdrsName" value="" class="form-control" placeholder="예) 소고기 미역국 끓이기" style="width:610px;" autocomplete="off"></div><br>
