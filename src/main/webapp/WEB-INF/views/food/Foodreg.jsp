@@ -219,12 +219,12 @@
 
 <div class="card mb-3">
       <h4>요리순서</h4>
-      <div class="" style="text-align: left;">
+<!--       <div class="" style="text-align: left;">
 	      <input type="file" name="" id="multifile" style="display:none;" multiple="multiple">
 	      <button type="button" onclick="document.getElementById('multifile').click();" class="btn-sm btn btn-info">
 			<i class="bi bi-patch-plus-fill"></i> 순서사진 한번에 넣기
 	      </button>
-      </div>
+      </div> -->
       <br>
 	  <span class="guide mag_b_15"><b>요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요.</b><br>
 		예) 10분간 익혀주세요 ▷ 10분간 약한불로 익혀주세요.<br>
