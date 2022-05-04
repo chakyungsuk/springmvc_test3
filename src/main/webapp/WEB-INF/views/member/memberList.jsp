@@ -94,7 +94,10 @@
 		<div class="col-12">
 		<ul class="nav nav-tabs" style="margin-top: 20px">
 			<li class="nav-item">
-		    	<a class="nav-link active" aria-current="page" href="/member/memberList">처음화면으로</a>
+		    	<a class="nav-link active" aria-current="page" href="/member/memberList">회원List</a>
+		    </li>
+			<li class="nav-item">
+		    	<a class="nav-link active" aria-current="page" href="/food/FoodMain">Food메인화면으로</a>
 		    </li>
 		</ul>
 		</div>

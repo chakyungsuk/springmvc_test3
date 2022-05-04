@@ -119,7 +119,7 @@
 	      <strong id="name"><c:out value="${sessId }"/> 회원님 안녕하세요.</strong>
 	    </a>
 	    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-	      <li><a class="dropdown-item" href="#">Profile Setting</a></li>
+	      <li><a class="dropdown-item" href="/member/memberList">Profile Setting</a></li>
 	      <li><hr class="dropdown-divider"></li>
 	     	 <li><a class="dropdown-item" type="button" id="btnLogout">Login out</a></li>
 	    </ul>

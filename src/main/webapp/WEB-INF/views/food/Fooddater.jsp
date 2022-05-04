@@ -160,7 +160,7 @@
       <strong>CEO CHA</strong>
     </a>
     <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-      <li><a class="dropdown-item" href="#">Profile Setting</a></li>
+      <li><a class="dropdown-item" href="/member/memberList">Profile Setting</a></li>
       <li><hr class="dropdown-divider"></li>
       <li><a class="dropdown-item" href="#">Login out</a></li>
     </ul>
@@ -274,7 +274,7 @@
 	</div>
 </div>
 
-<div class=container>
+<!-- <div class=container>
 	<div class="card mb-3">	
 		<div class="">
 			<h4 class="card-title" style="text-align: left; margin-left: 50px; margin-top: 20px;">요리 후기</h4>
@@ -295,7 +295,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
  
 <footer class="text" style="margin-top: 20px;">
 	<div class="container">
@@ -372,9 +372,6 @@
 		    
 		});  
 </script>
-
-
-
 
 
 </body>
