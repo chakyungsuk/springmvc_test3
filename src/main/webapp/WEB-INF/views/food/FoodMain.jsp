@@ -132,7 +132,6 @@
 <!-- Body S -->
 <iframe width="100%" height="620" src="https://play-tv.kakao.com/embed/player/cliplink/378098892?service=player_share&autoplay=1&mute=1&loop=1" allowfullscreen frameborder="0" scrolling="no" allow="autoplay; fullscreen; encrypted-media" loop="loop"></iframe>
 
-
 	
 <div class="album py-5" style="background-color: #222222;">
 	<div class="col-12">
