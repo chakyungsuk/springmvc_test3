@@ -40,6 +40,8 @@
 			<exclude-mapping path="/member/memberLogin" />
 			<exclude-mapping path="/member/loginProc" />
 			<exclude-mapping path="/member/memberForm" />
+			<exclude-mapping path="/test/**" />
+			<exclude-mapping path="/rest/**" />
 			<!-- 구글 -->
 			<exclude-mapping path="/food/loginProcGoogle" />
 			<!-- 카카오 -->
