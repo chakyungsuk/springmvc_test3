@@ -145,7 +145,7 @@
 		)	
 	</insert>
 	
-		<insert id="insertMobile">
+	<insert id="insertMobile">
 		INSERT INTO fdmemberphone (
 			fdmpNumber
 			, fdmpTelecomCd 
@@ -158,6 +158,22 @@
 			,0
 			,1
 			,#{ifmmSeq}
+		)	
+	</insert>
+	
+	<insert id="insertPost">
+		INSERT INTO fdmember (
+			ifmmId
+			, ifmmPassword 
+			, ifmmName
+			, ifmmSaved
+			, ifmmDelNy
+		) VALUES (
+			#{ifmmId}
+			,#{ifmmPassword} 
+			,#{ifmmName} 
+			,1
+			,0
 		)	
 	</insert>
 	

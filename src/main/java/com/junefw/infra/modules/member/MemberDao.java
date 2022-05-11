@@ -21,6 +21,7 @@ public class MemberDao {
 	public List<Member> selectListMemberUploaded(MemberVo vo){ return sqlSession.selectList(namespace + ".selectListMemberUploaded", vo);}
 	
 	public int insert(Member dto){ return sqlSession.insert(namespace + ".insert", dto);}
+	public int insertPost(Member dto){ return sqlSession.insert(namespace + ".insertPost", dto);}
 	public int insertEmail(Member dto){ return sqlSession.insert(namespace + ".insertEmail", dto);}
 	public int insertMobile(Member dto){ return sqlSession.insert(namespace + ".insertMobile", dto);}
 	public int insertAddress(Member dto){ return sqlSession.insert(namespace + ".insertAddress", dto);}

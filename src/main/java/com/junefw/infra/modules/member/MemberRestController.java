@@ -33,8 +33,8 @@ public class MemberRestController {
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	//getMapping("")
-	public String insert(@RequestBody Member dto) throws Exception {
-		sercive.insert(dto); 
+	public String insertPost(@RequestBody Member dto) throws Exception {
+		sercive.insertPost(dto); 
 		return dto.getIfmmSeq();
 	}
 	
@@ -43,5 +43,11 @@ public class MemberRestController {
 	public void update(@PathVariable String seq, @RequestBody Member dto) throws Exception {
 		dto.setIfmmSeq(seq);
 		sercive.update(dto);
+	}
+
+	@RequestMapping(value = "", method = RequestMethod.DELETE)
+	//getMapping("/{seq}")
+	public void updateDelete(@RequestBody MemberVo vo) throws Exception {
+		sercive.updateDelete(vo);
 	}
 }

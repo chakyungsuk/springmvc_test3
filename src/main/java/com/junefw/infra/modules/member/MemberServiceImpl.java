@@ -145,6 +145,11 @@ public class MemberServiceImpl implements MemberService{
 		return dao.selectOneLogin(dto);
 	}
 
+	@Override
+	public int insertPost(Member dto) throws Exception {
+		return dao.insertPost(dto);
+	}
+
 
 
 
