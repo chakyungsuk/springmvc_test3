@@ -212,7 +212,7 @@
 			 <div>
 				 <button class="btn btn-lg-danger" type="button" onclick="MaterialCreate()" id="" name="">추가</button>
 			 </div>
-		 <div class="btn_add" style="padding:0 0 20px 350px; width:800px;"></div>
+		 	<div class="btn_add" style="padding:0 0 20px 350px; width:800px;"></div>
 		 </div>
 </div>
 

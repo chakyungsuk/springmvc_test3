@@ -242,7 +242,7 @@
 		</div>
 	</div>
 
-	<!-- Page S -->
+<!-- Page S -->
 <nav aria-label="...">
 	<ul class="pagination justify-content-center">
 		  
