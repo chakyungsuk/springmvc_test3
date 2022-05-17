@@ -6,6 +6,7 @@ public interface MemberService {
 	
 	int selectOneMember(MemberVo vo) throws Exception;
 	List<Member> selectList(MemberVo vo) throws Exception; 
+	List<Member> selectRestList(MemberVo vo) throws Exception; 
 	List<Member> selectListMemberUploaded(MemberVo vo) throws Exception; 
 	
 	int insert(Member dto) throws Exception; 

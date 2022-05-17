@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class MemberRestController {
 
 	@Autowired
-	MemberServiceImpl sercive;
+	MemberServiceImpl service;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	//getMapping("")
-	public List<Member> selectList(MemberVo vo) throws Exception {
-		List<Member> list = sercive.selectList(vo);
+	public List<Member> selectRestList(MemberVo vo) throws Exception {
+		List<Member> list = service.selectRestList(vo);
 		return list;
 	}
 	
@@ -27,14 +27,14 @@ public class MemberRestController {
 	//getMapping("/{seq}")
 	public Member selectone(@PathVariable String seq, MemberVo vo) throws Exception {
 		vo.setIfmmSeq(seq);
-		Member item = sercive.selectOne(vo);
+		Member item = service.selectOne(vo);
 		return item;
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	//getMapping("")
 	public String insertPost(@RequestBody Member dto) throws Exception {
-		sercive.insertPost(dto); 
+		service.insertPost(dto); 
 		return dto.getIfmmSeq();
 	}
 	
@@ -42,12 +42,12 @@ public class MemberRestController {
 	//getMapping("/{seq}")
 	public void update(@PathVariable String seq, @RequestBody Member dto) throws Exception {
 		dto.setIfmmSeq(seq);
-		sercive.update(dto);
+		service.update(dto);
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.DELETE)
 	//getMapping("/{seq}")
 	public void updateDelete(@RequestBody MemberVo vo) throws Exception {
-		sercive.updateDelete(vo);
+		service.updateDelete(vo);
 	}
 }
