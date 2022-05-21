@@ -179,19 +179,19 @@
 		</div>
 				<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<label for="file0" class="form-label btn btn-info btn-sm">이미지첨부</label>
-			<input class="form-control" id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onchange="upload(0, 2);">
+		<!-- 	<input class="form-control" id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onchange="upload(0, 2);">
 			<div class="addScroll">
 				<ul id="ulFile0" class="list-group">
 				</ul>
-			</div>
+			</div> -->
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 			<label for="file1" class="form-label btn btn-info btn-sm">파일첨부</label>
-			<input class="form-control" id="file1" name="file1" type="file" multiple="multiple" style="display: none;" onchange="upload(1, 2);">
+			<!-- <input class="form-control" id="file1" name="file1" type="file" multiple="multiple" style="display: none;" onchange="upload(1, 2);">
 			<div class="addScroll">
 				<ul id="ulFile1" class="list-group">
 				</ul>
-			</div>
+			</div> -->
 		</div>
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>

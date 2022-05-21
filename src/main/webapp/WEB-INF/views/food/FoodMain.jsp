@@ -71,7 +71,7 @@
 		<a class="navbar-brand" href="/food/FoodMain">Ten Thousand Recipes</a>
 	</div>
 	<div class="col-lg-2 col-sm-3">
-		<c:if test="${empty sessSeq}"><a href="/food/Foodreg"><input type="button" id="signUp" class="btn" style="color: white;" value="login(회원가입)"/></a></c:if>
+		<c:if test="${empty sessSeq}"><a href="/member/memberForm"><input type="button" id="signUp" class="btn" style="color: white;" value="login(회원가입)"/></a></c:if>
 	</div>
 	<div class="col-lg-2 col-sm-2">
 		<a href="/food/Foodreg"><input type="button" id="signUp" class="btn" style="color: white;" value="NEW Recipes(레시피 등록)"/></a>
@@ -115,7 +115,7 @@
 	    <li>
 	    <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"  type="button" id="dropdownMenuLink">
 	      <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
-	      <strong id="name"><c:out value="${sessId }"/> 회원님 안녕하세요.</strong>
+	      <strong id="name"><c:out value="${sessName }"/> 회원님 안녕하세요.</strong>
 	    </a>
 	    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
 	      <li><a class="dropdown-item" href="/member/memberList">Profile Setting</a></li>

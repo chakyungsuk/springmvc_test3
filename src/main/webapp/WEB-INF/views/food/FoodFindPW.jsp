@@ -162,7 +162,7 @@
 <script type="text/javascript">
 		
 		$("#SnedEmail").on("click", function(){
-			alert("임시번호가 발송되었습니다. 이메일을 확인 해주세요.")
+			alert("임시번호가 발송되었습니다. 이메일을 확인 해주세요.(죄송합니다 임시번호 전송 안되었으며, 구현 예정입니다.)")
 			$("#FoodFindPW").attr("action","/food/FoodFindPW2")
 			$("#FoodFindPW").submit();
 		});

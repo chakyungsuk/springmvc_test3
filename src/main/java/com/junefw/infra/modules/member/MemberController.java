@@ -73,6 +73,7 @@ public class MemberController {
 				httpSession.setAttribute("sessSeq", rtMember.getIfmmSeq()); // 세션값(로그인 하고 계속 갖고있음. Seq, ID , name)
 				httpSession.setAttribute("sessId", rtMember.getIfmmId());
 				httpSession.setAttribute("sessName", rtMember.getIfmmName());
+				httpSession.setAttribute("sessPassWord", rtMember.getIfmmPassword());
 				
 				returnMap.put("rt", "success");
 			} else {

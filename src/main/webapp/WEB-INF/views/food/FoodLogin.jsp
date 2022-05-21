@@ -185,7 +185,7 @@
 				,success: function(response) {
 					
 					if(response.rt == "success") {
-						location.href = "/food/FoodMain";
+						location.href = "/index/indexView";
 					} else {
 						alert("회원없음");
 					}

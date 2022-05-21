@@ -152,16 +152,18 @@
       </a>
     </li>
     <hr style="margin-top: 380px;">
-    <li>
-    <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"  type="button" id="dropdownMenuLink">
-      <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
-      <strong>CEO CHA</strong>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-      <li><a class="dropdown-item" href="/member/memberList">Profile Setting</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Login out</a></li>
-    </ul>
+      <c:if test="${not empty sessSeq}">
+	    <li>
+	    <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"  type="button" id="dropdownMenuLink">
+	      <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+	      <strong id="name"><c:out value="${sessName }"/> 회원님 안녕하세요.</strong>
+	    </a>
+	    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+	      <li><a class="dropdown-item" href="/member/memberList">Profile Setting</a></li>
+	      <li><hr class="dropdown-divider"></li>
+	     	 <li><a class="dropdown-item" type="button" id="btnLogout">Login out</a></li>
+	    </ul>
+      </c:if>
     </li>
   </ul>
 </div>
@@ -242,6 +244,7 @@
             	<div class="best_tit">
 						<h2><b>조리순서</b><span>Steps</span></h2>
 							<div class="best_tit_rmn" style="text-align: right;">
+								<span style="color: blue;">버튼을 클릭해보세요! ---></span>
 								<button type="button" class="btn btn-sm btn-outline-secondary" id="StepView1">이미지</button>
 								<button type="button" class="btn btn-sm btn-outline-secondary" id="StepView2">텍스트</button>
 								<button type="button" class="btn btn-sm btn-outline-secondary" id="StepView3">이미지작게</button>

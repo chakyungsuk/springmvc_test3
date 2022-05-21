@@ -49,10 +49,10 @@
 			<!-- 네이버 -->
 			<exclude-mapping path="/food/callback" />
 			<exclude-mapping path="/index/callback" />
+			<exclude-mapping path="/index/indexView" />
 			
 			<exclude-mapping path="/food/FoodLogin" />
 			<exclude-mapping path="/food/loginProc" />
-			<exclude-mapping path="/food/FoodMain" />
 			<exclude-mapping path="/food/FoodFindPW" />
 			<exclude-mapping path="/food/FoodFindPW2" />
 			<beans:bean id="CheckLoginSessionInterception" class="com.junefw.infra.common.interceptor.CheckLoginSessionInterception"/>

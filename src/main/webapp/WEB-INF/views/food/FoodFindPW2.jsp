@@ -173,7 +173,7 @@
 		});
 		
 		$("#Send").on("click", function(){
-			alert("비밀번호가 변경 되었습니다. 로그인 화면으로 이동합니다.")
+			alert("비밀번호가 변경 되었습니다. 로그인 화면으로 이동합니다.(죄송합니다 변경안됬으면 구현 예정입니다.)")
 			$("#FoodFindPW2").attr("action","/food/FoodLogin")
 			$("#FoodFindPW2").submit();
 		});

@@ -10,7 +10,7 @@
 <% pageContext.setAttribute("br", "\n"); %>
 
 <htm1 lang="ko">
-
+  
 <head>
 <meta charset="uTF-8">
 <meta name="viewport" content="width=dievice-width, initiol-scale=1.0">
@@ -86,8 +86,6 @@
 		<div class="col-12 col-sm-12 col-lg-2">
 		</div>
 		<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 15px;">
-			<img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" width="30px" style="float: left; margin-right: 10px;">
-			<h6>Cha (CEO)</h6> <h6>Administrator</h6>
 		</div>
 	</div>
 	<div class="container">
@@ -392,7 +390,7 @@
 	
 	//진짜삭제
 	$("#btnDelete").on("click", function(){
-		var answer = confirm ("삭제할거에요?")
+		var answer = confirm ("삭제하시겠습니까?(Delete)")
 		
 		if(answer){
 			return true
@@ -405,7 +403,7 @@
 	
 	//가짜삭제
 	memberNele = function(){
-		var DelNy = confirm ("삭제할거에요?")	
+		var DelNy = confirm ("삭제하시겠습니까?(DelNy = 1로 변경)")	
 		if(DelNy){
 			$("input[name=checkboxSeq]:checked").each(function() {
 				checkboxSeqArray.push($(this).val());	
