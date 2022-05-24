@@ -71,6 +71,7 @@
 <input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 <input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
 <input type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
+<input type="hidden" id="checkboxSeq" name="checkboxSeq">
 <input type="hidden" id="ifmmSeq" name="ifmmSeq">
 
 
@@ -170,7 +171,7 @@
 					<tr>
 					    <th scope="col" class="table-active">
 						    <div class="form-check form-check-inline" style="margin-right: 0px;">
-								<input class="form-check-input" type="checkbox" id="checkboxAll" name="" value="">
+								<input class="form-check-input" type="checkbox" id="checkboxAll" name="checkboxAll" value="checkboxAll">
 							</div>
 						</th>
 					    <th scope="col" class="table-active">#</th>
@@ -277,7 +278,7 @@
 		<a href ="/member/memberDele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" id="btnDelete" class="btn btn-danger btn-sm me-md-2 "  style="float: left;">
 			<i class="fa-solid fa-trash-can"></i>
 		</a>
-		<a href ="javascript:memberNele(<c:out value="${item.ifmmSeq}"/>)" id="btnDeleteDelNy" class="btn btn-primary btn-sm me-md-2 " style="float: left;">
+		<a href ="/member/updateDelete?ifmmSeq=${item.ifmmSeq}" id="btnNelete" class="btn btn-primary btn-sm me-md-2 " style="float: left;">
 			<i class="fa-solid fa-trash-can"></i>
 		</a>
 	</div>
@@ -399,61 +400,55 @@
 		} 
 	});
 	
-	
-	
 	//가짜삭제
-	memberNele = function(){
-		var DelNy = confirm ("삭제하시겠습니까?(DelNy = 1로 변경)")	
-		if(DelNy){
-			$("input[name=checkboxSeq]:checked").each(function() {
-				checkboxSeqArray.push($(this).val());	
-			});
-			
-			
-			$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
-			
-			/* $("#modalConfirm").modal("hide"); */
-			
-			/* $("#formList").attr("action", "memberMultiUele").submit(); */
-	 		$("#formList").attr("action", goUrlMultiUele).submit();
+	$("#btnNelete").on("click", function(){
+		var answer = confirm ("삭제하시겠습니까?(Delete)")
+		
+		if(answer){
+			return true
 		} else {
 			return false
-		}
-	};
+		} 
+	});
 	
 	//체크박스
-/* 	$("#checkboxAll").click(function() {
-		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
-		else $("input[name=checkboxSeq]").prop("checked", false);
-	}); */
-	/* 
-	$("input[name=checkboxSeq]:checked").each(function() { 
-		checkboxSeqArray.push($(this).val());
-	});
-	 */
-	
 
 	$("#checkboxAll").click(function() {
 		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
 		else $("input[name=checkboxSeq]").prop("checked", false);
 	});
 
-	$("input[name=checkboxSeq]:checked").each(function() { 
+	$("input[name=checkboxSeq]").click(function() {
+
 		var total = $("input[name=checkboxSeq]").length;
 		var checked = $("input[name=checkboxSeq]:checked").length;
-		
-		if(total != checked) $("#checkboxAll").prop("checked", false);
-		else $("#checkboxAll").prop("checked", true);
+		alert(total);
+		alert(checked);
+		if (total != checked)
+			$("checkboxAll").prop("checked", false);
+		else
+			$("checkboxAll").prop("checked", true);
 	});
 	
+/*  	var checkboxSeqArray = [];
+	$("#uelete").on("click", function() {
+		var answer = confirm("데이터 삭제?");
 
- 
-	
-	
+		if (answer) {
+			$("input[name=checkboxSeq]:checked").each(function() { //체크되어있는지 확인하고 
+				checkboxSeqArray.push($(this).val()); //되어있으면 checkboxSeqArray에 순차적으로 값을 넣는다
+			});
+
+			$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+			$("#formList").attr("action", "/member/multiUele");
+			$("#formList").submit();
+
+		} else {
+			return false;
+		}  */
 </script>
-
-
-</form>
-		</body>
-	</htm1>
+	
+		</form>
+	</body>
+</htm1>
 

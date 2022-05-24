@@ -355,7 +355,31 @@
 	</update>
 	
 	<delete id="delete">
-		DELETE FROM fdmember WHERE 1=1 AND ifmmSeq = #{ifmmSeq}
+		DELETE FROM 
+			fdmember 
+		WHERE 1=1 
+		AND ifmmSeq = #{ifmmSeq}
+	</delete>
+	
+	<delete id="deletephone">
+		DELETE FROM 
+			fdmemberphone 
+		WHERE 1=1 
+		AND ifmmSeq = #{ifmmSeq}
+	</delete>
+	
+	<delete id="deletemail">
+		DELETE FROM 
+			fdmemberemail 
+		WHERE 1=1 
+		AND ifmmSeq = #{ifmmSeq}
+	</delete>
+	
+	<delete id="deleteaddress">
+		DELETE FROM 
+			fdmemberaddress 
+		WHERE 1=1 
+		AND ifmmSeq = #{ifmmSeq}
 	</delete>
 	
 </mapper>

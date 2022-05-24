@@ -155,6 +155,21 @@ public class MemberServiceImpl implements MemberService{
 		return dao.insertPost(dto);
 	}
 
+	@Override
+	public int deletephone(MemberVo vo) throws Exception {
+		return dao.deletephone(vo);
+	}
+
+	@Override
+	public int deletemail(MemberVo vo) throws Exception {
+		return dao.deletemail(vo);
+	}
+
+	@Override
+	public int deleteaddress(MemberVo vo) throws Exception {
+		return dao.deleteaddress(vo);
+	}
+
 
 
 

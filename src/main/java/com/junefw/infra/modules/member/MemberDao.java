@@ -31,6 +31,9 @@ public class MemberDao {
 	public Member selectOne(MemberVo vo) {return sqlSession.selectOne(namespace + ".selectOne", vo);}
 	
 	public int delete(MemberVo vo) {return sqlSession.delete(namespace + ".delete", vo);}
+	public int deletephone(MemberVo vo) {return sqlSession.delete(namespace + ".deletephone", vo);}
+	public int deletemail(MemberVo vo) {return sqlSession.delete(namespace + ".deletemail", vo);}
+	public int deleteaddress(MemberVo vo) {return sqlSession.delete(namespace + ".deleteaddress", vo);}
 	public int updateDelete(MemberVo vo) {return sqlSession.update(namespace + ".updateDelete", vo);}
 	
 	public int update(Member dto) {return sqlSession.update(namespace + ".update", dto);}

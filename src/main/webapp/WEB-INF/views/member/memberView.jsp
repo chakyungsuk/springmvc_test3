@@ -275,10 +275,10 @@
 <div class="container-sm">
 	<div class="row">
 		<div class="col-lg-4 col-md-6 col-sm-6" >
-			<a href ="javascript:memberDele(<c:out value="${item.ifmmSeq}"/>)" class="btn btn-danger btn-sm me-md-2 " id="btnDelete" name="btnDelete" style="float: left;">
+			<a href ="javascript:memberDele(<c:out value="${item.ifmmSeq}"/>)" class="btn btn-danger btn-sm me-md-2 " id="" name="" style="float: left;">
 				<i class="fa-solid fa-trash-can"></i>
 			</a>
-			<a href ="javascript:memberNele(<c:out value='${item.ifmmSeq}'/>)" class="btn btn-primary btn-sm me-md-2 " type="button" id="btnDeleteDelNy" name="btnDeleteDelNy" style="float: left;">
+			<a href ="javascript:memberNele(<c:out value='${item.ifmmSeq}'/>)" class="btn btn-primary btn-sm me-md-2 " type="button" id="" name="" style="float: left;">
 				<i class="fa-solid fa-trash-can"></i>
 			</a>
 		</div>
@@ -320,29 +320,29 @@
 	    obj.style.height = (12 + obj.scrollHeight) + 'px';
 	}
 
-// 진짜 삭제
-	memberNele = function(seq){
+// 가짜 삭제
+/* 	memberNele = function(seq){
 		var realDelNy = confirm ("삭제할거에요?")	
 		if(realDelNy){
-			$("#ifmmSeq").val(seq)
-			$("#formView").attr("action","/member/memberDele")
-			$("#formView").submit();
-		} else {
-			return false
-		}
-	};
-
-// 가짜 삭제
-	memberDele = function(seq){
-		var DelNy = confirm ("DelNy 를 1로 바꿀까요 ??")	
-		if(DelNy){
 			$("#ifmmSeq").val(seq)
 			$("#formView").attr("action","/member/memberNele")
 			$("#formView").submit();
 		} else {
 			return false
 		}
-	};
+	}; */
+
+// 진짜 삭제
+ 	memberDele = function(seq){
+		var DelNy = confirm ("진짜 삭제 하시겠습니까?(DB삭제)")	
+		if(DelNy){
+			$("#ifmmSeq").val(seq)
+			$("#formView").attr("action","/member/memberDele")
+			$("#formView").submit();
+		} else {
+			return false
+		}
+	}; 
 	
 	$("#btnSubmit").on("click", function(){
 		$("#formView").attr("action","/member/memberList")

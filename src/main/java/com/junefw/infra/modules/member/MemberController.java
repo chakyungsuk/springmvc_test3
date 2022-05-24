@@ -126,6 +126,9 @@ public class MemberController {
 	@RequestMapping(value = "/member/memberDele")
 	public String memberDele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
 	
+		service.deletephone(vo);
+		service.deletemail(vo);
+		service.deleteaddress(vo);
 		service.delete(vo);
 		
 		/*
@@ -154,7 +157,7 @@ public class MemberController {
 		return "redirect:/member/memberList";
 	}
 		
-	@RequestMapping(value = "/member/memberMultiUele")
+	@RequestMapping(value = "/member/MultiUele")
 	public String memberMultiUele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
 		
 		String[] checkboxSeqArray = vo.getCheckboxSeqArray();
