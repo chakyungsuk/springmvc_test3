@@ -422,8 +422,6 @@
 
 		var total = $("input[name=checkboxSeq]").length;
 		var checked = $("input[name=checkboxSeq]:checked").length;
-		alert(total);
-		alert(checked);
 		if (total != checked)
 			$("checkboxAll").prop("checked", false);
 		else
