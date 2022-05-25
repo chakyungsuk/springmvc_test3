@@ -275,12 +275,8 @@
 
 <div class="container">
 	<div class="col-lg-12 col-md-12 col-sm-12" >
-		<a href ="/member/memberDele?ifmmSeq=${item.ifmmSeq}&thisPage=<c:out value="${vo.thisPage }"/>&shFdcgDelNy=<c:out value="${vo.shmemberDelNy}"/>&shFdcgName=<c:out value="${vo.shMemberName}"/>" id="btnDelete" class="btn btn-danger btn-sm me-md-2 "  style="float: left;">
-			<i class="fa-solid fa-trash-can"></i>
-		</a>
-		<a href ="/member/updateDelete?ifmmSeq=${item.ifmmSeq}" id="btnNelete" class="btn btn-primary btn-sm me-md-2 " style="float: left;">
-			<i class="fa-solid fa-trash-can"></i>
-		</a>
+		<button type="submit" id="btnDelete" class="btn btn-danger btn-sm me-md-2 "  style="float: left;"><i class="fa-solid fa-trash-can"></i></button>
+		<button type="submit" id="btnNelete" class="btn btn-primary btn-sm me-md-2" style="float: left;"><i class="fa-solid fa-trash-can"></i></button>
 	</div>
 		
 	<div class="d-md-flex justify-content-end" >
@@ -389,27 +385,7 @@
 	    yearSuffix: '년'
 	});
 	
-	//진짜삭제
-	$("#btnDelete").on("click", function(){
-		var answer = confirm ("삭제하시겠습니까?(Delete)")
-		
-		if(answer){
-			return true
-		} else {
-			return false
-		} 
-	});
-	
-	//가짜삭제
-	$("#btnNelete").on("click", function(){
-		var answer = confirm ("삭제하시겠습니까?(Delete)")
-		
-		if(answer){
-			return true
-		} else {
-			return false
-		} 
-	});
+
 	
 	//체크박스
 
@@ -428,8 +404,26 @@
 			$("checkboxAll").prop("checked", true);
 	});
 	
-/*  	var checkboxSeqArray = [];
-	$("#uelete").on("click", function() {
+  	var checkboxSeqArray = [];
+  	
+	//진짜삭제
+	$("#btnDelete").on("click", function(){
+		var answer = confirm ("삭제하시겠습니까?(Delete)")
+		
+		if(answer){
+			$("input[name=checkboxSeq]:checked").each(function() { //체크되어있는지 확인하고 
+				checkboxSeqArray.push($(this).val()); //되어있으면 checkboxSeqArray에 순차적으로 값을 넣는다
+			});
+
+			$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+			$("#formList").attr("action", "/member/MultiDele");
+			$("#formList").submit();
+		} else {
+			return false
+		} 
+	});  	
+  	
+	$("#btnNelete").on("click", function() {
 		var answer = confirm("데이터 삭제?");
 
 		if (answer) {
@@ -438,12 +432,13 @@
 			});
 
 			$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
-			$("#formList").attr("action", "/member/multiUele");
+			$("#formList").attr("action", "/member/MultiUele");
 			$("#formList").submit();
 
 		} else {
 			return false;
-		}  */
+		}  
+	});
 </script>
 	
 		</form>

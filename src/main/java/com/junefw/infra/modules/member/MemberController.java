@@ -182,6 +182,34 @@ public class MemberController {
 		return tmp;
 	}
 	
+	@RequestMapping(value = "/member/MultiDele")
+	public String memberMultiDele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		
+		String[] checkboxSeqArray = vo.getCheckboxSeqArray();
+		
+		System.out.println("vo.getCheckboxSeqArray();-----------------------------------------------" + vo.getCheckboxSeqArray());
+		
+		for(String checkboxSeq : checkboxSeqArray) {
+			vo.setIfmmSeq(checkboxSeq);
+			service.deletephone(vo);
+			service.deletemail(vo);
+			service.deleteaddress(vo);
+			service.delete(vo);
+		}
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
+		return "redirect:/member/memberList";
+	}
+	
+	public String makeQueryString2(MemberVo vo) {
+		String tmp = "&thisPage" + vo.getThisPage() +
+				"&shmemberDelNy" + vo.getShmemberDelNy() +
+				"&shOption" + vo.getShOption() +
+				"&shValue" + vo.getShValue();
+		return tmp;
+	}
+	
 	@RequestMapping(value = "/member/memberView")
 	public String memberView(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 		Member rt = service.selectOne(vo);
