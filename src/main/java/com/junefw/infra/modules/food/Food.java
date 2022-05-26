@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Food {
 // dto	
-	 
+
 	//member
 	private String ifmmSeq;
 	private String ifmmId;
