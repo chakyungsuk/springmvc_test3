@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.junefw.infra.common.util.UtilDateTime;
+import com.junefw.infra.common.util.UtilMail;
 import com.junefw.infra.modules.Util.UtilUpload;
+import com.mysql.cj.util.Util;
 
 @Service
 public class MemberServiceImpl implements MemberService{
@@ -84,6 +86,9 @@ public class MemberServiceImpl implements MemberService{
 		 dao.insertEmail(dto);
 		 dao.insertAddress(dto); 
 			/* dao.insertUploaded(dto); */
+		 
+		 UtilMail.sendMail();
+		 
 		return 1; 
 	}
 

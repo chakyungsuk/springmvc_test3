@@ -231,8 +231,14 @@
 			<version>3.8</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-
 		
+		<!-- mail S 2022.05.30 -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>
+		<!-- mail E 2022.05.30 -->
 		
 	</dependencies>
     <build>
