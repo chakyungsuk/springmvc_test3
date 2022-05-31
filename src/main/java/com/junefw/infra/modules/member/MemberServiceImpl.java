@@ -159,7 +159,7 @@ public class MemberServiceImpl implements MemberService{
 	public int insertPost(Member dto) throws Exception {
 		return dao.insertPost(dto);
 	}
-
+ 
 	@Override
 	public int deletephone(MemberVo vo) throws Exception {
 		return dao.deletephone(vo);
