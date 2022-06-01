@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-
+  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   <!--  -- c:out -->
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  <!-- -- 날짜나 시간 -->
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -10,7 +10,7 @@
 <% pageContext.setAttribute("br", "\n"); %>
    
 <htm1 lang="ko">
-
+ 
 <head> 
 <meta charset="uTF-8">
 <meta name="viewport" content="width=dievice-width, initiol-scale=1.0">
