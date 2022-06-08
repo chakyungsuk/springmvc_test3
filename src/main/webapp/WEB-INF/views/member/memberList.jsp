@@ -26,7 +26,7 @@
 <script src="https://kit.fontawesome.com/ac511b8e02.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
- 
+  
 <title>Cha html projects</title>
 </head>
 <body>
