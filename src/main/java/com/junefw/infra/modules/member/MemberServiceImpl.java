@@ -175,6 +175,11 @@ public class MemberServiceImpl implements MemberService{
 		return dao.deleteaddress(vo);
 	}
 
+	@Override
+	public List<Member> selectListOracle(MemberVo vo) throws Exception {
+		return dao.selectListOracle(vo);
+	}
+
 
 
 

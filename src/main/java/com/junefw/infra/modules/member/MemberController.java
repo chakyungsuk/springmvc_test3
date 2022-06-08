@@ -253,8 +253,18 @@ public class MemberController {
 		return "member/memberLogin";
 	}
 	
+	
+	// oracle
+	
+	  @RequestMapping(value = "/member/memberListOracle")
+	   
+	  public String memberListOracle(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+	      
+		  List<Member> list = service.selectListOracle(vo);
+	      model.addAttribute("list", list);
 
-
+	      return "member/memberOracleList";
+	  }	
 }
 
 

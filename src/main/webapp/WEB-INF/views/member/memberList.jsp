@@ -14,7 +14,7 @@
 <head> 
 <meta charset="uTF-8">
 <meta name="viewport" content="width=dievice-width, initiol-scale=1.0">
-
+ 
 <!-- bootstrap Css -->
 
 <!-- <link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet"> -->

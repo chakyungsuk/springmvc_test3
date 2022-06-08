@@ -323,9 +323,16 @@
 <script type="text/javascript">
 	$("#btnSubmit").on("click", function(){
 		
+		if($("#ifmmId").val() != $("#ifmmId").val()){
+			alert("비밀번호가 틀립니다.");
+		} else {
+			return true;
+		};
+		
 		$("#btnSubmit").attr("action", "/member/memberInst");
 		$("#btnSubmit").submit(); 
 
+		
 		// ID	
 		if(!checkNull($("#ifmmId"),$("#ifmmId").val(), "아이디를 입력 바랍니다.")) return false;
 		

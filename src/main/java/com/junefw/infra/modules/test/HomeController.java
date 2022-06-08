@@ -214,4 +214,17 @@ public class HomeController {
 		return "/test/publicCorona1JsonNodeList";
 	}	
 	
+	
+	@RequestMapping(value = "/test/memberList2")
+	public String memberList2() throws Exception {
+		
+		
+		return "test/memberList2";
+	}
+	
+	@RequestMapping(value = "/test/memberList4")
+	public String chat_test() throws Exception {
+		 
+		return "test/memberList4";
+	}
 }

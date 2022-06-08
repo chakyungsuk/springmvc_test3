@@ -30,6 +30,8 @@ public interface MemberService {
 	int updateAddress(Member dto) throws Exception;
 	
 	Member selectOneLogin(Member dto) throws Exception;
+	
+	List<Member> selectListOracle(MemberVo vo) throws Exception;
 	 
 
 }

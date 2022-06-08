@@ -382,4 +382,16 @@
 		AND ifmmSeq = #{ifmmSeq}
 	</delete>
 	
+	<select id="selectListOracle" resultMap="resultMapObj">
+		SELECT 
+			a.ifmmSeq
+			, a.ifmmId
+			, a.ifmmName
+			, a.ifmmAge
+			, a.ifmmDob
+		FROM
+			member a
+	</select>
+	
+	
 </mapper>

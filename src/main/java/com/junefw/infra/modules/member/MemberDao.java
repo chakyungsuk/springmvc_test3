@@ -2,6 +2,7 @@ package com.junefw.infra.modules.member;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -11,8 +12,12 @@ import org.springframework.stereotype.Repository;
 public class MemberDao {
 	
 	@Inject
-//	@Resource(name = "sqlSession")
+	@Resource(name = "sqlSession")
 	private SqlSession sqlSession;
+	
+	@Inject
+	@Resource(name = "sqlSessionOracle")
+	private SqlSession sqlSessionOracle;
 	
 	private static String namespace = "com.junefw.infra.modules.member.MemberMpp";
 	
@@ -42,4 +47,6 @@ public class MemberDao {
 	public int updateAddress(Member dto) {return sqlSession.update(namespace + ".updateAddress", dto);}
 	
 	public Member selectOneLogin(Member dto) {return sqlSession.selectOne(namespace + ".selectOneLogin", dto);}
+	
+	public List<Member> selectListOracle(MemberVo vo){ return sqlSessionOracle.selectList(namespace + ".selectListOracle",vo); }
 }

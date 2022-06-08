@@ -240,6 +240,14 @@
 		</dependency>
 		<!-- mail E 2022.05.30 -->
 		
+		<!-- ojdbc8 s 2022.06.02 -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>21.5.0.0</version>
+		</dependency>
+		<!-- ojdbc8 e 2022.06.02 -->	
+		
 	</dependencies>
     <build>
         <plugins>

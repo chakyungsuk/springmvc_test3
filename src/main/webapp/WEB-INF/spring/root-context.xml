@@ -28,4 +28,32 @@
 	</bean>
 	<!-- mysql e 2022.02.25 -->	
 		
+		
+		<!-- oracle s 2022.06.03 -->
+	<bean id="dataSourceOracle" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />	<!-- log4j2로 디비 로그를 찍기 위하여 아래 내용으로 변경 -->
+		<!-- <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" /> -->
+		<!-- <property name="url" value="jdbc:mariadb://rds-inst-1.cqrisz1cmtkf.ap-northeast-2.rds.amazonaws.com:33062/nct" /> -->	<!-- log4j2로 디비 로그를 찍기 위하여 아래 내용으로 변경 -->
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521/xe" />
+		<property name="username" value="hr" />
+		<property name="password" value="hr123" />
+	</bean>
+	
+	<bean id="sqlSessionFactoryOracle" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceOracle" />
+		<property name="configLocation" value="classpath:/mybatis-config.xml" />
+		<!-- <property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml" /> -->	<!-- 기본설정 : 패키지 변경으로 아래와 같이 수정 -->
+		<!-- <property name="mapperLocations" value="classpath:com/junefw/infra/**/**/*Mpp.xml"/> -->	<!-- 매퍼여러개 추가를 위해서 아래 내용으로 수정 -->
+		<property name="mapperLocations">
+			<list>
+		 		<value>classpath:com/junefw/infra/**/**/*Mpp.xml</value>
+		 		<value>classpath:com/junefw/location/**/**/*Mpp.xml</value>
+			</list>
+		</property>
+	</bean>
+		
+	<bean id="sqlSessionOracle" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryOracle"/>
+	</bean>
+	<!-- oracle e oracle s 2022.06.03 -->	
 </beans>
