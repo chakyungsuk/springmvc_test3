@@ -73,7 +73,6 @@
 <input type="hidden" id="checkboxSeq" name="checkboxSeq">
 <input type="hidden" id="ifmmSeq" name="ifmmSeq">
 
-
 <div class="container">
 	<div class="row">
 		<div class="col-12 col-sm-12 col-lg-2">

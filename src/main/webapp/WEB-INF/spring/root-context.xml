@@ -30,11 +30,18 @@
 		
 		
 		<!-- oracle s 2022.06.03 -->
-	<bean id="dataSourceOracle" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />	<!-- log4j2로 디비 로그를 찍기 위하여 아래 내용으로 변경 -->
-		<!-- <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" /> -->
-		<!-- <property name="url" value="jdbc:mariadb://rds-inst-1.cqrisz1cmtkf.ap-northeast-2.rds.amazonaws.com:33062/nct" /> -->	<!-- log4j2로 디비 로그를 찍기 위하여 아래 내용으로 변경 -->
+<!-- 	<bean id="dataSourceOracle" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />	log4j2로 디비 로그를 찍기 위하여 아래 내용으로 변경
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+		<property name="url" value="jdbc:mariadb://rds-inst-1.cqrisz1cmtkf.ap-northeast-2.rds.amazonaws.com:33062/nct" />	log4j2로 디비 로그를 찍기 위하여 아래 내용으로 변경
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521/xe" />
+		<property name="username" value="hr" />
+		<property name="password" value="hr123" />
+	</bean> -->
+	
+	<bean id="dataSourceOracle" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+		<property name="url" value="jdbc:log4jdbc:oracle:thin:@localhost:1521/xe" />	<!-- log4j2로 디비 로그를 찍기 위하여 아래 내용으로 변경 -->
 		<property name="username" value="hr" />
 		<property name="password" value="hr123" />
 	</bean>
@@ -51,7 +58,7 @@
 			</list>
 		</property>
 	</bean>
-		
+		 
 	<bean id="sqlSessionOracle" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryOracle"/>
 	</bean>
