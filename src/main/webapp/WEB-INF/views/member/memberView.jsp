@@ -27,7 +27,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 
-<title>Cha html projects</title>
+<link rel="shortcut icon" href="https://ifh.cc/g/43bP0g.png" type="image/x-icon" />
+<title id="ctl00_headerTitle">Ten Thousand Recipes</title>
 </head>
 
 <style type="text/css">
@@ -82,9 +83,15 @@
 		</div>
 		<div class="col-12 col-sm-12 col-lg-2">
 		</div>
-		<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 15px;">
-			<img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" width="30px" style="float: left; margin-right: 10px;">
-			<h6>Cha (CEO)</h6> <h6>Administrator</h6>
+		<div class="col-1 d-none d-md-block">	
+			<div class="row">
+				<div class="col" style=" margin-top: 40px; "><p class="name" style="font-size: 16px; font-weight:bold;display: inline;">${sessName} <span>님</span></p> </div>
+			</div>
+		</div>
+		<div class="col-1 d-none d-md-block float-end">	
+			<div class="row">
+				<span class="badge bg-primary" role="button" id="btn-Logout" style="width: 100px; height:30px; margin-top: 38px;"><p style="font-size: 13px; margin-top: 5px; ">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></p></span>
+			</div>
 		</div>
 	</div>
 		<div class="col-12">
@@ -95,7 +102,7 @@
 		</ul>
 		</div>
 		<div style="margin-left: 11px; margin-top: 20px;">
-			<h3 style="margin-bottom: 0px;">Member View</h3>
+			<h3 style="margin-bottom: 0px;">회원정보조회</h3>
 		</div>
 	</div>
 <br><br>
@@ -110,11 +117,11 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>비밀번호</h6>
-			<input class="form-control" id="ifmmPassword" name="ifmmPassword" type="text" value="<c:out value="${item.ifmmPassword}"/>" disabled="disabled">
+			<input class="form-control" id="ifmmPassword" name="ifmmPassword" type="password" value="<c:out value="${item.ifmmPassword}"/>" disabled="disabled">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 			<h6>비밀번호 확인</h6>
-			<input class="form-control" id="ifmmPassword" name="ifmmPassword" type="text" value="<c:out value="${item.ifmmPassword}"/>" disabled="disabled" >
+			<input class="form-control" id="ifmmPassword2" name="ifmmPassword" type="password" value="<c:out value="${item.ifmmPassword}"/>" disabled="disabled" >
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>이름</h6>
@@ -186,17 +193,17 @@
 			</div>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
-			<label for="file0" class="form-label btn btn-info btn-sm">이미지첨부</label>
-	<c:forEach items="${listUploaded}" var="listUploaded" varStatus="status">
+			<!-- <label for="file0" class="form-label btn btn-info btn-sm">이미지첨부</label> -->
+	<%-- <c:forEach items="${listUploaded}" var="listUploaded" varStatus="status">
 		<c:if test="${listUploaded.type eq 0}">
 			<div class="" style="">
 				<img class="" id="" style="height: 200px; float: left;" src="<c:out value="${listUploaded.path}"/><c:out value="${listUploaded.uuidName }"/>">
 			</div>
 		</c:if>
-	</c:forEach>
+	</c:forEach> --%>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
-			<label for="file1" class="form-label btn btn-info btn-sm">파일첨부</label>
+			<!-- <label for="file1" class="form-label btn btn-info btn-sm">파일첨부</label> -->
 	<c:forEach items="${listUploaded}" var="listUploaded" varStatus="status">
 		<c:if test="${listUploaded.type eq 1}">
 			<input class="form-control" id="file1" name="file1" type="" multiple="multiple" style="display: none;" onchange="upload(1, 2);" readonly="readonly">
@@ -251,7 +258,7 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
-		<div class="col-6 col-lg-3 col-sm-6">
+		<!-- <div class="col-6 col-lg-3 col-sm-6">
 			<h6>최종수정자</h6>
 			<input class="form-control" type="text" placeholder="CHa(CEO)" aria-label="default input example" disabled>
 		</div>
@@ -266,7 +273,7 @@
 		<div class="col-6 col-lg-3 col-sm-6">
 			<h6>최초등록일</h6>
 			<input class="form-control" type="text" placeholder="2021.01.01" aria-label="default input example" disabled>
-		</div>
+		</div> -->
 	</div>
 </div>
 
@@ -278,9 +285,9 @@
 			<a href ="javascript:memberDele(<c:out value="${item.ifmmSeq}"/>)" class="btn btn-danger btn-sm me-md-2 " id="" name="" style="float: left;">
 				<i class="fa-solid fa-trash-can"></i>
 			</a>
-			<a href ="javascript:memberNele(<c:out value='${item.ifmmSeq}'/>)" class="btn btn-primary btn-sm me-md-2 " type="button" id="" name="" style="float: left;">
+			<%-- <a href ="javascript:memberNele(<c:out value='${item.ifmmSeq}'/>)" class="btn btn-primary btn-sm me-md-2 " type="button" id="" name="" style="float: left;">
 				<i class="fa-solid fa-trash-can"></i>
-			</a>
+			</a> --%>
 		</div>
 		
 		
@@ -288,8 +295,8 @@
 			<button type="submit" id="btnSubmit" name="btnSubmit" class="btn btn-outline-primary" style="width: 200px;">목록</button>
 		</div>
 		<div class="col-lg-4 col-md-6 col-sm-6">
-			<button class="btn btn-success btn-sm" type="button" id="goform2" name="goform2" style="float: right;">
-				<i class="fa-solid fa-file-excel"></i>	
+			<button class="btn btn-success btn-sm" type="button" id="goform2" name="goform2" style="float: right;">수정
+				<!-- <i class="fa-solid fa-file-excel"></i> -->	
 			</button>
 		</div>
 	</div>
@@ -364,7 +371,27 @@
 		} 
 	});
 
+$("#btn-Logout").on("click", function(){
+		
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/member/logoutProc"
+			,success: function(response) {
+				if(response.rt == "success") {
+					location.href = "/food/FoodLogin";
+				} else {
+					// by pass
+				}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});	
+	});
 </script>
+
 
 
 

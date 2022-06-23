@@ -27,7 +27,8 @@
 <!-- Custom styles for this template -->
 <link href="/resources/common/bootstrap/bootstrap-5.1.3-examples/sign-in/signin.css" rel="stylesheet">
 
-<title>Cha html projects</title>
+<link rel="shortcut icon" href="https://ifh.cc/g/43bP0g.png" type="image/x-icon" />
+<title id="ctl00_headerTitle">Ten Thousand Recipes</title>
 
 <style>
 

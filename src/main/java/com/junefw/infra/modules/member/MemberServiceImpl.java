@@ -12,84 +12,73 @@ import com.junefw.infra.modules.Util.UtilUpload;
 import com.mysql.cj.util.Util;
 
 @Service
-public class MemberServiceImpl implements MemberService{
+public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	MemberDao dao;
-	
+
 	@Override
 	public int selectOneMember(MemberVo vo) throws Exception {
 		return dao.selectOneMember(vo);
 	}
-	
+
 	@Override
 	public List<Member> selectList(MemberVo vo) throws Exception {
 		return dao.selectList(vo);
 	}
-	
+
 	@Override
 	public List<Member> selectRestList(MemberVo vo) throws Exception {
 		return dao.selectRestList(vo);
 	}
-	
+
 	@Override
 	public List<Member> selectListMemberUploaded(MemberVo vo) throws Exception {
 		return dao.selectListMemberUploaded(vo);
 	}
-	
+
 	@Override
 	public int insert(Member dto) throws Exception {
-		
-		dto.setRegDateTime(UtilDateTime.nowDate());		// 날짜
-		dto.setModDateTime(UtilDateTime.nowDate());		// 날짜
-		
-		
-		  dao.insert(dto); 
-		 
-		
-		int j = 0;
-		for(MultipartFile multipartFile : dto.getFile0() ) {
-			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-			UtilUpload.upload(multipartFile, pathModule, dto );
-				
-			dto.setTableName("fdmemberuploaded");
-			dto.setType(0);
-			dto.setDefaultNy(0);
-			dto.setSort(j);
-			dto.setPseq(dto.getIfmmSeq());
-			
-			/*
-			 * dto.setTableName("fdmemberuploaded"); dto.setType(0); dto.setDefaultNy(0);
-			 * dto.setSort(j); dto.setPseq(dto.getIfmmSeq());
-			 */			  
-			  dao.insertUploaded(dto);
-			  j++;
-		}
-		
-		j = 0;
-		for(MultipartFile multipartFile : dto.getFile1() ) {
-			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-			UtilUpload.upload(multipartFile, pathModule, dto );
-			
-			
-			dto.setTableName("fdmemberuploaded"); 
-			dto.setType(1); 
-			dto.setDefaultNy(0);
-			dto.setSort(j); 
-			dto.setPseq(dto.getIfmmSeq());
-			
-			dao.insertUploaded(dto);
-			j++;
-		}
-		
-		 dao.insertMobile(dto); 
-		 dao.insertEmail(dto);
-		 dao.insertAddress(dto); 
-			/* dao.insertUploaded(dto); */
-		 
-		 UtilMail.sendMail();
-		 
-		return 1; 
+
+		dto.setRegDateTime(UtilDateTime.nowDate()); // 날짜
+		dto.setModDateTime(UtilDateTime.nowDate()); // 날짜
+
+		dao.insert(dto);
+
+		/*
+		 * int j = 0; for(MultipartFile multipartFile : dto.getFile0() ) { String
+		 * pathModule =
+		 * this.getClass().getSimpleName().toString().toLowerCase().replace(
+		 * "serviceimpl", ""); UtilUpload.upload(multipartFile, pathModule, dto );
+		 * 
+		 * dto.setTableName("fdmemberuploaded"); dto.setType(0); dto.setDefaultNy(0);
+		 * dto.setSort(j); dto.setPseq(dto.getIfmmSeq());
+		 * 
+		 * 
+		 * dto.setTableName("fdmemberuploaded"); dto.setType(0); dto.setDefaultNy(0);
+		 * dto.setSort(j); dto.setPseq(dto.getIfmmSeq());
+		 * 
+		 * dao.insertUploaded(dto); j++; }
+		 * 
+		 * j = 0; for(MultipartFile multipartFile : dto.getFile1() ) { String pathModule
+		 * = this.getClass().getSimpleName().toString().toLowerCase().replace(
+		 * "serviceimpl", ""); UtilUpload.upload(multipartFile, pathModule, dto );
+		 * 
+		 * 
+		 * dto.setTableName("fdmemberuploaded"); dto.setType(1); dto.setDefaultNy(0);
+		 * dto.setSort(j); dto.setPseq(dto.getIfmmSeq());
+		 * 
+		 * dao.insertUploaded(dto); j++; }
+		 */
+
+		dao.insertMobile(dto);
+		dao.insertEmail(dto);
+		dao.insertAddress(dto);
+		/* dao.insertUploaded(dto); */
+
+		/* UtilMail.sendMail(); */
+
+		return 1;
 	}
 
 	@Override
@@ -99,12 +88,12 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public int update(Member dto) throws Exception {
-		
+
 		dao.update(dto);
 		dao.updateEmail(dto);
 		dao.updateMobile(dto);
 		dao.updateAddress(dto);
-		
+
 		return 1;
 	}
 
@@ -117,39 +106,42 @@ public class MemberServiceImpl implements MemberService{
 	public int insertMobile(Member dto) throws Exception {
 		return dao.insertMobile(dto);
 	}
-	
+
 	@Override
 	public int insertAddress(Member dto) throws Exception {
 		return dao.insertAddress(dto);
 	}
 
-		
-  @Override public int updateEmail(Member dto) throws Exception { 
-	  return dao.updateEmail(dto); 
-  }
-  
-  @Override public int updateMobile(Member dto) throws Exception { 
-	  return dao.updateMobile(dto); 
-  }
-  
-  @Override public int updateAddress(Member dto) throws Exception { 
-	  return dao.updateAddress(dto); 
-  }
+	@Override
+	public int updateEmail(Member dto) throws Exception {
+		return dao.updateEmail(dto);
+	}
+
+	@Override
+	public int updateMobile(Member dto) throws Exception {
+		return dao.updateMobile(dto);
+	}
+
+	@Override
+	public int updateAddress(Member dto) throws Exception {
+		return dao.updateAddress(dto);
+	}
 
 	@Override
 	public int insertUploaded(Member dto) throws Exception {
 		return dao.insertUploaded(dto);
 	}
+
 	@Override
 	public int delete(MemberVo vo) throws Exception {
 		return dao.delete(vo);
 	}
-	
+
 	@Override
 	public int updateDelete(MemberVo vo) throws Exception {
 		return dao.updateDelete(vo);
 	}
-	
+
 	@Override
 	public Member selectOneLogin(Member dto) throws Exception {
 		return dao.selectOneLogin(dto);
@@ -159,7 +151,7 @@ public class MemberServiceImpl implements MemberService{
 	public int insertPost(Member dto) throws Exception {
 		return dao.insertPost(dto);
 	}
- 
+
 	@Override
 	public int deletephone(MemberVo vo) throws Exception {
 		return dao.deletephone(vo);
@@ -180,10 +172,4 @@ public class MemberServiceImpl implements MemberService{
 		return dao.selectListOracle(vo);
 	}
 
-
-
-
 }
-		 
-
-

@@ -34,7 +34,8 @@
 
 
 
-<title>Cha html projects</title>
+<link rel="shortcut icon" href="https://ifh.cc/g/43bP0g.png" type="image/x-icon" />
+<title id="ctl00_headerTitle">Ten Thousand Recipes</title>
 
 <style type="text/css">
 	body {
@@ -107,7 +108,7 @@
 	</c:if>
 </c:forEach> --%>
 
-<form id="Fooddater" name="Fooddater" method="post" action="/food/Fooddater">
+<form id="Fooddater" name="Fooddater" method="get" action="/food/Fooddater">
 <input type="hidden" id="fdrsSeq" name="fdrsSeq">
 	
 <!-- Header S -->
@@ -140,16 +141,16 @@
       </a>
     </li>
     <li>
-      <a href="food/Foodreg" class="nav-link text-white">
+      <!-- <a href="food/Foodreg" class="nav-link text-white">
         <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
         NEW Recipes
-      </a>
+      </a> -->
     </li>
     <li>
-      <a href="#" class="nav-link text-white">
+     <!--  <a href="#" class="nav-link text-white">
         <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
         MY Recipes
-      </a>
+      </a> -->
     </li>
     <hr style="margin-top: 380px;">
       <c:if test="${not empty sessSeq}">
@@ -176,7 +177,7 @@
 		<c:forEach items="${foodimage}" var="foodimage" varStatus="status">
 			<c:if test="${foodimage.type eq 0}">
 				<div style="text-align: center;">
-					<img src="<c:out value="${foodimage.path}"/><c:out value="${foodimage.uuidName }"/>" class="card-img-top" style="height: 500px; width: 800px; margin-top: 20px;">
+					<img src="<c:out value="${foodimage.path}"/><c:out value="${foodimage.uuidName }"/>" class="card-img-top" style="height: 600px; width: 80%; margin-top: 20px;"/>
 				</div>
 			</c:if>
 		</c:forEach>
@@ -184,38 +185,42 @@
 	    <h4 class="card-title" style="margin-bottom: 20px;"><c:out value="${item.fdrsName }"/></h4>
 	    <span class="card-text">${fn:replace(item.fdrsIntroduction, lf, "<br>")}</span> 
 	    <%-- <span class="card-text">${fn:replace(item.fdrsIntroduction, br, '<br/>')}</span> --%>
-	    
-	<div class="row" style="text-decoration: underline; margin-top: 30px;" >	   
-	<div class="col-4" style="padding-left: 300px;">
-		<i class="bi bi-person"></i><br>
-		<c:choose>
-			<c:when test="${item.fdrsServingsCd eq 1}">1인분</c:when>
-			<c:when test="${item.fdrsServingsCd eq 2}">2인분</c:when>
-			<c:when test="${item.fdrsServingsCd eq 3}">3인분</c:when>
-			<c:when test="${item.fdrsServingsCd eq 4}">4인분</c:when>
-			<c:when test="${item.fdrsServingsCd eq 5}">4인분 이상</c:when>
-		</c:choose>
-    </div>   
-	<div class="col-4" style="">
-		<i class="bi bi-alarm"></i><br>
-		<c:choose>
-			<c:when test="${item.fdrsTimeCd eq 5}">5분 이내</c:when>
-			<c:when test="${item.fdrsTimeCd eq 10}">10분 이내</c:when>
-			<c:when test="${item.fdrsTimeCd eq 15}">15분 이내</c:when>
-			<c:when test="${item.fdrsTimeCd eq 20}">20분 이내</c:when>
-			<c:when test="${item.fdrsTimeCd eq 25}">25분 이상</c:when>
-		</c:choose>  
-    </div>   
-	<div class="col-4" style="padding-right: 300px;">
-		<i class="bi bi-hand-thumbs-up"></i><br>
-		<c:choose>
-			<c:when test="${item.fdrsDifficultyCd eq 1}">아무나</c:when>
-			<c:when test="${item.fdrsDifficultyCd eq 2}">초급</c:when>
-			<c:when test="${item.fdrsDifficultyCd eq 3}">중급</c:when>
-			<c:when test="${item.fdrsDifficultyCd eq 4}">고급</c:when>
-			<c:when test="${item.fdrsDifficultyCd eq 5}">신의 경지</c:when>
-		</c:choose>  
-	</div>
+	<div class="container">   
+		<div class="row" style="text-decoration: underline; margin-top: 30px;" >	   
+		<div class="col-3" style="">
+			<i class="bi bi-person"></i><br>
+			<c:choose>
+				<c:when test="${item.fdrsServingsCd eq 1}">1인분</c:when>
+				<c:when test="${item.fdrsServingsCd eq 2}">2인분</c:when>
+				<c:when test="${item.fdrsServingsCd eq 3}">3인분</c:when>
+				<c:when test="${item.fdrsServingsCd eq 4}">4인분</c:when>
+				<c:when test="${item.fdrsServingsCd eq 5}">4인분 이상</c:when>
+			</c:choose>
+	    </div>   
+		<div class="col-3" style="">
+			<i class="bi bi-alarm"></i><br>
+			<c:choose>
+				<c:when test="${item.fdrsTimeCd eq 5}">5분 이내</c:when>
+				<c:when test="${item.fdrsTimeCd eq 10}">10분 이내</c:when>
+				<c:when test="${item.fdrsTimeCd eq 15}">15분 이내</c:when>
+				<c:when test="${item.fdrsTimeCd eq 20}">20분 이내</c:when>
+				<c:when test="${item.fdrsTimeCd eq 25}">25분 이상</c:when>
+			</c:choose>  
+	    </div>   
+		<div class="col-3" style="">
+			<i class="bi bi-hand-thumbs-up"></i><br>
+			<c:choose>
+				<c:when test="${item.fdrsDifficultyCd eq 1}">아무나</c:when>
+				<c:when test="${item.fdrsDifficultyCd eq 2}">초급</c:when>
+				<c:when test="${item.fdrsDifficultyCd eq 3}">중급</c:when>
+				<c:when test="${item.fdrsDifficultyCd eq 4}">고급</c:when>
+				<c:when test="${item.fdrsDifficultyCd eq 5}">신의 경지</c:when>
+			</c:choose>  
+		</div>
+		<div class="col-3" style="">
+			<img src="/resources/xdmin/kakaoicon.png" role="button" onclick="shareKakaotalk();" >
+		</div>
+		</div>
 	</div>
 	</div>
 	</div>
@@ -302,8 +307,13 @@
 	<div class="container">
 		<p class="float-end mb-1">
 		</p>
-		<p class="" style="color: white; text-align: center;">&copy;서울 어딘가의 회사문의전화(운영시간 비밀) 쇼핑문의 : 02-2222-8888 서비스 이용문의 : 000-0000-0000
-		<br>Copyright ©EZHLD Inc. All Rights Reserved</p> 
+		<p class="" style="color: white; text-align: center;">
+		㈜ 서울시 레시피 음식구 만나동 123-1 만개빌딩<br>   
+		대표이사 : 차경석<br>
+		사업자등록번호 : 101-11-11170<br>
+		<b>대표전화 : 1500-0000 (발신자 부담전화)</b>   팩스 : 0202-111-2211 (지역번호공통)<br>
+		서울특별시 통신판매업신고번호 : 제 653호 ▶사업자정보확인 <br>
+		Copyright &copy; TEN THOUSAND RECIPES 2022 Company, Inc</p> 
 	</div>
 	<a href="#" style="color: white;">Back to top</a>
 </footer>
@@ -314,6 +324,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 	
 
 </form>
@@ -374,6 +385,37 @@
 		});  
 </script>
 
+<script>
+var name = '<c:out value="${item.fdrsName}"/>';
+var name2 = '<c:out value="${item.fdrsIntroduction}"/>';
+var seq = '<c:out value="${item.fdrsSeq}"/>';
+function shareKakaotalk() {
+    Kakao.init("9d80e2a3ed34412759bd6b1eea6603bb");      // 사용할 앱의 JavaScript 키를 설정
+    Kakao.Link.sendDefault({
+          objectType:"feed"
+        , content : {
+              title: "음식을 지금 만들어 보세요!!"   // 콘텐츠의 타이틀
+            , description: "음식 레시피 : "+ name +"\n"+ "음식 내용" + name2// 콘텐츠 상세설명
+            , imageUrl: "https://ifh.cc/g/trK3PF.jpg"   // 썸네일 이미지
+            , link : {
+                  mobileWebUrl: "http://54.151.88.85/food/Fooddater?fdrsSeq="  + seq  // 모바일 카카오톡에서 사용하는 웹 링크 URL
+                , webUrl:"http://54.151.88.85/food/Fooddater?fdrsSeq="  + seq// PC버전 카카오톡에서 사용하는 웹 링크 URL
+            }
+    
+        }
+        , buttons : [
+            {
+                  title:"레시피 보러가기"    // 버튼 제목
+                , link : {
+                    mobileWebUrl:"http://54.151.88.85/food/Fooddater?fdrsSeq="  + seq  // 모바일 카카오톡에서 사용하는 웹 링크 URL
+                  , webUrl:"http://54.151.88.85/food/Fooddater?fdrsSeq="  + seq// PC버전 카카오톡에서 사용하는 웹 링크 URL
+                }
+            }
+        ]
+    });
+}
+		
+</script>
 
 </body>
 

@@ -44,7 +44,8 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v10.0&appId=1588150011384568" nonce="SiOBIhLG"></script>
 
 
-<title>Cha html projects</title>
+<link rel="shortcut icon" href="https://ifh.cc/g/43bP0g.png" type="image/x-icon" />
+<title id="ctl00_headerTitle">Ten Thousand Recipes</title>
 
 <style>
       body {
@@ -130,26 +131,27 @@
     	<!-- <button class="btn btn-sm btn-primary" type="submit" style="width: 330px;" id="btnLogin">Login</button> -->
     	<button class="btn btn-sm btn-primary" style="width: 330px;" id="btnLogin" type="button">Login</button>
    	</a>
+   	<br>
+    <button class="btn btn-sm btn-warning" type="button" style="margin-top: 10px; width: 330px;">
+		<a href="javascript:kakaoLogin();" style="text-decoration: none;">
+			<div style="color: #fff115;">Kakao Login</div>
+		</a>
+	</button>
 		<div class="col-12" style="margin-top: 50px;">
 			<input type="button" id="signUp" class="btn" style="color: red;" value="Sign Up"/>
-			<input type="button" id="FindPW" class="btn" style="color: blue;" value="Find Password"/>
+			<!-- <input type="button" id="FindPW" class="btn" style="color: blue;" value="Find Password"/> -->
 		</div>
 	</div>
  
 <div class="container1">
-   	<div class="" style="margin-top: 120px;">
+   	 <%-- <div class="" style="margin-top: 120px;">
 		<div class="col-lg-12 col-sm-12">
 		    <button class="btn btn-sm" type="button" onclick="fnFbCustomLogin();">
     			<a href="javascript:void(0)" style="text-decoration: none;">
     				<div style="color: #3b5998;">Facebook</div>
    				</a>
    			</button>
-		    <button class="btn btn-sm" type="button">
-    			<a href="javascript:kakaoLogin();" style="text-decoration: none;">
-    				<div style="color: #fff115;">Kakao</div>
-    			</a>
-   			</button>
-		    <button class="btn btn-sm" type="button" id="GgCustomLogin">
+		     <button class="btn btn-sm" type="button" id="GgCustomLogin">
     			<a href="javascript:void(0)" style="text-decoration: none;">
     				<div style="color: #ffffff;">Google</div>
     			</a>
@@ -159,10 +161,11 @@
     			<a href="javascript:void(0)" style="text-decoration: none;">
     				<div style="color: #00bd00;">Naver</div>
     			</a>
-   			</button>
+   			</button> 
 		</div>
-	</div>
-  	<p class="mt-5 mb-3" style="color: gray;">&copy; Happy Food 2022 ~</p>
+	</div> --%>
+  	<!-- <p class="mt-5 mb-3" style="color: gray;">&copy; </p> -->
+  	<p class="mt-5 mb-3" style="color: gray;">Copyright &copy; TEN THOUSAND RECIPES 2022</p>
 </div>
 
 </form>
@@ -228,21 +231,21 @@
 
 
 <!-- 네이버 연동 -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
-	var naver_id_login = new naver_id_login("_TY46wZutTekwAAcohlV", "http://localhost:8090/index/callback");
+	var naver_id_login = new naver_id_login("_TY46wZutTekwAAcohlV", "http://54.151.88.85/index/callback");
 	var state = naver_id_login.getUniqState();
 	naver_id_login.setButton("white", 2,40);
-  	naver_id_login.setDomain("http://localhost:8090/food/FoodLogin");
+  	naver_id_login.setDomain("http://54.151.88.85/food/FoodLogin");
   	naver_id_login.setState(state);
   	naver_id_login.setPopup();
   	naver_id_login.init_naver_id_login();
   	
 	
 </script>
-
+ -->
 <!-- 구글연동 -->
-<script>
+<!-- <script>
 
 //처음 실행하는 함수
 function init() {
@@ -308,7 +311,7 @@ function onSignInFailure(t){
 	console.log(t);
 	
 }
-</script>
+</script> -->
 <!-- //구글 api 사용을 위한 스크립트 -->
 <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 
@@ -378,7 +381,7 @@ function kakaoLogin() {
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v13.0&appId=299726265629174" nonce="JutAfaKH"></script><!-- &autoLogAppEvents=1 -->
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 
-<script>
+<!-- <script>
 function checkLoginState() {               					//로그인 클릭시 호출
 	    FB.getLoginStatus(function(response) {  
 	      statusChangeCallback(response);
@@ -443,7 +446,7 @@ window.fbAsyncInit = function() {
 	});
 } 
 
-</script>
+</script> -->
 
 </body>
 

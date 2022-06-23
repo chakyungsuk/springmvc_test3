@@ -26,7 +26,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 
-<title>Cha html projects</title>
+<link rel="shortcut icon" href="https://ifh.cc/g/43bP0g.png" type="image/x-icon" />
+<title id="ctl00_headerTitle">Ten Thousand Recipes</title>
 </head>
 
 <style type="text/css">
@@ -74,9 +75,15 @@
 		</div>
 		<div class="col-12 col-sm-12 col-lg-2">
 		</div>
-		<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 15px;">
-			<img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" width="30px" style="float: left; margin-right: 10px;">
-			<h6>Cha (CEO)</h6> <h6>Administrator</h6>
+		<div class="col-1 d-none d-md-block">	
+			<div class="row">
+				<div class="col" style=" margin-top: 40px; "><p class="name" style="font-size: 16px; font-weight:bold;display: inline;">${sessName} <span>님</span></p> </div>
+			</div>
+		</div>
+		<div class="col-1 d-none d-md-block float-end">	
+			<div class="row">
+				<span class="badge bg-primary" role="button" id="btn-Logout" style="width: 100px; height:30px; margin-top: 38px;"><p style="font-size: 13px; margin-top: 5px; ">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></p></span>
+			</div>
 		</div>
 	</div>
 		<div class="col-12">
@@ -87,7 +94,7 @@
 		</ul>
 		</div>
 		<div style="margin-left: 11px; margin-top: 20px;">
-			<h3 style="margin-bottom: 0px;">Member Form2</h3>
+			<h3 style="margin-bottom: 0px;">회원정보수정</h3>
 		</div>
 	</div>
 <br><br>
@@ -102,11 +109,11 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>비밀번호</h6>
-			<input class="form-control" id="ifmmPassword" name="ifmmPassword" type="text" placeholder="영문(대소문자),숫자,특수문자(), 8~20자리 조합" value="<c:out value="${item.ifmmPassword }"/>" autocomplete="off">
+			<input class="form-control" id="ifmmPassword" name="ifmmPassword" type="password" placeholder="영문(대소문자),숫자,특수문자(), 8~20자리 조합" value="<c:out value="${item.ifmmPassword }"/>" autocomplete="off">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
-			<h6>비밀번호 확인</h6>
-			<input class="form-control" type="text" aria-label="default input example">
+			<!-- <h6>비밀번호 확인</h6>
+			<input class="form-control" id="ifmmPassword2" name="ifmmPassword" type="password" placeholder="" autocomplete="off"> -->
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>이름</h6>
@@ -134,7 +141,7 @@
 		<div class="col-6 col-lg-6 col-sm-12">
 			<h6>개인정보 보관(필수)</h6>
 			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="" id="ifmmSaved">
+				<input class="form-check-input" type="checkbox" id="ifmmSaved" value="<c:out value="${item.ifmmSaved}"/>" <c:if test="${item.ifmmSaved eq 1 }">checked</c:if>>
 				<label class="form-check-label" for="flexCheckDefault"> 동의합니다. </label>
 			</div>
 		</div>
@@ -177,22 +184,12 @@
 				<label class="form-check-label" for="flexCheckDefault"> 동의합니다. </label>
 			</div>
 		</div>
-				<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
+		<!-- <div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<label for="file0" class="form-label btn btn-info btn-sm">이미지첨부</label>
-		<!-- 	<input class="form-control" id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onchange="upload(0, 2);">
-			<div class="addScroll">
-				<ul id="ulFile0" class="list-group">
-				</ul>
-			</div> -->
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 			<label for="file1" class="form-label btn btn-info btn-sm">파일첨부</label>
-			<!-- <input class="form-control" id="file1" name="file1" type="file" multiple="multiple" style="display: none;" onchange="upload(1, 2);">
-			<div class="addScroll">
-				<ul id="ulFile1" class="list-group">
-				</ul>
-			</div> -->
-		</div>
+		</div> -->
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>
 			<div class="input-group mb-2">
@@ -241,7 +238,7 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 		</div>
-		<div class="col-6 col-lg-3 col-sm-6">
+		<!-- <div class="col-6 col-lg-3 col-sm-6">
 			<h6>최종수정자</h6>
 			<input class="form-control" type="text" placeholder="CHa(CEO)" aria-label="default input example" disabled>
 		</div>
@@ -256,7 +253,7 @@
 		<div class="col-6 col-lg-3 col-sm-6">
 			<h6>최초등록일</h6>
 			<input class="form-control" type="text" placeholder="2021.01.01" aria-label="default input example" disabled>
-		</div>
+		</div> -->
 	</div>
 </div>
 
@@ -265,18 +262,18 @@
 <div class="container-sm">
 	<div class="row">
 		<div class="col-lg-4 col-md-6 col-sm-6" >
-			<button type="button" class="btn btn-danger btn-sm me-md-2 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float: left;"  >
+			<!-- <button type="button" class="btn btn-danger btn-sm me-md-2 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float: left;"  >
 				<i class="fa-solid fa-trash-can"></i>
-			</button>
+			</button> -->
 		</div>
 		<div class="col-lg-4 col-md-6 col-sm-6" style="text-align: center;">
 			<button type="button" id="btnback" name="btnback" class="btn btn-outline-primary" style="width: 200px;">뒤로가기</button>
 			<button type="submit" id="btnSubmit" name="btnSubmit" class="btn btn-outline-danger" style="width: 200px;">수정</button>
 		</div>
 		<div class="col-lg-4 col-md-6 col-sm-6">
-			<button class="btn btn-success btn-sm" type="button" style="float: right;">
+			<!-- <button class="btn btn-success btn-sm" type="button" style="float: right;">
 				<i class="fa-solid fa-file-excel"></i>	
-			</button>
+			</button> -->
 		</div>
 	</div>
 </div>
@@ -318,19 +315,30 @@
 </div>
 
 
-<script>
+<script type="text/javascript">
 
 	$("#btnback").on("click", function(){
-		$("#formUpdt").attr("action","/member/memberView");
-		$("#formUpdt").submit();
+		var back = confirm ("뒤로 가시겠습니까?")	
+		if(back) {
+			$("#formUpdt").attr("action","/member/memberView");
+			$("#formUpdt").submit();	
+		} else {
+			return false;
+		}
 	});
 	
 	
-	btnSubmit = function(seq){
-		$("#ifmmSeq").val(seq)	
-		$("#formUpdt").attr("action","/member/memberUpdt");
-		$("#formUpdt").submit();
-	}
+	$("#btnSubmit").on("click", function(){
+		var correction = confirm ("수정하시겠습니까?")	
+		if(correction) {
+			$("#ifmmSeq").val(seq)	
+			$("#formUpdt").attr("action","/member/memberUpdt");
+			$("#formUpdt").submit();
+		} else {
+			return false;
+		}
+	});
+	
 
 	
  	$("#btnSubmit").on("click", function(){
@@ -457,6 +465,26 @@ upload = function(seq, div){
 	delLi = function(seq, index){
 		$("#li_"+seq+"_"+index).remove();
 	};
+	
+$("#btn-Logout").on("click", function(){
+		
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/member/logoutProc"
+			,success: function(response) {
+				if(response.rt == "success") {
+					location.href = "/food/FoodLogin";
+				} else {
+					// by pass
+				}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});	
+	});
 </script>   
 
 </body>

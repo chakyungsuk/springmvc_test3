@@ -4,8 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +22,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.junefw.infra.common.constants.Constants;
 import com.junefw.infra.common.util.UtilDateTime;
-import com.mysql.cj.protocol.x.SyncFlushDeflaterOutputStream;
 
 
 
@@ -105,8 +110,8 @@ public class MemberController {
 	
 	@RequestMapping(value = "/member/memberInst")
 	public String memberInst(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
-		
 		service.insert(dto);
+		
 		
 		/*
 		 * redirectAttributes.addAttribute("ifmmSeq", dto.getIfmmSeq());
@@ -115,12 +120,13 @@ public class MemberController {
 		 * redirectAttributes.addAttribute("shOption", vo.getShOption());
 		 * redirectAttributes.addAttribute("shValue", vo.getShValue());
 		 */
+		 
 		
-		/* vo.setIfmmSeq(dto.getIfmmSeq()); */
+		 vo.setIfmmSeq(dto.getIfmmSeq()); 
 		
-		redirectAttributes.addFlashAttribute("vo", vo);
+		 redirectAttributes.addFlashAttribute("vo", vo); 
 		
-		return "redirect:/member/memberList";
+		return "redirect:/member/memberView";
 	}
 	
 	@RequestMapping(value = "/member/memberDele")
@@ -265,6 +271,63 @@ public class MemberController {
 
 	      return "member/memberOracleList";
 	  }	
+	  
+	  @RequestMapping("/member/excelDownload")
+	    public void excelDownload(MemberVo vo, HttpServletResponse httpServletResponse) throws Exception {
+			
+			vo.setShOptionDate(vo.getShOptionDate() == null ? 1 : vo.getShOptionDate());
+			vo.setShDateStart(vo.getShDateStart() == null
+					? UtilDateTime.calculateDayString(UtilDateTime.nowLocalDateTime(), Constants.DATE_INTERVAL)
+					: UtilDateTime.add00TimeString(vo.getShDateStart()));
+			vo.setShDateEnd(vo.getShDateEnd() == null ? UtilDateTime.nowString()
+					: UtilDateTime.addNowTimeString(vo.getShDateEnd()));
+
+			 vo.setParamsPaging(service.selectOneMember(vo)); 
+
+			if (vo.getTotalRows() > 0) {
+				List<Member> list = service.selectList(vo);
+//				List<?> list = service.selectList(vo);
+
+			
+			
+	//        	Workbook wb = new HSSFWorkbook();
+		        Workbook wb = new XSSFWorkbook();
+		        Sheet sheet = wb.createSheet("첫번째 시트");
+		        Row row = null;
+		        Cell cell = null;
+		        int rowNum = 0;
+		
+		        // Header
+		        row = sheet.createRow(rowNum++);
+		        cell = row.createCell(0);
+		        cell.setCellValue("번호");
+		        cell = row.createCell(1);
+		        cell.setCellValue("이름");
+		        cell = row.createCell(2);
+		        cell.setCellValue("제목");
+		
+		        // Body
+		        
+		        for (int i=0; i<list.size(); i++) {
+		            row = sheet.createRow(rowNum++);
+		            cell = row.createCell(0);
+		            cell.setCellValue(String.valueOf(list.get(i).getIfmmSeq()));
+		            cell = row.createCell(1);
+		            cell.setCellValue(list.get(i).getIfmmName());
+		            cell = row.createCell(2);
+		            cell.setCellValue(i+"_title");
+		        }
+		
+		        // 컨텐츠 타입과 파일명 지정
+		        httpServletResponse.setContentType("ms-vnd/excel");
+		//        response.setHeader("Content-Disposition", "attachment;filename=example.xls");
+		        httpServletResponse.setHeader("Content-Disposition", "attachment;filename=example.xlsx");
+		
+		        // Excel File Output
+		        wb.write(httpServletResponse.getOutputStream());
+		        wb.close();
+			}
+	    }
 }
 
 

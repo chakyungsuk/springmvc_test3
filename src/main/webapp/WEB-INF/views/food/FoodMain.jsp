@@ -8,6 +8,9 @@
 <htm1 lang="ko">
   
 <head>
+<link rel="shortcut icon" href="https://ifh.cc/g/43bP0g.png" type="image/x-icon" />
+<title id="ctl00_headerTitle">Ten Thousand Recipes</title>
+
 <meta charset="uTF-8">
 <meta name="viewport" content="width=dievice-width, initiol-scale=1.0">
 <meta name="description" content="">
@@ -35,8 +38,6 @@
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
-<title>Cha html projects</title>
-
 <style type="text/css">
 	body {
 		width: 100%;
@@ -60,7 +61,7 @@
 
 <body class="text-center">
 
-<form id="FoodMain" name="FoodMain" method="post" action="/food/FoodMain">
+<form id="FoodMain" name="FoodMain" method="get" action="/food/FoodMain">
 <input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 <input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">	
 <input type="hidden" id="fdrsSeq" name="fdrsSeq">
@@ -104,15 +105,15 @@
         NEW Recipes
       </a>
     </li>
-    <li>
+    <!-- <li>
       <a href="#" class="nav-link text-white">
         <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
         MY Recipes
       </a>
-    </li>
+    </li> -->
     <hr style="margin-top: 380px;">
+    <li>
       <c:if test="${not empty sessSeq}">
-	    <li>
 	    <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"  type="button" id="dropdownMenuLink">
 	      <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
 	      <strong id="name"><c:out value="${sessName }"/> 회원님 안녕하세요.</strong>
@@ -225,13 +226,13 @@
   <div class="container">
     <p class="float-end mb-1">
     </p>
-<p class="" style="color: white; justify-content: center;">&copy;
-서울 어딘가의 회사
-문의전화(운영시간 비밀)
-쇼핑문의 : 02-2222-8888
-서비스 이용문의 : 000-0000-0000
-<br>
-Copyright ©EZHLD Inc. All Rights Reserved</p> 
+<p class="" style="color: white; justify-content: center;">
+㈜ 서울시 레시피 음식구 만나동 123-1 만개빌딩<br>   
+대표이사 : 차경석<br>
+사업자등록번호 : 101-11-11170<br>
+<b>대표전화 : 1500-0000 (발신자 부담전화)</b>   팩스 : 0202-111-2211 (지역번호공통)<br>
+서울특별시 통신판매업신고번호 : 제 653호 ▶사업자정보확인 <br>
+Copyright &copy; TEN THOUSAND RECIPES 2022 Company, Inc</p> 
  </div>
       <a href="#" style="color: white;">Back to top</a>
 </footer>

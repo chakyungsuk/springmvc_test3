@@ -19,7 +19,8 @@
     <!-- Favicons -->
     <!-- <link rel="shortcut icon" href="https://img.cgv.co.kr/theater_img/favicon.ico" type="image/x-icon" /> --> <!-- cj아이콘 -->
     <!-- Page Title -->
-    <title id="ctl00_headerTitle">차경석의 개인프로젝트</title>
+    <link rel="shortcut icon" href="https://ifh.cc/g/43bP0g.png" type="image/x-icon" />
+	<title id="ctl00_headerTitle">Ten Thousand Recipes</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <!-- Google Fonts -->

@@ -51,7 +51,8 @@ public class FoodServiceImpl implements FoodService{
 		 
 		
 		for(MultipartFile multipartFile : dto.getFile0() ) {
-			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+//			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			String pathModule = "food";
 			UtilUpload.upload1(multipartFile, pathModule, dto );
 				
 			dto.setTableName("fdFoodUploaded");
@@ -69,7 +70,7 @@ public class FoodServiceImpl implements FoodService{
 		
 		
 		  for(MultipartFile multipartFile : dto.getFile1() ) { 
-		  String pathModule= this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", ""); 
+		  String pathModule = "food"; 
 		  UtilUpload.upload1(multipartFile, pathModule, dto );
 		  
 		  dto.setTableName("fdFoodUploaded"); 
@@ -83,7 +84,7 @@ public class FoodServiceImpl implements FoodService{
 		  if(dto.getFile2() != null) {
 			  
 			  for(MultipartFile multipartFile : dto.getFile2() ) { 
-				  String pathModule= this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", ""); 
+				  String pathModule = "food";
 				  UtilUpload.upload1(multipartFile, pathModule, dto );
 				  
 				  dto.setTableName("fdFoodUploaded"); 
@@ -97,7 +98,7 @@ public class FoodServiceImpl implements FoodService{
 		  }
 		  if(dto.getFile3() != null) {
 			  for(MultipartFile multipartFile : dto.getFile3() ) { 
-				  String pathModule= this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", ""); 
+				  String pathModule = "food";
 				  UtilUpload.upload1(multipartFile, pathModule, dto );
 				  
 				  dto.setTableName("fdFoodUploaded"); 
@@ -112,7 +113,7 @@ public class FoodServiceImpl implements FoodService{
 		  
 		  if(dto.getFile4() != null) {
 			  for(MultipartFile multipartFile : dto.getFile4() ) { 
-				  String pathModule= this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", ""); 
+				  String pathModule = "food";
 				  UtilUpload.upload1(multipartFile, pathModule, dto );
 				  
 				  dto.setTableName("fdFoodUploaded"); 
@@ -127,7 +128,7 @@ public class FoodServiceImpl implements FoodService{
 		  
 		  if(dto.getFile5() != null) {
 			  for(MultipartFile multipartFile : dto.getFile5() ) { 
-				  String pathModule= this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", ""); 
+				  String pathModule = "food";
 				  UtilUpload.upload1(multipartFile, pathModule, dto );
 				  
 				  dto.setTableName("fdFoodUploaded"); 

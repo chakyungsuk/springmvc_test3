@@ -79,7 +79,7 @@
 					<div id="stepdescr1" class="media-body"><c:out value="${step[status.index - 1].fdspStep}"/></div>
 				</div>
 				<div class="col-6">
-					<img src="<c:out value="${foodimage.path}"/><c:out value="${foodimage.uuidName}"/>" style="width: 600px; height: 450px;">
+					<img src="<c:out value="${foodimage.path}"/><c:out value="${foodimage.uuidName}"/>" style="width: 70%; height: 445px;">
 				</div>				
 			</div>
 			<hr>

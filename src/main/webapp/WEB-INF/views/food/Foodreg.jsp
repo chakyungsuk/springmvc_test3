@@ -33,7 +33,8 @@
 
 
 
-<title>Cha html projects</title>
+<link rel="shortcut icon" href="https://ifh.cc/g/43bP0g.png" type="image/x-icon" />
+<title id="ctl00_headerTitle">Ten Thousand Recipes</title>
 
 <style type="text/css">
 	body {
@@ -116,28 +117,30 @@
       </a>
     </li>
     <li>
-      <a href="/food/Foodreg" class="nav-link text-white">
+      <!-- <a href="/food/Foodreg" class="nav-link text-white">
         <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
         NEW Recipes
-      </a>
+      </a> -->
     </li>
     <li>
-      <a href="#" class="nav-link text-white">
+      <!-- <a href="#" class="nav-link text-white">
         <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
         MY Recipes
-      </a>
+      </a> -->
     </li>
     <hr style="margin-top: 380px;">
     <li>
-    <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"  type="button" id="dropdownMenuLink">
-      <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
-      <strong>CEO CHA</strong>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-      <li><a class="dropdown-item" href="#">Profile Setting</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Login out</a></li>
-    </ul>
+    <c:if test="${not empty sessSeq}">
+	    <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"  type="button" id="dropdownMenuLink">
+	      <img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+	      <strong id="name"><c:out value="${sessName }"/> 회원님 안녕하세요.</strong>
+	    </a>
+	    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+	      <li><a class="dropdown-item" href="/member/memberList">Profile Setting</a></li>
+	      <li><hr class="dropdown-divider"></li>
+	     	 <li><a class="dropdown-item" type="button" id="btnLogout">Login out</a></li>
+	    </ul>
+      </c:if>
     </li>
   </ul>
 </div>
@@ -276,13 +279,13 @@
   <div class="container">
     <p class="float-end mb-1">
     </p>
-<p class="" style="color: white; justify-content: center;">&copy;
-서울 어딘가의 회사
-문의전화(운영시간 비밀)
-쇼핑문의 : 02-2222-8888
-서비스 이용문의 : 000-0000-0000
-<br>
-Copyright ©EZHLD Inc. All Rights Reserved</p> 
+<p class="" style="color: white; justify-content: center;">
+㈜ 서울시 레시피 음식구 만나동 123-1 만개빌딩<br>   
+대표이사 : 차경석<br>
+사업자등록번호 : 101-11-11170<br>
+<b>대표전화 : 1500-0000 (발신자 부담전화)</b>   팩스 : 0202-111-2211 (지역번호공통)<br>
+서울특별시 통신판매업신고번호 : 제 653호 ▶사업자정보확인 <br>
+Copyright &copy; TEN THOUSAND RECIPES 2022 Company, Inc</p> 
  </div>
       <a href="#" style="color: white;">Back to top</a>
 </footer>	

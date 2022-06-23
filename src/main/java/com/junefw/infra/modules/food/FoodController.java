@@ -238,7 +238,7 @@ public class FoodController {
 	public String FoodInst(FoodVo vo, Food dto, RedirectAttributes redirectAttributes) throws Exception {
 
 		service.insert(dto);
-
+		
 		vo.setFdrsSeq(dto.getFdrsSeq());
 
 		redirectAttributes.addFlashAttribute("vo", vo);

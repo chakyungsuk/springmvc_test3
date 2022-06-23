@@ -27,7 +27,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
   
-<title>Cha html projects</title>
+<link rel="shortcut icon" href="https://ifh.cc/g/43bP0g.png" type="image/x-icon" />
+<title id="ctl00_headerTitle">Ten Thousand Recipes</title>
 </head>
 <body>
 
@@ -84,7 +85,17 @@
 		</div>
 		<div class="col-12 col-sm-12 col-lg-2">
 		</div>
-		<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 15px;">
+		<!-- <div class="col-12 col-sm-4 col-lg-2" style="margin-top: 15px;">
+		</div> -->
+		<div class="col-1 d-none d-md-block">	
+			<div class="row">
+				<div class="col" style=" margin-top: 40px; "><p class="name" style="font-size: 16px; font-weight:bold;display: inline;">${sessName} <span>님</span></p> </div>
+			</div>
+		</div>
+		<div class="col-1 d-none d-md-block float-end">	
+			<div class="row">
+				<span class="badge bg-primary" role="button" id="btn-Logout" style="width: 100px; height:30px; margin-top: 38px;"><p style="font-size: 13px; margin-top: 5px; ">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></p></span>
+			</div>
 		</div>
 	</div>
 	<div class="container">
@@ -138,10 +149,10 @@
 				<option value="">검색구분</option>
 				<option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>NAME
 				<option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>ID
-				<option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>PassWord
+				<%-- <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>PassWord --%>
 				<option value="4" <c:if test="${vo.shOption eq 4}">selected</c:if>>E-mail
 				<option value="5" <c:if test="${vo.shOption eq 5}">selected</c:if>>Mobile
-				<option value="6" <c:if test="${vo.shOption eq 6}">selected</c:if>>Gender
+				<%-- <option value="6" <c:if test="${vo.shOption eq 6}">selected</c:if>>Gender --%>
 			</select>
 	    </div>
 	    <div class="col-lg-2 col-md-6 col-sm-12">
@@ -273,11 +284,11 @@
 
 <div class="container">
 	<div class="col-lg-12 col-md-12 col-sm-12" >
-		<button type="submit" id="btnDelete" class="btn btn-danger btn-sm me-md-2 "  style="float: left;"><i class="fa-solid fa-trash-can"></i></button>
-		<button type="submit" id="btnNelete" class="btn btn-primary btn-sm me-md-2" style="float: left;"><i class="fa-solid fa-trash-can"></i></button>
+		<button type="submit" id="btnDelete" class="btn btn-danger  me-md-2 "  style="float: left;"><i class="fa-solid fa-trash-can"></i></button>
 	</div>
 		
 	<div class="d-md-flex justify-content-end" >
+		<button type="submit" id="btnexel" class="btn btn-success  me-md-2" style="float: right;"><i class="fa-solid fa-file-excel"></i></button>
 		<button class="btn btn-info btn-sm me-md-2 " type="button" id="goForm">
 			<i class="fa-solid fa-plus"></i>	
 		</button>
@@ -421,8 +432,8 @@
 		} 
 	});  	
   	
-	$("#btnNelete").on("click", function() {
-		var answer = confirm("데이터 삭제?");
+	$("#btnexel").on("click", function() {
+		var answer = confirm("현재 List 를 엑셀로 다운 받으시겠습니까?");
 
 		if (answer) {
 			$("input[name=checkboxSeq]:checked").each(function() { //체크되어있는지 확인하고 
@@ -430,12 +441,32 @@
 			});
 
 			$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
-			$("#formList").attr("action", "/member/MultiUele");
+			$("#formList").attr("action", "/member/excelDownload");
 			$("#formList").submit();
 
 		} else {
 			return false;
 		}  
+	});
+	
+$("#btn-Logout").on("click", function(){
+		
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/member/logoutProc"
+			,success: function(response) {
+				if(response.rt == "success") {
+					location.href = "/food/FoodLogin";
+				} else {
+					// by pass
+				}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});	
 	});
 </script>
 	

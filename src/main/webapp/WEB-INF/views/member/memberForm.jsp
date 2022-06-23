@@ -30,7 +30,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 
-<title>Cha html projects</title>
+<link rel="shortcut icon" href="https://ifh.cc/g/43bP0g.png" type="image/x-icon" />
+<title id="ctl00_headerTitle">Ten Thousand Recipes</title>
 </head>
 
 <style type="text/css">
@@ -58,7 +59,7 @@
 
 <body>
 
-<form id="formInst" name="formInst" method="post" action="/member/memberInst" enctype="multipart/form-data">
+<form id="formInst" name="formInst" method="post" action="/member/memberInst">
 
 
 <div class="container-sm">
@@ -72,9 +73,15 @@
 		</div>
 		<div class="col-12 col-sm-12 col-lg-2">
 		</div>
-		<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 15px;">
-			<img src="/resources/xdmin/image/manager_image/USER(CEO).jpg" width="30px" style="float: left; margin-right: 10px;">
-			<h6>Cha (CEO)</h6> <h6>Administrator</h6>
+		<div class="col-1 d-none d-md-block">	
+			<div class="row">
+				<div class="col" style=" margin-top: 40px; "><p class="name" style="font-size: 16px; font-weight:bold;display: inline;">${sessName} <span>님</span></p> </div>
+			</div>
+		</div>
+		<div class="col-1 d-none d-md-block float-end">	
+			<div class="row">
+				<span class="badge bg-primary" role="button" id="btn-Logout" style="width: 100px; height:30px; margin-top: 38px;"><p style="font-size: 13px; margin-top: 5px; ">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></p></span>
+			</div>
 		</div>
 	</div>
 		<div class="col-12">
@@ -85,7 +92,7 @@
 		</ul>
 		</div>
 		<div style="margin-left: 11px; margin-top: 20px;">
-			<h3 style="margin-bottom: 0px;">Member Form</h3>
+			<h3 style="margin-bottom: 0px;">회원가입</h3>
 		</div>
 	</div>
 <br><br>
@@ -100,11 +107,13 @@
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>비밀번호</h6>
-			<input class="form-control" id="ifmmPassword" name="ifmmPassword" type="text" placeholder="영문(대소문자),숫자,특수문자(), 8~20자리 조합" autocomplete="off">
+			<input class="form-control pw" id="ifmmPassword" name="ifmmPassword" type="password" placeholder="영문(대소문자),숫자,특수문자(), 8~20자리 조합" autocomplete="off">
+			<span id="alert-success" style="display: none; color: blue; text-align: left; font-size: 13px;"><i class="fa-solid fa-check"></i> 비밀번호가 일치합니다.</span>
+			<span id="alert-danger" style="display: none; color: red; text-align: left; font-size: 13px;"><i class="fa-solid fa-xmark"></i> 비밀번호가 일치하지 않습니다.</span>				
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12">
 			<h6>비밀번호 확인</h6>
-			<input class="form-control" type="text">
+			<input class="form-control pw" id="ifmmPassword2" name="ifmmPassword2" type="password" placeholder="" autocomplete="off">
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<h6>이름</h6>
@@ -138,7 +147,7 @@
 		</div>
 		<div class="col-2 col-lg-1 col-sm-2" style="margin-bottom: 12px; padding-right: 1px;">
 			<h6>핸드폰</h6>
-			<select class="form-select" name="fdmpTelecomCd" style="padding-right: 1px;">
+			<select class="form-select" id="fdmpTelecomCd" name="fdmpTelecomCd" style="padding-right: 1px;">
 				<option selected value="">::선택::</option>
 				<option value="1">SKT</option>
 				<option value="2">KT</option>
@@ -175,7 +184,7 @@
 				<label class="form-check-label" for="flexCheckDefault"> 동의합니다. </label>
 			</div>
 		</div>
-		<div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
+		<!-- <div class="col-12 col-lg-6 col-sm-12" style="margin-bottom: 12px;">
 			<label for="file0" class="form-label btn btn-info btn-sm">이미지첨부</label>
 			<input class="form-control" id="file0" name="file0" type="file" multiple="multiple" style="display: none;" onchange="upload(0, 2);">
 			<div class="addScroll">
@@ -190,7 +199,7 @@
 				<ul id="ulFile1" class="list-group">
 				</ul>
 			</div>
-		</div>
+		</div> -->
 		<div class="d-grid gap-2 col-12 col-lg-6 col-sm-12" >
 			<h6>주소(한국전용)</h6>
 			<div class="input-group mb-2">
@@ -238,7 +247,7 @@
 		</div>
         <div class="col-sm-6 mt-3 mt-sm-0">
         </div>
-		<div class="col-6 col-lg-3 col-sm-6">
+		<!-- <div class="col-6 col-lg-3 col-sm-6">
 			<h6>최종수정자</h6>
 			<input class="form-control" type="text" placeholder="CHa(CEO)" aria-label="default input example" disabled>
 		</div>
@@ -253,7 +262,7 @@
 		<div class="col-6 col-lg-3 col-sm-6">
 			<h6>최초등록일</h6>
 			<input class="form-control" type="text" placeholder="2021.01.01" aria-label="default input example" disabled>
-		</div>
+		</div -->
 	</div>
 </div>
 
@@ -262,17 +271,17 @@
 <div class="container-sm">
 	<div class="row">
 		<div class="col-lg-4 col-md-6 col-sm-6" >
-			<button type="button" class="btn btn-danger btn-sm me-md-2 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float: left;"  >
+			<!-- <button type="button" class="btn btn-danger btn-sm me-md-2 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float: left;"  >
 				<i class="fa-solid fa-trash-can"></i>
-			</button>
+			</button> -->
 		</div>
 		<div class="col-lg-4 col-md-6 col-sm-6" style="text-align: center;">
 			<button type="submit" id="btnSubmit" name="btnSubmit" class="btn btn-outline-primary" style="width: 200px;">등록</button>
 		</div>
 		<div class="col-lg-4 col-md-6 col-sm-6">
-			<button class="btn btn-success btn-sm" type="button" style="float: right;">
+			<!-- <button class="btn btn-success btn-sm" type="button" style="float: right;">
 				<i class="fa-solid fa-file-excel"></i>	
-			</button>
+			</button> -->
 		</div>
 	</div>
 </div>
@@ -319,25 +328,41 @@
 <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer; position:absolute; right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
 </div>
 
+<script>
+
+$('.pw').focusout(function () {
+    var pwd1 = $("#ifmmPassword").val();
+    var pwd2 = $("#ifmmPassword2").val();
+
+    if ( pwd1 != '' && pwd2 == '' ) {
+        null;
+    } else if (pwd1 != "" || pwd2 != "") {
+        if (pwd1 == pwd2) {
+            $("#alert-success").css('display', 'inline-block');
+            $("#alert-danger").css('display', 'none');
+        } else {
+            $("#alert-success").css('display', 'none');
+            $("#alert-danger").css('display', 'inline-block');
+        }
+    }
+});
+</script>
 
 <script type="text/javascript">
 	$("#btnSubmit").on("click", function(){
-		
-		if($("#ifmmId").val() != $("#ifmmId").val()){
-			alert("비밀번호가 틀립니다.");
-		} else {
-			return true;
-		};
-		
-		$("#btnSubmit").attr("action", "/member/memberInst");
-		$("#btnSubmit").submit(); 
-
+	
 		
 		// ID	
 		if(!checkNull($("#ifmmId"),$("#ifmmId").val(), "아이디를 입력 바랍니다.")) return false;
 		
 		// PassWord
-		if(!checkNull($("#ifmmPassword"),$("#ifmmPassword").val(), "비밀번호를 입력 바랍니다.")) return false;
+		if(!checkNull($("#ifmmPassword"),$("#ifmmPassword2").val(), "비밀번호를 입력 바랍니다.")) return false;
+		if($("#ifmmPassword").val()!=$("#ifmmPassword2").val()){
+	 		alert("비밀번호 확인을 다시 입력하세요");
+	 		return false
+	 	}else{
+	 		//by pass
+	 	}
 		/* if(!checkPassword($("#ifmmPassword"),$("#ifmmPassword").val(), "영어 대소문자 및 특수문자 포함해서 입력 바랍니다.")) return false; */
 		
 		// E-mail
@@ -346,15 +371,18 @@
 		// 개인정보유효기간(필수)
 	 	/* if(!checkBox($("#ifmmSaved"),$("#ifmmSaved").val(),"개인정보 유효기간은 필수 체크사항 입니다.")) return false;  */
 	    if($("#ifmmSaved").is(":checked")){
-	    	return true;
+	    	if(!checkNull($("#fdmpTelecomCd"),$("#fdmpTelecomCd").val(), "통신사를 선택해 주세요")) return false
+			if(!checkNull($("#ifmmGenderCd"),$("#ifmmGenderCd").val(), "성별을 넣어주세요")) return false
+			if(!checkNull($("#shDate"),$("#shDate").val(), "생일을 입력해 주세요")) return false
 	    } else {
           alert("개인정보 유효기간 체크는 필수 입니다.");
           $("#ifmmSaved").focus();
 			return false;
         } 
- 		if(!checkNull($("#fdmpTelecomCd"),$("#fdmpTelecomCd").val(), "통신사를 선택해 주세요")) return false
-		if(!checkNull($("#ifmmGenderCd"),$("#ifmmGenderCd").val(), "성별을 넣어주세요")) return false
-		if(!checkNull($("#shDate"),$("#shDate").val(), "생일을 입력해 주세요")) return false
+		
+		/* $("#formInst").attr("action", "/member/memberInst");
+		alert("sdf");
+		$("#formInst").submit();  */
 	}); 
 
     function sample6_execDaumPostcode() {
@@ -515,6 +543,26 @@ upload = function(seq, div){
 	delLi = function(seq, index){
 		$("#li_"+seq+"_"+index).remove();
 	};
+	
+$("#btn-Logout").on("click", function(){
+		
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/member/logoutProc"
+			,success: function(response) {
+				if(response.rt == "success") {
+					location.href = "/food/FoodLogin";
+				} else {
+					// by pass
+				}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});	
+	});
 </script>   
 		
 
