@@ -115,13 +115,13 @@
 	<div class="container1" style="margin-top: 100px;" >
 		<div class="col-12">
 			<div class="input">
-				<input type="text" id="ifmmId" name="" placeholder="ID" size="40" style="background: transparent; color: white;" autocomplete="off" value="111">
+				<input type="text" id="ifmmId" name="" placeholder="ID" size="40" style="background: transparent; color: white;" autocomplete="off" value="admin">
 			</div>
 		</div>
 		
 		<div class="col-12">
 			<div class="input">
-				<input type="password" id="ifmmPassword" name="" placeholder="Password" size="40" style="background: transparent; color: white;" value="111">
+				<input type="password" id="ifmmPassword" name="" placeholder="Password" size="40" style="background: transparent; color: white;" value="admin">
 			</div>
 		</div>
 	</div>

@@ -374,6 +374,7 @@ $('.pw').focusout(function () {
 	    	if(!checkNull($("#fdmpTelecomCd"),$("#fdmpTelecomCd").val(), "통신사를 선택해 주세요")) return false
 			if(!checkNull($("#ifmmGenderCd"),$("#ifmmGenderCd").val(), "성별을 넣어주세요")) return false
 			if(!checkNull($("#shDate"),$("#shDate").val(), "생일을 입력해 주세요")) return false
+			if(!checkNull($("#ifmmName"),$("#ifmmName").val(), "이름을 입력해 주세요")) return false
 	    } else {
           alert("개인정보 유효기간 체크는 필수 입니다.");
           $("#ifmmSaved").focus();
