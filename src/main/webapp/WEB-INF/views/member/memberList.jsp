@@ -288,8 +288,8 @@
 	</div>
 		
 	<div class="d-md-flex justify-content-end" >
-		<button type="submit" id="btnexel" class="btn btn-success  me-md-2" style="float: right;"><i class="fa-solid fa-file-excel"></i></button>
-		<button class="btn btn-info btn-sm me-md-2 " type="button" id="goForm">
+		<!-- <button type="submit" id="btnexel" class="btn btn-success  me-md-2" style="float: right;"><i class="fa-solid fa-file-excel"></i></button> -->
+		<button class="btn btn-info  me-md-2 " type="button" id="goForm">
 			<i class="fa-solid fa-plus"></i>	
 		</button>
 	</div>
